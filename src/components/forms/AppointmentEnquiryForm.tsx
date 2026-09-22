@@ -104,9 +104,29 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
   if (status === 'success') {
     return (
       <div className="booking-form" style={{ textAlign: 'center', padding: '3rem 2rem' }}>
-        <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'var(--sage-lighter)', color: 'var(--sage)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem', fontSize: '1.5rem', fontWeight: 600 }}>✓</div>
-        <h3 className="booking-form-title">Booking Request Received</h3>
-        <p className="booking-form-subtitle" style={{ marginBottom: '1.5rem' }}>
+        <div
+          style={{
+            width: '56px',
+            height: '56px',
+            borderRadius: '50%',
+            background: '#E8F5E9',
+            color: '#2E7D32',
+            border: '2.5px solid #4CAF50',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            margin: '0 auto 1.5rem',
+            fontSize: '1.75rem',
+            fontWeight: 800,
+            boxShadow: '0 4px 16px rgba(46, 125, 50, 0.18)',
+          }}
+        >
+          ✓
+        </div>
+        <h3 className="booking-form-title" style={{ color: '#1B5E20', marginBottom: '0.75rem' }}>
+          Booking Request Received
+        </h3>
+        <p className="booking-form-subtitle" style={{ marginBottom: '1.5rem', color: '#2D2A20' }}>
           Thank you. Our reception coordinator will call you within 4 working hours at <strong>{phone || 'the number provided'}</strong> to confirm your slot.
         </p>
         <button

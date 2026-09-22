@@ -495,18 +495,24 @@ export function KnowledgeHubClient() {
             {newsletterSubscribed ? (
               <div
                 style={{
-                  background: 'var(--white)',
+                  background: '#E8F5E9',
+                  border: '2px solid #2E7D32',
                   borderRadius: '100px',
                   padding: '1rem 2rem',
-                  color: 'var(--sage)',
-                  fontWeight: 600,
+                  color: '#1B5E20',
+                  fontWeight: 700,
                   textAlign: 'center',
                   fontFamily: 'var(--sans)',
                   fontSize: '0.9375rem',
                   boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
                 }}
               >
-                ✓ Thank you for subscribing to our monthly note!
+                <span style={{ fontSize: '1.25rem', fontWeight: 800, color: '#2E7D32' }}>✓</span>
+                <span>Thank you for subscribing to our monthly note!</span>
               </div>
             ) : (
               <form onSubmit={handleNewsletterSubmit} className="newsletter-form-inner">
