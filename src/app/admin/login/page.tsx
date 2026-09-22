@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Shield, Lock, Mail, AlertCircle, ArrowRight, Eye, EyeOff, CheckCircle2 } from 'lucide-react';
 
-export default function AdminLoginPage() {
+function AdminLoginFormContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const nextUrl = searchParams.get('next') || '/admin/enquiries/';
@@ -156,5 +156,19 @@ export default function AdminLoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AdminLoginPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-[80vh] flex items-center justify-center">
+          <div className="text-gray-400 text-sm">Loading staff portal...</div>
+        </div>
+      }
+    >
+      <AdminLoginFormContent />
+    </Suspense>
   );
 }
