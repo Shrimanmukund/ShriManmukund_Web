@@ -47,7 +47,7 @@ export default function HomePage() {
           <div>
             <div className="hero-devanagari">श्री मनमुकुंद रुग्णालय</div>
             <h1 className="hero-headline">
-              Where classical Ayurveda meets <em>modern surgical care.</em>
+              Where classical Ayurveda meets <em className="whitespace-nowrap inline-block">modern surgical care.</em>
             </h1>
             <p className="hero-sub">
               Fifteen years of proctology and integrated surgery in Amravati. Ksharsutra, laser, non-surgical, and modern surgery available under one roof, chosen honestly for your case.
@@ -196,7 +196,7 @@ export default function HomePage() {
                   alt="Dr. Vipin Tongale - General Surgeon & Proctologist"
                   width={220}
                   height={220}
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-center"
                   priority
                 />
               </div>
@@ -225,7 +225,7 @@ export default function HomePage() {
                   alt="Dr. Swati Tongale - Female Care Unit Lead"
                   width={220}
                   height={220}
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-center"
                   priority
                 />
               </div>
