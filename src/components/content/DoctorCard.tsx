@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Award, Clock, Activity, CheckCircle2, ChevronRight, UserCheck } from 'lucide-react';
 import type { DoctorProfile } from '@/types/content';
 
@@ -27,9 +28,15 @@ export const DoctorCard: React.FC<DoctorCardProps> = ({ doctor, variant = 'featu
             </p>
           </div>
 
-          {/* Placeholder Avatar Frame */}
-          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#B8894A] bg-[#FBF7EC] flex items-center justify-center text-[#1B3A5B] font-serif font-bold text-xl sm:text-2xl shadow-inner flex-shrink-0">
-            {doctor.slug === 'dr-vipin' ? 'DV' : 'DS'}
+          {/* Doctor Avatar Frame */}
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#B8894A] bg-[#FBF7EC] relative overflow-hidden shadow-md flex-shrink-0">
+            <Image
+              src={doctor.portraitUrl || (doctor.slug === 'dr-vipin' ? '/images/doctors/dr-vipin-tongale.jpg' : '/images/doctors/dr-swati-tongale.jpg')}
+              alt={`${doctor.honorific} ${doctor.fullName}`}
+              fill
+              sizes="80px"
+              className="object-cover object-top"
+            />
           </div>
         </div>
 

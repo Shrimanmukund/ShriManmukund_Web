@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'About Us | Shri Manmukund Hospital, Amravati',
@@ -277,7 +278,15 @@ export default function AboutPage() {
         <div className="doctors-grid">
           <div className="doctor-card">
             <div className="doctor-portrait">
-              <div className="doctor-portrait-inner"></div>
+              <div className="doctor-portrait-inner">
+                <Image
+                  src="/images/doctors/dr-vipin-tongale.jpg"
+                  alt="Dr. Vipin Tongale"
+                  width={140}
+                  height={140}
+                  className="w-full h-full object-cover object-top rounded-full"
+                />
+              </div>
             </div>
             <div className="doctor-info">
               <h3 className="doctor-name">Dr. Vipin Tongale</h3>
@@ -294,7 +303,15 @@ export default function AboutPage() {
 
           <div className="doctor-card doctor-card-swati">
             <div className="doctor-portrait">
-              <div className="doctor-portrait-inner"></div>
+              <div className="doctor-portrait-inner">
+                <Image
+                  src="/images/doctors/dr-swati-tongale.jpg"
+                  alt="Dr. Swati Tongale"
+                  width={140}
+                  height={140}
+                  className="w-full h-full object-cover object-top rounded-full"
+                />
+              </div>
             </div>
             <div className="doctor-info">
               <h3 className="doctor-name">Dr. Swati Tongale</h3>

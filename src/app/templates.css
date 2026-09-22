@@ -3143,16 +3143,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 .doctor-hero-portrait-inner::after {
-  content: 'portrait photo';
-  position: absolute;
-  bottom: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--sans);
-  font-size: 0.75rem;
-  color: rgba(247, 243, 235, 0.4);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  display: none !important;
+  content: none !important;
 }
 
 /* Decorative leaves around portrait */

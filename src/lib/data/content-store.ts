@@ -30,7 +30,7 @@ export const DOCTORS: Record<'dr-vipin' | 'dr-swati', DoctorProfile> = {
     yearsOfExperience: 15,
     proceduresPerformed: 16000,
     languagesSpoken: ['English', 'Marathi', 'Hindi'],
-    portraitUrl: '/images/doctors/dr-vipin-portrait.webp',
+    portraitUrl: '/images/doctors/dr-vipin-tongale.jpg',
     shortBio:
       'Senior Ayurvedic Surgeon, General Surgeon, and Proctologist with 15+ years of continuous practice, 12 years of AYUSH government service, and over 16,000 surgical procedures performed.',
     fullBioMarkdown: `
@@ -80,7 +80,7 @@ Over the past 15 years, including 12 years of dedicated service as an AYUSH Medi
     yearsOfExperience: 14,
     proceduresPerformed: 8000,
     languagesSpoken: ['English', 'Marathi', 'Hindi'],
-    portraitUrl: '/images/doctors/dr-swati-portrait.webp',
+    portraitUrl: '/images/doctors/dr-swati-tongale.jpg',
     shortBio:
       'Specialist Female Ayurvedic Surgeon and Proctologist providing compassionate, dignified, and private surgical care for women, alongside renowned Uttarbasti fertility treatments.',
     fullBioMarkdown: `

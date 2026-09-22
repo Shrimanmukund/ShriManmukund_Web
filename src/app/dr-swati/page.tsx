@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'Dr. Swati Tongale (Wankhade) | Female Care Unit Lead & Proctologist | Amravati',
@@ -52,7 +53,16 @@ export default function DrSwatiPage() {
               <div className="hero-leaf hero-leaf-2"></div>
               <div className="hero-leaf hero-leaf-3"></div>
               <div className="doctor-hero-portrait">
-                <div className="doctor-hero-portrait-inner"></div>
+                <div className="doctor-hero-portrait-inner">
+                  <Image
+                    src="/images/doctors/dr-swati-tongale.jpg"
+                    alt="Dr. Swati Tongale - Female Care Unit Lead"
+                    fill
+                    sizes="(max-width: 768px) 320px, 460px"
+                    className="object-cover object-top"
+                    priority
+                  />
+                </div>
               </div>
             </div>
           </div>

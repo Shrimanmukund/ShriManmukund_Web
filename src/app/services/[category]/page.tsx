@@ -1,6 +1,7 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   SERVICE_CATEGORIES,
   getServiceCategoryBySlug,
@@ -332,7 +333,15 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
           <div className="specialists-grid">
             <div className="specialist-card">
               <div className="specialist-portrait">
-                <div className="specialist-portrait-inner"></div>
+                <div className="specialist-portrait-inner">
+                  <Image
+                    src="/images/doctors/dr-vipin-tongale.jpg"
+                    alt="Dr. Vipin Tongale"
+                    width={110}
+                    height={110}
+                    className="w-full h-full object-cover object-top rounded-full"
+                  />
+                </div>
               </div>
               <div>
                 <h3 className="specialist-name">Dr. Vipin Tongale</h3>
@@ -346,7 +355,15 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
 
             <div className="specialist-card specialist-card--swati">
               <div className="specialist-portrait">
-                <div className="specialist-portrait-inner"></div>
+                <div className="specialist-portrait-inner">
+                  <Image
+                    src="/images/doctors/dr-swati-tongale.jpg"
+                    alt="Dr. Swati Tongale"
+                    width={110}
+                    height={110}
+                    className="w-full h-full object-cover object-top rounded-full"
+                  />
+                </div>
               </div>
               <div>
                 <h3 className="specialist-name">Dr. Swati Tongale</h3>

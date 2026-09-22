@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'Shri Manmukund Hospital, Amravati | Advanced Proctology & Surgery',
@@ -189,7 +190,16 @@ export default function HomePage() {
         <div className="specialists-grid">
           <article className="specialist">
             <div className="specialist-portrait">
-              <div className="specialist-portrait-inner"></div>
+              <div className="specialist-portrait-inner">
+                <Image
+                  src="/images/doctors/dr-vipin-tongale.jpg"
+                  alt="Dr. Vipin Tongale - General Surgeon & Proctologist"
+                  width={220}
+                  height={220}
+                  className="w-full h-full object-cover object-top"
+                  priority
+                />
+              </div>
             </div>
             <h3 className="specialist-name">Dr. Vipin Tongale</h3>
             <p className="specialist-role">General Surgeon &amp; Proctologist</p>
@@ -209,7 +219,16 @@ export default function HomePage() {
 
           <article className="specialist specialist-swati">
             <div className="specialist-portrait">
-              <div className="specialist-portrait-inner"></div>
+              <div className="specialist-portrait-inner">
+                <Image
+                  src="/images/doctors/dr-swati-tongale.jpg"
+                  alt="Dr. Swati Tongale - Female Care Unit Lead"
+                  width={220}
+                  height={220}
+                  className="w-full h-full object-cover object-top"
+                  priority
+                />
+              </div>
             </div>
             <h3 className="specialist-name">Dr. Swati Tongale</h3>
             <p className="specialist-role">Female Care Unit Lead</p>
