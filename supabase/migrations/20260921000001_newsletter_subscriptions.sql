@@ -15,10 +15,12 @@ CREATE TABLE IF NOT EXISTS newsletter_subscriptions (
 ALTER TABLE newsletter_subscriptions ENABLE ROW LEVEL SECURITY;
 
 -- Public can subscribe
+DROP POLICY IF EXISTS "Public can insert newsletter subscriptions" ON newsletter_subscriptions;
 CREATE POLICY "Public can insert newsletter subscriptions" ON newsletter_subscriptions
   FOR INSERT WITH CHECK (true);
 
 -- Admins have full access
+DROP POLICY IF EXISTS "Admins have full access to newsletter subscriptions" ON newsletter_subscriptions;
 CREATE POLICY "Admins have full access to newsletter subscriptions" ON newsletter_subscriptions
   FOR ALL USING (
     EXISTS (
