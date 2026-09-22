@@ -1,0 +1,532 @@
+
+
+<!-- READING PROGRESS BAR (MagicWorks: wire up with JS) -->
+<div class="progress-bar" style="width: 35%;"></div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="nav-logo-badge"></div>
+      <div class="nav-logo-text">
+        <div class="nav-logo-name">Shri Manmukund</div>
+        <div class="nav-logo-sub">Hospital · Amravati</div>
+      </div>
+    </div>
+    <nav class="nav-menu">
+      <a href="#">Services</a>
+      <a href="#">Our Doctors</a>
+      <a href="#">About</a>
+      <a href="#" class="active">Knowledge</a>
+      <a href="#">Visit Us</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+918208927917" class="btn btn-ghost">Call · 8208927917</a>
+      <a href="#" class="btn btn-primary">Book visit</a>
+    </div>
+      <button class="nav-hamburger" aria-label="Open menu" onclick="document.body.classList.toggle('nav-open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV DRAWER (patched) -->
+<div class="nav-drawer" id="navDrawer">
+  <div class="nav-drawer-overlay" onclick="document.body.classList.remove('nav-open')"></div>
+  <aside class="nav-drawer-inner">
+    <div class="nav-drawer-head">
+      <div class="nav-drawer-head-logo"></div>
+      <div class="nav-drawer-head-text">
+        <div class="nav-drawer-head-name">Shri Manmukund</div>
+        <div class="nav-drawer-head-sub">Hospital · Amravati</div>
+      </div>
+    </div>
+    <nav class="nav-drawer-menu">
+      <a href="#">Services</a>
+      <a href="#">Our Doctors</a>
+      <a href="#">About</a>
+      <a href="#">Knowledge</a>
+      <a href="#">Visit Us</a>
+    </nav>
+    <div class="nav-drawer-cta">
+      <a href="#" class="btn btn-primary">Book a consultation</a>
+      <a href="tel:+918208927917" class="btn btn-ghost">Call · 8208927917</a>
+    </div>
+    <div class="nav-drawer-contact">
+      24 hour emergency
+      <strong>+91 94054 04492</strong>
+    </div>
+  </aside>
+</div>
+
+
+<!-- ARTICLE HEADER -->
+<section class="article-header">
+  <div class="breadcrumb">
+    <a>Home</a>
+    <span class="breadcrumb-sep">·</span>
+    <a>Knowledge</a>
+    <span class="breadcrumb-sep">·</span>
+    <a>Playbooks</a>
+    <span class="breadcrumb-sep">·</span>
+    <span>Ksharsutra Week by Week</span>
+  </div>
+
+  <div class="article-badges">
+    <span class="article-badge">Playbook</span>
+    <span class="article-badge article-badge--topic">Ksharsutra</span>
+  </div>
+
+  <h1 class="article-title">
+    Ksharsutra treatment, <em>week by week</em>
+  </h1>
+  <p class="article-deck">A practical, day-by-day guide for patients considering or currently undergoing Ksharsutra. What to expect at each stage, how to prepare, and when to call the hospital.</p>
+
+  <div class="article-meta">
+    <div class="article-authors">
+      <div class="author-avatars">
+        <div class="author-avatar">V</div>
+        <div class="author-avatar author-avatar--swati">S</div>
+      </div>
+      <div class="article-author-text">
+        <div class="article-author-line">Dr. Vipin Tongale</div>
+        <div class="article-reviewer-line">Medically reviewed by Dr. Swati Tongale</div>
+      </div>
+    </div>
+
+    <div class="article-meta-divider"></div>
+
+    <div class="article-meta-item">
+      <span class="article-meta-label">Published</span>
+      <span class="article-meta-value">15 July 2026</span>
+    </div>
+
+    <div class="article-meta-item">
+      <span class="article-meta-label">Updated</span>
+      <span class="article-meta-value">2 September 2026</span>
+    </div>
+
+    <div class="article-meta-item">
+      <span class="article-meta-label">Reading Time</span>
+      <span class="article-meta-value">12 minutes</span>
+    </div>
+  </div>
+</section>
+
+<!-- HERO VISUAL -->
+<div class="article-hero-visual">
+  <div class="article-hero-visual-inner">
+    <div class="article-hero-visual-devanagari">क्षारसूत्र</div>
+  </div>
+</div>
+
+<!-- ANSWER-FIRST SUMMARY -->
+<section class="answer-summary">
+  <div class="answer-summary-inner">
+    <div class="answer-summary-label">In one paragraph</div>
+    <p class="answer-summary-text">Ksharsutra treatment for anal fistula typically takes 6 to 8 weeks from first application to complete healing. It involves weekly changes of a medicated thread (Kshar Sutra) that gradually cuts through and heals the fistula tract. Most patients continue working throughout, with 2 to 3 days of light activity around each thread change. Pain is manageable with oral analgesics. Complete healing rates are excellent when the technique is applied correctly and follow-up is maintained.</p>
+  </div>
+</section>
+
+<!-- TABLE OF CONTENTS -->
+<section class="toc">
+  <div class="toc-inner">
+    <div class="toc-title">In this guide</div>
+    <ol class="toc-list">
+      <li><a>What is Ksharsutra and how does it work</a></li>
+      <li><a>Who is Ksharsutra suitable for</a></li>
+      <li><a>Before you start: preparation week</a></li>
+      <li><a>Week 1: First thread application</a></li>
+      <li><a>Weeks 2 to 4: Continued applications</a></li>
+      <li><a>Weeks 5 to 6: Cutting through</a></li>
+      <li><a>Weeks 7 to 8: Complete healing</a></li>
+      <li><a>What to expect throughout</a></li>
+      <li><a>When to call the hospital</a></li>
+      <li><a>After healing: preventing recurrence</a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+
+  <h2>What is Ksharsutra and <em>how does it work?</em></h2>
+
+  <p>Ksharsutra is a <strong>two-thousand-year-old Ayurvedic surgical technique</strong> refined in modern practice, used primarily for the treatment of anal fistula. It involves a medicated thread — the Ksharsutra — that is passed through the fistula tract and tied. Over the following weeks, the thread slowly cuts through the fistula tissue while simultaneously promoting healing behind it.</p>
+
+  <p>Unlike conventional fistula surgery, Ksharsutra <strong>preserves the anal sphincter</strong>. This is crucial: the sphincter controls continence, and damage to it during traditional fistula surgery is a well-documented complication. Because Ksharsutra works gradually and heals as it cuts, this risk is substantially reduced.</p>
+
+  <div class="callout callout-info">
+    <div class="callout-icon">i</div>
+    <div class="callout-body">
+      <div class="callout-title">Why we recommend Ksharsutra</div>
+      <p>Ksharsutra is not the fastest fistula treatment available. Laser (FiLaC) is faster in terms of one-time procedure. But Ksharsutra has significantly lower recurrence rates for complex fistulae, and near-zero risk of sphincter damage. For most patients with straightforward fistula, it remains our first recommendation.</p>
+    </div>
+  </div>
+
+  <h2>Who is <em>Ksharsutra suitable for?</em></h2>
+
+  <p>Ksharsutra is our recommended approach for:</p>
+
+  <ul>
+    <li><strong>Simple anal fistula</strong> (low, single tract)</li>
+    <li><strong>Complex fistula</strong> with multiple tracts or branching</li>
+    <li><strong>Recurrent fistula</strong> that has failed previous surgical treatment</li>
+    <li><strong>High-position fistula</strong> where traditional surgery would risk sphincter damage</li>
+    <li>Patients who <strong>cannot afford long time off work</strong> since work is possible throughout</li>
+    <li>Patients who prefer to <strong>avoid a single major surgery</strong></li>
+  </ul>
+
+  <p>It may not be the best choice if you have very superficial fistula (where a simple lay-open procedure would heal in days), or if you are unable to attend weekly hospital visits for 6 to 8 weeks.</p>
+
+  <h2>Before you start: <em>preparation week</em></h2>
+
+  <div class="week-block">
+    <div class="week-block-header">
+      <span class="week-block-num">Week 0</span>
+      <h3 class="week-block-title">Preparation and pre-procedure workup</h3>
+    </div>
+
+    <p>Once Ksharsutra has been recommended after your consultation, you will be scheduled for a preparation week. During this time we will complete:</p>
+
+    <ul>
+      <li>Blood tests including HbA1c (if you are diabetic, your sugar control must be optimised first)</li>
+      <li>MRI fistulogram or endoanal ultrasound if the anatomy is complex</li>
+      <li>Detailed counselling about what to expect at each stage</li>
+      <li>Dietary preparation guidance (high fibre, plenty of water, avoiding spicy and oily foods)</li>
+    </ul>
+
+    <p>You will also be given a written booklet to take home, so that family members can support you through the treatment. If you have any concerns after reading it, you can call us before proceeding.</p>
+  </div>
+
+  <h2>Week 1: <em>First thread application</em></h2>
+
+  <div class="week-block">
+    <div class="week-block-header">
+      <span class="week-block-num">Week 1</span>
+      <h3 class="week-block-title">Initial thread application under anaesthesia</h3>
+    </div>
+
+    <p>The first application is done under <strong>spinal or short general anaesthesia</strong>, since we need to carefully identify the entire fistula tract, its internal opening, and any branches. This is typically a day-care procedure. You come in the morning and go home the same evening.</p>
+
+    <h4>What happens on the day</h4>
+    <ul>
+      <li>Arrive at hospital fasted (no food for 6 hours before)</li>
+      <li>Pre-procedure examination and consent</li>
+      <li>Procedure itself takes 30 to 45 minutes</li>
+      <li>Recovery for 2 to 3 hours</li>
+      <li>Discharge with detailed post-procedure care instructions</li>
+    </ul>
+
+    <h4>The next 3 days</h4>
+    <ul>
+      <li>Mild to moderate discomfort, managed with oral pain medication</li>
+      <li>Some clear or slightly blood-tinged discharge from the area — this is normal</li>
+      <li>Rest for 2 days, then gradual return to normal light activity</li>
+      <li>Sitz baths (warm water) 2 to 3 times daily</li>
+      <li>No heavy lifting, no cycling, no long walks</li>
+    </ul>
+  </div>
+
+  <div class="callout callout-tip">
+    <div class="callout-icon">✓</div>
+    <div class="callout-body">
+      <div class="callout-title">A quiet week works best</div>
+      <p>Schedule your Week 1 for a time when you can genuinely rest for 3 to 4 days. Even though pain is manageable, your body is healing, and stressing it with meetings or travel slows down the process. Many of our patients take Week 1 as leave and are back to work by Week 2.</p>
+    </div>
+  </div>
+
+  <h2>Weeks 2 to 4: <em>continued applications</em></h2>
+
+  <div class="week-block">
+    <div class="week-block-header">
+      <span class="week-block-num">Weeks 2 – 4</span>
+      <h3 class="week-block-title">Weekly thread changes in OPD</h3>
+    </div>
+
+    <p>From Week 2 onwards, the thread is changed <strong>once every 7 days in the OPD</strong>, without anaesthesia. Each change takes about 10 to 15 minutes. There is brief discomfort during the change itself, but no post-procedure pain most times.</p>
+
+    <p>Between changes, you can continue almost all normal activities:</p>
+
+    <ul>
+      <li><strong>Work:</strong> Desk work is fine from the day of the change. Manual work with heavy lifting should still be avoided.</li>
+      <li><strong>Travel:</strong> Short trips are fine. Long-distance travel can be timed around thread change days.</li>
+      <li><strong>Sitting:</strong> A soft cushion helps for long sitting periods. Avoid hard chairs.</li>
+      <li><strong>Bathing:</strong> Regular showers are fine. Sitz baths after each bowel movement.</li>
+      <li><strong>Diet:</strong> Continue high fibre, plenty of water. Avoid constipation-inducing foods.</li>
+    </ul>
+  </div>
+
+  <div class="pull-quote">
+    <p>Ksharsutra is a slow treatment that lets you keep living your life. Most of our patients tell us, by Week 3, that they had expected it to be harder than it is.</p>
+    <span class="pull-quote-attr">Dr. Vipin Tongale</span>
+  </div>
+
+  <h2>Weeks 5 to 6: <em>cutting through</em></h2>
+
+  <div class="week-block">
+    <div class="week-block-header">
+      <span class="week-block-num">Weeks 5 – 6</span>
+      <h3 class="week-block-title">Thread completes the cut, healing begins</h3>
+    </div>
+
+    <p>By Week 5 or 6, the thread has progressively cut through most of the fistula tract. You may notice:</p>
+
+    <ul>
+      <li>The area where the fistula was is beginning to feel firmer and less sensitive</li>
+      <li>Discharge has reduced substantially</li>
+      <li>The thread may fall off on its own, which is a sign that cutting is complete</li>
+      <li>New tissue can be seen forming where the tract was</li>
+    </ul>
+
+    <p>We continue weekly follow-up during this phase, but the interventions become minimal — mainly monitoring healing progress.</p>
+  </div>
+
+  <h2>Weeks 7 to 8: <em>complete healing</em></h2>
+
+  <div class="week-block">
+    <div class="week-block-header">
+      <span class="week-block-num">Weeks 7 – 8</span>
+      <h3 class="week-block-title">Final healing and discharge from care</h3>
+    </div>
+
+    <p>By Week 7 or 8, the fistula tract has completely healed. The area is examined at your final visit. If healing is confirmed:</p>
+
+    <ul>
+      <li>You are formally discharged from active Ksharsutra care</li>
+      <li>A preventive care plan is given for long-term maintenance</li>
+      <li>Follow-up review scheduled at 3 months and 6 months</li>
+      <li>You are given a hospital contact for any concerns</li>
+    </ul>
+
+    <p>Occasionally, complex or high-position fistulae may need one or two additional weeks. Very rarely, a second Ksharsutra course may be needed for particularly deep tracts. Your case will determine this — and if it is likely, we will tell you at the start, not surprise you at Week 8.</p>
+  </div>
+
+  <h2>What to expect <em>throughout</em></h2>
+
+  <h3>Pain</h3>
+  <p>Mild to moderate. Well controlled with oral paracetamol or, occasionally, weak opioids for the first few days after Week 1. Most patients rate pain at 3 to 4 out of 10 during the first week, dropping to 1 to 2 out of 10 for subsequent weeks.</p>
+
+  <h3>Discharge</h3>
+  <p>Some clear or slightly blood-tinged discharge is normal, especially in the first 3 weeks. It progressively reduces. Wearing a small gauze dressing is often helpful. Yellow or foul-smelling discharge is not normal and requires a call to the hospital.</p>
+
+  <h3>Bowel movements</h3>
+  <p>Continue as normal. Do not delay bowel movements, and do not strain. Fibre and water are your priorities. Sitz baths after each bowel movement help substantially.</p>
+
+  <h3>Work and daily life</h3>
+  <p>Most patients continue work from Week 2 onwards. Long meetings, long drives, and long flights are best avoided in Week 1. From Week 3 onwards, most activities can be resumed with judgement.</p>
+
+  <h2>When to <em>call the hospital</em></h2>
+
+  <div class="callout callout-warning">
+    <div class="callout-icon">!</div>
+    <div class="callout-body">
+      <div class="callout-title">Call us immediately if any of these occur</div>
+      <p>Any of the following symptoms warrant an urgent call to our emergency line at <strong>9405404492</strong>:</p>
+      <ul style="margin-top: 0.5rem;">
+        <li>Fever above 100°F (37.8°C)</li>
+        <li>Heavy bleeding (soaking through pads within an hour)</li>
+        <li>Severe pain that is not controlled by oral medication</li>
+        <li>Foul-smelling discharge</li>
+        <li>Difficulty urinating or passing stool</li>
+        <li>Signs of infection (spreading redness, swelling, warmth)</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>For non-urgent questions or reassurance, our appointment line at 8208927917 is available during OPD hours.</p>
+
+  <h2>After healing: <em>preventing recurrence</em></h2>
+
+  <p>Once healed, your fistula is unlikely to recur if the underlying factors that led to it are addressed. This is why we do not stop at healing. Every Ksharsutra patient receives a preventive care plan that includes:</p>
+
+  <ol>
+    <li><strong>Long-term dietary guidance:</strong> High fibre, adequate water, and avoiding constipation as a permanent priority</li>
+    <li><strong>Local hygiene:</strong> Gentle perianal cleaning after every bowel movement, avoiding rough wiping</li>
+    <li><strong>Prompt attention to any anal abscess or swelling</strong> in future, since untreated abscesses are the most common source of new fistulae</li>
+    <li><strong>Annual review:</strong> A quick anorectal examination once a year to catch any early recurrence</li>
+    <li><strong>Blood sugar control</strong> if you are diabetic (diabetes substantially increases fistula risk)</li>
+  </ol>
+
+  <p>With this care, most patients never see a fistula again. And if it does happen, you know exactly where to come.</p>
+
+  <h3>A final note</h3>
+
+  <p>Ksharsutra requires <strong>patience</strong>. It is not the fastest treatment. But it is one of the most effective, safest, and most sphincter-preserving options available for fistula. Two thousand years of clinical experience, refined by modern research, applied honestly to the case in front of us. If you are considering Ksharsutra, we are happy to discuss whether it is genuinely the right choice for you.</p>
+
+</article>
+
+<!-- MEDICAL REVIEW DISCLOSURE -->
+<section class="medical-review">
+  <div class="medical-review-inner">
+    <div class="medical-review-icon">✓</div>
+    <div>
+      <div class="medical-review-label">Medically Reviewed</div>
+      <p class="medical-review-text">This article has been written and medically reviewed by <strong>Dr. Vipin Tongale (MS Ayurveda Shalya Tantra, PhD)</strong> and <strong>Dr. Swati Tongale (MS Ayurveda Shalya Tantra)</strong>.</p>
+      <p class="medical-review-meta">Published 15 July 2026 · Last reviewed and updated 2 September 2026 · Next scheduled review: March 2027. If you have questions about the content, please call our team at 8208927917.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR BIO -->
+<section class="author-bio">
+  <a class="author-bio-inner">
+    <div class="author-bio-portrait">
+      <div class="author-bio-portrait-inner"></div>
+    </div>
+    <div>
+      <div class="author-bio-label">Written by</div>
+      <h3 class="author-bio-name">Dr. Vipin Tongale</h3>
+      <div class="author-bio-role">General Surgeon &amp; Proctologist · MS Shalya Tantra, PhD</div>
+      <p class="author-bio-text">Fifteen years of dedicated proctology and integrated surgical practice in Amravati. PhD research on Apamarga Kshara for internal piles. Co-founder of Shri Manmukund Hospital.</p>
+      <span class="author-bio-link">Read Dr. Vipin's full profile</span>
+    </div>
+  </a>
+</section>
+
+<!-- SHARE BAR -->
+<div class="share-bar">
+  <span class="share-label">Share this article</span>
+  <div class="share-buttons">
+    <button class="share-btn" aria-label="Share on WhatsApp">W</button>
+    <button class="share-btn" aria-label="Share via Email">@</button>
+    <button class="share-btn" aria-label="Copy link">⚭</button>
+    <button class="share-btn" aria-label="Share on Facebook">f</button>
+    <button class="share-btn" aria-label="Share on X">X</button>
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<section class="related">
+  <div class="related-inner">
+    <div class="related-header">
+      <div class="section-tag">Continue Reading</div>
+      <h2 class="section-title">More on <em>Ksharsutra and fistula.</em></h2>
+    </div>
+
+    <div class="related-grid">
+      <article class="related-card">
+        <div class="related-card-image">
+          <div class="related-card-devanagari">भ</div>
+        </div>
+        <div class="related-card-body">
+          <div class="related-card-badges">
+            <span class="related-card-type">Article</span>
+            <span class="related-card-topic">Fistula</span>
+          </div>
+          <h3 class="related-card-title">Piles vs fissure vs fistula: how to tell them apart</h3>
+          <p class="related-card-excerpt">The three most common anorectal conditions, often confused. A clear comparison of symptoms and treatments.</p>
+          <div class="related-card-footer">
+            <span class="related-card-author">Dr. Vipin</span>
+            <span class="related-card-time">8 min</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="related-card">
+        <div class="related-card-image related-card-image--gold">
+          <div class="related-card-devanagari">IFTAK</div>
+        </div>
+        <div class="related-card-body">
+          <div class="related-card-badges">
+            <span class="related-card-type">Article</span>
+            <span class="related-card-topic">Recurrent Fistula</span>
+          </div>
+          <h3 class="related-card-title">IFTAK for recurrent fistula: when standard Ksharsutra needs a modification</h3>
+          <p class="related-card-excerpt">A refined variant of Ksharsutra for complex and recurrent fistula cases. When it is indicated.</p>
+          <div class="related-card-footer">
+            <span class="related-card-author">Dr. Vipin</span>
+            <span class="related-card-time">7 min</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="related-card">
+        <div class="related-card-image related-card-image--rose">
+          <div class="related-card-devanagari">पथ्य</div>
+        </div>
+        <div class="related-card-body">
+          <div class="related-card-badges">
+            <span class="related-card-type">Patient Guide</span>
+            <span class="related-card-topic">Recovery</span>
+          </div>
+          <h3 class="related-card-title">Post-procedure diet: eating for good healing</h3>
+          <p class="related-card-excerpt">The Ayurvedic pathya-apathya framework for post-surgical recovery. Simple, practical food guidance.</p>
+          <div class="related-card-footer">
+            <span class="related-card-author">Dr. Vipin</span>
+            <span class="related-card-time">6 min</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-devanagari">आइए, मिलते हैं</div>
+    <h2 class="cta-headline">Considering Ksharsutra for <em>your case?</em></h2>
+    <p class="cta-lede">Come for a proper examination and an honest opinion. If Ksharsutra is right for you, we will explain why. If it is not, we will tell you what is.</p>
+    <div class="cta-buttons">
+      <a class="btn btn-primary">Book a consultation</a>
+      <a class="btn btn-ghost">Call · 8208927917</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-mark">
+          <div class="footer-logo"></div>
+          <div class="footer-brand-text">
+            <div class="footer-brand-name">Shri Manmukund</div>
+            <div class="footer-brand-sub">Hospital · Amravati</div>
+          </div>
+        </div>
+        <p class="footer-brand-desc">A hospital where classical Ayurvedic surgical practice meets modern medicine, without either being second. In Amravati since 2011.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Practice</h4>
+        <ul>
+          <li>Anorectal Care</li>
+          <li>General Surgery</li>
+          <li>Ksharsutra</li>
+          <li>Ayurveda</li>
+          <li>Female Care</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Knowledge</h4>
+        <ul>
+          <li>Playbooks</li>
+          <li>Articles</li>
+          <li>Research</li>
+          <li>Insights</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Us</h4>
+        <ul>
+          <li>Appt · 8208927917</li>
+          <li>Emergency · 9405404492</li>
+          <li>Bapatwadi, Amravati</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-tagline">
+      <div class="footer-tagline-devanagari">श्री मनमुकुंद रुग्णालय</div>
+      <div class="footer-tagline-text">Advanced Proctology &amp; Integrated Care</div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Shri Manmukund Hospital</span>
+      <span>Privacy · Terms · Medical Disclaimer</span>
+    </div>
+  </div>
+</footer>
+
