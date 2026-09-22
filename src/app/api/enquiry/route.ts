@@ -40,10 +40,12 @@ export async function POST(request: Request) {
         ? `[Reason: ${reasonForVisit}] ${message || ''}`.trim()
         : message || null;
 
-      const { error } = await supabase.from('enquiries').insert({
-        patient_name: patientName,
-        phone,
-        email: email || null,
+      const { error } = await (supabase.from('enquiries') as any).insert({
+        patient_name: patientName.trim(),
+        phone: phone.trim(),
+        email: email ? email.trim() : null,
+        age: age ? String(age).trim() : null,
+        reason_for_visit: reasonForVisit || null,
         preferred_date: preferredDate || null,
         preferred_time_slot: preferredTimeSlot || null,
         doctor_slug: doctorSlug || null,
@@ -51,7 +53,7 @@ export async function POST(request: Request) {
         condition_slug: conditionSlug || null,
         message: combinedMessage,
         status: 'new' as const,
-      } as any);
+      });
 
       if (error) {
         console.warn('Supabase enquiry insert warning:', error.message);

@@ -9,11 +9,13 @@ interface EnquiryItem {
   patient_name: string;
   phone: string;
   email?: string;
+  age?: string;
   preferred_date?: string;
   preferred_time_slot?: string;
   doctor_slug?: string;
   service_category_slug?: string;
   condition_slug?: string;
+  reason_for_visit?: string;
   message?: string;
   status: 'new' | 'contacted' | 'scheduled' | 'archived';
   created_at: string;
@@ -24,6 +26,7 @@ export default function AdminEnquiriesPage() {
     {
       id: 'demo-1',
       patient_name: 'Gajanan Deshmukh',
+      age: '48',
       phone: '9822334455',
       email: 'gajanan@example.com',
       preferred_date: '2026-09-20',
@@ -31,6 +34,7 @@ export default function AdminEnquiriesPage() {
       doctor_slug: 'dr-vipin',
       service_category_slug: 'anorectal-care',
       condition_slug: 'anal-fistula',
+      reason_for_visit: 'Anal Fistula',
       message: 'Looking for Ksharsutra treatment consultation for recurrent fistula.',
       status: 'new',
       created_at: '2026-09-18T09:30:00Z',
@@ -38,6 +42,7 @@ export default function AdminEnquiriesPage() {
     {
       id: 'demo-2',
       patient_name: 'Pooja Kulkarni',
+      age: '32',
       phone: '9423112233',
       email: 'pooja@example.com',
       preferred_date: '2026-09-21',
@@ -45,18 +50,47 @@ export default function AdminEnquiriesPage() {
       doctor_slug: 'dr-swati',
       service_category_slug: 'female-care',
       condition_slug: 'female-proctology',
+      reason_for_visit: 'Female Care Concern',
       message: 'Need consultation for postpartum piles pain with Dr. Swati.',
       status: 'contacted',
       created_at: '2026-09-17T14:15:00Z',
     },
   ]);
 
+  const [loading, setLoading] = useState(true);
   const [filterStatus, setFilterStatus] = useState<string>('all');
 
-  const updateStatus = (id: string, newStatus: EnquiryItem['status']) => {
+  useEffect(() => {
+    async function fetchEnquiries() {
+      try {
+        const supabase = createClient();
+        const { data, error } = await supabase
+          .from('enquiries')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (data && data.length > 0 && !error) {
+          setEnquiries(data as EnquiryItem[]);
+        }
+      } catch (err) {
+        // Fallback to initial mock if Supabase is offline
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchEnquiries();
+  }, []);
+
+  const updateStatus = async (id: string, newStatus: EnquiryItem['status']) => {
     setEnquiries((prev) =>
       prev.map((item) => (item.id === id ? { ...item, status: newStatus } : item))
     );
+    try {
+      const supabase = createClient();
+      await (supabase.from('enquiries') as any).update({ status: newStatus }).eq('id', id);
+    } catch {
+      // Quietly ignore if offline demo
+    }
   };
 
   const filteredEnquiries =
@@ -109,7 +143,14 @@ export default function AdminEnquiriesPage() {
               {filteredEnquiries.map((enq) => (
                 <tr key={enq.id} className="hover:bg-gray-50/80 transition">
                   <td className="p-4">
-                    <strong className="text-gray-900 text-sm block">{enq.patient_name}</strong>
+                    <div className="flex items-center gap-2">
+                      <strong className="text-gray-900 text-sm block">{enq.patient_name}</strong>
+                      {enq.age && (
+                        <span className="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-800 text-[10px] font-semibold border border-emerald-200">
+                          {enq.age} yrs
+                        </span>
+                      )}
+                    </div>
                     <div className="flex items-center gap-1 text-gray-500 mt-1">
                       <Phone className="w-3.5 h-3.5 text-green-600" />
                       <a href={`tel:${enq.phone}`} className="hover:underline font-medium text-gray-900">
