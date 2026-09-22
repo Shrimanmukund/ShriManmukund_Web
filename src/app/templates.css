@@ -1680,7 +1680,7 @@ a { color: inherit; text-decoration: none; }
 
 .answer-summary-inner {
   background: var(--white);
-  border-radius: 0;
+  border-radius: 32px;
   padding: 2.5rem 3rem;
   box-shadow: 0 4px 24px rgba(107, 127, 95, 0.06);
   border-left: 4px solid var(--sage);
@@ -4813,7 +4813,7 @@ a { color: inherit; text-decoration: none; }
 
 .answer-summary-inner {
   background: var(--white);
-  border-radius: 0;
+  border-radius: 32px;
   padding: 2.5rem 3rem;
   box-shadow: 0 4px 24px rgba(107, 127, 95, 0.06);
   border-left: 4px solid var(--sage);
@@ -6292,7 +6292,7 @@ a { color: inherit; text-decoration: none; }
 
 .answer-summary-inner {
   background: var(--white);
-  border-radius: 0;
+  border-radius: 32px;
   padding: 2.5rem 3rem;
   box-shadow: 0 4px 24px rgba(107, 127, 95, 0.06);
   border-left: 4px solid var(--sage);
@@ -9296,7 +9296,7 @@ a { color: inherit; text-decoration: none; }
 
 .answer-summary-inner {
   background: var(--white);
-  border-radius: 0;
+  border-radius: 32px;
   padding: 2.5rem 3rem;
   box-shadow: 0 4px 24px rgba(107, 127, 95, 0.06);
   border-left: 4px solid var(--sage);

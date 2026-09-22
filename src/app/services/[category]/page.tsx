@@ -468,7 +468,12 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
           <div className="cta-inner">
             <div className="cta-devanagari">आइए, मिलते हैं</div>
             <h2 className="cta-headline">
-              Ready for an honest <em>{category.name.toLowerCase()} consultation?</em>
+              Ready for an honest{' '}
+              <em>
+                {category.slug === 'anorectal-care'
+                  ? 'anorectal consultation?'
+                  : `${category.name.toLowerCase().replace(/^(advanced|specialist)\s+/i, '')} consultation?`}
+              </em>
             </h2>
             <p className="cta-lede">
               Come for a proper examination, an honest opinion, and a recommendation that fits your case. If a consultation reveals we are not the right fit, we will say so.

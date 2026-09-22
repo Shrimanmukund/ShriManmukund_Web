@@ -448,10 +448,10 @@ blockquote {
 }
 
 /* ============================================================
-   ANSWER-FIRST SUMMARY RECTANGULAR CARD STYLING
+   ANSWER-FIRST SUMMARY CARD STYLING (MATCHING TEMPLATE)
    ============================================================ */
 .answer-summary-inner {
-  border-radius: 0 !important;
+  border-radius: 32px !important;
   border-left: 4px solid var(--sage) !important;
   background: var(--white) !important;
   box-shadow: 0 4px 24px rgba(107, 127, 95, 0.06) !important;
@@ -493,12 +493,12 @@ blockquote {
 /* Base Section Title: Left-aligned by default matching template */
 .section-title {
   font-family: var(--font-fraunces), 'Fraunces', Georgia, serif !important;
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem) !important;
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem) !important;
   font-weight: 500 !important;
   color: var(--indigo) !important;
   letter-spacing: -0.025em !important;
   line-height: 1.15 !important;
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 1.25rem !important;
   text-align: left !important;
 }
 
