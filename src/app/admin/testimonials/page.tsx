@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import React, { useState, useEffect } from 'react';
 import { Star, Check, X, Eye, EyeOff, RefreshCw, Inbox } from 'lucide-react';
 import type { TestimonialData } from '@/types/content';
