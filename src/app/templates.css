@@ -468,24 +468,37 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 12px 40px rgba(107, 127, 95, 0.15);
 }
 
-.service::after {
-  content: '';
+.service-image {
   position: absolute;
-  top: -40px;
-  right: -40px;
+  top: -25px;
+  right: -25px;
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  opacity: 0.06;
-  transition: opacity 0.3s;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.4s ease, opacity 0.3s ease;
 }
 
-.service:hover::after { opacity: 0.12; }
+.service:hover .service-image {
+  transform: scale(1.05);
+}
 
-.service-1::after { background: var(--sage); }
-.service-2::after { background: var(--gold); }
-.service-3::after { background: var(--sage-mid); }
-.service-4::after { background: var(--rose-gold); }
+.service-image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  display: block;
+}
+
+.service-1 .service-image { border: 3px solid rgba(107, 127, 95, 0.25); }
+.service-2 .service-image { border: 3px solid rgba(184, 137, 74, 0.25); }
+.service-3 .service-image { border: 3px solid rgba(122, 143, 112, 0.25); }
+.service-4 .service-image { border: 3px solid rgba(192, 132, 119, 0.25); }
 
 .service-icon {
   width: 64px;
@@ -660,7 +673,7 @@ a { color: inherit; text-decoration: none; }
    SPECIALISTS — WARM PORTRAITS
    ============================================================ */
 .specialists {
-  padding: 6rem 3rem;
+  padding: 6rem 3rem 2.5rem;
   max-width: 1280px;
   margin: 0 auto;
 }
@@ -826,7 +839,7 @@ a { color: inherit; text-decoration: none; }
    ============================================================ */
 .knowledge {
   background: var(--ivory);
-  padding: 6rem 3rem;
+  padding: 3rem 3rem 2.5rem;
   position: relative;
   overflow: hidden;
 }
@@ -943,7 +956,7 @@ a { color: inherit; text-decoration: none; }
    CONTACT — WARM INVITATION
    ============================================================ */
 .contact {
-  padding: 6rem 3rem;
+  padding: 2.5rem 3rem 6rem;
   max-width: 1280px;
   margin: 0 auto;
 }
@@ -1090,9 +1103,9 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 3rem;
-  padding-bottom: 3rem;
+  padding-bottom: 1.5rem;
   border-bottom: 1px solid rgba(228, 207, 165, 0.15);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .footer-brand {
@@ -1168,9 +1181,9 @@ a { color: inherit; text-decoration: none; }
 
 .footer-tagline {
   text-align: center;
-  padding: 2rem 0;
+  padding: 1rem 0;
   border-bottom: 1px solid rgba(228, 207, 165, 0.15);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .footer-tagline-devanagari {
@@ -1178,7 +1191,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 1.25rem;
   color: var(--gold-soft);
   opacity: 0.75;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
 }
 
 .footer-tagline-text {
@@ -1213,14 +1226,15 @@ a { color: inherit; text-decoration: none; }
   .hero-cred + .hero-cred::before { display: none; }
   .services { padding: 4rem 1.5rem; }
   .services-grid { grid-template-columns: 1fr; }
+  .service-image { width: 120px; height: 120px; top: -15px; right: -15px; }
   .philosophy { padding: 4rem 2rem; margin: 2rem 1.5rem; border-radius: 32px; }
-  .specialists { padding: 4rem 1.5rem; }
+  .specialists { padding: 4rem 1.5rem 2rem; }
   .specialists-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .knowledge { padding: 4rem 1.5rem; }
+  .knowledge { padding: 2.5rem 1.5rem 2rem; }
   .knowledge-header { grid-template-columns: 1fr; }
   .knowledge-lede { text-align: left; }
   .knowledge-grid { grid-template-columns: 1fr; }
-  .contact { padding: 4rem 1.5rem; }
+  .contact { padding: 2rem 1.5rem 4rem; }
   .contact-inner { grid-template-columns: 1fr; padding: 2.5rem; gap: 2rem; }
   .footer { padding: 3rem 1.5rem 1.5rem; }
   .footer-top { grid-template-columns: 1fr; gap: 2rem; }
@@ -4638,10 +4652,8 @@ a { color: inherit; text-decoration: none; }
 .breadcrumb-sep { color: var(--mute); opacity: 0.5; }
 
 .unit-hero-inner {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 4rem;
-  align-items: center;
+  display: block;
+  max-width: 860px;
   position: relative;
   z-index: 1;
 }

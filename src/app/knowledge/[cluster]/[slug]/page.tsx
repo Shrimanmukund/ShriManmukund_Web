@@ -1,6 +1,7 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   getAllKnowledgePieces,
   DOCTORS,
@@ -219,43 +220,66 @@ export default function KnowledgeDetailPage({ params }: KnowledgePiecePageProps)
       )}
 
       {/* 5. TABLE OF CONTENTS */}
-      <section className="toc">
-        <div className="toc-inner">
-          <div className="toc-title">In this guide</div>
-          <ol className="toc-list">
-            <li>
-              <a href="#section-1">What is Ksharsutra and how does it work</a>
-            </li>
-            <li>
-              <a href="#section-2">Who is Ksharsutra suitable for</a>
-            </li>
-            <li>
-              <a href="#section-3">Before you start: preparation week</a>
-            </li>
-            <li>
-              <a href="#section-4">Week 1: First thread application</a>
-            </li>
-            <li>
-              <a href="#section-5">Weeks 2 to 4: Continued applications</a>
-            </li>
-            <li>
-              <a href="#section-6">Weeks 5 to 6: Cutting through</a>
-            </li>
-            <li>
-              <a href="#section-7">Weeks 7 to 8: Complete healing</a>
-            </li>
-            <li>
-              <a href="#section-8">What to expect throughout</a>
-            </li>
-            <li>
-              <a href="#section-9">When to call the hospital</a>
-            </li>
-            <li>
-              <a href="#section-10">After healing: preventing recurrence</a>
-            </li>
-          </ol>
-        </div>
-      </section>
+      {(() => {
+        const ksharsutraPlaybookHeadings = [
+          { title: 'What is Ksharsutra and how does it work', id: 'section-1' },
+          { title: 'Who is Ksharsutra suitable for', id: 'section-2' },
+          { title: 'Before you start: preparation week', id: 'section-3' },
+          { title: 'Week 1: First thread application', id: 'section-4' },
+          { title: 'Weeks 2 to 4: Continued applications', id: 'section-5' },
+          { title: 'Weeks 5 to 6: Cutting through', id: 'section-6' },
+          { title: 'Weeks 7 to 8: Complete healing', id: 'section-7' },
+          { title: 'What to expect throughout', id: 'section-8' },
+          { title: 'When to call the hospital', id: 'section-9' },
+          { title: 'After healing: preventing recurrence', id: 'section-10' },
+        ];
+
+        const extractHeadings = (text: string) => {
+          if (!text) return [];
+          const headings: { title: string; id: string }[] = [];
+          const lines = text.split('\n');
+          for (const line of lines) {
+            const trimmed = line.trim();
+            if (trimmed.startsWith('## ')) {
+              const hTitle = trimmed.replace(/^##\s+/, '').trim();
+              const lower = hTitle.toLowerCase();
+              if (
+                !['hero', 'related content', 'related', 'meta', 'author byline', 'table of contents', 'answer-first summary', 'answer first summary', 'in one paragraph'].includes(lower) &&
+                !hTitle.startsWith('#')
+              ) {
+                const slug = hTitle
+                  .toLowerCase()
+                  .replace(/[^\w\s-]/g, '')
+                  .trim()
+                  .replace(/\s+/g, '-');
+                headings.push({ title: hTitle, id: slug });
+              }
+            }
+          }
+          return headings;
+        };
+
+        const activeHeadings = isKsharsutraPlaybook
+          ? ksharsutraPlaybookHeadings
+          : extractHeadings(bodyContent);
+
+        if (activeHeadings.length <= 1) return null;
+
+        return (
+          <section className="toc">
+            <div className="toc-inner">
+              <div className="toc-title">In this {clusterSingular.toLowerCase()}</div>
+              <ol className="toc-list">
+                {activeHeadings.map((h, i) => (
+                  <li key={h.id || i}>
+                    <a href={`#${h.id}`}>{h.title}</a>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* 6. ARTICLE BODY */}
       <article className="article-body">
@@ -557,7 +581,19 @@ export default function KnowledgeDetailPage({ params }: KnowledgePiecePageProps)
       <section className="author-bio">
         <Link href={`/${authorSlug === 'dr-swati' ? 'dr-swati' : 'dr-vipin'}/`} className="author-bio-inner">
           <div className="author-bio-portrait">
-            <div className="author-bio-portrait-inner"></div>
+            <div className="author-bio-portrait-inner overflow-hidden relative">
+              <Image
+                src={
+                  authorSlug === 'dr-swati'
+                    ? '/images/doctors/dr-swati-tongale.jpg'
+                    : '/images/doctors/dr-vipin-tongale.jpg'
+                }
+                alt={`Dr. ${authorSlug === 'dr-swati' ? 'Swati Tongale' : 'Vipin Tongale'}`}
+                width={120}
+                height={120}
+                className="w-full h-full object-cover object-top rounded-full"
+              />
+            </div>
           </div>
           <div>
             <div className="author-bio-label">Written by</div>

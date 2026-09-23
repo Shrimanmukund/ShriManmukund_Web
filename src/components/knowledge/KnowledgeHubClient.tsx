@@ -250,7 +250,7 @@ export function KnowledgeHubClient() {
       {/* 3. FEATURED CONTENT (Shown when on 'all' filter and no active search query) */}
       {selectedCategory === 'all' && !searchQuery.trim() && (
         <section className="featured">
-          <div className="section-header">
+          <div className="section-header section-header--split">
             <div className="section-header-text">
               <div className="section-tag">Editor&apos;s Picks</div>
               <h2 className="section-title">
@@ -349,14 +349,14 @@ export function KnowledgeHubClient() {
 
       {/* 4. ARTICLE GRID */}
       <section className="articles" id="all-content">
-        <div className="section-header">
+        <div className="section-header section-header--split">
           <div className="section-header-text">
             <div className="section-tag">
               {searchQuery.trim()
-                ? `Search Results (${filteredArticles.length})`
+                ? `Search Results`
                 : selectedCategory === 'all'
-                ? `All Content (${filteredArticles.length})`
-                : `${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1).replace('-', ' ')} (${filteredArticles.length})`}
+                ? `All Content`
+                : `${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1).replace('-', ' ')}`}
             </div>
             <h2 className="section-title">
               Written by the doctors, <em>reviewed by the doctors.</em>
@@ -367,13 +367,9 @@ export function KnowledgeHubClient() {
             className="section-header-cta"
             onClick={toggleSort}
             style={{
-              background: 'none',
+              background: 'transparent',
               border: 'none',
-              cursor: 'pointer',
-              fontFamily: 'var(--sans)',
-              fontSize: '0.875rem',
-              fontWeight: 600,
-              color: 'var(--sage)',
+              borderBottom: '2px solid var(--sage)',
             }}
           >
             Sort: {sortLabel}

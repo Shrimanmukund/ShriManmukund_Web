@@ -27,6 +27,18 @@ export function generateStaticParams() {
         category: cat.slug,
         slug: cond.slug,
       });
+      if (cat.slug === 'female-care') {
+        params.push({
+          category: 'female-care-unit',
+          slug: cond.slug,
+        });
+      }
+      if (cat.slug === 'panchakarma') {
+        params.push({
+          category: 'ayurveda-panchakarma',
+          slug: cond.slug,
+        });
+      }
     }
   }
 
@@ -41,9 +53,11 @@ export function generateMetadata({ params }: ConditionPageProps) {
 
   if (!condition && !rawPage) return {};
 
-  const name = rawPage ? rawPage.title : condition?.name || '';
+  const rawTitle = rawPage?.metaTitle || condition?.metaTitle || `${condition?.name || ''} Treatment`;
+  const cleanTitle = rawTitle.replace(/\s*\|\s*Shri Manmukund Hospital.*$/i, '').trim();
+
   return {
-    title: rawPage?.metaTitle || condition?.metaTitle || `${name} Treatment | Shri Manmukund Hospital`,
+    title: cleanTitle,
     description: rawPage?.metaDescription || condition?.metaDescription,
   };
 }
@@ -354,7 +368,7 @@ export default function ConditionDetailPage({ params }: ConditionPageProps) {
                       ))}
                     </div>
                     <Link
-                      href={treatment.linkHref || '/contact/#book'}
+                      href={treatment.linkHref || '/knowledge/'}
                       className="treatment-link"
                     >
                       {treatment.linkText}

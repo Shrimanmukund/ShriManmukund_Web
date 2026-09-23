@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata = {
-  title: 'About Us | Shri Manmukund Hospital, Amravati',
+  title: 'About Us',
   description:
     'A hospital built on quiet conviction. Founded in Amravati in 2011 by Dr. Vipin Tongale and Dr. Swati Tongale. Proctology, general surgery, and integrated Ayurvedic care.',
 };

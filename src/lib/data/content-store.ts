@@ -327,6 +327,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { slug: 'full-panchakarma', categorySlug: 'panchakarma', name: 'Full Panchakarma Programme', shortSummary: 'Comprehensive 5-fold seasonal body purification and metabolic reset.' },
       { slug: 'uttarbasti', categorySlug: 'panchakarma', name: 'Uttarbasti Therapy', shortSummary: 'Specialized intra-cavitary therapy for urethral strictures and female infertility.' },
       { slug: 'jalauka-leech-therapy', categorySlug: 'panchakarma', name: 'Jalauka (Leech Therapy)', shortSummary: 'Therapeutic bio-purification for localized vascular stasis, varicose veins, and wounds.' },
+      { slug: 'leech-therapy-jalaukavacharana', categorySlug: 'panchakarma', name: 'Leech Therapy (Jalaukavacharana)', shortSummary: 'Classical Ayurvedic parasurgical bloodletting for skin conditions, varicose veins, and non-healing ulcers.' },
       { slug: 'basti', categorySlug: 'panchakarma', name: 'Basti (Medicated Enema)', shortSummary: 'The crown jewel of Panchakarma for Vata disorders, constipation, and back pain.' },
       { slug: 'virechana', categorySlug: 'panchakarma', name: 'Virechana (Therapeutic Purgation)', shortSummary: 'Targeted detoxification for excess Pitta, liver disorders, and skin ailments.' },
       { slug: 'vamana', categorySlug: 'panchakarma', name: 'Vamana (Therapeutic Emesis)', shortSummary: 'Targeted cleansing for Kapha disorders, chronic allergies, and respiratory issues.' },
@@ -366,9 +367,15 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     leadDoctorSlug: 'dr-swati',
     orderIndex: 9,
     conditions: [
-      { slug: 'uttarbasti-for-infertility', categorySlug: 'female-care', name: 'Uttarbasti for Infertility', shortSummary: 'Classical Ayurvedic protocol for tubal blockage, thin endometrium, and recurrent IVF failures.' },
-      { slug: 'menstrual-disorders', categorySlug: 'female-care', name: 'Menstrual Disorders', shortSummary: 'Holistic balancing of hormonal cycles, dysmenorrhea, PCOD, and irregular periods.' },
-      { slug: 'postnatal-panchakarma', categorySlug: 'female-care', name: 'Postnatal Panchakarma (Sutika Paricharya)', shortSummary: 'Classical post-delivery rejuvenation, pelvic strengthening, and lactation support.' },
+      { slug: 'female-proctology', categorySlug: 'female-care', name: 'Female Proctology', nameSanskrit: 'महिला गुदविकार', shortSummary: 'Gentle, private examination and surgical care of piles, postpartum fissure, and fistula by Dr. Swati Tongale.' },
+      { slug: 'uttarbasti-for-infertility', categorySlug: 'female-care', name: 'Uttarbasti for Infertility', nameSanskrit: 'उत्तरबस्ती वंध्यत्व चिकित्सा', shortSummary: 'Classical Ayurvedic intrauterine protocol for tubal blockage, thin endometrium, and recurrent IVF failures.' },
+      { slug: 'uttarbasti-therapy', categorySlug: 'female-care', name: 'Uttarbasti Therapy', nameSanskrit: 'उत्तरबस्ती चिकित्सा', shortSummary: 'Intrauterine medicated oil/ghee instillation for tubal recanalization, thin endometrium, and fertility.' },
+      { slug: 'masanumasik-garbhsanskara', categorySlug: 'female-care', name: 'Masanumasik Garbhsanskara', nameSanskrit: 'मासानुमासिक गर्भसंस्कार', shortSummary: 'Month-by-month Ayurvedic pregnancy regimen (Ahara-Vihara), fetal organogenesis, and natural labor preparation.' },
+      { slug: 'garbhasanskar-antenatal-care', categorySlug: 'female-care', name: 'Garbhsanskara Antenatal Care', nameSanskrit: 'मासानुमासिक गर्भसंस्कार', shortSummary: 'Structured 9-month Ayurvedic antenatal regimen, fetal stimulation, and prenatal yoga.' },
+      { slug: 'menstrual-disorders', categorySlug: 'female-care', name: 'Menstrual Disorders (Ayurvedic Care)', nameSanskrit: 'आर्तव विकार व PCOD', shortSummary: 'Holistic balancing of hormonal cycles, dysmenorrhea, PCOD, and irregular periods.' },
+      { slug: 'infertility-and-pcod', categorySlug: 'female-care', name: 'PCOD & Infertility Care', nameSanskrit: 'पीसीओडी व वंध्यत्व चिकित्सा', shortSummary: 'Root-cause Ayurvedic metabolic correction, ovarian stimulation with herbal formulations, and cycle regulation.' },
+      { slug: 'postnatal-panchakarma', categorySlug: 'female-care', name: 'Postnatal Panchakarma (Sutika Paricharya)', nameSanskrit: 'सूतिका परिचर्या', shortSummary: 'Traditional 45-day post-delivery rejuvenation, Abhyanga, pelvic toning, and lactation support.' },
+      { slug: 'sutika-paricharya-postnatal-care', categorySlug: 'female-care', name: 'Sutika Paricharya Postnatal Care', nameSanskrit: 'सूतिका परिचर्या', shortSummary: 'Sutika Paricharya traditional postnatal recovery, Abhyanga, pelvic toning, and lactation optimization.' },
     ],
     metaTitle: 'Female Proctology & Women’s Health in Amravati | Dr. Swati Tongale',
     metaDescription: 'Dedicated female proctologist and Ayurvedic fertility surgeon in Amravati for piles, fistula, Uttarbasti for infertility, and women’s wellness.',
@@ -486,6 +493,16 @@ export function getAllServiceCategories(): ServiceCategory[] {
 }
 
 export function getServiceCategoryBySlug(slug: string): ServiceCategory | undefined {
+  if (slug === 'ayurveda-panchakarma') {
+    return (
+      SERVICE_CATEGORIES.find((c) => c.slug === 'ayurveda-panchakarma') ||
+      SERVICE_CATEGORIES.find((c) => c.slug === 'panchakarma') ||
+      SERVICE_CATEGORIES.find((c) => c.slug === 'ayurveda')
+    );
+  }
+  if (slug === 'female-care-unit') {
+    return SERVICE_CATEGORIES.find((c) => c.slug === 'female-care');
+  }
   return SERVICE_CATEGORIES.find((c) => c.slug === slug);
 }
 
@@ -571,7 +588,38 @@ export function getAllConditions(): ConditionPageData[] {
 
 export function getConditionBySlug(categorySlug: string, conditionSlug: string): ConditionPageData | undefined {
   const all = getAllConditions();
-  return all.find((c) => c.categorySlug === categorySlug && c.slug === conditionSlug);
+  const direct = all.find((c) => c.categorySlug === categorySlug && c.slug === conditionSlug);
+  if (direct) return direct;
+
+  if (categorySlug === 'ayurveda-panchakarma' || categorySlug === 'panchakarma') {
+    let targetSlug = conditionSlug;
+    if (conditionSlug === 'leech-therapy-jalaukavacharana') targetSlug = 'jalauka-leech-therapy';
+    if (conditionSlug === 'uttarbasti-therapy') targetSlug = 'uttarbasti';
+
+    const match = all.find(
+      (c) =>
+        (c.categorySlug === 'panchakarma' || c.categorySlug === 'ayurveda') &&
+        (c.slug === conditionSlug || c.slug === targetSlug)
+    );
+    if (match) return match;
+  }
+
+  if (categorySlug === 'female-care' || categorySlug === 'female-care-unit') {
+    let targetSlug = conditionSlug;
+    if (conditionSlug === 'uttarbasti-therapy') targetSlug = 'uttarbasti-for-infertility';
+    if (conditionSlug === 'garbhasanskar-antenatal-care') targetSlug = 'masanumasik-garbhsanskara';
+    if (conditionSlug === 'infertility-and-pcod') targetSlug = 'menstrual-disorders';
+    if (conditionSlug === 'sutika-paricharya-postnatal-care') targetSlug = 'postnatal-panchakarma';
+
+    const match = all.find(
+      (c) =>
+        (c.categorySlug === 'female-care' || c.categorySlug === 'anorectal-care') &&
+        (c.slug === conditionSlug || c.slug === targetSlug)
+    );
+    if (match) return match;
+  }
+
+  return undefined;
 }
 
 export function getAllKnowledgePieces(): KnowledgePieceData[] {

@@ -211,43 +211,45 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
         </div>
       </div>
 
-      <div className="form-group">
-        <label className="form-label">Which doctor?</label>
-        <select
-          className="form-select"
-          value={whichDoctor}
-          onChange={(e) => setWhichDoctor(e.target.value)}
-        >
-          <option>No preference — first available</option>
-          <option>Dr. Vipin Tongale</option>
-          <option>Dr. Swati Tongale</option>
-        </select>
-      </div>
-
-      <div className="form-group">
-        <label className="form-label">Reason for visit</label>
-        <select
-          className="form-select"
-          value={reasonForVisit}
-          onChange={(e) => setReasonForVisit(e.target.value)}
-        >
-          <option>Please select a concern</option>
-          <option>Piles / Haemorrhoids</option>
-          <option>Anal Fissure</option>
-          <option>Anal Fistula</option>
-          <option>Hernia / Hydrocele</option>
-          <option>Female Care Concern</option>
-          <option>Fertility (Uttarbasti)</option>
-          <option>Panchakarma / Ayurvedic Care</option>
-          <option>Second Opinion</option>
-          <option>Other — will describe below</option>
-        </select>
+      <div className="form-row">
+        <div className="form-group">
+          <label className="form-label">Which doctor?</label>
+          <select
+            className="form-select"
+            value={whichDoctor}
+            onChange={(e) => setWhichDoctor(e.target.value)}
+          >
+            <option>No preference — first available</option>
+            <option>Dr. Vipin Tongale</option>
+            <option>Dr. Swati Tongale</option>
+          </select>
+        </div>
+        <div className="form-group">
+          <label className="form-label">Reason for visit</label>
+          <select
+            className="form-select"
+            value={reasonForVisit}
+            onChange={(e) => setReasonForVisit(e.target.value)}
+          >
+            <option>Please select a concern</option>
+            <option>Piles / Haemorrhoids</option>
+            <option>Anal Fissure</option>
+            <option>Anal Fistula</option>
+            <option>Hernia / Hydrocele</option>
+            <option>Female Care Concern</option>
+            <option>Fertility (Uttarbasti)</option>
+            <option>Panchakarma / Ayurvedic Care</option>
+            <option>Second Opinion</option>
+            <option>Other — will describe below</option>
+          </select>
+        </div>
       </div>
 
       <div className="form-group">
         <label className="form-label">Brief description (optional)</label>
         <textarea
           className="form-textarea"
+          rows={2}
           placeholder="Tell us briefly what you are experiencing, so we can prepare for your visit"
           value={briefDescription}
           onChange={(e) => setBriefDescription(e.target.value)}

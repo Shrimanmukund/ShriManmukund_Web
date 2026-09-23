@@ -5,6 +5,14 @@ interface MarkdownRendererProps {
   className?: string;
 }
 
+export function slugifyHeading(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-');
+}
+
 export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
   content,
   className = '',
@@ -18,22 +26,47 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
     <div className={`prose-medical space-y-4 ${className}`}>
       {blocks.map((block, index) => {
         const trimmed = block.trim();
-        if (!trimmed) return null;
+        if (!trimmed || trimmed === '---') return null;
+
+        // Skip metadata header blocks
+        if (
+          trimmed.startsWith('# ') ||
+          trimmed.startsWith('**URL:**') ||
+          trimmed.startsWith('**Cluster:**') ||
+          trimmed.startsWith('**Meta title:**') ||
+          trimmed.startsWith('**Meta description:**') ||
+          trimmed.startsWith('**Author Byline')
+        ) {
+          return null;
+        }
 
         // Heading 2
         if (trimmed.startsWith('## ')) {
+          const headingText = trimmed.replace(/^##\s+/, '').trim();
+          if (['hero', 'related content', 'related'].includes(headingText.toLowerCase())) {
+            return null;
+          }
+          const id = slugifyHeading(headingText);
           return (
-            <h2 key={index} className="font-serif text-xl sm:text-2xl font-bold text-[#1B3A5B] pt-4 pb-1 border-b border-[#6B7F5F]/15">
-              {trimmed.replace('## ', '')}
+            <h2
+              id={id}
+              key={index}
+              className="font-serif text-xl sm:text-2xl font-bold text-[#1B3A5B] pt-4 pb-1 border-b border-[#6B7F5F]/15 scroll-mt-24"
+            >
+              {headingText}
             </h2>
           );
         }
 
         // Heading 3
         if (trimmed.startsWith('### ')) {
+          const headingText = trimmed.replace(/^###\s+/, '').trim();
+          if (['headline', 'author byline'].includes(headingText.toLowerCase())) {
+            return null;
+          }
           return (
             <h3 key={index} className="font-serif text-lg sm:text-xl font-bold text-[#122844] pt-2">
-              {trimmed.replace('### ', '')}
+              {headingText}
             </h3>
           );
         }
@@ -42,7 +75,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
         if (trimmed.startsWith('#### ')) {
           return (
             <h4 key={index} className="font-serif text-base font-semibold text-[#5C4F3A]">
-              {trimmed.replace('#### ', '')}
+              {trimmed.replace(/^####\s+/, '').trim()}
             </h4>
           );
         }

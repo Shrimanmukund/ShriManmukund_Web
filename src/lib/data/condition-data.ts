@@ -295,6 +295,7 @@ export const PILES_DETAIL: ConditionDetailData = {
           { label: 'Effectiveness', value: 'Grade I: 80%' },
         ],
         linkText: 'Read about conservative management',
+        linkHref: '/knowledge/articles/piles-vs-fissure-vs-fistula-how-to-tell-them-apart/',
       },
       {
         tierNum: 'Tier 2',
@@ -309,6 +310,7 @@ export const PILES_DETAIL: ConditionDetailData = {
           { label: 'Effectiveness', value: 'Grade II–III: 85%' },
         ],
         linkText: 'Read about non-surgical options',
+        linkHref: '/knowledge/articles/why-rectal-bleeding-should-never-be-ignored/',
       },
       {
         tierNum: 'Tier 3',
@@ -323,6 +325,7 @@ export const PILES_DETAIL: ConditionDetailData = {
           { label: 'Effectiveness', value: 'Grade II–III: 90%+' },
         ],
         linkText: 'Read about Ksharkarma',
+        linkHref: '/knowledge/articles/understanding-ksharsutra-in-simple-terms/',
       },
       {
         tierNum: 'Tier 3',
@@ -337,6 +340,7 @@ export const PILES_DETAIL: ConditionDetailData = {
           { label: 'Effectiveness', value: 'Grade III–IV: 90%' },
         ],
         linkText: 'Read about Laser Haemorrhoidoplasty',
+        linkHref: '/knowledge/articles/laser-piles-surgery-what-it-is-what-it-is-not/',
       },
       {
         tierNum: 'Tier 4',
@@ -351,6 +355,7 @@ export const PILES_DETAIL: ConditionDetailData = {
           { label: 'Effectiveness', value: 'Grade IV: 95%' },
         ],
         linkText: 'Read about surgical haemorrhoidectomy',
+        linkHref: '/knowledge/playbooks/complete-recovery-after-piles-surgery/',
       },
     ],
   },
@@ -623,6 +628,7 @@ export const FISSURE_DETAIL: ConditionDetailData = {
           { label: 'Success Rate', value: '92% in acute cases' },
         ],
         linkText: 'Read about Matra Basti for fissure',
+        linkHref: '/services/ayurveda-panchakarma/',
       },
       {
         tierNum: 'Tier 2',
@@ -637,6 +643,7 @@ export const FISSURE_DETAIL: ConditionDetailData = {
           { label: 'Recovery', value: '5 – 7 days' },
         ],
         linkText: 'Read about Ksharkarma',
+        linkHref: '/knowledge/articles/understanding-ksharsutra-in-simple-terms/',
       },
       {
         tierNum: 'Tier 3',
@@ -651,6 +658,7 @@ export const FISSURE_DETAIL: ConditionDetailData = {
           { label: 'Continence Risk', value: 'Zero' },
         ],
         linkText: 'Read about Laser Fissure Treatment',
+        linkHref: '/knowledge/articles/laser-piles-surgery-what-it-is-what-it-is-not/',
       },
     ],
   },
@@ -894,6 +902,7 @@ export const FISTULA_DETAIL: ConditionDetailData = {
           { label: 'Hospital Stay', value: 'Day-care / 1 night' },
         ],
         linkText: 'Read the complete Ksharsutra Playbook',
+        linkHref: '/knowledge/playbooks/ksharsutra-day-1-to-complete-healing/',
       },
       {
         tierNum: 'Tier 2',
@@ -908,6 +917,7 @@ export const FISTULA_DETAIL: ConditionDetailData = {
           { label: 'Wound Care', value: 'Minimal dressing' },
         ],
         linkText: 'Read about FiLaC Laser Treatment',
+        linkHref: '/knowledge/articles/choosing-between-ksharsutra-and-laser-for-fistula/',
       },
       {
         tierNum: 'Tier 3',
@@ -922,6 +932,7 @@ export const FISTULA_DETAIL: ConditionDetailData = {
           { label: 'Effectiveness', value: 'High complex cases: 96%' },
         ],
         linkText: 'Read about IFTAK Protocol',
+        linkHref: '/knowledge/playbooks/ksharsutra-day-1-to-complete-healing/',
       },
     ],
   },
@@ -998,6 +1009,1688 @@ export const FISTULA_DETAIL: ConditionDetailData = {
   ],
 };
 
+export const FEMALE_PROCTOLOGY_DETAIL: ConditionDetailData = {
+  eyebrow: 'Female Specialty Care · Anorectal Unit',
+  devanagari: 'महिला गुदविकार',
+  titleMain: 'Female Proctology & Anorectal',
+  titleAccent: 'Care',
+  subtitle: 'Compassionate, private surgical & conservative care by Dr. Swati Tongale',
+  lede: 'Anorectal conditions like piles, fissures after childbirth, and fistulas are extremely common among women. Yet many endure chronic suffering for years due to social hesitation or the lack of a female surgeon. Dr. Swati Tongale provides gentle, dignity-centered consultation, examination, and treatment with complete female clinical support in Amravati.',
+  glance: {
+    sanskrit: 'Mahila Guda Vikara (महिला गुदविकार)',
+    grades: 'Piles (I–IV), Acute/Chronic Fissure, Fistula',
+    commonIn: 'Women (Peripartum, Postnatal & All ages)',
+    treatmentTier: 'Conservative, Ksharsutra & Diode Laser',
+    recovery: 'Same day to 2 weeks',
+    consultation: '30 – 45 minutes (Private & Unhurried)',
+  },
+  answerSummary:
+    'Female Proctology at Shri Manmukund Hospital is a specialized clinical service led exclusively by Dr. Swati Tongale, MS (Ayurveda Shalya Tantra). Designed for women who prefer a female surgeon, it provides unhurried private consultations, gentle examinations in a confidential room with female nursing staff, and the complete spectrum of advanced treatments—from soothing Ayurvedic Matra Basti to Ksharsutra and minimally invasive day-care laser procedures.',
+  symptoms: {
+    sectionTitle: 'Common female anorectal symptoms <em>needing clinical review.</em>',
+    sectionLede:
+      'If you are experiencing any of the following symptoms, an early, private examination by a female specialist ensures simple and effective resolution.',
+    items: [
+      {
+        icon: 'रु',
+        title: 'Postpartum or Severe Anal Pain',
+        desc: 'Sharp, tearing pain during or after bowel movements, frequently triggered after delivery or chronic constipation.',
+      },
+      {
+        icon: 'र',
+        title: 'Rectal Bleeding',
+        desc: 'Bright red blood on toilet tissue or in the bowl during stool passage, commonly caused by piles or fissures.',
+      },
+      {
+        icon: 'प्र',
+        title: 'Perianal Lumps or Prolapse',
+        desc: 'Swollen venous cushions or mucosal protrusions that emerge during bowel movements or prolonged standing.',
+      },
+      {
+        icon: 'स्रा',
+        title: 'Recurrent Discharge or Boil',
+        desc: 'Persistent pus, moisture, or recurrent painful boils around the anal verge signaling a potential fistula tract.',
+      },
+      {
+        icon: 'खु',
+        title: 'Perianal Pruritus & Itching',
+        desc: 'Persistent moisture, burning, and severe itching that worsens at night or during warm weather.',
+      },
+      {
+        icon: 'सं',
+        title: 'Pelvic Floor Heaviness',
+        desc: 'Chronic pelvic pressure, incomplete evacuation feeling, or mild sphincter laxity following childbirth.',
+      },
+    ],
+    warningTitle: 'When to seek timely medical attention',
+    warningBody:
+      'Sudden throbbing perianal pain with fever, continuous active bleeding, or painful irreducible lumps require immediate evaluation. Do not suffer in silence or rely on unverified over-the-counter ointments.',
+  },
+  grades: {
+    sectionTag: 'Clinical Spectrum',
+    sectionTitle: 'Conditions managed in the <em>Female Care Unit.</em>',
+    sectionLede:
+      'Every condition is accurately staged to select the gentlest and most effective therapy.',
+    items: [
+      {
+        badge: '01',
+        label: 'Haemorrhoids',
+        title: 'Piles (Grade I – IV)',
+        desc: 'Internal and external piles, peripartum venous engorgement, and thrombosed piles treated with conservative care, sclerotherapy, or laser.',
+        treatment: 'Dietary fiber, Matra Basti, OPD sclerotherapy, Laser Haemorrhoidoplasty',
+      },
+      {
+        badge: '02',
+        label: 'Anal Fissure',
+        title: 'Acute & Chronic Fissure',
+        desc: 'Superficial tears in the anal lining causing intense post-defecation spasm. 90%+ heal conservatively without sphincter cuts.',
+        treatment: 'Medicated Sitz bath (Avagaha), Jatyadi ghrita basti, sphincter-relaxing protocols',
+      },
+      {
+        badge: '03',
+        label: 'Anal Fistula',
+        title: 'Simple & Complex Fistula',
+        desc: 'Infected perianal tracks treated with classical Ksharsutra or FiLaC laser, ensuring zero damage to pelvic sphincters.',
+        treatment: 'Gradual Ksharsutra ligation, IFTAK, FiLaC laser closure',
+      },
+      {
+        badge: '04',
+        label: 'Pelvic & Postnatal',
+        title: 'Postnatal Anorectal Recovery',
+        desc: 'Dedicated healing protocols for episiotomy-adjacent tears, perineal laxity, and bowel dysfunctions post-delivery.',
+        treatment: 'Pelvic strengthening, Sutika Paricharya oils, classical Kashaya douching',
+      },
+    ],
+  },
+  causes: {
+    leadHeadline: 'Pregnancy, pelvic biomechanics, and hormonal shifts <em>drive female proctology conditions.</em>',
+    leadParagraphs: [
+      'Women experience unique physiological milestones—such as pregnancy, hormonal fluctuations during the luteal phase, labor strain, and menopause—that place distinct mechanical stress on pelvic floor veins and tissues.',
+      'Recognizing these distinct anatomical dynamics allows us to formulate treatment plans that protect pelvic floor integrity while delivering rapid, lasting relief.',
+    ],
+    causesList: [
+      {
+        title: 'Pregnancy & Uterine Pressure.',
+        desc: 'Increased intra-abdominal pressure and progesterone-induced venous relaxation during pregnancy.',
+      },
+      {
+        title: 'Labor & Delivery Straining.',
+        desc: 'Intense pushing during vaginal delivery can cause sudden acute fissure tears or prolapse of haemorrhoidal cushions.',
+      },
+      {
+        title: 'Chronic Postpartum Constipation.',
+        desc: 'Dehydration during lactation, iron supplements, and fear of pain leading to withholding stool and hard stools.',
+      },
+      {
+        title: 'Hormonal Fluctuations.',
+        desc: 'Progesterone slowing gut motility during premenstrual and perimenopausal phases.',
+      },
+      {
+        title: 'Pelvic Floor Muscle Tightness.',
+        desc: 'Hypertonic pelvic floor spasm preventing natural sphincter relaxation during defecation.',
+      },
+    ],
+  },
+  diagnosis: {
+    sectionTitle: 'Dignified 4-step <em>examination protocol.</em>',
+    sectionLede:
+      'We understand your hesitation. Our diagnostic process is completely private, unhurried, and conducted exclusively by female clinical staff.',
+    steps: [
+      {
+        stepNum: 'Step 01',
+        icon: 'सं',
+        title: 'Private Discussion',
+        desc: 'Detailed discussion in Dr. Swati’s private cabin. You are welcome to have a family member accompany you.',
+      },
+      {
+        stepNum: 'Step 02',
+        icon: 'प',
+        title: 'Comfortable Inspection',
+        desc: 'Gentle external visual inspection in a screened examination suite with female nursing attendance.',
+      },
+      {
+        stepNum: 'Step 03',
+        icon: 'यं',
+        title: 'Painless Proctoscopy',
+        desc: 'If required, an illuminated mini-scope with local anaesthetic gel visualises internal cushions with minimal discomfort.',
+      },
+      {
+        stepNum: 'Step 04',
+        icon: 'यो',
+        title: 'Collaborative Plan',
+        desc: 'Transparent discussion of findings, staging, and non-surgical to surgical options without any pressure.',
+      },
+    ],
+  },
+  treatments: {
+    sectionTitle: 'Tailored treatments protecting <em>dignity and sphincter tone.</em>',
+    sectionLede:
+      'From soothing herbal oils to cutting-edge diode lasers, we choose the gentlest option for your case.',
+    items: [
+      {
+        tierNum: 'Tier 1',
+        tierLabel: 'First Line',
+        title: 'Conservative Ayurvedic Care & Matra Basti',
+        suitability: 'Best suited for: Grade I piles, acute postpartum fissures, and early digestive sluggishness',
+        desc: 'Classical Jatyadi oil retention enemas (Matra Basti), herbal stool modulators, warm medicinal sitz baths (Avagaha Sweda), and pelvic relaxation guidance.',
+        facts: [
+          { label: 'Approach', value: '100% Non-invasive' },
+          { label: 'Hospital Stay', value: 'None (OPD)' },
+          { label: 'Comfort', value: 'Immediate soothing' },
+        ],
+        linkText: 'Read about Ayurvedic care',
+        linkHref: '/services/ayurveda-panchakarma/',
+      },
+      {
+        tierNum: 'Tier 2',
+        tierLabel: 'OPD Procedure',
+        modifierClass: 'treatment-card--nonsurgical',
+        title: 'Rubber Band Ligation & Sclerotherapy',
+        suitability: 'Best suited for: Bleeding Grade II piles seeking rapid resolution without hospital stay',
+        desc: 'Quick 10-minute office procedures that interrupt blood flow to prolapsing piles cushions. Performed painlessly above the dentate line with zero stitches.',
+        facts: [
+          { label: 'Duration', value: '10 – 15 min' },
+          { label: 'Recovery', value: 'Same day return' },
+          { label: 'Incision', value: 'No cuts or stitches' },
+        ],
+        linkText: 'Read about non-surgical options',
+        linkHref: '/services/non-surgical-piles-treatment/',
+      },
+      {
+        tierNum: 'Tier 3',
+        tierLabel: 'Advanced Parasurgery',
+        modifierClass: 'treatment-card--ksharsutra',
+        title: 'Classical Ksharsutra for Complex Fistula',
+        suitability: 'Best suited for: Simple & complex anal fistulas, high tracts, and recurrent infections',
+        desc: 'Gold-standard Ayurvedic parasurgical technique utilizing medicated alkaline threads to gently excise the tract while allowing simultaneously healthy granulation with near-zero recurrence.',
+        facts: [
+          { label: 'Sphincter Safety', value: '100% Preserved' },
+          { label: 'Recurrence', value: 'Near Zero' },
+          { label: 'Anesthesia', value: 'Local / Spinal' },
+        ],
+        linkText: 'Read about Ksharsutra therapy',
+        linkHref: '/services/ksharsutra/',
+      },
+      {
+        tierNum: 'Tier 3',
+        tierLabel: 'Modern Minimally Invasive',
+        modifierClass: 'treatment-card--laser',
+        title: 'Precision Diode Laser Proctology (LHP & FiLaC)',
+        suitability: 'Best suited for: Grade III/IV piles, chronic fissures, and cosmetic sphincter preservation',
+        desc: 'Advanced day-care 1470nm laser energy delivered directly to diseased venous cushions or fistula tracts without large open wounds, stitches, or prolonged dressing.',
+        facts: [
+          { label: 'Procedure Time', value: '20 – 30 min' },
+          { label: 'Discharge', value: 'Same day (4–6 hrs)' },
+          { label: 'Return to Routine', value: 'Within 48–72 hours' },
+        ],
+        linkText: 'Read about Laser Proctology',
+        linkHref: '/services/laser-proctology/',
+      },
+    ],
+  },
+  expect: {
+    sectionTitle: 'Your confidential care journey with <em>Dr. Swati.</em>',
+    sectionLede:
+      'From your first call to complete healing, every interaction is private, gentle, and respectful.',
+    steps: [
+      {
+        stepNum: '01',
+        time: 'Day 1 · First Visit',
+        title: 'Confidential Consultation & Staging',
+        desc: 'Unhurried private discussion of symptoms, dietary review, gentle physical examination, and clear explanation of findings.',
+      },
+      {
+        stepNum: '02',
+        time: 'Treatment Phase',
+        title: 'Personalized Clinical Therapy',
+        desc: 'Whether starting conservative Basti therapy or scheduling a 30-minute day-care laser procedure, Dr. Swati guides you personally.',
+      },
+      {
+        stepNum: '03',
+        time: 'Same Day / Day 2',
+        title: 'Comfortable Recovery & Discharge',
+        desc: 'Step-by-step instructions on sitz baths, dietary fiber, and hygiene routines given before returning home.',
+      },
+      {
+        stepNum: '04',
+        time: 'Weeks 1 – 4',
+        title: 'Structured Doctor Follow-Up',
+        desc: 'Review visits to verify complete mucosal healing and reinforce lifelong gut health habits.',
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: 'Will Dr. Swati conduct the examination and procedure herself?',
+      answer:
+        '<p><strong>Yes, 100%.</strong> Dr. Swati Tongale personally conducts the consultation, physical examination, proctoscopy, procedures, and all follow-up visits. Female nursing staff are always present in the examination room.</p>',
+    },
+    {
+      question: 'Can I bring my mother, sister, or husband with me?',
+      answer:
+        '<p><strong>Absolutely.</strong> Companions and family members are warmly welcome inside both the consultation cabin and the examination suite based on your personal comfort.</p>',
+    },
+    {
+      question: 'Are piles and fissures common after normal or caesarean delivery?',
+      answer:
+        '<p>Yes, postpartum piles and fissures affect over 40% of new mothers due to pelvic strain, hormonal changes, and constipation. Most cases resolve quickly with non-surgical Ayurvedic care and do not require surgery if treated early.</p>',
+    },
+    {
+      question: 'How do I book a private appointment with Dr. Swati?',
+      answer:
+        '<p>You can book an appointment by calling <strong>8208927917</strong> or through our online booking form. You can explicitly request Dr. Swati Tongale when speaking with our team.</p>',
+    },
+  ],
+  related: [
+    {
+      icon: 'उ',
+      title: 'Uttarbasti for Infertility',
+      desc: 'Classical intra-uterine therapy for tubal blocks, thin endometrium, and fertility support.',
+      linkText: 'Read about Uttarbasti',
+      href: '/services/female-care/uttarbasti-for-infertility/',
+    },
+    {
+      icon: 'आ',
+      title: 'Menstrual Disorders & PCOD',
+      desc: 'Holistic Ayurvedic hormone balancing for irregular cycles and PCOD.',
+      linkText: 'Read about PCOD care',
+      href: '/services/female-care/menstrual-disorders/',
+    },
+    {
+      icon: 'सू',
+      title: 'Postnatal Panchakarma',
+      desc: 'Classical Sutika Paricharya 45-day restorative recovery for new mothers.',
+      linkText: 'Read about Postnatal care',
+      href: '/services/female-care/postnatal-panchakarma/',
+    },
+  ],
+};
+
+export const UTTARBASTI_DETAIL: ConditionDetailData = {
+  eyebrow: 'Female Specialty Care · Fertility Protocol',
+  devanagari: 'उत्तरबस्ती',
+  titleMain: 'Uttarbasti for Infertility &',
+  titleAccent: 'Tubal Blockage',
+  subtitle: 'Classical intrauterine Panchakarma procedure by Dr. Swati Tongale in Amravati',
+  lede: 'Uttarbasti is a revered classical Ayurvedic procedure involving the sterile administration of medicated herbal oils and ghritas directly into the uterine cavity. Practiced with modern aseptic standards by Dr. Swati Tongale, it is widely utilized for tubal factor infertility, thin endometrium, recurrent IVF implantation failures, and chronic pelvic inflammatory conditions.',
+  glance: {
+    sanskrit: 'Uttarbasti (उत्तरबस्ती चिकित्सा)',
+    grades: 'Unilateral/Bilateral Tubal Block, Endometrial <7mm',
+    commonIn: 'Women facing primary or secondary infertility',
+    treatmentTier: 'Specialised Intrauterine Panchakarma',
+    recovery: 'Same-day OPD procedure (20–40 min)',
+    consultation: '30 – 45 min with modern HSG/USG review',
+  },
+  answerSummary:
+    'Uttarbasti for infertility is a specialized classical Ayurvedic Panchakarma therapy where sterile, heated medicated ghritas (such as Phala Ghrita, Kshara Taila, or Dhanwantaram Taila) are administered through the cervical canal into the uterus during the follicular phase (days 6 to 11 of the menstrual cycle). Performed by Dr. Swati Tongale, MS (Ayurveda Shalya Tantra), it acts locally to dissolve soft inflammatory tubal adhesions, enhance endometrial vascularity, and restore ovarian-uterine receptivity.',
+  symptoms: {
+    sectionTitle: 'Clinical indications where Uttarbasti is <em>most effective.</em>',
+    sectionLede:
+      'Uttarbasti is considered when modern gynaecological evaluations identify specific structural or functional pelvic barriers to conception.',
+    items: [
+      {
+        icon: 'वा',
+        title: 'Tubal Blockages (Cornual / Fimbrial)',
+        desc: 'Unilateral or bilateral fallopian tube blocks due to post-infectious inflammatory mucus plugs, pelvic spasms, or mild adhesions.',
+      },
+      {
+        icon: 'गर्',
+        title: 'Thin Endometrium (< 7mm)',
+        desc: 'Poor endometrial receptivity and inadequate endometrial thickness refractory to conventional estrogen therapy.',
+      },
+      {
+        icon: 'पु',
+        title: 'Recurrent IVF / IUI Failures',
+        desc: 'Repeated unsuccessful assisted reproduction cycles despite good embryo quality, requiring uterine micro-environment rejuvenation.',
+      },
+      {
+        icon: 'शो',
+        title: 'Chronic Pelvic Inflammatory Disease (PID)',
+        desc: 'Chronic pelvic congestion, dull lower abdominal pain, and cervical erosion compromising reproductive health.',
+      },
+      {
+        icon: 'अ',
+        title: 'Anovulatory Cycles & PCOD',
+        desc: 'Follicular growth arrest and poor oocyte quality benefiting from localized tissue nourishment (Dhatu Poshana).',
+      },
+      {
+        icon: 'अ',
+        title: 'Unexplained Infertility',
+        desc: 'Normal diagnostic reports in both partners but inability to conceive naturally over 2+ years of trying.',
+      },
+    ],
+    warningTitle: 'Important clinical prerequisites',
+    warningBody:
+      'Uttarbasti must always be preceded by proper modern diagnostic evaluation (Hysterosalpingography - HSG, Pelvic Sonography, Semen Analysis of the male partner, and routine blood/hormonal panels). Active acute pelvic infections must be treated prior to procedure initiation.',
+  },
+  grades: {
+    sectionTag: 'Protocol Phasing',
+    sectionTitle: 'Structured three-cycle <em>Uttarbasti roadmap.</em>',
+    sectionLede:
+      'A classical course is administered across consecutive menstrual cycles timed precisely to the proliferative phase.',
+    items: [
+      {
+        badge: '01',
+        label: 'Cycle 1',
+        title: 'Preparatory Deepana & Snehana',
+        desc: 'Internal metabolic purification (Agni Deepana) followed by 3–6 consecutive post-menstrual Uttarbasti sessions using specialized Sukshma oils.',
+        treatment: 'Dosha pacification, cervical clearance, and initial tubal mucosal softening',
+      },
+      {
+        badge: '02',
+        label: 'Cycle 2',
+        title: 'Active Tubal Recanalization & Endometrial Toning',
+        desc: 'Second cycle of 3–6 sessions using medicated Kshara Taila or Phala Ghrita tailored to HSG findings to reopen lumen and boost blood flow.',
+        treatment: 'Adhesion clearance, vascular enhancement, and endometrial thickening',
+      },
+      {
+        badge: '03',
+        label: 'Cycle 3',
+        title: 'Receptivity & Conception Support',
+        desc: 'Consolidation cycle focused on Garbhashaya Shodhana and Snehana, preparing optimal endometrial bed for natural conception or IVF transfer.',
+        treatment: 'Endometrial trilaminar pattern optimization and ovulation support',
+      },
+      {
+        badge: '04',
+        label: 'Review',
+        title: 'Post-Procedure HSG / USG Evaluation',
+        desc: 'Follow-up sonography or repeat HSG to clinically verify tubal patency and endometrial readiness.',
+        treatment: 'Objective verification of reproductive status and planning next steps',
+      },
+    ],
+  },
+  causes: {
+    leadHeadline: 'Restoring local micro-circulation and clearing tubal stasis <em>at the cellular level.</em>',
+    leadParagraphs: [
+      'In Ayurvedic pathology, tubal blockages and fertility barriers are primarily attributed to Apana Vayu dysfunction accompanied by Kapha-Pitta avarana (mucous and inflammatory debris).',
+      'Because the fallopian tubes and uterine cavity are highly sensitive mucosal structures, targeted local instillation of lipid-soluble medicated ghritas delivers pharmacological actives directly across the mucosal barrier without systemic drug degradation.',
+    ],
+    causesList: [
+      {
+        title: 'Kshara & Sukshma Properties.',
+        desc: 'Alkaline and penetrating herbal lipids dissolve tenacious mucous plugs and inflammatory fibrous bands within the tubal lumen.',
+      },
+      {
+        title: 'Endometrial Hyperemia.',
+        desc: 'Medicated ghritas promote local neovascularization, supporting robust secretory endometrium growth (>8mm).',
+      },
+      {
+        title: 'Antispasmodic Effect on Tubal Musculature.',
+        desc: 'Relaxes chronic smooth muscle spasm in the cornual and isthmic regions of the fallopian tubes.',
+      },
+      {
+        title: 'Neutralization of Cervical Hostility.',
+        desc: 'Corrects acidic, hostile cervical mucus, enhancing sperm motility and longevity.',
+      },
+    ],
+  },
+  diagnosis: {
+    sectionTitle: 'Pre-procedure evaluation and <em>safety standards.</em>',
+    sectionLede:
+      'We integrate classical Ayurvedic parameters with modern gynaecological imaging to ensure safe, effective therapy.',
+    steps: [
+      {
+        stepNum: 'Step 01',
+        icon: 'रि',
+        title: 'Review of HSG & Sonography',
+        desc: 'Detailed examination of your HSG films, follicular studies, AMH levels, and husband’s semen analysis.',
+      },
+      {
+        stepNum: 'Step 02',
+        icon: 'क',
+        title: 'Pelvic Examination & Pap Smear',
+        desc: 'Gentle physical examination to rule out acute vaginitis, cervicitis, or active infection.',
+      },
+      {
+        stepNum: 'Step 03',
+        icon: 'दि',
+        title: 'Cycle Scheduling',
+        desc: 'Precise scheduling starting on day 6, 7, or 8 immediately following complete cessation of menses (Ritukala).',
+      },
+      {
+        stepNum: 'Step 04',
+        icon: 'श',
+        title: 'Aseptic In-Clinic Administration',
+        desc: 'Performed in our dedicated, sterile minor OT using autoclaved instruments and single-use cannula.',
+      },
+    ],
+  },
+  treatments: {
+    sectionTitle: 'Integrated fertility protocol <em>customized for your case.</em>',
+    sectionLede:
+      'Uttarbasti is paired with internal rasayanas and lifestyle guidance for optimal reproductive outcomes.',
+    items: [
+      {
+        tierNum: 'Tier 1',
+        tierLabel: 'Primary Therapy',
+        title: 'Classical Intrauterine Uttarbasti',
+        suitability: 'Best suited for: Tubal blockage, thin endometrium, and unexplained infertility',
+        desc: 'Administration of 3 to 5 ml of sterile Phala Ghrita, Kshara Taila, or Kalyanaka Ghrita under gentle aseptic intrauterine technique. Painless, requiring 20 minutes rest before walking home.',
+        facts: [
+          { label: 'Session Time', value: '20 – 30 min' },
+          { label: 'Cycle Timing', value: 'Days 6 – 11 of cycle' },
+          { label: 'Course', value: '3 – 6 days per cycle' },
+        ],
+        linkText: 'Read about Uttarbasti technique',
+        linkHref: '/services/female-care/uttarbasti-for-infertility/',
+      },
+      {
+        tierNum: 'Tier 2',
+        tierLabel: 'Metabolic Support',
+        title: 'Ayurvedic Internal Rasayana & Ovarian Tonics',
+        suitability: 'Best suited for: Hormonal imbalance, low AMH, PCOD, and egg quality improvement',
+        desc: 'Targeted classical herbal formulations including Shatavari Ghrita, Ashwagandha, Pushpadhanwa Rasa, and Lodhrasava to balance the hypothalamic-pituitary-ovarian axis.',
+        facts: [
+          { label: 'Duration', value: '3 – 6 months' },
+          { label: 'Effect', value: 'Regulates ovulation' },
+          { label: 'Safety', value: 'Non-hormonal herbs' },
+        ],
+        linkText: 'Read about PCOD & hormonal care',
+        linkHref: '/services/female-care/menstrual-disorders/',
+      },
+      {
+        tierNum: 'Tier 3',
+        tierLabel: 'Systemic Detox',
+        modifierClass: 'treatment-card--ksharsutra',
+        title: 'Systemic Panchakarma (Virechana & Matra Basti)',
+        suitability: 'Best suited for: Patients with high BMI, chronic metabolic toxins (Ama), or PCOD',
+        desc: 'Full-body therapeutic purgation (Virechana) or specialized enema cycles (Yoga Basti) performed before starting Uttarbasti to eliminate systemic metabolic congestion.',
+        facts: [
+          { label: 'Timing', value: 'Prior to Uttarbasti cycle' },
+          { label: 'Benefit', value: 'Boosts tissue absorption' },
+          { label: 'Supervision', value: 'Dr. Swati lead' },
+        ],
+        linkText: 'Read about Panchakarma Unit',
+        linkHref: '/services/panchakarma/',
+      },
+    ],
+  },
+  expect: {
+    sectionTitle: 'What to expect during your <em>Uttarbasti cycle.</em>',
+    sectionLede:
+      'A serene, comfortable experience designed to make your journey toward parenthood hopeful and stress-free.',
+    steps: [
+      {
+        stepNum: '01',
+        time: 'Day 1 of Period',
+        title: 'Notify the Hospital Clinic',
+        desc: 'Inform our team on Day 1 of your menses so your 3 to 6 procedure slots can be scheduled from Day 6 onwards.',
+      },
+      {
+        stepNum: '02',
+        time: 'Days 6 – 10 · Procedure',
+        title: 'Daily Intrauterine Instillation',
+        desc: 'Arrive at the clinic. Gentle abdominal warmth (Swedana) is applied, followed by 5-minute sterile instillation. Rest for 20 minutes.',
+      },
+      {
+        stepNum: '03',
+        time: 'Post-Procedure',
+        title: 'Resume Normal Day Routine',
+        desc: 'Walk out comfortably and continue regular domestic or work activities with simple dietary guidelines.',
+      },
+      {
+        stepNum: '04',
+        time: 'Post 3 Cycles',
+        title: 'Repeat Diagnostic Verification',
+        desc: 'Sonography to measure endometrial lining or repeat HSG to confirm tubal reopening.',
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: 'Is Uttarbasti painful?',
+      answer:
+        '<p><strong>No, Uttarbasti is generally painless.</strong> It feels similar to a routine gynaecological swab or mild menstrual fullness. No general anaesthesia is needed, and patients walk home immediately after 20 minutes of rest.</p>',
+    },
+    {
+      question: 'How successful is Uttarbasti for tubal blockages?',
+      answer:
+        '<p>Clinical studies and our hospital data show a <strong>recanalization success rate of 65% to 80%</strong> for corneal and mid-tubal inflammatory blocks after 2 to 3 consecutive cycles. Severe hydrosalpinx or extensive dense pelvic adhesions are evaluated honestly for surgical or IVF referral.</p>',
+    },
+    {
+      question: 'Can Uttarbasti be combined with IVF treatment?',
+      answer:
+        '<p>Yes. Many patients take a 2-cycle course of Uttarbasti prior to frozen embryo transfer (FET) to improve thin, unresponsive endometrium and optimize uterine blood flow.</p>',
+    },
+    {
+      question: 'How many sessions are in one course?',
+      answer:
+        '<p>A standard course consists of 3 to 6 consecutive days per menstrual cycle, repeated across 2 to 3 menstrual cycles depending on the severity of the tubal block or endometrial thickness.</p>',
+    },
+  ],
+  related: [
+    {
+      icon: 'महि',
+      title: 'Female Proctology',
+      desc: 'Private piles, fissure, and fistula surgical care with Dr. Swati Tongale.',
+      linkText: 'Read about Female Proctology',
+      href: '/services/female-care/female-proctology/',
+    },
+    {
+      icon: 'ग',
+      title: 'Masanumasik Garbhsanskara',
+      desc: 'Month-by-month Ayurvedic antenatal care for healthy pregnancy and baby.',
+      linkText: 'Read about Garbhsanskara',
+      href: '/services/female-care/garbhasanskar-antenatal-care/',
+    },
+    {
+      icon: 'आ',
+      title: 'Menstrual Disorders & PCOD',
+      desc: 'Root-cause Ayurvedic hormone balancing and cycle regulation.',
+      linkText: 'Read about PCOD care',
+      href: '/services/female-care/menstrual-disorders/',
+    },
+  ],
+};
+
+export const GARBHSANSKARA_DETAIL: ConditionDetailData = {
+  eyebrow: 'Female Specialty Care · Antenatal Program',
+  devanagari: 'गर्भसंस्कार',
+  titleMain: 'Masanumasik Garbhsanskara &',
+  titleAccent: 'Pregnancy Care',
+  subtitle: 'Month-by-month classical Ayurvedic antenatal care (Masanumasik Paricharya) in Amravati',
+  lede: 'Garbhsanskara is the classical Ayurvedic science of nurturing both mother and developing baby throughout the 9 months of pregnancy. Led by Dr. Swati Tongale with coordinated prenatal yoga guidance, this program combines month-specific herbal nutrition, dietary protocols (Ahara), mental well-being (Vihara), and natural labor preparation.',
+  glance: {
+    sanskrit: 'Masanumasik Garbhsanskara (मासानुमासिक गर्भसंस्कार)',
+    grades: 'Trimester 1, 2, and 3 Month-by-Month Care',
+    commonIn: 'Expectant mothers from conception to delivery',
+    treatmentTier: 'Antenatal Nutrition, Herbs & Prenatal Yoga',
+    recovery: 'Continuous 9-month pregnancy support',
+    consultation: 'Monthly dedicated clinical sessions',
+  },
+  answerSummary:
+    'Masanumasik Garbhsanskara at Shri Manmukund Hospital is a structured 9-month Ayurvedic antenatal care protocol grounded in classical Charaka and Sushruta Samhita texts. Under Dr. Swati Tongale’s clinical guidance, expectant mothers receive month-specific herbal formulations, custom satvic nutritional plans, fetal sensory stimulation techniques, and coordinated prenatal yoga to promote a healthy pregnancy, optimal fetal growth (Supraja Janana), and natural, uncomplicated childbirth.',
+  symptoms: {
+    sectionTitle: 'Supporting you through every <em>trimester milestone.</em>',
+    sectionLede:
+      'Garbhsanskara provides proactive nutritional and therapeutic care to manage common pregnancy discomforts and nurture fetal vitality.',
+    items: [
+      {
+        icon: 'उ',
+        title: 'First Trimester Morning Sickness',
+        desc: 'Relief from nausea, vomiting, hyperacidity, and metallic taste using gentle classical herbal combinations (Drakshadi, Madiphala).',
+      },
+      {
+        icon: 'वृ',
+        title: 'Fetal Organogenesis & Growth',
+        desc: 'Month-specific micro-nutrients supporting rapid brain, heart, spine, and sensory organ development during months 1 to 4.',
+      },
+      {
+        icon: 'र',
+        title: 'Gestational Anemia & Fatigue',
+        desc: 'Natural bioavailable iron and calcium tonics (Dhatri Lauha, Praval Pishti) supporting optimal maternal hemoglobin levels.',
+      },
+      {
+        icon: 'सू',
+        title: 'Backache & Pelvic Strain',
+        desc: 'Relief from sacroiliac joint pain, muscle cramps, and spinal lordosis through safe herbal oils and customized prenatal yoga.',
+      },
+      {
+        icon: 'शां',
+        title: 'Maternal Stress & Anxiety',
+        desc: 'Mindfulness practices, Vedic chants, and Garbha Samvada to maintain serene maternal cortisol levels.',
+      },
+      {
+        icon: 'प्र',
+        title: 'Natural Delivery Preparation',
+        desc: 'Third-trimester perineal oiling (Pichu dharana) and pelvic toning to encourage smooth cervical dilation and normal labor.',
+      },
+    ],
+    warningTitle: 'Full obstetric coordination',
+    warningBody:
+      'Garbhsanskara is an integrative wellness protocol that complements standard modern obstetric care. Routine prenatal sonography (NT scan, Anomaly scan, Growth scan), routine blood tests, and obstetrician visits proceed as scheduled.',
+  },
+  grades: {
+    sectionTag: 'Trimester Breakdown',
+    sectionTitle: 'Nine-month journey of <em>Masanumasik Paricharya.</em>',
+    sectionLede:
+      'Each month features tailored Ayurvedic nutrition and herbs aligning with embryonic growth stages.',
+    items: [
+      {
+        badge: 'M1–3',
+        label: 'First Trimester',
+        title: 'Months 1 to 3: Implantation & Organogenesis',
+        desc: 'Focus on uterine stabilization, preventing early spotting, satvic cold foods (sweet milk, ghee, madhu), and nausea relief.',
+        treatment: 'Garbhadharana Rasayanas, cold-potency herbal tonics, gentle resting',
+      },
+      {
+        badge: 'M4–6',
+        label: 'Second Trimester',
+        title: 'Months 4 to 6: Muscle, Heart & Bone Formation',
+        desc: 'Enhanced protein and calcium nutrition (Shashtika Shali, milk, butter), brain tonics (Brahmi, Medhya herbs), and active prenatal yoga.',
+        treatment: 'Fetal sensory stimulation (Garbha Samvada), iron-calcium supplementation',
+      },
+      {
+        badge: 'M7–9',
+        label: 'Third Trimester',
+        title: 'Months 7 to 9: Vitality & Normal Labor Preparation',
+        desc: 'Pacification of Vata dosha, Sukha Prasava ghee preparations, medicated oil vaginal swabs (Anuvasana Basti / Pichu) from week 36.',
+        treatment: 'Pelvic elasticity exercises, perineal preparation for normal delivery',
+      },
+      {
+        badge: 'Post',
+        label: 'Postpartum',
+        title: 'Transition to Sutika Paricharya',
+        desc: 'Smooth handover to traditional postnatal recovery, lactation support, and pelvic restorative care.',
+        treatment: 'Lactation enhancement, abdominal binding, restorative Abhyanga',
+      },
+    ],
+  },
+  causes: {
+    leadHeadline: 'The four classical pillars of <em>Garbha Sambhava Samagri.</em>',
+    leadParagraphs: [
+      'Ayurveda compares fetal development to the germination of a seed, requiring four vital factors: Ritu (fertile timing), Kshetra (healthy maternal uterus), Ambu (adequate nourishment/amniotic fluid), and Beeja (healthy ovum and sperm).',
+      'Masanumasik Garbhsanskara systematically enriches maternal Dhatus (tissues) so that the growing child receives balanced physical, cognitive, and psychological nourishment.',
+    ],
+    causesList: [
+      {
+        title: 'Ahara (Month-by-Month Nutrition).',
+        desc: 'Specific seasonal diets providing natural vitamins, iron, and calcium suited to each gestational stage.',
+      },
+      {
+        title: 'Vihara (Mindful Lifestyle).',
+        desc: 'Adequate rest, posture correction, avoiding heavy physical strain, and soothing sleep patterns.',
+      },
+      {
+        title: 'Manovritti (Psychological Harmony).',
+        desc: 'Positive auditory stimulation, classical music, uplifting literature, and calm maternal thoughts.',
+      },
+      {
+        title: 'Yoga & Pranayama.',
+        desc: 'Trimester-safe pelvic opening asanas and gentle breathing exercises under certified guidance.',
+      },
+    ],
+  },
+  diagnosis: {
+    sectionTitle: 'Monthly consultation & <em>monitoring roadmap.</em>',
+    sectionLede:
+      'Structured monthly visits with Dr. Swati ensure steady maternal health and fetal vitality.',
+    steps: [
+      {
+        stepNum: 'Step 01',
+        icon: 'प',
+        title: 'Monthly Clinical Assessment',
+        desc: 'Weight monitoring, blood pressure check, abdominal examination, and review of obstetric sonography reports.',
+      },
+      {
+        stepNum: 'Step 02',
+        icon: 'औ',
+        title: 'Month-Specific Herbal Prescription',
+        desc: 'Dispensing safe, classical Ayurvedic medicines corresponding to the exact gestational week.',
+      },
+      {
+        stepNum: 'Step 03',
+        icon: 'यो',
+        title: 'Prenatal Yoga & Asana Guidance',
+        desc: 'Customized prenatal stretching and pelvic strengthening guidance adapted to your pregnancy trimester.',
+      },
+      {
+        stepNum: 'Step 04',
+        icon: 'सं',
+        title: 'Couples Counseling & Delivery Prep',
+        desc: 'Guidance for both parents on emotional bonding, birth preparedness, and labor breathing techniques.',
+      },
+    ],
+  },
+  treatments: {
+    sectionTitle: 'Core components of our <em>Garbhsanskara programme.</em>',
+    sectionLede:
+      'A complete holistic package designed for the health of mother and child.',
+    items: [
+      {
+        tierNum: 'Tier 1',
+        tierLabel: 'Nutritional Care',
+        title: 'Masanumasik Herbal & Satvic Nutrition',
+        suitability: 'Best suited for: Every pregnant woman seeking natural wellness and vitality',
+        desc: 'Prescription of traditional month-by-month herbs (such as Yashtimadhu, Shatavari, Bala, Gokshura, Sariva) combined with tailored high-nutrition dietary plans.',
+        facts: [
+          { label: 'Frequency', value: 'Daily home regimen' },
+          { label: 'Safety', value: 'Classical, 100% natural' },
+          { label: 'Review', value: 'Monthly OPD checkup' },
+        ],
+        linkText: 'Read about antenatal care',
+        linkHref: '/services/female-care/garbhasanskar-antenatal-care/',
+      },
+      {
+        tierNum: 'Tier 2',
+        tierLabel: 'Physical Prep',
+        title: 'Certified Prenatal Yoga & Pranayama',
+        suitability: 'Best suited for: Managing back pain, maintaining pelvic flexibility, and preparing for natural birth',
+        desc: 'Supervised gentle asanas (Baddha Konasana, Marjariasana, Tadasana) and calming Pranayama that expand lung capacity and relax pelvic floor muscles.',
+        facts: [
+          { label: 'Format', value: 'Guided weekly sessions' },
+          { label: 'Trimester', value: 'Adapted 1st to 3rd' },
+          { label: 'Focus', value: 'Pelvic opening & calm' },
+        ],
+        linkText: 'Read about yoga guidance',
+        linkHref: '/dr-swati/',
+      },
+      {
+        tierNum: 'Tier 3',
+        tierLabel: 'Labor Preparation',
+        modifierClass: 'treatment-card--ksharsutra',
+        title: 'Ninth Month Sukha Prasava Protocol',
+        suitability: 'Best suited for: Expectant mothers entering week 36 aiming for normal, smooth delivery',
+        desc: 'Classical medicated oil vaginal tamponade (Yoni Pichu) and gentle Anuvasana Basti to lubricate the birth canal, soften the cervix, and normalize downward Apana Vayu.',
+        facts: [
+          { label: 'Timing', value: 'Weeks 36 to 40' },
+          { label: 'Benefit', value: 'Shortens active labor' },
+          { label: 'Administration', value: 'Clinical guidance' },
+        ],
+        linkText: 'Read about postnatal recovery',
+        linkHref: '/services/female-care/postnatal-panchakarma/',
+      },
+    ],
+  },
+  expect: {
+    sectionTitle: 'A calming 9-month pregnancy <em>support circle.</em>',
+    sectionLede:
+      'We stand beside you at every step of your journey to welcoming your child.',
+    steps: [
+      {
+        stepNum: '01',
+        time: 'Trimester 1',
+        title: 'Enrollment & Conception Care',
+        desc: 'Initial health review, gentle morning sickness control, and foundational embryonic nourishment.',
+      },
+      {
+        stepNum: '02',
+        time: 'Trimester 2',
+        title: 'Vitality & Prenatal Yoga',
+        desc: 'Active fetal bonding, mental harmony practices, and steady musculoskeletal strengthening.',
+      },
+      {
+        stepNum: '03',
+        time: 'Trimester 3',
+        title: 'Labor Readiness & Pichu Protocol',
+        desc: 'Perineal softening therapies, birth plan discussions, and calming breathing techniques.',
+      },
+      {
+        stepNum: '04',
+        time: 'Post-Delivery',
+        title: 'Postnatal Recovery & Baby Care',
+        desc: 'Traditional 45-day Sutika Paricharya and baby massage (Abhyanga) guidance.',
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: 'When should I start the Garbhsanskara programme?',
+      answer:
+        '<p>You can join the programme at <strong>any time during your pregnancy</strong>. Starting in the first trimester (weeks 4 to 8) allows you to gain the maximum benefits from the month-by-month nutritional regimen, but mothers joining in the 2nd or 3rd trimester also benefit greatly from targeted prenatal care.</p>',
+    },
+    {
+      question: 'Is Garbhsanskara safe alongside modern obstetric medications?',
+      answer:
+        '<p><strong>Yes, completely safe.</strong> All Ayurvedic preparations used in Masanumasik Garbhsanskara are time-tested, mild, food-grade rasayanas and safe herbs. We coordinate with your obstetrician and do not stop any essential obstetric vitamins or supplements.</p>',
+    },
+    {
+      question: 'Can Garbhsanskara guarantee a normal delivery?',
+      answer:
+        '<p>While no medical discipline can guarantee a normal delivery (as emergencies like fetal distress or cord around the neck may require caesarean section), Garbhsanskara significantly improves maternal stamina, pelvic flexibility, and cervical softening, which greatly increases the likelihood of a smooth, uncomplicated vaginal birth.</p>',
+    },
+    {
+      question: 'How do I consult Dr. Swati for Garbhsanskara?',
+      answer:
+        '<p>You can book an appointment by calling <strong>8208927917</strong> or filling out our online appointment form to begin your monthly antenatal visits.</p>',
+    },
+  ],
+  related: [
+    {
+      icon: 'सू',
+      title: 'Postnatal Panchakarma',
+      desc: 'Classical Sutika Paricharya 45-day restorative recovery for new mothers.',
+      linkText: 'Read about Postnatal care',
+      href: '/services/female-care/postnatal-panchakarma/',
+    },
+    {
+      icon: 'उ',
+      title: 'Uttarbasti for Infertility',
+      desc: 'Classical intra-uterine therapy for tubal blocks, thin endometrium, and fertility support.',
+      linkText: 'Read about Uttarbasti',
+      href: '/services/female-care/uttarbasti-for-infertility/',
+    },
+    {
+      icon: 'महि',
+      title: 'Female Proctology',
+      desc: 'Private piles, fissure, and fistula surgical care with Dr. Swati Tongale.',
+      linkText: 'Read about Female Proctology',
+      href: '/services/female-care/female-proctology/',
+    },
+  ],
+};
+
+export const MENSTRUAL_PCOD_DETAIL: ConditionDetailData = {
+  eyebrow: 'Female Specialty Care · Gynaecology Unit',
+  devanagari: 'आर्तव विकार',
+  titleMain: 'PCOD & Menstrual Disorders:',
+  titleAccent: 'Ayurvedic Care',
+  subtitle: 'Root-cause metabolic correction and cycle regulation by Dr. Swati Tongale',
+  lede: 'Polycystic Ovarian Disease (PCOD/PCOS), irregular periods, painful cramps (dysmenorrhea), and heavy bleeding are metabolic and hormonal disorders that require comprehensive root-cause treatment rather than temporary hormonal suppression. Dr. Swati Tongale provides evidence-based Ayurvedic management combining herbal formulations, dietary correction, and Panchakarma therapies.',
+  glance: {
+    sanskrit: 'Artava Vikara & Granthi (आर्तव विकार)',
+    grades: 'PCOD, Oligomenorrhea, Dysmenorrhea, Menorrhagia',
+    commonIn: 'Women aged 15 – 45 years',
+    treatmentTier: 'Metabolic Detox, Herbal Regimens & Basti',
+    recovery: 'Cycle regulation in 3 to 6 months',
+    consultation: '30 – 45 min with hormonal & USG review',
+  },
+  answerSummary:
+    'Menstrual disorders and PCOD at Shri Manmukund Hospital are treated through classical Ayurvedic protocols addressing insulin resistance, metabolic sluggishness (Manda Agni), and doshic imbalances (Vata-Kapha vitiation). Led by Dr. Swati Tongale, treatment focuses on restoring natural spontaneous ovulation, dissolving ovarian follicular cysts, balancing androgen levels, and establishing regular 28-to-30-day menstrual cycles without synthetic hormone dependence.',
+  symptoms: {
+    sectionTitle: 'Signs of hormonal and metabolic <em>imbalance.</em>',
+    sectionLede:
+      'If you suffer from irregular periods, painful cramps, or skin changes, our holistic evaluation uncovers the root cause.',
+    items: [
+      {
+        icon: 'का',
+        title: 'Irregular or Delayed Periods',
+        desc: 'Cycles spaced 40 to 90+ days apart (oligomenorrhea) or periods that occur only with withdrawal pills.',
+      },
+      {
+        icon: 'दु',
+        title: 'Severe Painful Cramps (Dysmenorrhea)',
+        desc: 'Debilitating lower abdominal cramps, backache, and nausea during the first 48 hours of menstruation (Kashtartava).',
+      },
+      {
+        icon: 'र',
+        title: 'Heavy or Prolonged Bleeding',
+        desc: 'Excessive flow lasting over 7 days with large clots (Asrigdara/Menorrhagia) causing weakness and anemia.',
+      },
+      {
+        icon: 'भा',
+        title: 'Unexplained Weight Gain & Cravings',
+        desc: 'Stubborn weight gain, difficulty losing weight around the abdomen, and intense sugar cravings due to insulin resistance.',
+      },
+      {
+        icon: 'के',
+        title: 'Acne, Facial Hair & Hair Thinning',
+        desc: 'Signs of hyperandrogenism including cystic jawline acne, facial hirsutism, and male-pattern scalp hair fall.',
+      },
+      {
+        icon: 'म',
+        title: 'Mood Swings & Fatigue',
+        desc: 'Premenstrual dysphoria, chronic daytime fatigue, brain fog, and severe anxiety before menstruation.',
+      },
+    ],
+    warningTitle: 'When to seek specialized gynaecological review',
+    warningBody:
+      'Sudden heavy continuous bleeding soaking a pad every hour, severe acute pelvic pain, or periods absent for more than 3 consecutive months warrant prompt clinical evaluation and pelvic sonography.',
+  },
+  grades: {
+    sectionTag: 'Condition Spectrum',
+    sectionTitle: 'Menstrual conditions treated in our <em>Female Unit.</em>',
+    sectionLede:
+      'Accurate diagnostic differentiation between metabolic, hormonal, and structural factors guides therapy.',
+    items: [
+      {
+        badge: '01',
+        label: 'Metabolic',
+        title: 'PCOD / PCOS (Granthi Bhuta Artava)',
+        desc: 'Multiple immature follicles in ovaries with insulin resistance, androgen excess, and anovulation.',
+        treatment: 'Metabolic stimulants (Kanchanar, Varunadi), Agni Deepana, dietary carb reduction',
+      },
+      {
+        badge: '02',
+        label: 'Functional',
+        title: 'Painful Periods (Kashtartava / Dysmenorrhea)',
+        desc: 'Vata-induced uterine muscle spasm and pelvic congestion causing debilitating monthly pain.',
+        treatment: 'Matra Basti with Dhanwantaram oil, Shatapushpa, Dashamoola Kashaya',
+      },
+      {
+        badge: '03',
+        label: 'Bleeding',
+        title: 'Heavy Bleeding (Raktapradara / Menorrhagia)',
+        desc: 'Pitta-vitiated excessive blood flow, endometrial hyperplasia, or hormonal imbalance.',
+        treatment: 'Hemostatic Ayurvedic herbs (Lodhra, Ashoka, Pushyanuga Churna), cooling diet',
+      },
+      {
+        badge: '04',
+        label: 'Structural',
+        title: 'Uterine Fibroids & Adenomyosis (Select Cases)',
+        desc: 'Benign myometrial growths causing pelvic fullness and pain, managed conservatively where surgery is not immediately indicated.',
+        treatment: 'Lekhana Ayurvedic therapies, Basti cycles, and gynaecological monitoring',
+      },
+    ],
+  },
+  causes: {
+    leadHeadline: 'Restoring Agni (Metabolism) and clearing <em>Kapha-Vata blockage.</em>',
+    leadParagraphs: [
+      'In Ayurveda, the menstrual cycle (Artava Chakra) is governed by Vata (movement and rhythm) and Pitta (transformation and bleeding), while ovarian structure is supported by Kapha.',
+      'When sedentary lifestyle, refined carbohydrates, and chronic stress impair digestive fire (Manda Agni), toxins (Ama) accumulate in the Artavavaha Srotas (reproductive channels), preventing normal follicle maturation.',
+    ],
+    causesList: [
+      {
+        title: 'Insulin Resistance & High Glycemic Diet.',
+        desc: 'Refined sugar, fast food, and excess carbohydrates spike insulin, triggering ovarian overproduction of androgens.',
+      },
+      {
+        title: 'Chronic Psychological Stress.',
+        desc: 'Elevated cortisol disrupts the hypothalamic-pituitary-ovarian axis, suppressing LH surge and ovulation.',
+      },
+      {
+        title: 'Sedentary Habits & Lack of Movement.',
+        desc: 'Slows pelvic lymphatic circulation and metabolic expenditure, aggravating Kapha dosha.',
+      },
+      {
+        title: 'Thyroid & Hormonal Crosstalk.',
+        desc: 'Hypothyroidism and elevated prolactin frequently coexist with menstrual irregularity.',
+      },
+    ],
+  },
+  diagnosis: {
+    sectionTitle: 'Comprehensive 4-step <em>diagnostic protocol.</em>',
+    sectionLede:
+      'We combine modern hormonal blood panels and pelvic ultrasound with classical pulse and constitution analysis.',
+    steps: [
+      {
+        stepNum: 'Step 01',
+        icon: 'इ',
+        title: 'Detailed Menstrual & Lifestyle History',
+        desc: 'Detailed discussion of cycle length, bleeding duration, pain severity, dietary habits, and stress patterns.',
+      },
+      {
+        stepNum: 'Step 02',
+        icon: 'र',
+        title: 'Hormonal & Blood Investigation',
+        desc: 'Review of LH/FSH ratio, AMH, Thyroid (TSH), Fasting Insulin, and CBC to pinpoint exact endocrine imbalances.',
+      },
+      {
+        stepNum: 'Step 03',
+        icon: 'य',
+        title: 'Pelvic Sonography (USG)',
+        desc: 'Evaluation of ovarian morphology (polycystic appearance), ovarian volume, and endometrial thickness.',
+      },
+      {
+        stepNum: 'Step 04',
+        icon: 'य',
+        title: 'Custom Treatment Plan',
+        desc: 'Formulation of an individual herbal, dietary, and Panchakarma protocol with clear 3-to-6-month milestones.',
+      },
+    ],
+  },
+  treatments: {
+    sectionTitle: 'Targeted Ayurvedic therapies for <em>hormonal harmony.</em>',
+    sectionLede:
+      'Restoring your body’s natural rhythm through sustainable, natural, non-hormonal solutions.',
+    items: [
+      {
+        tierNum: 'Tier 1',
+        tierLabel: 'Herbal Formulations',
+        title: 'Ovarian Stimulating & Anti-Cystic Formulations',
+        suitability: 'Best suited for: PCOD, irregular cycles, and mild hormonal dysregulation',
+        desc: 'Targeted classical medicines (Kanchanar Guggulu, Varunadi Kashaya, Latakaranj, Pushpadhanwa Rasa, Shatapushpa) that shrink ovarian cysts and trigger natural ovulation.',
+        facts: [
+          { label: 'Form', value: 'Tablets, Kashayas & Ghee' },
+          { label: 'Duration', value: '3 – 6 months' },
+          { label: 'Effect', value: 'Natural ovulation' },
+        ],
+        linkText: 'Read about PCOD care',
+        linkHref: '/services/female-care/infertility-and-pcod/',
+      },
+      {
+        tierNum: 'Tier 2',
+        tierLabel: 'Panchakarma',
+        modifierClass: 'treatment-card--ksharsutra',
+        title: 'Matra Basti & Virechana Therapy',
+        suitability: 'Best suited for: Severe dysmenorrhea, metabolic stagnation, and stubborn PCOD',
+        desc: 'Targeted rectal administration of medicated Dhanwantaram or Sahacharadi oils (Matra Basti) to pacify Apana Vata, combined with seasonal therapeutic purgation (Virechana) to clear liver metabolic congestion.',
+        facts: [
+          { label: 'Procedure', value: 'Outpatient (OPD)' },
+          { label: 'Comfort', value: 'Painless, rapid relief' },
+          { label: 'Impact', value: 'Regulates pelvic Vata' },
+        ],
+        linkText: 'Read about Panchakarma Unit',
+        linkHref: '/services/panchakarma/',
+      },
+      {
+        tierNum: 'Tier 3',
+        tierLabel: 'Nutritional Medicine',
+        title: 'Insulin-Sensitizing Diet & Pathya Protocol',
+        suitability: 'Best suited for: Weight management, insulin resistance, and long-term sustainability',
+        desc: 'Personalized meal plans rich in fiber, low glycemic index foods, seeds cycling, and stress-reduction routines that keep hormonal balance permanent.',
+        facts: [
+          { label: 'Guidance', value: 'Doctor-guided charts' },
+          { label: 'Approach', value: 'No starvation diets' },
+          { label: 'Outcome', value: 'Sustained vitality' },
+        ],
+        linkText: 'Read about Dr. Swati',
+        linkHref: '/dr-swati/',
+      },
+    ],
+  },
+  expect: {
+    sectionTitle: 'Your path to regular, <em>pain-free cycles.</em>',
+    sectionLede:
+      'A structured 3 to 6-month journey with observable improvements at every menstrual cycle.',
+    steps: [
+      {
+        stepNum: '01',
+        time: 'Month 1 · Kickoff',
+        title: 'Metabolic Reset & Digestion Correction',
+        desc: 'Relief from bloating, digestive sluggishness, and initial cycle initiation using Agni-enhancing herbs.',
+      },
+      {
+        stepNum: '02',
+        time: 'Months 2 – 3',
+        title: 'Pain Relief & Ovulation Resumption',
+        desc: 'Noticeable reduction in dysmenorrhea cramps and spontaneous natural menstrual bleed without pills.',
+      },
+      {
+        stepNum: '03',
+        time: 'Months 4 – 6',
+        title: 'Cycle Regularization & Cyst Shrinkage',
+        desc: 'Consistent 28–32 day cycles established; repeat sonography shows reduction in ovarian cyst clusters.',
+      },
+      {
+        stepNum: '04',
+        time: 'Long Term',
+        title: 'Maintenance & Metabolic Freedom',
+        desc: 'Tapering of Ayurvedic medications while maintaining lifestyle habits for permanent health.',
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: 'Can PCOD be cured permanently with Ayurveda?',
+      answer:
+        '<p>PCOD is a metabolic tendency. With structured Ayurvedic treatment, dietary correction, and lifestyle adjustments, you can <strong>completely reverse symptoms, shrink ovarian cysts, achieve regular natural periods, and conceive naturally</strong> without needing lifelong birth control or hormone pills.</p>',
+    },
+    {
+      question: 'Will I need to take birth control pills while on Ayurvedic treatment?',
+      answer:
+        '<p>No. Our goal is to stimulate your ovaries to produce natural estrogen and progesterone on their own. We systematically wean patients off artificial hormone withdrawal pills under medical supervision.</p>',
+    },
+    {
+      question: 'How long does it take to see results for irregular periods?',
+      answer:
+        '<p>Most patients experience noticeable improvements in energy, bloating, and cramp reduction within the first 30 days. Regularization of spontaneous menstrual cycles typically takes <strong>3 to 6 months</strong> of disciplined therapy.</p>',
+    },
+    {
+      question: 'How do I book an appointment with Dr. Swati?',
+      answer:
+        '<p>Call <strong>8208927917</strong> or use our online appointment form. Walk-ins during OPD hours (2:30 PM–4:30 PM & 6:00 PM–8:00 PM Mon-Sat) are also welcome.</p>',
+    },
+  ],
+  related: [
+    {
+      icon: 'उ',
+      title: 'Uttarbasti for Infertility',
+      desc: 'Classical intra-uterine therapy for tubal blocks, thin endometrium, and fertility support.',
+      linkText: 'Read about Uttarbasti',
+      href: '/services/female-care/uttarbasti-for-infertility/',
+    },
+    {
+      icon: 'महि',
+      title: 'Female Proctology',
+      desc: 'Private piles, fissure, and fistula surgical care with Dr. Swati Tongale.',
+      linkText: 'Read about Female Proctology',
+      href: '/services/female-care/female-proctology/',
+    },
+    {
+      icon: 'ग',
+      title: 'Masanumasik Garbhsanskara',
+      desc: 'Month-by-month Ayurvedic antenatal care for healthy pregnancy and baby.',
+      linkText: 'Read about Garbhsanskara',
+      href: '/services/female-care/garbhasanskar-antenatal-care/',
+    },
+  ],
+};
+
+export const POSTNATAL_CARE_DETAIL: ConditionDetailData = {
+  eyebrow: 'Female Specialty Care · Postnatal Unit',
+  devanagari: 'सूतिका परिचर्या',
+  titleMain: 'Postnatal Panchakarma &',
+  titleAccent: 'Sutika Paricharya',
+  subtitle: 'Classical 45-day traditional Ayurvedic recovery and rejuvenation for new mothers in Amravati',
+  lede: 'Childbirth is a profound physiological transformation that demands dedicated restorative care. Sutika Paricharya is the time-honored classical Ayurvedic science of postnatal rehabilitation. Under Dr. Swati Tongale’s clinical guidance, new mothers receive structured 45-day restorative therapy combining medicated Abhyanga, pelvic toning, uterine involution herbs, and lactation enhancement.',
+  glance: {
+    sanskrit: 'Sutika Paricharya (सूतिका परिचर्या)',
+    grades: 'Normal Vaginal & Caesarean Delivery Protocols',
+    commonIn: 'New mothers from Day 3 to 6 months postpartum',
+    treatmentTier: 'Therapeutic Abhyanga, Swedana & Herbal Care',
+    recovery: '45-day classical restoration cycle',
+    consultation: 'Dedicated new mother & baby-friendly visits',
+  },
+  answerSummary:
+    'Postnatal Panchakarma (Sutika Paricharya) at Shri Manmukund Hospital is a specialized restorative healthcare programme designed by Dr. Swati Tongale, MS (Ayurveda Shalya Tantra). Adapted for both normal and caesarean deliveries, it combines full-body medicated oil massages (Abhyanga with Bala Taila), herbal steam, gentle pelvic binding (Udaraveshtana), classical uterine toning formulations, and galactagogues to replenish maternal vitality, relieve back pain, and support rich lactation.',
+  symptoms: {
+    sectionTitle: 'Common postpartum concerns <em>resolved with Sutika Paricharya.</em>',
+    sectionLede:
+      'The fourth trimester places immense physical, hormonal, and emotional demands on a mother’s body.',
+    items: [
+      {
+        icon: 'क',
+        title: 'Severe Lower Back & Joint Pain',
+        desc: 'Sacroiliac joint laxity, postural strain from nursing, and muscular exhaustion across neck, shoulders, and lower back.',
+      },
+      {
+        icon: 'दु',
+        title: 'Lactation Insufficiency & Breast Engorgement',
+        desc: 'Low milk supply, painful letdown, or duct congestion benefiting from classical Galactagogue herbs (Stanya Janana).',
+      },
+      {
+        icon: 'उ',
+        title: 'Delayed Uterine Involution & Lochia',
+        desc: 'Prolonged postpartum lochial discharge, uterine subinvolution, and abdominal muscle diastasis recti.',
+      },
+      {
+        icon: 'गु',
+        title: 'Postpartum Piles & Fissure Spasm',
+        desc: 'Perianal tearing, hemorrhoidal flare-ups, and painful constipation following labor straining and dehydration.',
+      },
+      {
+        icon: 'म',
+        title: 'Postpartum Fatigue & Emotional Blues',
+        desc: 'Severe sleep deprivation, hormonal crashes, and postpartum exhaustion treated with soothing nerve tonics.',
+      },
+      {
+        icon: 'त्व',
+        title: 'Abdominal Laxity & Stretch Marks',
+        desc: 'Loss of core pelvic floor tone and skin laxity addressed through specialized traditional abdominal binding.',
+      },
+    ],
+    warningTitle: 'Full obstetric clearance and coordination',
+    warningBody:
+      'We coordinate closely with your obstetrician. For caesarean deliveries, deep abdominal therapies begin after wound healing clearance, while gentle limb massages and oral restorative herbs can commence immediately.',
+  },
+  grades: {
+    sectionTag: 'Programme Phasing',
+    sectionTitle: 'The classical 45-day <em>Sutika Paricharya cycle.</em>',
+    sectionLede:
+      'Divided into three structured 15-day recovery stages for comprehensive maternal rejuvenation.',
+    items: [
+      {
+        badge: '01',
+        label: 'Days 1 – 15',
+        title: 'Phase 1: Digestive Fire & Uterine Cleansing',
+        desc: 'Focus on restoring digestive fire (Agni Deepana), gentle uterine cleansing (Yoni Shodhana), and warm satvic soups with Dashamoola.',
+        treatment: 'Jeerakarishta, Panchakola Phanta, gentle warm fomentation',
+      },
+      {
+        badge: '02',
+        label: 'Days 16 – 30',
+        title: 'Phase 2: Muscle Toning & Full Body Abhyanga',
+        desc: 'Daily warm medicated oil massage with Bala Ashwagandhadi and Dhanwantaram taila to tone muscles and strengthen spine.',
+        treatment: 'Full body Abhyanga, herbal steam, traditional cotton cloth abdominal binding',
+      },
+      {
+        badge: '03',
+        label: 'Days 31 – 45',
+        title: 'Phase 3: Deep Dhatu Rejuvenation & Vitality',
+        desc: 'Rebuilding deep bone, muscle, and marrow tissues with nourishing rasayanas, Shatavari Gulam, and lactation tonics.',
+        treatment: 'Shatavari, Ashwagandha Rasayana, gentle pelvic floor strengthening',
+      },
+      {
+        badge: '04',
+        label: 'Lifelong',
+        title: 'Phase 4: Transition to Full Wellness',
+        desc: 'Restored core strength, vibrant energy, rich breast milk supply, and prevention of long-term maternal arthritis.',
+        treatment: 'Postnatal diet guidelines and sustainable fitness habits',
+      },
+    ],
+  },
+  causes: {
+    leadHeadline: 'Pacifying aggravated Vata dosha <em>after the void of childbirth.</em>',
+    leadParagraphs: [
+      'In Ayurvedic pathology, the sudden physical void created inside the uterus and pelvic cavity following delivery severely aggravates Vata dosha (the principle of movement and space).',
+      'If not treated with warm unctuous oils (Snehana), heat (Swedana), and nourishing foods, aggravated Vata can lead to chronic maternal joint pain, digestive weakness, and emotional vulnerability for years to come.',
+    ],
+    causesList: [
+      {
+        title: 'Loss of Blood & Fluid (Dhatu Kshaya).',
+        desc: 'Depletion of bodily tissues during labor requires rich, easily digestible nourishing tonics.',
+      },
+      {
+        title: 'Pelvic Floor & Core Overstretching.',
+        desc: 'Relaxin hormone and delivery strain weaken ligamentous pelvic floor support.',
+      },
+      {
+        title: 'Lactational Metabolic Drain.',
+        desc: 'Breastfeeding demands an additional 500+ calories daily of vital micronutrients and healthy fats.',
+      },
+      {
+        title: 'Circadian Rhythm Disruption.',
+        desc: 'Frequent newborn waking aggravates nervous system Vata, requiring calming herbal support.',
+      },
+    ],
+  },
+  diagnosis: {
+    sectionTitle: 'Personalized postnatal <em>recovery evaluation.</em>',
+    sectionLede:
+      'Consultations with Dr. Swati are baby-friendly, compassionate, and timed around your feeding schedule.',
+    steps: [
+      {
+        stepNum: 'Step 01',
+        icon: 'प',
+        title: 'Post-Delivery Health Review',
+        desc: 'Assessment of delivery type (normal vs C-section), episiotomy or scar healing, lochia color, and blood pressure.',
+      },
+      {
+        stepNum: 'Step 02',
+        icon: 'स्त',
+        title: 'Lactation & Breast Examination',
+        desc: 'Gentle check for nipple health, milk flow, engorgement, and baby latching comfort.',
+      },
+      {
+        stepNum: 'Step 03',
+        icon: 'पे',
+        title: 'Pelvic & Perineal Assessment',
+        desc: 'Screening for postpartum piles, fissures, or pelvic heaviness in complete privacy.',
+      },
+      {
+        stepNum: 'Step 04',
+        icon: 'यो',
+        title: 'Custom Care Programme',
+        desc: 'Prescription of home herbal medicines, oil recommendations, and OPD Panchakarma massage schedules.',
+      },
+    ],
+  },
+  treatments: {
+    sectionTitle: 'Holistic restorative therapies for <em>mother and baby.</em>',
+    sectionLede:
+      'Combining authentic Ayurvedic healing rituals with modern maternal safety.',
+    items: [
+      {
+        tierNum: 'Tier 1',
+        tierLabel: 'Physical Recovery',
+        title: 'Therapeutic Postnatal Abhyanga & Swedana',
+        suitability: 'Best suited for: Body aches, joint stiffness, back pain, and deep relaxation',
+        desc: 'Full-body rhythmic medicated massage with warm classical Bala and Dhanwantaram oils, followed by gentle herbal steam to flush toxins and relieve muscle fatigue.',
+        facts: [
+          { label: 'Session Time', value: '45 – 60 min' },
+          { label: 'Oils Used', value: 'Bala, Dhanwantaram, Ksheerabala' },
+          { label: 'Format', value: 'OPD / Home guidance' },
+        ],
+        linkText: 'Read about postnatal care',
+        linkHref: '/services/female-care/sutika-paricharya-postnatal-care/',
+      },
+      {
+        tierNum: 'Tier 2',
+        tierLabel: 'Internal Rejuvenation',
+        title: 'Uterine Involution & Lactation Rasayanas',
+        suitability: 'Best suited for: Enhancing breast milk production and speeding uterine recovery',
+        desc: 'Prescription of classical formulations such as Shatavari Gulam, Dashamoolarishta, Jeerakarishta, and Soubhagya Shunti Lehyam to promote healthy milk supply and core vitality.',
+        facts: [
+          { label: 'Form', value: 'Herbal arishtas & lehyas' },
+          { label: 'Safety', value: '100% safe for baby' },
+          { label: 'Duration', value: '45 – 90 days' },
+        ],
+        linkText: 'Read about Dr. Swati',
+        linkHref: '/dr-swati/',
+      },
+      {
+        tierNum: 'Tier 3',
+        tierLabel: 'Core Support',
+        modifierClass: 'treatment-card--ksharsutra',
+        title: 'Traditional Udaraveshtana (Abdominal Binding)',
+        suitability: 'Best suited for: Core muscle realignment, back support, and preventing visceral sagging',
+        desc: 'Gentle binding of the abdomen with soft, long cotton cloth after massage to provide structural support to stretched abdominal muscles and promote visceral repositioning.',
+        facts: [
+          { label: 'Technique', value: 'Classical cotton wrap' },
+          { label: 'Benefit', value: 'Relieves lower back strain' },
+          { label: 'Caesarean', value: 'Applied after scar heal' },
+        ],
+        linkText: 'Read about Female Specialty Care',
+        linkHref: '/services/female-care/',
+      },
+    ],
+  },
+  expect: {
+    sectionTitle: 'Your serene 45-day <em>postnatal journey.</em>',
+    sectionLede:
+      'We nurture the mother so she can joyfully nurture her newborn.',
+    steps: [
+      {
+        stepNum: '01',
+        time: 'Week 1',
+        title: 'Gentle Initiation & Lactation Boost',
+        desc: 'Digestive tonics, soothing herbal drinks, and gentle perineal care to establish comfortable breastfeeding.',
+      },
+      {
+        stepNum: '02',
+        time: 'Weeks 2 – 4',
+        title: 'Restorative Oil Therapy & Core Binding',
+        desc: 'Regular Abhyanga sessions, abdominal binding, and steady relief from backache and fatigue.',
+      },
+      {
+        stepNum: '03',
+        time: 'Weeks 5 – 6',
+        title: 'Deep Tissue Strengthening',
+        desc: 'Nourishing rasayanas, bone-toning herbs, and gentle pelvic floor strengthening exercises.',
+      },
+      {
+        stepNum: '04',
+        time: 'Day 45 · Celebration',
+        title: 'Full Recovery & Vitality Review',
+        desc: 'Final health assessment confirming complete uterine involution, robust energy, and thriving lactation.',
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: 'Can I start postnatal Panchakarma if I had a Caesarean delivery (C-section)?',
+      answer:
+        '<p><strong>Yes, absolutely.</strong> For Caesarean births, we begin with gentle limb and back massage, lactation herbs, and digestive tonics in the first two weeks. Direct abdominal massage and binding commence once your obstetrician confirms that the surgical incision has healed cleanly.</p>',
+    },
+    {
+      question: 'Are the Ayurvedic medicines safe for my breastfed baby?',
+      answer:
+        '<p><strong>Yes, 100% safe.</strong> Classical Sutika Paricharya formulations like Shatavari, Jeerakarishta, and Dashamoolarishta enhance breast milk quality and volume while passing gentle digestive benefits to the baby, reducing infant colic and gas.</p>',
+    },
+    {
+      question: 'Can I bring my newborn baby with me for consultations?',
+      answer:
+        '<p>Yes, our Female Care Unit is completely baby-friendly. We have comfortable nursing spaces, and appointment timings can easily be adapted around your feeding schedules.</p>',
+    },
+    {
+      question: 'How do I book a consultation with Dr. Swati?',
+      answer:
+        '<p>You or a family member can call <strong>8208927917</strong> or use our online appointment form to schedule a dedicated postnatal consultation.</p>',
+    },
+  ],
+  related: [
+    {
+      icon: 'ग',
+      title: 'Masanumasik Garbhsanskara',
+      desc: 'Month-by-month Ayurvedic antenatal care for healthy pregnancy and baby.',
+      linkText: 'Read about Garbhsanskara',
+      href: '/services/female-care/garbhasanskar-antenatal-care/',
+    },
+    {
+      icon: 'महि',
+      title: 'Female Proctology',
+      desc: 'Private piles, fissure, and fistula surgical care with Dr. Swati Tongale.',
+      linkText: 'Read about Female Proctology',
+      href: '/services/female-care/female-proctology/',
+    },
+    {
+      icon: 'उ',
+      title: 'Uttarbasti for Infertility',
+      desc: 'Classical intra-uterine therapy for tubal blocks, thin endometrium, and fertility support.',
+      linkText: 'Read about Uttarbasti',
+      href: '/services/female-care/uttarbasti-for-infertility/',
+    },
+  ],
+};
+
+export const JALAUKA_DETAIL: ConditionDetailData = {
+  eyebrow: 'Ayurveda & Panchakarma · Parasurgical Therapy',
+  devanagari: 'जलौकावचारण',
+  titleMain: 'Jalauka (Leech Therapy) &',
+  titleAccent: 'Raktamokshana',
+  subtitle: 'Classical Ayurvedic bio-purification and bloodletting with medicinal leeches in Amravati',
+  lede: 'Jalaukavacharana (medicinal leech therapy) is one of the most sophisticated classical Ayurvedic parasurgical procedures described in Sushruta Samhita. By utilizing specially cultivated, sterile medicinal leeches (Hirudo medicinalis), it delivers targeted bio-purification for localized vascular congestion, varicose eczema, chronic non-healing ulcers, venous stasis, and severe dermatological diseases.',
+  glance: {
+    sanskrit: 'Jalaukavacharana (जलौकावचारण)',
+    grades: 'Sterile Single-Patient Medicinal Leech Application',
+    commonIn: 'Varicose ulcers, chronic eczema, non-healing wounds, vascular stasis',
+    treatmentTier: 'Classical Ayurvedic Parasurgery (Anushalya)',
+    recovery: 'Same-day OPD procedure (30–60 min)',
+    consultation: '30 – 45 min clinical & vascular evaluation',
+  },
+  answerSummary:
+    'Jalauka (Medicinal Leech Therapy) at Shri Manmukund Hospital is a specialized classical Ayurvedic bloodletting procedure (Raktamokshana) performed under strict aseptic surgical protocols. As the medicinal leech feeds on locally stagnant venous blood, its saliva releases over 100 bioactive compounds—including hirudin (a potent anticoagulant), hyaluronidase, histamine-like vasodilators, and natural anti-inflammatory enzymes—providing immediate decompression of congested tissues, boosting micro-vascular circulation, and accelerating tissue regeneration.',
+  symptoms: {
+    sectionTitle: 'Conditions treated with <em>Jalaukavacharana.</em>',
+    sectionLede:
+      'Medicinal leech therapy provides profound therapeutic benefits in conditions driven by vitiated Pitta and Rakta (blood stasis).',
+    items: [
+      {
+        icon: 'शि',
+        title: 'Varicose Veins & Stasis Dermatitis',
+        desc: 'Chronic lower limb venous congestion, hyperpigmentation, swelling, and burning eczema in legs.',
+      },
+      {
+        icon: 'व्र',
+        title: 'Non-Healing & Diabetic Ulcers',
+        desc: 'Sluggish, dusky wounds with poor arterial-venous circulation that resist conventional healing.',
+      },
+      {
+        icon: 'त्व',
+        title: 'Severe Chronic Skin Diseases',
+        desc: 'Localized plaque psoriasis, chronic eczema, lichen planus, and deep cystic acne refractory to oral medications.',
+      },
+      {
+        icon: 'शो',
+        title: 'Localized Inflammatory Swellings',
+        desc: 'Cellulitis, perianal inflammatory congestion, painful thrombosed piles, and localized tissue hematomas.',
+      },
+      {
+        icon: 'सं',
+        title: 'Osteoarthritis & Joint Inflammation',
+        desc: 'Chronic inflammatory joint effusion, localized redness, and intense peri-articular pain.',
+      },
+      {
+        icon: 'ना',
+        title: 'Filariasis & Lymphoedema (Early)',
+        desc: 'Early lymphatic stasis and micro-vascular stagnation causing limb heaviness and localized thickening.',
+      },
+    ],
+    warningTitle: 'Strict clinical safety standards',
+    warningBody:
+      'At Shri Manmukund Hospital, we use exclusively certified non-poisonous medicinal leeches (Nirvisha Jalauka). Every leech is single-patient, single-use and disposed of ethically following biomedical protocols. Leech therapy is contraindicated in hemophilia, severe anemia, and patients on active high-dose systemic anticoagulants.',
+  },
+  grades: {
+    sectionTag: 'Therapeutic Actions',
+    sectionTitle: 'Bio-mechanisms of <em>medicinal leech saliva.</em>',
+    sectionLede:
+      'Leech saliva is a natural pharmacological complex containing dozens of therapeutic enzymes.',
+    items: [
+      {
+        badge: '01',
+        label: 'Hirudin',
+        title: 'Direct Anticoagulant & Micro-Thrombolytic',
+        desc: 'Hirudin selectively binds thrombin, preventing clot propagation and breaking micro-thrombi in sluggish capillary beds.',
+        treatment: 'Decongests stagnant venous pools and enhances capillary perfusion',
+      },
+      {
+        badge: '02',
+        label: 'Hyaluronidase',
+        title: 'Tissue Penetration & Anti-Edema',
+        desc: 'Breaks down intercellular ground substance, promoting deep penetration of healing compounds and rapid fluid drainage.',
+        treatment: 'Reduces localized inflammatory edema and induration',
+      },
+      {
+        badge: '03',
+        label: 'Vasodilators',
+        title: 'Histamine-Like Substances & Calin',
+        desc: 'Dilates local arterioles while inhibiting platelet aggregation at the wound site to restore healthy arterial blood influx.',
+        treatment: 'Brings fresh oxygenated blood to ischemic tissue beds',
+      },
+      {
+        badge: '04',
+        label: 'Analgesics',
+        title: 'Natural Anti-Inflammatory & Anesthetic Peptides',
+        desc: 'Eglins and bdellins inhibit elastase and cathepsin, providing natural pain relief and suppressing destructive tissue inflammation.',
+        treatment: 'Soothes throbbing pain and burning sensations immediately',
+      },
+    ],
+  },
+  causes: {
+    leadHeadline: 'Raktamokshana: The classical surgical remedy for <em>Dushita Rakta (toxic blood).</em>',
+    leadParagraphs: [
+      'According to Sushruta Samhita, when vitiated Pitta combines with Rakta (blood), it creates localized inflammation, burning, discoloration, and tissue necrosis.',
+      'Jalauka is described as the supreme, gentlest method of Raktamokshana for delicate patients, women, and sensitive anatomical regions because it extracts only vitiated blood without painful cutting or surgical trauma.',
+    ],
+    causesList: [
+      {
+        title: 'Venous Valve Incompetence & Stasis.',
+        desc: 'Elevated hydrostatic pressure in leg veins leads to extravasation of red blood cells and severe tissue hypoxia.',
+      },
+      {
+        title: 'Microvascular Micro-Thrombosis.',
+        desc: 'Capillary occlusions in chronic diabetic wounds that prevent healing factors from reaching the wound edge.',
+      },
+      {
+        title: 'Accumulation of Metabolic Toxins (Ama).',
+        desc: 'Circulating inflammatory mediators depositing in cutaneous and subcutaneous tissues.',
+      },
+      {
+        title: 'Localized Tissue Ischemia & Congestion.',
+        desc: 'Dark dusky skin surrounding non-healing ulcers signaling urgent need for capillary decompression.',
+      },
+    ],
+  },
+  diagnosis: {
+    sectionTitle: 'Aseptic 4-step <em>procedure protocol.</em>',
+    sectionLede:
+      'Conducted in our dedicated minor surgical suite under the direct supervision of our Ayurvedic surgeons.',
+    steps: [
+      {
+        stepNum: 'Step 01',
+        icon: 'प',
+        title: 'Pre-Procedure Screening & CBC',
+        desc: 'Confirmation of hemoglobin (>9 g/dL), coagulation profile (PT/INR), and skin disinfection with sterile turmeric wash.',
+      },
+      {
+        stepNum: 'Step 02',
+        icon: 'ज',
+        title: 'Leech Application (Purvakarma)',
+        desc: 'The medicinal leech is activated in fresh water with Haridra and gently placed on the target congested tissue.',
+      },
+      {
+        stepNum: 'Step 03',
+        icon: 'र',
+        title: 'Therapeutic Bloodletting (Pradhana Karma)',
+        desc: 'The leech attaches with an inverted ‘Y’ bite and feeds for 20 to 45 minutes until full, then detaches naturally.',
+      },
+      {
+        stepNum: 'Step 04',
+        icon: 'ब',
+        title: 'Antiseptic Dressing (Paschat Karma)',
+        desc: 'The site is dusted with classical Shatadhouta Ghrita or turmeric powder and dressed securely with sterile gauze.',
+      },
+    ],
+  },
+  treatments: {
+    sectionTitle: 'Integrated parasurgical care for <em>vascular & skin health.</em>',
+    sectionLede:
+      'Leech therapy is paired with specialized classical herbal washes and wound-healing oils.',
+    items: [
+      {
+        tierNum: 'Tier 1',
+        tierLabel: 'Bio-Purification',
+        title: 'Classical Jalaukavacharana (Leech Application)',
+        suitability: 'Best suited for: Varicose ulcers, eczema, chronic skin diseases, and thrombosed piles',
+        desc: 'Application of 2 to 6 sterile medicinal leeches per session depending on the surface area of pathology. Painless sensation, minimal downtime.',
+        facts: [
+          { label: 'Duration', value: '30 – 45 min per session' },
+          { label: 'Safety', value: 'Single-use certified leeches' },
+          { label: 'Frequency', value: '1 to 2 sessions per week' },
+        ],
+        linkText: 'Read about Leech therapy',
+        linkHref: '/services/ayurveda-panchakarma/leech-therapy-jalaukavacharana/',
+      },
+      {
+        tierNum: 'Tier 2',
+        tierLabel: 'Wound Healing',
+        modifierClass: 'treatment-card--ksharsutra',
+        title: 'Vrana Shodhana & Ropana (Herbal Dressing)',
+        suitability: 'Best suited for: Chronic venous and diabetic ulcers requiring tissue regeneration',
+        desc: 'Cleansing with Triphala or Panchavalkala Kashaya followed by sterile application of Jatyadi Taila or Shuddha Gandhaka formulations to accelerate granulation tissue.',
+        facts: [
+          { label: 'Action', value: 'Anti-microbial & healing' },
+          { label: 'Regimen', value: 'Daily / Alternate day' },
+          { label: 'Outcome', value: 'Prevents amputations' },
+        ],
+        linkText: 'Read about Ayurvedic Wound Care',
+        linkHref: '/services/ayurveda/',
+      },
+      {
+        tierNum: 'Tier 3',
+        tierLabel: 'Systemic Blood Purifiers',
+        title: 'Raktashodhaka Internal Ayurvedic Formulations',
+        suitability: 'Best suited for: Systemic skin diseases, chronic Pitta vitiation, and recurring inflammation',
+        desc: 'Prescription of classical blood-cleansing herbal decoctions such as Mahamanjishtadi Kashaya, Khadirarishta, Kaishore Guggulu, and Sarivadyasava.',
+        facts: [
+          { label: 'Duration', value: '1 – 3 months' },
+          { label: 'Form', value: 'Classical liquids & tablets' },
+          { label: 'Benefit', value: 'Prevents recurrence' },
+        ],
+        linkText: 'Read about Panchakarma Unit',
+        linkHref: '/services/panchakarma/',
+      },
+    ],
+  },
+  expect: {
+    sectionTitle: 'What to expect during a <em>leech therapy session.</em>',
+    sectionLede:
+      'A hygienic, painless, and deeply restorative therapeutic experience.',
+    steps: [
+      {
+        stepNum: '01',
+        time: 'Pre-Session',
+        title: 'Area Preparation',
+        desc: 'The affected skin is cleaned with sterile saline and mild herbal wash. No chemicals or soaps are used.',
+      },
+      {
+        stepNum: '02',
+        time: 'Attachment',
+        title: 'Mild Pinch & Secretion',
+        desc: 'A brief, mild sensation similar to an ant bite as the leech releases its natural anesthetic saliva, followed by total numbness.',
+      },
+      {
+        stepNum: '03',
+        time: '20 – 45 min',
+        title: 'Rhythmic Bio-Feeding',
+        desc: 'The leech steadily decompresses the dark stagnant blood while infusing active therapeutic hirudin enzymes.',
+      },
+      {
+        stepNum: '04',
+        time: 'Post-Session',
+        title: 'Sterile Dressing & Healing',
+        desc: 'Mild oozing for 6 to 12 hours (a normal therapeutic sign of venous decompression) followed by rapid reduction in swelling and discoloration.',
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: 'Does leech therapy hurt?',
+      answer:
+        '<p><strong>No.</strong> The initial attachment feels like a very mild prick or ant bite for a few seconds. The leech immediately secretes natural anesthetic compounds in its saliva, making the remainder of the 30-minute session completely painless.</p>',
+    },
+    {
+      question: 'Are leeches reused on other patients?',
+      answer:
+        '<p><strong>Absolutely not.</strong> Shri Manmukund Hospital maintains a strict zero-reuse policy. Each medicinal leech is used on a single patient for a single session and is subsequently purified and disposed of in accordance with biomedical protocols.</p>',
+    },
+    {
+      question: 'How many sessions of leech therapy will I need?',
+      answer:
+        '<p>This depends on the condition being treated. Acute swelling or thrombosed piles may require only <strong>1 or 2 sessions</strong>, whereas chronic varicose eczema or non-healing ulcers typically benefit from a course of <strong>4 to 8 sessions</strong> spaced over 3 to 4 weeks.</p>',
+    },
+    {
+      question: 'Why does the bite site ooze blood after the leech is removed?',
+      answer:
+        '<p>Post-procedure oozing of serosanguinous fluid for 6 to 12 hours is an intentional, highly beneficial therapeutic mechanism caused by the anticoagulant hirudin. It decompresses congested capillary beds and is safely managed with a standard sterile absorbent dressing.</p>',
+    },
+  ],
+  related: [
+    {
+      icon: 'महि',
+      title: 'Female Proctology',
+      desc: 'Private piles, fissure, and fistula surgical care with Dr. Swati Tongale.',
+      linkText: 'Read about Female Proctology',
+      href: '/services/female-care/female-proctology/',
+    },
+    {
+      icon: 'उ',
+      title: 'Uttarbasti for Infertility',
+      desc: 'Classical intra-uterine therapy for tubal blocks, thin endometrium, and fertility support.',
+      linkText: 'Read about Uttarbasti',
+      href: '/services/female-care/uttarbasti-for-infertility/',
+    },
+    {
+      icon: 'सू',
+      title: 'Postnatal Panchakarma',
+      desc: 'Classical Sutika Paricharya 45-day restorative recovery for new mothers.',
+      linkText: 'Read about Postnatal care',
+      href: '/services/female-care/postnatal-panchakarma/',
+    },
+  ],
+};
+
 const CONDITION_REGISTRY: Record<string, ConditionDetailData> = {
   piles: PILES_DETAIL,
   'anal-fissure': FISSURE_DETAIL,
@@ -1006,6 +2699,19 @@ const CONDITION_REGISTRY: Record<string, ConditionDetailData> = {
   'laser-piles-surgery': PILES_DETAIL,
   'laser-fissure-treatment': FISSURE_DETAIL,
   'laser-fistula-treatment': FISTULA_DETAIL,
+  'female-proctology': FEMALE_PROCTOLOGY_DETAIL,
+  'uttarbasti-for-infertility': UTTARBASTI_DETAIL,
+  'uttarbasti-therapy': UTTARBASTI_DETAIL,
+  uttarbasti: UTTARBASTI_DETAIL,
+  'garbhasanskar-antenatal-care': GARBHSANSKARA_DETAIL,
+  'masanumasik-garbhsanskara': GARBHSANSKARA_DETAIL,
+  garbhsanskara: GARBHSANSKARA_DETAIL,
+  'infertility-and-pcod': MENSTRUAL_PCOD_DETAIL,
+  'menstrual-disorders': MENSTRUAL_PCOD_DETAIL,
+  'sutika-paricharya-postnatal-care': POSTNATAL_CARE_DETAIL,
+  'postnatal-panchakarma': POSTNATAL_CARE_DETAIL,
+  'leech-therapy-jalaukavacharana': JALAUKA_DETAIL,
+  'jalauka-leech-therapy': JALAUKA_DETAIL,
 };
 
 export function getConditionDetailData(
@@ -1194,6 +2900,7 @@ export function getConditionDetailData(
             { label: 'Approach', value: '100% Non-invasive' },
           ],
           linkText: 'Read about conservative care',
+          linkHref: '/services/ayurveda-panchakarma/',
         },
         {
           tierNum: 'Tier 2',
@@ -1208,6 +2915,7 @@ export function getConditionDetailData(
             { label: 'Tissue Safety', value: 'Preserves natural tone' },
           ],
           linkText: 'Read about Shalya Tantra care',
+          linkHref: '/knowledge/articles/understanding-ksharsutra-in-simple-terms/',
         },
         {
           tierNum: 'Tier 3',
@@ -1222,6 +2930,7 @@ export function getConditionDetailData(
             { label: 'Anesthesia', value: 'Safe day-care protocol' },
           ],
           linkText: 'Read about surgical options',
+          linkHref: '/services/general-surgery/',
         },
       ],
     },

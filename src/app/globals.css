@@ -351,9 +351,9 @@ blockquote {
   display: grid !important;
   grid-template-columns: 1.5fr 1fr 1fr 1fr !important;
   gap: 3rem !important;
-  padding-bottom: 3rem !important;
+  padding-bottom: 1.5rem !important;
   border-bottom: 1px solid rgba(228, 207, 165, 0.15) !important;
-  margin-bottom: 2rem !important;
+  margin-bottom: 1rem !important;
 }
 
 .footer-brand {
@@ -450,9 +450,9 @@ blockquote {
 
 .footer-tagline {
   text-align: center !important;
-  padding: 2.5rem 0 !important;
+  padding: 1rem 0 !important;
   border-bottom: 1px solid rgba(228, 207, 165, 0.15) !important;
-  margin-bottom: 2rem !important;
+  margin-bottom: 1rem !important;
 }
 
 .footer-tagline-devanagari {
@@ -460,7 +460,7 @@ blockquote {
   font-size: 1.25rem !important;
   color: var(--gold-soft) !important;
   font-weight: 500 !important;
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 0.25rem !important;
   opacity: 0.9 !important;
 }
 
@@ -518,10 +518,17 @@ blockquote {
 /* ============================================================
    ANSWER-FIRST SUMMARY CARD STYLING (MATCHING TEMPLATE)
    ============================================================ */
+.answer-summary {
+  max-width: 1000px !important;
+  margin: 1.5rem auto 3rem !important;
+  padding: 0 3rem !important;
+}
+
 .answer-summary-inner {
   border-radius: 32px !important;
   border-left: 4px solid var(--sage) !important;
   background: var(--white) !important;
+  padding: 2.5rem 3rem !important;
   box-shadow: 0 4px 24px rgba(107, 127, 95, 0.06) !important;
 }
 
@@ -573,57 +580,336 @@ blockquote {
 }
 
 /* ============================================================
-   CENTERED SECTION HEADERS (e.g. Services, Specialists, About Pillars)
+   UNIVERSAL COMPACT SECTION & CONTAINER SPACING ACROSS ALL PAGES
    ============================================================ */
-/* Compact Organic Spacing: Hero, Services, Philosophy, and Specialists */
-.hero {
-  padding-bottom: 1.5rem !important;
-}
 
-.services {
+/* 1. Heroes */
+.hero,
+.unit-hero,
+.page-hero,
+.hub-hero,
+.post-hero,
+.about-hero,
+.contact-hero,
+.centered-hero {
   padding-top: 2rem !important;
   padding-bottom: 2rem !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
 }
 
-/* Refined Philosophy Break Padding & Margins */
-.philosophy {
-  padding: 3.75rem 2.5rem !important;
-  margin: 2.25rem auto !important;
+/* 2. Answer Summary */
+.answer-summary {
+  max-width: 1280px !important;
+  margin: 0 auto 2rem !important;
+  padding: 0 3rem !important;
 }
 
-.philosophy-devanagari {
+/* 3. All Standard Content Sections */
+.services,
+.tiers,
+.conditions,
+.signatures,
+.specialists,
+.knowledge,
+.knowledge-preview,
+.faq,
+.faqs,
+.faq-section,
+.service-faq-section,
+.why-us,
+.reviews,
+.testimonials,
+.milestones,
+.credentials,
+.achievements,
+.articles,
+.articles-section,
+.featured,
+.related,
+.related-resources,
+.journey,
+.publications,
+.about-doctor,
+.focus-areas,
+.consultation,
+.doctor-profile,
+.doctor-hero,
+.doctor-about,
+.doctor-stats,
+.doctor-expertise,
+.doctor-timeline,
+.doctor-publications,
+.doctor-consultation,
+.condition-detail,
+.treatment-steps,
+.condition-faq,
+.about-pillars,
+.about-story,
+.about-facility,
+.contact-section {
+  padding: 1.5rem 3rem !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+}
+
+/* Contact & Visit Us Section Spacing Reduction */
+.primary-contacts {
+  padding: 0 3rem 1.5rem !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+}
+
+.quick-info {
+  padding: 1rem 3rem 2rem !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+}
+
+.location,
+.booking {
+  padding: 2.25rem 3rem !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+}
+
+.timings,
+.transport {
+  padding: 2.25rem 3rem !important;
+  width: 100% !important;
+}
+
+.visit-faq {
+  padding: 2.25rem 3rem 3.5rem !important;
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+}
+
+.location-grid,
+.timings-grid,
+.transport-grid,
+.visit-faq-list {
+  margin-top: 1.5rem !important;
+}
+
+/* Booking Section & Form Proportional Height Balance */
+.booking-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1.25fr !important;
+  gap: 3rem !important;
+  align-items: start !important;
+  margin-top: 1.5rem !important;
+}
+
+.booking-info h3 {
+  font-size: 1.625rem !important;
+  margin-bottom: 0.875rem !important;
+}
+
+.booking-info p {
+  font-size: 0.9375rem !important;
+  line-height: 1.65 !important;
+  margin-bottom: 1rem !important;
+}
+
+.booking-info ul {
+  margin: 1.25rem 0 !important;
+}
+
+.booking-info ul li {
+  padding: 0.5rem 0 0.5rem 1.75rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.45 !important;
+}
+
+.booking-info ul li::before {
+  top: 0.5rem !important;
+}
+
+.booking-form {
+  padding: 1.75rem 2rem !important;
+  border-radius: 28px !important;
+  box-shadow: 0 4px 24px rgba(107, 127, 95, 0.08) !important;
+}
+
+.booking-form-title {
+  font-size: 1.375rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.booking-form-subtitle {
+  font-size: 0.875rem !important;
   margin-bottom: 1.25rem !important;
 }
 
+.booking-form .form-row {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 0.875rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.booking-form .form-group {
+  margin-bottom: 0.75rem !important;
+}
+
+.booking-form .form-label {
+  font-size: 0.6875rem !important;
+  letter-spacing: 0.1em !important;
+  margin-bottom: 0.35rem !important;
+}
+
+.booking-form .form-input,
+.booking-form .form-select,
+.booking-form .form-textarea {
+  padding: 0.625rem 0.875rem !important;
+  font-size: 0.875rem !important;
+  border-radius: 10px !important;
+}
+
+.booking-form .form-textarea {
+  min-height: 58px !important;
+  height: 58px !important;
+}
+
+.booking-form .form-checkbox {
+  padding: 0.35rem 0 !important;
+  font-size: 0.8125rem !important;
+}
+
+.booking-form .btn-primary {
+  padding: 0.75rem 1.5rem !important;
+  font-size: 0.9375rem !important;
+  margin-top: 0.75rem !important;
+}
+
+.booking-form .form-note {
+  margin-top: 0.625rem !important;
+  font-size: 0.6875rem !important;
+  line-height: 1.4 !important;
+}
+
+.journey-timeline {
+  margin: 1.5rem auto 0 !important;
+}
+
+.journey-item {
+  padding: 1.25rem 0 !important;
+}
+
+.publications-grid {
+  margin-top: 1.5rem !important;
+}
+
+/* 4. Philosophy Break */
+.philosophy {
+  padding: 2rem 2.5rem !important;
+  margin: 1.25rem auto !important;
+}
+
+.philosophy-devanagari {
+  margin-bottom: 0.75rem !important;
+}
+
 .philosophy-text {
-  margin-bottom: 1.75rem !important;
+  margin-bottom: 1rem !important;
 }
 
-.specialists {
-  padding-top: 2.5rem !important;
-  padding-bottom: 3.5rem !important;
+/* 5. Contact & CTA Banner */
+.contact,
+.cta-section {
+  padding: 1rem 3rem 2.5rem !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
 }
 
+.cta-inner {
+  padding: 2.25rem 2.5rem !important;
+  border-radius: 32px !important;
+}
+
+.cta-devanagari {
+  margin-bottom: 0.5rem !important;
+  font-size: 1.25rem !important;
+}
+
+.cta-headline {
+  margin-bottom: 0.75rem !important;
+}
+
+.cta-lede {
+  margin-bottom: 1.5rem !important;
+}
+
+.related {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 0 !important;
+}
+
+.related-header {
+  margin-bottom: 1.5rem !important;
+}
+
+.author-bio {
+  margin-bottom: 1.5rem !important;
+}
+
+.medical-review {
+  margin-bottom: 1.5rem !important;
+}
+
+.share-bar {
+  max-width: 780px !important;
+  margin: 1.25rem auto 1.5rem !important;
+  padding: 0 1.5rem !important;
+}
+
+/* 6. Section Headers & Margins */
 .section-header,
 .services-header,
-.specialists-header {
+.specialists-header,
+.knowledge-header {
   text-align: center !important;
-  margin-bottom: 2.5rem !important;
+  margin-bottom: 2rem !important;
   display: block !important;
+}
+
+/* 6. Centered Section Headers */
+.section-header,
+.services-header,
+.specialists-header,
+.related-header {
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   width: 100% !important;
+}
+
+.section-tag {
+  margin-bottom: 0.75rem !important;
 }
 
 .section-header .section-tag,
 .services-header .section-tag,
-.specialists-header .section-tag {
+.specialists-header .section-tag,
+.related-header .section-tag,
+.related .section-tag {
   justify-content: center !important;
   margin-left: auto !important;
   margin-right: auto !important;
+  display: inline-flex !important;
 }
 
 .section-header .section-tag::after,
 .services-header .section-tag::after,
-.specialists-header .section-tag::after {
+.specialists-header .section-tag::after,
+.related-header .section-tag::after,
+.related .section-tag::after {
   content: '' !important;
   width: 32px !important;
   height: 1px !important;
@@ -633,7 +919,9 @@ blockquote {
 
 .section-header .section-title,
 .services-header .section-title,
-.specialists-header .section-title {
+.specialists-header .section-title,
+.related-header .section-title,
+.related .section-title {
   text-align: center !important;
   margin-left: auto !important;
   margin-right: auto !important;
@@ -641,15 +929,15 @@ blockquote {
 
 .section-header .section-lede,
 .services-lede,
-.specialists-lede {
+.specialists-lede,
+.related-header .section-lede,
+.related .section-lede {
   text-align: center !important;
   max-width: 32em !important;
-  margin: 1.5rem auto 0 !important;
+  margin: 0.75rem auto 0 !important;
 }
 
-/* ============================================================
-   LEFT-ALIGNED & SPLIT SECTION HEADERS (e.g. Knowledge Hub, Featured, Articles)
-   ============================================================ */
+/* 7. Left-Aligned & Split Headers */
 .section-header--left,
 .section-header--split,
 .knowledge-header,
@@ -658,6 +946,8 @@ blockquote {
 .section-header:has(.section-header-cta),
 .section-header:has(.section-header-text) {
   text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 .section-header--split,
@@ -666,23 +956,38 @@ blockquote {
 .section-header:has(.section-header-cta),
 .section-header:has(.section-header-text) {
   display: flex !important;
+  flex-direction: row !important;
   justify-content: space-between !important;
   align-items: flex-end !important;
   gap: 2rem !important;
-  margin-bottom: 3rem !important;
+  margin-bottom: 2rem !important;
   width: 100% !important;
 }
 
-.section-header-text {
-  flex: 1 !important;
+.section-header--left {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
   text-align: left !important;
+  width: 100% !important;
+  margin-bottom: 2rem !important;
+}
+
+.section-header-text {
+  flex: 1 1 auto !important;
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
 }
 
 .knowledge-header {
   display: grid !important;
   grid-template-columns: 2fr 1fr !important;
   gap: 3rem !important;
-  margin-bottom: 4rem !important;
+  margin-bottom: 2rem !important;
   align-items: end !important;
   text-align: left !important;
 }
@@ -693,10 +998,29 @@ blockquote {
 .featured .section-header .section-tag,
 .articles .section-header .section-tag,
 .section-header:has(.section-header-cta) .section-tag,
-.section-header:has(.section-header-text) .section-tag {
+.section-header:has(.section-header-text) .section-tag,
+.section-header-text .section-tag {
   justify-content: flex-start !important;
   margin-left: 0 !important;
-  margin-right: 0 !important;
+  margin-right: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.knowledge-header .section-tag::before,
+.section-header--left .section-tag::before,
+.section-header--split .section-tag::before,
+.featured .section-header .section-tag::before,
+.articles .section-header .section-tag::before,
+.section-header:has(.section-header-cta) .section-tag::before,
+.section-header:has(.section-header-text) .section-tag::before,
+.section-header-text .section-tag::before {
+  content: '' !important;
+  width: 32px !important;
+  height: 1px !important;
+  background: var(--sage) !important;
+  display: inline-block !important;
+  flex-shrink: 0 !important;
 }
 
 .knowledge-header .section-tag::after,
@@ -705,7 +1029,8 @@ blockquote {
 .featured .section-header .section-tag::after,
 .articles .section-header .section-tag::after,
 .section-header:has(.section-header-cta) .section-tag::after,
-.section-header:has(.section-header-text) .section-tag::after {
+.section-header:has(.section-header-text) .section-tag::after,
+.section-header-text .section-tag::after {
   display: none !important;
 }
 
@@ -715,13 +1040,13 @@ blockquote {
 .featured .section-header .section-title,
 .articles .section-header .section-title,
 .section-header:has(.section-header-cta) .section-title,
-.section-header:has(.section-header-text) .section-title {
+.section-header:has(.section-header-text) .section-title,
+.section-header-text .section-title {
   text-align: left !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
+  width: 100% !important;
 }
-
-
 
 .section-header-cta {
   font-family: var(--font-inter), 'Inter', sans-serif !important;
@@ -736,6 +1061,7 @@ blockquote {
   margin-left: auto !important;
   text-decoration: none !important;
   display: inline-block !important;
+  flex-shrink: 0 !important;
 }
 
 .section-header-cta:hover {
@@ -770,6 +1096,18 @@ blockquote {
   }
   .knowledge-lede {
     text-align: left !important;
+    margin-left: 0 !important;
+  }
+  .section-header--split,
+  .featured .section-header,
+  .articles .section-header,
+  .section-header:has(.section-header-cta),
+  .section-header:has(.section-header-text) {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+  }
+  .section-header-cta {
     margin-left: 0 !important;
   }
 }
@@ -869,14 +1207,34 @@ blockquote {
   gap: 3rem !important;
 }
 
+.specialists-grid--single,
+.specialists-grid:has(> article:only-child) {
+  display: flex !important;
+  justify-content: center !important;
+  grid-template-columns: 1fr !important;
+  max-width: 580px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+}
+
+.specialists-grid--single .specialist,
+.specialists-grid:has(> article:only-child) .specialist {
+  width: 100% !important;
+  max-width: 580px !important;
+}
+
 .specialist {
   background: var(--white) !important;
   border-radius: 32px !important;
-  padding: 2.5rem !important;
+  padding: 2.5rem 2.5rem 2.75rem !important;
   text-align: center !important;
   transition: transform 0.3s, box-shadow 0.3s !important;
   position: relative !important;
   overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
 }
 
 .specialist:hover {
@@ -1050,25 +1408,23 @@ blockquote {
 }
 
 .unit-hero {
-  padding: 3rem 3rem 6rem !important;
+  padding: 3rem 3rem 5rem !important;
   max-width: 1280px !important;
   margin: 0 auto !important;
   position: relative !important;
 }
 
 .unit-hero-inner {
-  display: grid !important;
-  grid-template-columns: 1.4fr 1fr !important;
-  gap: 4rem !important;
-  align-items: center !important;
+  display: block !important;
+  max-width: 860px !important;
   position: relative !important;
   z-index: 1 !important;
-  max-width: 1280px !important;
 }
 
 .unit-hero-content {
   position: relative !important;
   z-index: 2 !important;
+  max-width: 860px !important;
 }
 
 .unit-hero-eyebrow {
@@ -1200,6 +1556,262 @@ blockquote {
   .unit-hero-inner { grid-template-columns: 1fr !important; gap: 3rem !important; }
   .unit-hero-visual { max-width: 320px !important; margin: 0 auto !important; order: -1 !important; }
 }
+
+/* ============================================================
+   UNIVERSAL COMPACT SECTION SPACING & ANSWER SUMMARY
+   ============================================================ */
+.answer-summary {
+  max-width: 1000px !important;
+  margin: 1.5rem auto 3rem !important;
+  padding: 0 3rem !important;
+}
+
+.answer-summary-inner {
+  border-radius: 32px !important;
+  border-left: 4px solid var(--sage) !important;
+  padding: 2.5rem 3rem !important;
+  background: var(--white) !important;
+  box-shadow: 0 4px 24px rgba(107, 127, 95, 0.06) !important;
+}
+
+/* ============================================================
+   GLOBAL SECTION SPACING & VERTICAL GAP MINIMIZATION
+   ============================================================ */
+.page-hero {
+  padding: 3rem 3rem 1.5rem !important;
+}
+
+.page-hero .breadcrumb {
+  margin-bottom: 1rem !important;
+}
+
+.story,
+.mission-vision,
+.pillars-section,
+.practice-today,
+.facility,
+.doctors,
+.about-doctor,
+.focus-areas,
+.journey,
+.consultation,
+.services,
+.tiers,
+.conditions,
+.signatures,
+.specialists,
+.knowledge,
+.knowledge-preview,
+.faq,
+.why-us,
+.treatments-section,
+.overview-section,
+.process-section,
+.symptoms,
+.grades,
+.causes,
+.diagnosis,
+.treatments,
+.expect,
+.related {
+  padding-top: 2.25rem !important;
+  padding-bottom: 2.25rem !important;
+}
+
+.timeline {
+  margin-top: 1.5rem !important;
+}
+
+.timeline-item {
+  padding: 1.25rem 0 !important;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0.5rem !important;
+}
+
+.mv-grid,
+.pillars-grid,
+.practice-today-grid,
+.facility-grid,
+.doctors-grid,
+.focus-grid,
+.journey-timeline,
+.consultation-grid,
+.symptoms-grid,
+.grades-ladder,
+.causes-grid,
+.diagnosis-steps,
+.treatment-list,
+.expect-journey,
+.related-grid {
+  margin-top: 1.75rem !important;
+}
+
+.philosophy {
+  padding: 3.5rem 2.5rem !important;
+  margin: 2rem auto !important;
+}
+
+.specialists {
+  padding-bottom: 1.5rem !important;
+}
+
+.knowledge {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+.contact {
+  padding-top: 2rem !important;
+  padding-bottom: 3.5rem !important;
+}
+
+.section-header,
+.services-header,
+.specialists-header,
+.knowledge-header,
+.section-header--left {
+  margin-bottom: 1.75rem !important;
+}
+
+.section-tag {
+  margin-bottom: 0.75rem !important;
+}
+
+.section-title {
+  margin-bottom: 0.75rem !important;
+}
+
+.section-lede {
+  margin-top: 0.5rem !important;
+}
+
+.answer-summary {
+  margin: 1.5rem auto 2rem !important;
+}
+
+@media (max-width: 900px) {
+  .answer-summary {
+    padding: 0 1.5rem !important;
+    margin: 1rem auto 1.5rem !important;
+  }
+  .answer-summary-inner {
+    padding: 1.75rem 1.5rem !important;
+  }
+  .story,
+  .mission-vision,
+  .pillars-section,
+  .practice-today,
+  .facility,
+  .doctors,
+  .about-doctor,
+  .focus-areas,
+  .journey,
+  .consultation,
+  .services,
+  .tiers,
+  .conditions,
+  .signatures,
+  .specialists,
+  .knowledge,
+  .knowledge-preview,
+  .faq,
+  .why-us,
+  .treatments-section,
+  .overview-section,
+  .process-section,
+  .symptoms,
+  .grades,
+  .causes,
+  .diagnosis,
+  .treatments,
+  .expect,
+  .related,
+  .contact {
+    padding-top: 1.75rem !important;
+    padding-bottom: 1.75rem !important;
+  }
+  .philosophy {
+    padding: 2.5rem 1.5rem !important;
+    margin: 1.5rem auto !important;
+  }
+}
+
+/* ============================================================
+   ARTICLE & KNOWLEDGE CONTENT NUMBERED AND BULLETED LISTS
+   ============================================================ */
+.article-body ol,
+.article-content ol,
+article ol,
+.prose ol,
+.markdown-content ol {
+  list-style: decimal !important;
+  list-style-type: decimal !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 1.5rem !important;
+  padding-left: 2rem !important;
+}
+
+.article-body ul,
+.article-content ul,
+article ul,
+.prose ul,
+.markdown-content ul {
+  list-style: disc !important;
+  list-style-type: disc !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 1.5rem !important;
+  padding-left: 2rem !important;
+}
+
+.article-body ol li,
+.article-content ol li,
+article ol li,
+.prose ol li,
+.markdown-content ol li {
+  list-style: decimal !important;
+  list-style-type: decimal !important;
+  display: list-item !important;
+  margin-bottom: 0.875rem !important;
+  padding-left: 0.5rem !important;
+  line-height: 1.7 !important;
+}
+
+.article-body ul li,
+.article-content ul li,
+article ul li,
+.prose ul li,
+.markdown-content ul li {
+  list-style: disc !important;
+  list-style-type: disc !important;
+  display: list-item !important;
+  margin-bottom: 0.875rem !important;
+  padding-left: 0.5rem !important;
+  line-height: 1.7 !important;
+}
+
+.article-body ol li::marker,
+.article-content ol li::marker,
+article ol li::marker,
+.prose ol li::marker,
+.markdown-content ol li::marker {
+  color: var(--gold) !important;
+  font-family: var(--font-fraunces), 'Fraunces', Georgia, serif !important;
+  font-weight: 700 !important;
+  font-size: 1.1em !important;
+}
+
+.article-body ul li::marker,
+.article-content ul li::marker,
+article ul li::marker,
+.prose ul li::marker,
+.markdown-content ul li::marker {
+  color: var(--sage) !important;
+  font-size: 1.1em !important;
+}
+
+
 
 
 

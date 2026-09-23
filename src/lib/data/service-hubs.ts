@@ -599,6 +599,281 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
     ctaPrimaryUrl: '/contact/#book',
   },
 
+  'ayurveda-panchakarma': {
+    slug: 'ayurveda-panchakarma',
+    canonicalSlug: 'ayurveda-panchakarma',
+    name: 'Ayurveda & Panchakarma',
+    nameSanskrit: 'आयुर्वेद व पंचकर्म शोधन',
+    themeColor: 'gold',
+    metaTitle: 'Ayurveda & Panchakarma Unit Amravati | Shri Manmukund Hospital',
+    metaDescription:
+      'Classical Ayurvedic medicine and five-fold Panchakarma therapies in Amravati by MS Ayurveda specialists. Vata disorders, spine care, skin diseases, Uttarbasti, and detox.',
+    eyebrow: 'Classical Traditional Medicine',
+    eyebrowBadge: 'Specialist Unit',
+    heroHeadline: 'Classical Ayurveda & Panchakarma, ',
+    heroHeadlineEm: 'delivered with clinical rigor.',
+    heroSubheadline:
+      'Authentic classical Ayurvedic treatments and five-fold Panchakarma purification protocols delivered by MS Ayurveda Shalya Tantra specialists in a modern hospital setting. Not a wellness spa—actual clinical medicine.',
+    primaryCtaText: 'Book a consultation',
+    primaryCtaUrl: '/contact/#book',
+    secondaryCtaText: 'Explore therapies',
+    secondaryCtaUrl: '#conditions',
+    heroStatNum: '15',
+    heroStatSmall: '+',
+    heroStatLabel: 'Years Clinical Experience',
+    heroStatDesc: 'Grounded in classical Ayurvedic texts, modern diagnostics, and honest clinical practice.',
+    answerFirstSummary:
+      "The Ayurveda & Panchakarma Department at Shri Manmukund Hospital provides classical Ayurvedic medicine and structured Panchakarma therapies for chronic Vata disorders, spine and joint diseases, skin conditions, hyperacidity, non-healing wounds, and metabolic conditions. Supervised directly by MS Ayurveda specialists Dr. Vipin Tongale and Dr. Swati Tongale, all therapies follow classical texts with proper Purvakarma, Pradhanakarma, and Paschatkarma protocols, integrated safely with modern diagnostics.",
+    tiersHeading: 'Four clinical pillars of our ',
+    tiersHeadingEm: 'Ayurveda & Panchakarma practice.',
+    tiersLede:
+      'Evidence-grounded, classical protocols combined with modern diagnostic clarity.',
+    tiers: [
+      {
+        num: '01',
+        tierLabel: 'Foundation',
+        title: 'Classical Textual Root',
+        desc: 'Treatment principles derived directly from Sushruta Samhita, Charaka Samhita, and authentic pharmacopoeial formulations.',
+        whenApplied: 'Chronic conditions · Constitutional analysis',
+      },
+      {
+        num: '02',
+        tierLabel: 'Diagnostic',
+        title: 'Prakriti & Vikriti Assessment',
+        desc: 'Thorough evaluation of individual constitution and doshic imbalance to customize herbal formulations rather than generic remedies.',
+        whenApplied: 'Vata disorders · Metabolic imbalance',
+      },
+      {
+        num: '03',
+        tierLabel: 'Purification',
+        title: '5-Fold Panchakarma Therapies',
+        desc: 'Supervised hospital-based detoxification (Vamana, Virechana, Basti, Nasya, Raktamokshana) delivered with dedicated therapist care.',
+        whenApplied: 'Deep tissue cleansing · Autoimmune & skin',
+        linkText: 'Explore Panchakarma therapies →',
+        linkUrl: '#conditions',
+      },
+      {
+        num: '04',
+        tierLabel: 'Integration',
+        title: 'Modern Medical Collaboration',
+        desc: 'We work alongside modern laboratory investigations and imaging, never asking patients to stop essential life-saving medications.',
+        whenApplied: 'Hypertension · Diabetes · Non-healing wounds',
+      },
+    ],
+    tiersNote:
+      'Ayurvedic and Panchakarma therapies work through structured root-cause correction. We set clinical expectations honestly from day one.',
+    conditionsSectionTitle: 'Conditions & Therapies ',
+    conditionsSectionTitleEm: 'managed under one roof.',
+    conditionsSectionLede:
+      'Comprehensive Ayurvedic clinical care, specialized Panchakarma detox, and non-surgical restorative therapies.',
+    conditions: [
+      {
+        slug: 'vata-vikar',
+        name: 'Vata Vikar (Vata Disorders)',
+        nameSanskrit: 'वात विकार',
+        shortSummary:
+          'Systemic management for neurological disorders, degenerative joint diseases, chronic pain, stiffness, and tremors.',
+        tags: ['Neurological', 'Joint care'],
+        linkUrl: '/services/ayurveda/vata-vikar/',
+        iconLetter: 'वा',
+      },
+      {
+        slug: 'full-panchakarma',
+        name: 'Full Panchakarma Programme',
+        nameSanskrit: 'पंचकर्म संपूर्ण शोधन',
+        shortSummary:
+          'Comprehensive classical 5-fold seasonal and therapeutic body purification and metabolic reset in a dedicated hospital setting.',
+        tags: ['5-Fold Detox', 'Seasonal Reset'],
+        linkUrl: '/services/panchakarma/full-panchakarma/',
+        iconLetter: 'पं',
+      },
+      {
+        slug: 'basti',
+        name: 'Basti (Medicated Enema Therapy)',
+        nameSanskrit: 'बस्ति चिकित्सा',
+        shortSummary:
+          'The crown jewel of Panchakarma for Vata disorders, chronic constipation, sciatica, and lower back degeneration.',
+        tags: ['Vata pacification', 'Spine health'],
+        linkUrl: '/services/panchakarma/basti/',
+        iconLetter: 'ब',
+      },
+      {
+        slug: 'uttarbasti',
+        name: 'Uttarbasti Therapy',
+        nameSanskrit: 'उत्तरबस्ति',
+        shortSummary:
+          'Specialized intra-cavitary therapy for urethral strictures (led by Dr. Vipin) and female infertility / tubal blockages (led by Dr. Swati).',
+        tags: ['Stricture Urethra', 'Infertility Care'],
+        linkUrl: '/services/panchakarma/uttarbasti/',
+        iconLetter: 'उ',
+      },
+      {
+        slug: 'jalauka-leech-therapy',
+        name: 'Jalauka (Leech Therapy)',
+        nameSanskrit: 'जलौकावचारण',
+        shortSummary:
+          'Therapeutic bio-purification for localized vascular stasis, varicose veins, thrombosed veins, and non-healing ulcers.',
+        tags: ['Vascular stasis', 'Varicose veins'],
+        linkUrl: '/services/panchakarma/jalauka-leech-therapy/',
+        iconLetter: 'ज',
+      },
+      {
+        slug: 'skin-disease',
+        name: 'Skin Diseases & Raktamokshana',
+        nameSanskrit: 'कुष्ठ व रक्तमोक्षण',
+        shortSummary:
+          'Classical blood purification, herbal decoctions, Virechana, and Leech therapy for eczema, psoriasis, and dermatitis.',
+        tags: ['Blood purification', 'Raktamokshana'],
+        linkUrl: '/services/ayurveda/skin-disease/',
+        iconLetter: 'त्व',
+      },
+      {
+        slug: 'hyperacidity-amlapitta',
+        name: 'Hyperacidity (Amlapitta)',
+        nameSanskrit: 'अम्लपित्त',
+        shortSummary:
+          'Root-cause management for chronic acid reflux, heartburn, GERD, and Pitta metabolic imbalances through herbal remedies and diet.',
+        tags: ['Pitta balance', 'Dietary correction'],
+        linkUrl: '/services/ayurveda/hyperacidity-amlapitta/',
+        iconLetter: 'अम्ल',
+      },
+      {
+        slug: 'spine-care',
+        name: 'Spine Care (Kati & Greeva Basti)',
+        nameSanskrit: 'मेरुदण्ड चिकित्सा',
+        shortSummary:
+          'Non-surgical Ayurvedic spine rehabilitation for sciatica, cervical spondylosis, and lumbar disc disease with warm medicated oils.',
+        tags: ['Kati Basti', 'Greeva Basti'],
+        linkUrl: '/services/spine-care/',
+        iconLetter: 'मे',
+      },
+      {
+        slug: 'suvarna-prashan',
+        name: 'Suvarna Prashan (Child Immunity)',
+        nameSanskrit: 'सुवर्ण प्राशन',
+        shortSummary:
+          'Monthly administration of classical 24k gold bhasma, medhya herbs, and honey on Pushya Nakshatra for child immunity and memory.',
+        tags: ['Pushya Nakshatra', 'Child health'],
+        linkUrl: '/services/ayurveda/suvarna-prashan/',
+        iconLetter: 'सु',
+      },
+      {
+        slug: 'wound-management',
+        name: 'Ayurvedic Wound Management',
+        nameSanskrit: 'व्रण शोधन व रोपण',
+        shortSummary:
+          'Application of classical Shodhana (cleansing) and Ropana (healing) medicated oils and pastes for complex wounds.',
+        tags: ['Vrana Shodhana', 'Herbal oils'],
+        linkUrl: '/services/ayurveda/wound-management/',
+        iconLetter: 'व्र',
+      },
+      {
+        slug: 'non-healing-wounds',
+        name: 'Non-Healing & Diabetic Wounds',
+        nameSanskrit: 'दुष्ट व्रण',
+        shortSummary:
+          'Specialised tissue salvage protocols for chronic ulcerations, venous ulcers, and diabetic foot wounds preventing amputation.',
+        tags: ['Limb salvage', 'Diabetic care'],
+        linkUrl: '/services/ayurveda/non-healing-wounds/',
+        iconLetter: 'दु',
+      },
+      {
+        slug: 'weight-management',
+        name: 'Weight Management (Medoroga)',
+        nameSanskrit: 'मेदोविकार चिकित्सा',
+        shortSummary:
+          'Individualised metabolic reset using classical Medoroga therapies, Udwartanam, herbal teas, and sustainable lifestyle corrections.',
+        tags: ['Metabolic reset', 'Sustainable'],
+        linkUrl: '/services/ayurveda/weight-management/',
+        iconLetter: 'मे',
+      },
+    ],
+    signaturesHeading: 'Signature therapies & specialized ',
+    signaturesHeadingEm: 'hospital facilities.',
+    signaturesLede:
+      'Delivered in dedicated therapy suites under direct MS Ayurveda surgeon supervision.',
+    signatures: [
+      {
+        badgeLetter: 'पं',
+        eyebrow: 'Classical Detox',
+        title: '5-Fold Panchakarma Suite',
+        desc: 'Dedicated clinical purification rooms for Vamana, Virechana, Basti, Nasya, and Raktamokshana protocols with trained therapists.',
+        features: ['Purvakarma Preparation', 'Pradhanakarma Procedures', 'Paschatkarma Diet', 'In-hospital Monitored Care'],
+        linkText: 'Learn about Panchakarma',
+        linkUrl: '/services/panchakarma/full-panchakarma/',
+      },
+      {
+        badgeLetter: 'उ',
+        eyebrow: 'Dual Specialty',
+        title: 'Uttarbasti Therapy Suite',
+        desc: 'High-precision intra-cavitary therapy: urethral strictures treated by Dr. Vipin, and fertility/tubal blockage treated by Dr. Swati.',
+        features: ['Stricture Urethra Relief', 'Tubal Factor Infertility', 'Endometrial Receptivity', 'Aseptic Clinical OT'],
+        linkText: 'Explore Uttarbasti',
+        linkUrl: '/services/panchakarma/uttarbasti/',
+      },
+      {
+        badgeLetter: 'मे',
+        eyebrow: 'Spine & Joints',
+        title: 'Spine Care & Oil Reservoirs',
+        desc: 'Targeted non-surgical therapy for disc herniations, sciatica, cervical spondylosis using warm herbal reservoirs (Kati Basti, Greeva Basti, Janu Basti).',
+        features: ['Kati Basti', 'Greeva Basti', 'Sciatica Protocol', 'Pinda Sweda'],
+        linkText: 'Explore Spine Care',
+        linkUrl: '/services/spine-care/',
+        isLaser: true,
+      },
+    ],
+    specialistsSection: {
+      heading: 'Both specialists, ',
+      headingEm: 'consulting daily.',
+      lede: 'Consultations, constitutional evaluations, and Panchakarma regimens are directly designed and supervised by MS Ayurveda surgeons.',
+      doctorSlugs: ['dr-vipin', 'dr-swati'],
+    },
+    faqsHeading: 'Frequently asked questions about ',
+    faqsHeadingEm: 'Ayurveda & Panchakarma.',
+    faqsLede: 'Honest answers on how classical Ayurvedic therapy works and what to expect.',
+    faqs: [
+      {
+        question: 'How is clinical Ayurveda different from wellness spa Ayurveda?',
+        answer:
+          'Wellness spas provide relaxation treatments. Our unit provides serious medical therapy: diagnostic pulse and physical examination, classical herbal formulations, supervised Panchakarma protocols, and integration with blood tests and imaging.',
+      },
+      {
+        question: 'Can Ayurvedic treatment be taken alongside my modern medications?',
+        answer:
+          'Yes. We evaluate your current prescriptions (e.g. for diabetes, hypertension, thyroid) and ensure there are no adverse drug interactions. We never ask patients to stop essential life-saving modern medicines abruptly.',
+      },
+      {
+        question: 'How long does a Panchakarma treatment take?',
+        answer:
+          'A targeted procedure course (like Basti or Kati Basti) typically takes 7 to 14 days. A comprehensive full Panchakarma detox program lasts 21 to 28 days with proper preparatory (Purvakarma) and restorative dietary (Samsarjana Krama) phases.',
+      },
+      {
+        question: 'What is Uttarbasti and who performs it?',
+        answer:
+          'Uttarbasti is an advanced classical procedure where sterile medicated ghee or oil is administered into the urinary or reproductive tract. At our hospital, male urethral stricture cases are performed by Dr. Vipin Tongale, while gynaecological and infertility cases are performed privately by Dr. Swati Tongale.',
+      },
+      {
+        question: 'Is Jalauka (Leech Therapy) safe and hygienic?',
+        answer:
+          'Yes. We use medically bred, single-use, purified medicinal leeches (Jalauka) in an aseptic hospital environment. It provides natural anticoagulant enzymes that rapidly relieve localized vascular congestion, varicose stasis, and non-healing ulcers.',
+      },
+      {
+        question: 'What is Suvarna Prashan and when is it given?',
+        answer:
+          'Suvarna Prashan is a classical Ayurvedic formulation of 24k purified gold bhasma, cow ghee, honey, and cognitive-enhancing herbs. It is administered to children on Pushya Nakshatra day every month to support immunity, memory, and digestion.',
+      },
+    ],
+    medicallyReviewedBy:
+      'Medically reviewed by Dr. Vipin Tongale (MS Shalya Tantra, PhD) & Dr. Swati Tongale (MS Shalya Tantra)',
+    ctaDevanagari: 'आइए, मिलते हैं',
+    ctaHeadline: 'Ready for authentic ',
+    ctaHeadlineEm: 'Ayurveda & Panchakarma care?',
+    ctaLede:
+      'Experience classical clinical Ayurveda grounded in diagnostic clarity and patient-first care.',
+    ctaPrimaryText: 'Book a consultation',
+    ctaPrimaryUrl: '/contact/#book',
+  },
+
   ayurveda: {
     slug: 'ayurveda',
     canonicalSlug: 'ayurveda',
@@ -880,7 +1155,7 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
         shortSummary:
           'Comprehensive anorectal care including piles, fissure, fistula, perianal abscess, and pilonidal sinus, evaluated and operated by Dr. Swati.',
         tags: ['Dr. Swati lead', 'Complete privacy'],
-        linkUrl: '/services/anorectal-care/female-proctology/',
+        linkUrl: '/services/female-care/female-proctology/',
         iconLetter: 'महि',
       },
       {
@@ -900,7 +1175,7 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
         shortSummary:
           'Month-by-month Ayurvedic antenatal regimen including classical dietary protocols, mild herbs, and coordinated prenatal yoga.',
         tags: ['Antenatal care', 'Month-by-month'],
-        linkUrl: '/knowledge/articles/masanumasik-garbhsanskara-month-by-month-care/',
+        linkUrl: '/services/female-care/garbhasanskar-antenatal-care/',
         iconLetter: 'ग',
       },
       {
@@ -969,6 +1244,7 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
 
 // Aliases
 SERVICE_HUBS['female-care-unit'] = SERVICE_HUBS['female-care'];
+SERVICE_HUBS['panchakarma'] = SERVICE_HUBS['ayurveda-panchakarma'];
 
 export function getServiceHubData(slug: string): ServiceHubData | undefined {
   return SERVICE_HUBS[slug];

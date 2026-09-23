@@ -19,6 +19,7 @@ interface CategoryPageProps {
 export function generateStaticParams() {
   const slugs = new Set([
     ...SERVICE_CATEGORIES.map((cat) => cat.slug),
+    'ayurveda-panchakarma',
     'female-care-unit',
     'panchakarma',
   ]);
@@ -180,49 +181,61 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
           </div>
 
           <div className="specialists-grid">
-            <div className="specialist-card">
+            <article className="specialist">
               <div className="specialist-portrait">
                 <div className="specialist-portrait-inner">
                   <Image
                     src="/images/doctors/dr-vipin-tongale.jpg"
-                    alt="Dr. Vipin Tongale"
-                    width={110}
-                    height={110}
-                    className="w-full h-full object-cover object-top rounded-full"
+                    alt="Dr. Vipin Tongale - General Surgeon & Proctologist"
+                    width={220}
+                    height={220}
+                    className="w-full h-full object-cover object-center"
                   />
                 </div>
               </div>
-              <div>
-                <h3 className="specialist-name">Dr. Vipin Tongale</h3>
-                <div className="specialist-role">Chief Consultant · Shalya Tantra</div>
-                <div className="specialist-creds">MS Shalya Tantra · PhD</div>
-                <Link href="/dr-vipin/" className="specialist-link">
-                  Read Dr. Vipin's profile →
-                </Link>
+              <h3 className="specialist-name">Dr. Vipin Tongale</h3>
+              <p className="specialist-role">General Surgeon &amp; Proctologist</p>
+              <div className="specialist-creds">MS Ayurveda Shalya Tantra · PhD</div>
+              <p className="specialist-bio">
+                Fifteen years of dedicated practice, including twelve years of AYUSH service at District Hospital Amravati. Over 16,000 procedures performed across Vidarbha.
+              </p>
+              <div className="specialist-tags">
+                <span className="specialist-tag">Ksharsutra</span>
+                <span className="specialist-tag">Laser Proctology</span>
+                <span className="specialist-tag">General Surgery</span>
               </div>
-            </div>
+              <Link href="/dr-vipin/" className="specialist-link">
+                Read profile →
+              </Link>
+            </article>
 
-            <div className="specialist-card specialist-card--swati">
+            <article className="specialist specialist-swati">
               <div className="specialist-portrait">
                 <div className="specialist-portrait-inner">
                   <Image
                     src="/images/doctors/dr-swati-tongale.jpg"
-                    alt="Dr. Swati Tongale"
-                    width={110}
-                    height={110}
-                    className="w-full h-full object-cover object-top rounded-full"
+                    alt="Dr. Swati Tongale - Female Care Unit Lead"
+                    width={220}
+                    height={220}
+                    className="w-full h-full object-cover object-center"
                   />
                 </div>
               </div>
-              <div>
-                <h3 className="specialist-name">Dr. Swati Tongale</h3>
-                <div className="specialist-role">Female Care Lead · Shalya Tantra</div>
-                <div className="specialist-creds">MS Shalya Tantra</div>
-                <Link href="/dr-swati/" className="specialist-link">
-                  Read Dr. Swati's profile →
-                </Link>
+              <h3 className="specialist-name">Dr. Swati Tongale</h3>
+              <p className="specialist-role">Female Care Unit Lead</p>
+              <div className="specialist-creds">MS Ayurveda Shalya Tantra</div>
+              <p className="specialist-bio">
+                Female proctology, Uttarbasti-based fertility care, and Masanumasik Garbhsanskara. Practice built to remove access barriers women face with complete privacy.
+              </p>
+              <div className="specialist-tags">
+                <span className="specialist-tag">Female Proctology</span>
+                <span className="specialist-tag">Uttarbasti</span>
+                <span className="specialist-tag">Garbhsanskara</span>
               </div>
-            </div>
+              <Link href="/dr-swati/" className="specialist-link">
+                Read profile →
+              </Link>
+            </article>
           </div>
         </section>
 

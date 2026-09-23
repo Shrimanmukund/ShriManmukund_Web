@@ -112,6 +112,15 @@ export default function HomePage() {
 
         <div className="services-grid">
           <article className="service service-1">
+            <div className="service-image">
+              <Image
+                src="/images/services/anorectal-care.jpg"
+                alt="Advanced Anorectal Care"
+                width={160}
+                height={160}
+                className="service-image-img"
+              />
+            </div>
             <div className="service-icon">श</div>
             <div className="service-eyebrow">Flagship Practice</div>
             <h3 className="service-title">Advanced Anorectal Care</h3>
@@ -124,6 +133,15 @@ export default function HomePage() {
           </article>
 
           <article className="service service-2">
+            <div className="service-image">
+              <Image
+                src="/images/services/ayurveda-panchakarma.jpg"
+                alt="Ayurveda & Panchakarma"
+                width={160}
+                height={160}
+                className="service-image-img"
+              />
+            </div>
             <div className="service-icon">आ</div>
             <div className="service-eyebrow">Rooted in Classical</div>
             <h3 className="service-title">Ayurveda &amp; Panchakarma</h3>
@@ -136,6 +154,15 @@ export default function HomePage() {
           </article>
 
           <article className="service service-3">
+            <div className="service-image">
+              <Image
+                src="/images/services/general-surgery.jpg"
+                alt="General Surgery"
+                width={160}
+                height={160}
+                className="service-image-img"
+              />
+            </div>
             <div className="service-icon">म</div>
             <div className="service-eyebrow">Modern Range</div>
             <h3 className="service-title">General Surgery</h3>
@@ -148,6 +175,15 @@ export default function HomePage() {
           </article>
 
           <article className="service service-4">
+            <div className="service-image">
+              <Image
+                src="/images/services/female-care.jpg"
+                alt="Female Care Unit"
+                width={160}
+                height={160}
+                className="service-image-img"
+              />
+            </div>
             <div className="service-icon">ऋ</div>
             <div className="service-eyebrow">Led by Dr. Swati</div>
             <h3 className="service-title">Female Care Unit</h3>

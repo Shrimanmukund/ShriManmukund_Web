@@ -49,28 +49,6 @@ export function ServiceHubLayout({ hub }: ServiceHubLayoutProps) {
                 </a>
               </div>
             </div>
-
-            {/* Hero Visual Stat Badge */}
-            {hub.heroStatNum && (
-              <div className="unit-hero-visual">
-                <div className="hero-leaf hero-leaf-1"></div>
-                <div className="hero-leaf hero-leaf-2"></div>
-                <div className="unit-hero-circle">
-                  <div className="unit-hero-circle-inner">
-                    <div className="unit-hero-stat-num">
-                      {hub.heroStatNum}
-                      {hub.heroStatSmall && <small>{hub.heroStatSmall}</small>}
-                    </div>
-                    {hub.heroStatLabel && (
-                      <div className="unit-hero-stat-label">{hub.heroStatLabel}</div>
-                    )}
-                    {hub.heroStatDesc && (
-                      <div className="unit-hero-stat-desc">{hub.heroStatDesc}</div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         </section>
 
@@ -248,55 +226,67 @@ export function ServiceHubLayout({ hub }: ServiceHubLayoutProps) {
 
           <div
             className={`specialists-grid ${
-              hub.specialistsSection.doctorSlugs.length === 1 ? 'max-w-md mx-auto' : ''
+              hub.specialistsSection.doctorSlugs.length === 1 ? 'specialists-grid--single' : ''
             }`}
           >
             {hub.specialistsSection.doctorSlugs.includes('dr-vipin') && (
-              <div className="specialist-card">
+              <article className="specialist">
                 <div className="specialist-portrait">
                   <div className="specialist-portrait-inner">
                     <Image
                       src="/images/doctors/dr-vipin-tongale.jpg"
-                      alt="Dr. Vipin Tongale"
-                      width={110}
-                      height={110}
-                      className="w-full h-full object-cover object-center rounded-full"
+                      alt="Dr. Vipin Tongale - General Surgeon & Proctologist"
+                      width={220}
+                      height={220}
+                      className="w-full h-full object-cover object-center"
                     />
                   </div>
                 </div>
-                <div>
-                  <h3 className="specialist-name">Dr. Vipin Tongale</h3>
-                  <div className="specialist-role">Chief Consultant · Proctology</div>
-                  <div className="specialist-creds">MS Shalya Tantra · PhD</div>
-                  <Link href="/dr-vipin/" className="specialist-link">
-                    Read Dr. Vipin's profile
-                  </Link>
+                <h3 className="specialist-name">Dr. Vipin Tongale</h3>
+                <p className="specialist-role">General Surgeon &amp; Proctologist</p>
+                <div className="specialist-creds">MS Ayurveda Shalya Tantra · PhD</div>
+                <p className="specialist-bio">
+                  Fifteen years of dedicated practice, including twelve years of AYUSH service at District Hospital Amravati. Over 16,000 procedures performed across Vidarbha.
+                </p>
+                <div className="specialist-tags">
+                  <span className="specialist-tag">Ksharsutra</span>
+                  <span className="specialist-tag">Laser Proctology</span>
+                  <span className="specialist-tag">General Surgery</span>
                 </div>
-              </div>
+                <Link href="/dr-vipin/" className="specialist-link">
+                  Read profile →
+                </Link>
+              </article>
             )}
 
             {hub.specialistsSection.doctorSlugs.includes('dr-swati') && (
-              <div className="specialist-card specialist-card--swati">
+              <article className="specialist specialist-swati">
                 <div className="specialist-portrait">
                   <div className="specialist-portrait-inner">
                     <Image
                       src="/images/doctors/dr-swati-tongale.jpg"
-                      alt="Dr. Swati Tongale"
-                      width={110}
-                      height={110}
-                      className="w-full h-full object-cover object-center rounded-full"
+                      alt="Dr. Swati Tongale - Female Care Unit Lead"
+                      width={220}
+                      height={220}
+                      className="w-full h-full object-cover object-center"
                     />
                   </div>
                 </div>
-                <div>
-                  <h3 className="specialist-name">Dr. Swati Tongale</h3>
-                  <div className="specialist-role">Female Care Lead · Proctology</div>
-                  <div className="specialist-creds">MS Shalya Tantra</div>
-                  <Link href="/dr-swati/" className="specialist-link">
-                    Read Dr. Swati's profile
-                  </Link>
+                <h3 className="specialist-name">Dr. Swati Tongale</h3>
+                <p className="specialist-role">Female Care Unit Lead</p>
+                <div className="specialist-creds">MS Ayurveda Shalya Tantra</div>
+                <p className="specialist-bio">
+                  Female proctology, Uttarbasti-based fertility care, and Masanumasik Garbhsanskara. Practice built to remove access barriers women face with complete privacy.
+                </p>
+                <div className="specialist-tags">
+                  <span className="specialist-tag">Female Proctology</span>
+                  <span className="specialist-tag">Uttarbasti</span>
+                  <span className="specialist-tag">Garbhsanskara</span>
                 </div>
-              </div>
+                <Link href="/dr-swati/" className="specialist-link">
+                  Read profile →
+                </Link>
+              </article>
             )}
           </div>
         </section>
@@ -341,7 +331,30 @@ export function ServiceHubLayout({ hub }: ServiceHubLayoutProps) {
           </section>
         )}
 
-        {/* 8. CTA SECTION */}
+        {/* 8. FAQ SECTION */}
+        {hub.faqs && hub.faqs.length > 0 && (
+          <section className="faq">
+            <div className="section-header">
+              <div className="section-tag">Frequently Asked Questions</div>
+              <h2 className="section-title">
+                {hub.faqsHeading || 'Common questions, '}
+                <em>{hub.faqsHeadingEm || 'honestly answered.'}</em>
+              </h2>
+              {hub.faqsLede && <p className="section-lede">{hub.faqsLede}</p>}
+            </div>
+
+            <div className="faq-list">
+              {hub.faqs.map((faq, idx) => (
+                <details key={idx} className="faq-item" open={idx === 0}>
+                  <summary className="faq-question">{faq.question}</summary>
+                  <div className="faq-answer">{faq.answer}</div>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 9. CTA SECTION */}
         <section className="cta-section">
           <div className="cta-inner">
             <div className="cta-devanagari font-devanagari">
