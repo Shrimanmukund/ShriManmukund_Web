@@ -119,6 +119,8 @@ export default function HomePage() {
                 width={160}
                 height={160}
                 className="service-image-img"
+                unoptimized
+                priority
               />
             </div>
             <div className="service-icon">श</div>
@@ -140,6 +142,8 @@ export default function HomePage() {
                 width={160}
                 height={160}
                 className="service-image-img"
+                unoptimized
+                priority
               />
             </div>
             <div className="service-icon">आ</div>
@@ -161,6 +165,8 @@ export default function HomePage() {
                 width={160}
                 height={160}
                 className="service-image-img"
+                unoptimized
+                priority
               />
             </div>
             <div className="service-icon">म</div>
@@ -182,6 +188,8 @@ export default function HomePage() {
                 width={160}
                 height={160}
                 className="service-image-img"
+                unoptimized
+                priority
               />
             </div>
             <div className="service-icon">ऋ</div>
