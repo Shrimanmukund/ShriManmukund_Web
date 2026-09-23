@@ -327,7 +327,7 @@ export function KnowledgeHubClient() {
                   <span className="featured-badge featured-badge--rose">Insight</span>
                 </div>
                 <h3 className="featured-side-title">
-                  <Link href="/knowledge/insights/why-patient-dignity-matters-most-in-anorectal-care/">
+                  <Link href="/knowledge/insights/why-i-chose-to-lead-a-female-care-unit/">
                     Why patient dignity matters most in anorectal care
                   </Link>
                 </h3>
@@ -408,7 +408,7 @@ export function KnowledgeHubClient() {
         ) : (
           <div className="articles-grid">
             {paginatedArticles.map((article) => (
-              <article key={article.id} className="article-card">
+              <Link key={article.id} href={article.href} className="article-card">
                 <div className={`article-card-image ${article.imageClass}`}>
                   <div className="article-card-devanagari">{article.devanagari}</div>
                 </div>
@@ -419,10 +419,15 @@ export function KnowledgeHubClient() {
                     </span>
                     <span className="article-card-topic">{article.topic}</span>
                   </div>
-                  <h3 className="article-card-title">
-                    <Link href={article.href}>{article.title}</Link>
-                  </h3>
+                  <h3 className="article-card-title">{article.title}</h3>
                   <p className="article-card-excerpt">{article.excerpt}</p>
+                  
+                  <div className="article-card-readmore-wrapper">
+                    <span className="article-card-readmore">
+                      Read more <span className="article-card-arrow">→</span>
+                    </span>
+                  </div>
+
                   <div className="article-card-footer">
                     <div className="article-card-author">
                       <div className={`article-card-author-avatar ${article.authorAvatarClass}`}>
@@ -433,7 +438,7 @@ export function KnowledgeHubClient() {
                     <span className="article-card-time">{article.readTime}</span>
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         )}

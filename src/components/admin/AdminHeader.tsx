@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { Calendar, MessageSquare, Shield, LogOut, Home, UserCheck, Mail } from 'lucide-react';
+import { Calendar, MessageSquare, Shield, LogOut, Home, UserCheck, Mail, BookOpen } from 'lucide-react';
 
 export function AdminHeader() {
   const pathname = usePathname();
@@ -32,6 +32,8 @@ export function AdminHeader() {
 
   const isEnquiries = pathname.startsWith('/admin/enquiries') || pathname === '/admin' || pathname === '/admin/';
   const isTestimonials = pathname.startsWith('/admin/testimonials');
+  const isSubscriptions = pathname.startsWith('/admin/subscriptions');
+  const isArticles = pathname.startsWith('/admin/articles');
 
   return (
     <header className="bg-slate-900 text-white px-4 sm:px-6 py-3.5 flex flex-col md:flex-row items-center justify-between gap-4 border-b border-slate-800 shadow-md">
@@ -92,13 +94,25 @@ export function AdminHeader() {
         <Link
           href="/admin/subscriptions/"
           className={`px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 font-medium ${
-            pathname.startsWith('/admin/subscriptions')
+            isSubscriptions
               ? 'bg-amber-600 text-white shadow-sm font-semibold'
               : 'text-gray-300 hover:text-white hover:bg-slate-800'
           }`}
         >
           <Mail className="w-4 h-4" />
           <span>Newsletter Subscriptions</span>
+        </Link>
+
+        <Link
+          href="/admin/articles/"
+          className={`px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 font-medium ${
+            isArticles
+              ? 'bg-amber-600 text-white shadow-sm font-semibold'
+              : 'text-gray-300 hover:text-white hover:bg-slate-800'
+          }`}
+        >
+          <BookOpen className="w-4 h-4" />
+          <span>Articles & Blogs</span>
         </Link>
 
         <Link

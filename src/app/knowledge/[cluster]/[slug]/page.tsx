@@ -7,6 +7,7 @@ import {
   DOCTORS,
   getAllPages,
 } from '@/lib/data/content-store';
+import { KNOWLEDGE_ARTICLES } from '@/lib/data/knowledge-articles';
 import { generateArticleSchema } from '@/lib/seo/schemas';
 import { MarkdownRenderer } from '@/components/content/MarkdownRenderer';
 import { ShareBar } from '@/components/knowledge/ShareBar';
@@ -20,10 +21,23 @@ interface KnowledgePiecePageProps {
 
 export function generateStaticParams() {
   const pieces = getAllKnowledgePieces();
-  return pieces.map((p) => ({
-    cluster: p.cluster,
-    slug: p.slug,
+  const staticItems = KNOWLEDGE_ARTICLES.filter(
+    (a) => a.category !== 'patient-resources'
+  ).map((a) => ({
+    cluster: a.category,
+    slug: a.slug,
   }));
+  const combined = [
+    ...pieces.map((p) => ({ cluster: p.cluster, slug: p.slug })),
+    ...staticItems,
+  ];
+  const seen = new Set<string>();
+  return combined.filter((item) => {
+    const key = `${item.cluster}/${item.slug}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 export function generateMetadata({ params }: KnowledgePiecePageProps) {
@@ -32,12 +46,13 @@ export function generateMetadata({ params }: KnowledgePiecePageProps) {
   );
   const pieces = getAllKnowledgePieces();
   const piece = pieces.find((p) => p.slug === params.slug);
+  const kbArticle = KNOWLEDGE_ARTICLES.find((a) => a.slug === params.slug);
 
-  if (!rawPage && !piece) return {};
+  if (!rawPage && !piece && !kbArticle) return {};
 
   return {
-    title: rawPage?.metaTitle || piece?.title || 'Knowledge Guide | Shri Manmukund Hospital',
-    description: rawPage?.metaDescription || piece?.excerpt,
+    title: rawPage?.metaTitle || piece?.title || kbArticle?.title || 'Knowledge Guide | Shri Manmukund Hospital',
+    description: rawPage?.metaDescription || piece?.excerpt || kbArticle?.excerpt,
   };
 }
 
@@ -47,8 +62,9 @@ export default function KnowledgeDetailPage({ params }: KnowledgePiecePageProps)
   );
   const pieces = getAllKnowledgePieces();
   const piece = pieces.find((p) => p.slug === params.slug);
+  const kbArticle = KNOWLEDGE_ARTICLES.find((a) => a.slug === params.slug);
 
-  if (!rawPage && !piece && params.slug !== 'ksharsutra-day-1-to-complete-healing') {
+  if (!rawPage && !piece && !kbArticle && params.slug !== 'ksharsutra-day-1-to-complete-healing') {
     notFound();
   }
 
@@ -60,24 +76,54 @@ export default function KnowledgeDetailPage({ params }: KnowledgePiecePageProps)
     ? 'Ksharsutra treatment, week by week'
     : rawPage
     ? rawPage.title
-    : piece?.title || 'Clinical Guide';
+    : piece?.title || kbArticle?.title || 'Clinical Guide';
 
   const excerpt = isKsharsutraPlaybook
     ? 'A practical, day-by-day guide for patients considering or currently undergoing Ksharsutra. What to expect at each stage, how to prepare, and when to call the hospital.'
-    : rawPage?.metaDescription || piece?.excerpt || '';
+    : rawPage?.metaDescription || piece?.excerpt || kbArticle?.excerpt || '';
 
   const answerFirstSummary = isKsharsutraPlaybook
     ? 'Ksharsutra treatment for anal fistula typically takes 6 to 8 weeks from first application to complete healing. It involves weekly changes of a medicated thread (Kshar Sutra) that gradually cuts through and heals the fistula tract. Most patients continue working throughout, with 2 to 3 days of light activity around each thread change. Pain is manageable with oral analgesics. Complete healing rates are excellent when the technique is applied correctly and follow-up is maintained.'
-    : rawPage?.answerFirstSummary || piece?.excerpt || '';
+    : rawPage?.answerFirstSummary || piece?.excerpt || kbArticle?.excerpt || '';
 
-  const bodyContent = rawPage?.bodyMarkdown || piece?.bodyMarkdown || '';
+  const fallbackMarkdown = kbArticle
+    ? `## Clinical Overview & Understanding
+
+${kbArticle.excerpt}
+
+---
+
+## What Patients Should Know
+
+At Shri Manmukund Hospital, Amravati, our clinical team focuses on accurate diagnostic differentiation and conservative, tissue-preserving management wherever possible.
+
+### Key Principles of Treatment
+- **Specialist Direct Consultation:** Thorough in-person examination by ${kbArticle.authorFull}, MS Ayurveda Shalya Tantra.
+- **Combined Modern & Ayurvedic Science:** Integrating classical Shalya Tantra protocols with modern diagnostic imaging and minimally invasive tools.
+- **Patient Comfort & Dignity:** Complete privacy and transparent explanations at every step of your clinical journey.
+
+---
+
+## When to Seek Prompt Medical Attention
+If you experience acute discomfort, rectal bleeding, persistent discharge, or worsening symptoms, do not self-medicate or delay consultation. Early intervention allows simpler, ambulatory interventions without extensive surgery.
+
+---
+
+## What to Expect During Consultation
+1. **Confidential Assessment:** Discussion of your medical history, symptoms, and previous treatments.
+2. **Clear Diagnosis:** Explanation of the condition and why specific treatments are (or are not) necessary.
+3. **Honest Prognosis:** Step-by-step guidance on expected recovery times and prevention of recurrence.
+`
+    : '';
+
+  const bodyContent = rawPage?.bodyMarkdown || piece?.bodyMarkdown || fallbackMarkdown;
   const clusterLabel =
     params.cluster.charAt(0).toUpperCase() + params.cluster.slice(1);
   const clusterSingular = params.cluster.endsWith('s')
     ? clusterLabel.slice(0, -1)
     : clusterLabel;
 
-  const authorSlug = piece?.authorSlug || 'dr-vipin';
+  const authorSlug = piece?.authorSlug || (kbArticle?.author === 'Dr. Swati' ? 'dr-swati' : 'dr-vipin');
   const author = DOCTORS[authorSlug] || DOCTORS['dr-vipin'];
   const reviewer = authorSlug === 'dr-vipin' ? DOCTORS['dr-swati'] : DOCTORS['dr-vipin'];
 
@@ -93,7 +139,7 @@ export default function KnowledgeDetailPage({ params }: KnowledgePiecePageProps)
     ? 'गर्भ'
     : params.slug.includes('uttarbasti')
     ? 'उत्तरबस्ती'
-    : 'ज्ञान संग्रह';
+    : kbArticle?.devanagari || 'ज्ञान संग्रह';
 
   const relatedPieces = pieces
     .filter((p) => p.slug !== params.slug)
@@ -104,9 +150,9 @@ export default function KnowledgeDetailPage({ params }: KnowledgePiecePageProps)
     cluster: params.cluster as any,
     title,
     authorSlug,
-    publishedDate: '2026-07-15',
+    publishedDate: kbArticle?.date || '2026-07-15',
     lastUpdatedDate: '2026-09-02',
-    estimatedReadTimeMins: piece?.estimatedReadTimeMins || 12,
+    estimatedReadTimeMins: piece?.estimatedReadTimeMins || kbArticle?.readTimeMins || 8,
     excerpt,
     bodyMarkdown: bodyContent,
     categories: [clusterLabel, 'Clinical Care'],
