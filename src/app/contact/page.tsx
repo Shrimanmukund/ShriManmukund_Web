@@ -253,48 +253,48 @@ export default function ContactPage() {
 
       {/* 6. BOOKING FORM */}
       <section className="booking" id="book">
-        <div className="section-header--left">
-          <div className="section-tag">Book Online</div>
-          <h2 className="section-title">
-            Or send us a <em>booking request.</em>
-          </h2>
-          <p className="section-lede">
-            Prefer to book online instead of calling? Fill in the details below and we will call you back within 4 working hours to confirm your appointment.
-          </p>
-        </div>
-
         <div className="booking-grid">
           <div className="booking-info">
-            <h3>
-              Before your <em>consultation.</em>
-            </h3>
-            <p>To help us prepare and make your visit efficient, please have the following ready:</p>
-            <ul>
-              <li>
-                <strong>Any previous prescriptions</strong> relating to your current concern
-              </li>
-              <li>
-                <strong>Imaging reports</strong> — X-ray, ultrasound, MRI, or colonoscopy if available
-              </li>
-              <li>
-                <strong>Recent blood tests</strong> including HbA1c if you are diabetic
-              </li>
-              <li>
-                <strong>List of current medications</strong> with doses and duration
-              </li>
-              <li>
-                <strong>Aadhaar or valid ID</strong> for hospital registration
-              </li>
-              <li>
-                <strong>Insurance card</strong> or corporate coverage details, if applicable
-              </li>
-              <li>
-                <strong>A companion</strong> if you are travelling from a long distance
-              </li>
-            </ul>
-            <p>
-              If you are calling from outside Amravati, please tell us when booking. We will schedule your consultation and any necessary procedures on the same day to save you a return trip.
+            <div className="section-tag">Book Online</div>
+            <h2 className="section-title">
+              Or send us a <em>booking request.</em>
+            </h2>
+            <p className="section-lede">
+              Prefer to book online instead of calling? Fill in the details below and we will call you back within 4 working hours to confirm your appointment.
             </p>
+
+            <div className="booking-info-guide">
+              <h3>
+                Before your <em>consultation.</em>
+              </h3>
+              <p>To help us prepare and make your visit efficient, please have the following ready:</p>
+              <ul>
+                <li>
+                  <strong>Any previous prescriptions</strong> relating to your current concern
+                </li>
+                <li>
+                  <strong>Imaging reports</strong> — X-ray, ultrasound, MRI, or colonoscopy if available
+                </li>
+                <li>
+                  <strong>Recent blood tests</strong> including HbA1c if you are diabetic
+                </li>
+                <li>
+                  <strong>List of current medications</strong> with doses and duration
+                </li>
+                <li>
+                  <strong>Aadhaar or valid ID</strong> for hospital registration
+                </li>
+                <li>
+                  <strong>Insurance card</strong> or corporate coverage details, if applicable
+                </li>
+                <li>
+                  <strong>A companion</strong> if you are travelling from a long distance
+                </li>
+              </ul>
+              <p>
+                If you are calling from outside Amravati, please tell us when booking. We will schedule your consultation and any necessary procedures on the same day to save you a return trip.
+              </p>
+            </div>
           </div>
 
           <div className="booking-form-wrap">

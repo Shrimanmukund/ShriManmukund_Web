@@ -695,35 +695,80 @@ blockquote {
 /* Booking Section & Form Proportional Height Balance */
 .booking-grid {
   display: grid !important;
-  grid-template-columns: 1fr 1.25fr !important;
-  gap: 3rem !important;
+  grid-template-columns: 1fr 1.15fr !important;
+  gap: 3.5rem !important;
   align-items: start !important;
-  margin-top: 1.5rem !important;
+  margin-top: 0 !important;
 }
 
-.booking-info h3 {
-  font-size: 1.625rem !important;
-  margin-bottom: 0.875rem !important;
+.booking-info .section-tag {
+  justify-content: flex-start !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  display: inline-flex !important;
+  margin-bottom: 0.75rem !important;
 }
 
-.booking-info p {
-  font-size: 0.9375rem !important;
-  line-height: 1.65 !important;
-  margin-bottom: 1rem !important;
+.booking-info .section-tag::before {
+  content: '' !important;
+  width: 32px !important;
+  height: 1px !important;
+  background: var(--sage) !important;
+  display: inline-block !important;
 }
 
-.booking-info ul {
-  margin: 1.25rem 0 !important;
+.booking-info .section-tag::after {
+  display: none !important;
 }
 
-.booking-info ul li {
-  padding: 0.5rem 0 0.5rem 1.75rem !important;
+.booking-info .section-title {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  font-size: clamp(2rem, 3.5vw, 2.5rem) !important;
+  line-height: 1.15 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.booking-info .section-lede {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  font-size: 1rem !important;
+  line-height: 1.55 !important;
+  color: var(--brown) !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.booking-info-guide {
+  margin-top: 1rem !important;
+  padding-top: 1rem !important;
+  border-top: 1px solid var(--leaf-line) !important;
+}
+
+.booking-info-guide h3 {
+  font-size: 1.25rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.booking-info-guide p {
   font-size: 0.875rem !important;
-  line-height: 1.45 !important;
+  line-height: 1.55 !important;
+  margin-bottom: 0.75rem !important;
 }
 
-.booking-info ul li::before {
-  top: 0.5rem !important;
+.booking-info-guide ul {
+  margin: 0.75rem 0 !important;
+}
+
+.booking-info-guide ul li {
+  padding: 0.4rem 0 0.4rem 1.75rem !important;
+  font-size: 0.8125rem !important;
+  line-height: 1.4 !important;
+}
+
+.booking-info-guide ul li::before {
+  top: 0.4rem !important;
 }
 
 .booking-form {
