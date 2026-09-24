@@ -13,6 +13,10 @@ export const SiteHeader: React.FC = () => {
     setMobileOpen(false);
   }, [pathname]);
 
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
+
   return (
     <>
       {/* NAV */}
