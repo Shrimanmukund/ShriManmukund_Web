@@ -282,9 +282,11 @@ export default function AboutPage() {
                 <Image
                   src="/images/doctors/dr-vipin-tongale.jpg"
                   alt="Dr. Vipin Tongale"
-                  width={140}
-                  height={140}
-                  className="w-full h-full object-cover object-top rounded-full"
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover object-center rounded-full"
+                  priority
+                  unoptimized
                 />
               </div>
             </div>
@@ -307,9 +309,11 @@ export default function AboutPage() {
                 <Image
                   src="/images/doctors/dr-swati-tongale.jpg"
                   alt="Dr. Swati Tongale"
-                  width={140}
-                  height={140}
-                  className="w-full h-full object-cover object-top rounded-full"
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover object-center rounded-full"
+                  priority
+                  unoptimized
                 />
               </div>
             </div>

@@ -34,8 +34,9 @@ export const DoctorCard: React.FC<DoctorCardProps> = ({ doctor, variant = 'featu
               src={doctor.portraitUrl || (doctor.slug === 'dr-vipin' ? '/images/doctors/dr-vipin-tongale.jpg' : '/images/doctors/dr-swati-tongale.jpg')}
               alt={`${doctor.honorific} ${doctor.fullName}`}
               fill
-              sizes="80px"
-              className="object-cover object-top"
+              sizes="(max-width: 640px) 120px, 160px"
+              className="object-cover object-center"
+              unoptimized
             />
           </div>
         </div>

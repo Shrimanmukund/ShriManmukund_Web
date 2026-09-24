@@ -635,9 +635,10 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
                     : '/images/doctors/dr-vipin-tongale.jpg'
                 }
                 alt={`Dr. ${authorSlug === 'dr-swati' ? 'Swati Tongale' : 'Vipin Tongale'}`}
-                width={120}
-                height={120}
-                className="w-full h-full object-cover object-top rounded-full"
+                width={240}
+                height={240}
+                className="w-full h-full object-cover object-center rounded-full"
+                unoptimized
               />
             </div>
           </div>

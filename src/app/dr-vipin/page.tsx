@@ -58,8 +58,9 @@ export default function DrVipinPage() {
                   alt="Dr. Vipin Tongale - General Surgeon & Proctologist"
                   fill
                   sizes="(max-width: 768px) 320px, 460px"
-                  className="object-cover object-top"
+                  className="object-cover object-center"
                   priority
+                  unoptimized
                 />
               </div>
             </div>

@@ -236,9 +236,10 @@ export function ServiceHubLayout({ hub }: ServiceHubLayoutProps) {
                     <Image
                       src="/images/doctors/dr-vipin-tongale.jpg"
                       alt="Dr. Vipin Tongale - General Surgeon & Proctologist"
-                      width={220}
-                      height={220}
+                      width={400}
+                      height={400}
                       className="w-full h-full object-cover object-center"
+                      unoptimized
                     />
                   </div>
                 </div>
@@ -266,9 +267,10 @@ export function ServiceHubLayout({ hub }: ServiceHubLayoutProps) {
                     <Image
                       src="/images/doctors/dr-swati-tongale.jpg"
                       alt="Dr. Swati Tongale - Female Care Unit Lead"
-                      width={220}
-                      height={220}
+                      width={400}
+                      height={400}
                       className="w-full h-full object-cover object-center"
+                      unoptimized
                     />
                   </div>
                 </div>
