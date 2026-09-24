@@ -34,6 +34,9 @@ export function generateMetadata({ params }: CategoryPageProps) {
     return {
       title: hub.metaTitle,
       description: hub.metaDescription,
+      alternates: {
+        canonical: `/services/${hub.canonicalSlug}/`,
+      },
       openGraph: {
         title: hub.metaTitle,
         description: hub.metaDescription,
@@ -48,6 +51,9 @@ export function generateMetadata({ params }: CategoryPageProps) {
   return {
     title: `${category.name} — Shri Manmukund Hospital, Amravati`,
     description: category.shortDescription,
+    alternates: {
+      canonical: `/services/${params.category}/`,
+    },
   };
 }
 

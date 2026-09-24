@@ -12,6 +12,7 @@ export interface AppointmentEnquiryFormProps {
   initialConditionSlug?: string;
   title?: string;
   subtitle?: string;
+  titleLevel?: 'h1' | 'h2' | 'h3';
 }
 
 export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
@@ -19,6 +20,7 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
   defaultDoctor,
   title = 'Request an appointment',
   subtitle = 'We will call to confirm within 4 working hours.',
+  titleLevel = 'h3',
 }) => {
   const initialDoctor =
     initialDoctorSlug === 'dr-vipin' || defaultDoctor === 'dr-vipin'
@@ -141,9 +143,11 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
     );
   }
 
+  const HeadingTag = titleLevel;
+
   return (
     <form className="booking-form" onSubmit={handleSubmit}>
-      <h3 className="booking-form-title">{title}</h3>
+      <HeadingTag className="booking-form-title">{title}</HeadingTag>
       <p className="booking-form-subtitle">{subtitle}</p>
 
       {/* Honeypot */}

@@ -6,6 +6,9 @@ export const metadata = {
   title: 'Patient Stories & Testimonials | Shri Manmukund Hospital, Amravati',
   description:
     'Verified patient reviews and experiences at Shri Manmukund Hospital, Amravati. Published with explicit consent under NMC and AYUSH guidelines.',
+  alternates: {
+    canonical: '/testimonials/',
+  },
 };
 
 export default function TestimonialsPage() {

@@ -6,6 +6,9 @@ export const metadata = {
   title: 'Clinical Services & Specialised Units | Shri Manmukund Hospital, Amravati',
   description:
     'Advanced Anorectal Care, Ayurveda & Panchakarma, General Surgery, and Female Specialty Care. Full spectrum of treatment tiers chosen honestly for your case.',
+  alternates: {
+    canonical: '/services/',
+  },
 };
 
 export default function ServicesHubPage() {

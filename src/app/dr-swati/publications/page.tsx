@@ -6,6 +6,9 @@ import { getAllKnowledgePieces } from '@/lib/data/content-store';
 export const metadata = {
   title: 'Articles & Guides | Dr. Swati Tongale, MS',
   description: 'Articles and clinical insights authored by Dr. Swati Tongale on female proctology, Uttarbasti for infertility, and women’s Ayurvedic healthcare.',
+  alternates: {
+    canonical: '/dr-swati/publications/',
+  },
 };
 
 export default function DrSwatiPublicationsPage() {

@@ -6,6 +6,9 @@ export const metadata = {
   title: 'Dr. Vipin Tongale | General Surgeon & Proctologist | Amravati',
   description:
     'Dr. Vipin Tongale, MS (Ayurveda Shalya Tantra), PhD. 15+ years of dedicated proctology and integrated surgery in Amravati. Over 16,000 procedures. Ksharsutra and laser proctology specialist.',
+  alternates: {
+    canonical: '/dr-vipin/',
+  },
 };
 
 export default function DrVipinPage() {
@@ -152,7 +155,7 @@ export default function DrVipinPage() {
               <p className="focus-card-desc">
                 Laser haemorrhoidoplasty (LHP), FiLaC for fistula, SiLaC for pilonidal sinus, laser fissure treatment. Sphincter-preserving modern techniques.
               </p>
-              <Link href="/services/anorectal-care/laser-hemorrhoidoplasty-lhp/" className="focus-card-link">
+              <Link href="/services/laser-proctology/laser-piles-surgery/" className="focus-card-link">
                 Explore laser proctology
               </Link>
             </div>

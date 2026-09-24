@@ -6,6 +6,9 @@ export const metadata = {
   title: 'Contact & Visit Us — Shri Manmukund Hospital, Amravati',
   description:
     'Book a consultation, ask a question, or just find us. We are here Monday to Saturday, and our emergency line is monitored around the clock.',
+  alternates: {
+    canonical: '/contact/',
+  },
 };
 
 export default function ContactPage() {

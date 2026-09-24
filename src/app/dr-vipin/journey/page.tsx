@@ -7,6 +7,9 @@ import { Clock, Award, ShieldCheck, ChevronRight } from 'lucide-react';
 export const metadata = {
   title: 'Professional Journey | Dr. Vipin Tongale, MS, PhD',
   description: 'Detailed professional biography and institutional history of Dr. Vipin Tongale across Gurudev Ayurved Mahavidyalaya, District Hospital Amravati, and Shri Manmukund Hospital.',
+  alternates: {
+    canonical: '/dr-vipin/journey/',
+  },
 };
 
 export default function DrVipinJourneyPage() {

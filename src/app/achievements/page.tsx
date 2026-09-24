@@ -5,6 +5,9 @@ export const metadata = {
   title: 'Hospital Milestones & Achievements | Shri Manmukund Hospital, Amravati',
   description:
     'Key surgical milestones, academic recognitions, and community health contributions of Shri Manmukund Hospital and its surgical team since 2011.',
+  alternates: {
+    canonical: '/achievements/',
+  },
 };
 
 export default function AchievementsPage() {

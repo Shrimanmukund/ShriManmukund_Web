@@ -33,7 +33,7 @@ export function generateStaticParams() {
           slug: cond.slug,
         });
       }
-      if (cat.slug === 'panchakarma') {
+      if (cat.slug === 'panchakarma' || cat.slug === 'ayurveda') {
         params.push({
           category: 'ayurveda-panchakarma',
           slug: cond.slug,
@@ -59,6 +59,9 @@ export function generateMetadata({ params }: ConditionPageProps) {
   return {
     title: cleanTitle,
     description: rawPage?.metaDescription || condition?.metaDescription,
+    alternates: {
+      canonical: `/services/${params.category}/${params.slug}/`,
+    },
   };
 }
 

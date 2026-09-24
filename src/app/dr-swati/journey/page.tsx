@@ -6,6 +6,9 @@ import { DOCTORS } from '@/lib/data/content-store';
 export const metadata = {
   title: 'Professional Journey | Dr. Swati Tongale, MS',
   description: 'Learn about Dr. Swati Tongale’s professional background, education in Ayurvedic Shalya Tantra, and clinical focus on female proctology and fertility.',
+  alternates: {
+    canonical: '/dr-swati/journey/',
+  },
 };
 
 export default function DrSwatiJourneyPage() {

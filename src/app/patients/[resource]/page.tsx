@@ -25,6 +25,9 @@ export function generateMetadata({ params }: PatientResourcePageProps) {
   return {
     title: rawPage?.metaTitle || resource?.metaTitle,
     description: rawPage?.metaDescription || resource?.metaDescription,
+    alternates: {
+      canonical: `/patients/${params.resource}/`,
+    },
   };
 }
 

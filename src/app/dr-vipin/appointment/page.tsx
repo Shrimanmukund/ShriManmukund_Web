@@ -5,6 +5,9 @@ import { AppointmentEnquiryForm } from '@/components/forms/AppointmentEnquiryFor
 export const metadata = {
   title: 'Book Consultation with Dr. Vipin Tongale | Shri Manmukund Hospital',
   description: 'Schedule an in-person consultation with Dr. Vipin Tongale (MS Ayurveda Shalya Tantra, PhD) for piles, fissure, fistula, Ksharsutra, laser, or general surgery in Amravati.',
+  alternates: {
+    canonical: '/dr-vipin/appointment/',
+  },
 };
 
 export default function DrVipinAppointmentPage() {
@@ -22,6 +25,7 @@ export default function DrVipinAppointmentPage() {
           <AppointmentEnquiryForm
             initialDoctorSlug="dr-vipin"
             title="Book Consultation with Dr. Vipin Tongale"
+            titleLevel="h1"
           />
         </div>
       </div>

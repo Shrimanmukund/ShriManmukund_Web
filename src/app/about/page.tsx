@@ -6,6 +6,9 @@ export const metadata = {
   title: 'About Us',
   description:
     'A hospital built on quiet conviction. Founded in Amravati in 2011 by Dr. Vipin Tongale and Dr. Swati Tongale. Proctology, general surgery, and integrated Ayurvedic care.',
+  alternates: {
+    canonical: '/about/',
+  },
 };
 
 export default function AboutPage() {

@@ -5,6 +5,9 @@ import { AppointmentEnquiryForm } from '@/components/forms/AppointmentEnquiryFor
 export const metadata = {
   title: 'Book Consultation with Dr. Swati Tongale | Shri Manmukund Hospital',
   description: 'Schedule a private consultation with Dr. Swati Tongale (MS Ayurveda Shalya Tantra) for female proctology, piles, fissure, fistula, or Uttarbasti for infertility in Amravati.',
+  alternates: {
+    canonical: '/dr-swati/appointment/',
+  },
 };
 
 export default function DrSwatiAppointmentPage() {
@@ -22,6 +25,7 @@ export default function DrSwatiAppointmentPage() {
           <AppointmentEnquiryForm
             initialDoctorSlug="dr-swati"
             title="Book a Consultation with Dr. Swati Tongale"
+            titleLevel="h1"
           />
         </div>
       </div>

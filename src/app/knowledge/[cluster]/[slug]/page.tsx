@@ -48,11 +48,12 @@ export function generateMetadata({ params }: KnowledgePiecePageProps) {
   const piece = pieces.find((p) => p.slug === params.slug);
   const kbArticle = KNOWLEDGE_ARTICLES.find((a) => a.slug === params.slug);
 
-  if (!rawPage && !piece && !kbArticle) return {};
-
   return {
     title: rawPage?.metaTitle || piece?.title || kbArticle?.title || 'Knowledge Guide | Shri Manmukund Hospital',
     description: rawPage?.metaDescription || piece?.excerpt || kbArticle?.excerpt,
+    alternates: {
+      canonical: `/knowledge/${params.cluster}/${params.slug}/`,
+    },
   };
 }
 
@@ -690,7 +691,7 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
                       <span className="related-card-topic">Fistula</span>
                     </div>
                     <h3 className="related-card-title">
-                      <Link href="/knowledge/articles/piles-vs-fissure-vs-fistula/">
+                      <Link href="/knowledge/articles/piles-vs-fissure-vs-fistula-how-to-tell-them-apart/">
                         Piles vs fissure vs fistula: how to tell them apart
                       </Link>
                     </h3>
@@ -711,15 +712,15 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
                   <div className="related-card-body">
                     <div className="related-card-badges">
                       <span className="related-card-type">Article</span>
-                      <span className="related-card-topic">Recurrent Fistula</span>
+                      <span className="related-card-topic">Ksharsutra</span>
                     </div>
                     <h3 className="related-card-title">
-                      <Link href="/knowledge/articles/iftak-for-recurrent-fistula/">
-                        IFTAK for recurrent fistula: when standard Ksharsutra needs a modification
+                      <Link href="/knowledge/articles/understanding-ksharsutra-in-simple-terms/">
+                        Understanding Ksharsutra in simple terms: how it heals
                       </Link>
                     </h3>
                     <p className="related-card-excerpt">
-                      A refined variant of Ksharsutra for complex and recurrent fistula cases. When it is indicated.
+                      A clear clinical explanation of Ksharsutra therapy, healing phases, and why recurrence is so low.
                     </p>
                     <div className="related-card-footer">
                       <span className="related-card-author">Dr. Vipin</span>
@@ -738,7 +739,7 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
                       <span className="related-card-topic">Recovery</span>
                     </div>
                     <h3 className="related-card-title">
-                      <Link href="/knowledge/articles/diet-after-anorectal-surgery/">
+                      <Link href="/patients/diet-and-lifestyle/">
                         Post-procedure diet: eating for good healing
                       </Link>
                     </h3>

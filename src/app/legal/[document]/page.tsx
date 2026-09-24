@@ -20,6 +20,9 @@ export function generateMetadata({ params }: LegalPageProps) {
   return {
     title: doc.metaTitle,
     description: doc.metaDescription,
+    alternates: {
+      canonical: `/legal/${params.document}/`,
+    },
   };
 }
 

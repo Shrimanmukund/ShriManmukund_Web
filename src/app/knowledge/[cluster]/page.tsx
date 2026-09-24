@@ -29,6 +29,9 @@ export function generateMetadata({ params }: ClusterPageProps) {
   return {
     title: titles[params.cluster] || 'Knowledge Hub | Shri Manmukund Hospital',
     description: `Browse all ${params.cluster} authored by Dr. Vipin Tongale and Dr. Swati Tongale at Shri Manmukund Hospital, Amravati.`,
+    alternates: {
+      canonical: `/knowledge/${params.cluster}/`,
+    },
   };
 }
 

@@ -7,6 +7,9 @@ import { BookOpen, ChevronRight } from 'lucide-react';
 export const metadata = {
   title: 'Research & Publications | Dr. Vipin Tongale, MS, PhD',
   description: 'Clinical papers, surgical playbooks, and medical articles authored by Dr. Vipin Tongale on Ksharsutra, anorectal surgery, and general surgery.',
+  alternates: {
+    canonical: '/dr-vipin/publications/',
+  },
 };
 
 export default function DrVipinPublicationsPage() {

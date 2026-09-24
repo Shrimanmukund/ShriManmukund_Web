@@ -6,6 +6,9 @@ export const metadata = {
   title: 'Dr. Swati Tongale (Wankhade) | Female Care Unit Lead & Proctologist | Amravati',
   description:
     'Dr. Swati Tongale (Wankhade), MS (Ayurveda Shalya Tantra). Lead of Female Care Unit at Shri Manmukund Hospital, Amravati. Female proctology, Uttarbasti fertility care, Garbhsanskara.',
+  alternates: {
+    canonical: '/dr-swati/',
+  },
 };
 
 export default function DrSwatiPage() {
