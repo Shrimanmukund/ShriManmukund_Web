@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata = {
-  title: 'Dr. Swati Tongale (Wankhade) | Female Care Unit Lead & Proctologist | Amravati',
+  title: 'Dr. Swati Tongale | Female Care Lead & Proctologist',
   description:
     'Dr. Swati Tongale (Wankhade), MS (Ayurveda Shalya Tantra). Lead of Female Care Unit at Shri Manmukund Hospital, Amravati. Female proctology, Uttarbasti fertility care, Garbhsanskara.',
   alternates: {

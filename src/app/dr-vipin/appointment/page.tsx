@@ -3,7 +3,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { AppointmentEnquiryForm } from '@/components/forms/AppointmentEnquiryForm';
 
 export const metadata = {
-  title: 'Book Consultation with Dr. Vipin Tongale | Shri Manmukund Hospital',
+  title: 'Book Consultation with Dr. Vipin Tongale',
   description: 'Schedule an in-person consultation with Dr. Vipin Tongale (MS Ayurveda Shalya Tantra, PhD) for piles, fissure, fistula, Ksharsutra, laser, or general surgery in Amravati.',
   alternates: {
     canonical: '/dr-vipin/appointment/',

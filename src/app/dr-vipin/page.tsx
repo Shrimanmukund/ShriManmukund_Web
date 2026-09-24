@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata = {
-  title: 'Dr. Vipin Tongale | General Surgeon & Proctologist | Amravati',
+  title: 'Dr. Vipin Tongale | General Surgeon & Proctologist',
   description:
     'Dr. Vipin Tongale, MS (Ayurveda Shalya Tantra), PhD. 15+ years of dedicated proctology and integrated surgery in Amravati. Over 16,000 procedures. Ksharsutra and laser proctology specialist.',
   alternates: {

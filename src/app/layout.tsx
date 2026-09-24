@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://shrimanmukundhospital.com'),
   title: {
     default: 'Shri Manmukund Hospital, Amravati | Advanced Proctology & Surgery',
-    template: '%s | Shri Manmukund Hospital, Amravati',
+    template: '%s | Shri Manmukund Hospital',
   },
   description:
     'Specialist proctology, general surgery, and integrated Ayurvedic care in Amravati led by Dr. Vipin Tongale and Dr. Swati Tongale. Ksharsutra, laser, and modern surgical options under one roof. Since 2011.',

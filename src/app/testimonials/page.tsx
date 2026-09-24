@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { TESTIMONIALS } from '@/lib/data/content-store';
 
 export const metadata = {
-  title: 'Patient Stories & Testimonials | Shri Manmukund Hospital, Amravati',
+  title: 'Patient Stories & Testimonials',
   description:
     'Verified patient reviews and experiences at Shri Manmukund Hospital, Amravati. Published with explicit consent under NMC and AYUSH guidelines.',
   alternates: {

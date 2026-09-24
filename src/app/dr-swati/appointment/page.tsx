@@ -3,7 +3,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { AppointmentEnquiryForm } from '@/components/forms/AppointmentEnquiryForm';
 
 export const metadata = {
-  title: 'Book Consultation with Dr. Swati Tongale | Shri Manmukund Hospital',
+  title: 'Book Consultation with Dr. Swati Tongale',
   description: 'Schedule a private consultation with Dr. Swati Tongale (MS Ayurveda Shalya Tantra) for female proctology, piles, fissure, fistula, or Uttarbasti for infertility in Amravati.',
   alternates: {
     canonical: '/dr-swati/appointment/',

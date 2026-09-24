@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { SERVICE_CATEGORIES } from '@/lib/data/content-store';
 
 export const metadata = {
-  title: 'Clinical Services & Specialised Units | Shri Manmukund Hospital, Amravati',
+  title: 'Clinical Services & Specialised Units',
   description:
     'Advanced Anorectal Care, Ayurveda & Panchakarma, General Surgery, and Female Specialty Care. Full spectrum of treatment tiers chosen honestly for your case.',
   alternates: {

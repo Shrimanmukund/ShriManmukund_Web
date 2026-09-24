@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { AppointmentEnquiryForm } from '@/components/forms/AppointmentEnquiryForm';
 
 export const metadata = {
-  title: 'Contact & Visit Us — Shri Manmukund Hospital, Amravati',
+  title: 'Contact & Visit Us',
   description:
     'Book a consultation, ask a question, or just find us. We are here Monday to Saturday, and our emergency line is monitored around the clock.',
   alternates: {

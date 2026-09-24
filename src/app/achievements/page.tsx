@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Hospital Milestones & Achievements | Shri Manmukund Hospital, Amravati',
+  title: 'Hospital Milestones & Achievements',
   description:
     'Key surgical milestones, academic recognitions, and community health contributions of Shri Manmukund Hospital and its surgical team since 2011.',
   alternates: {
