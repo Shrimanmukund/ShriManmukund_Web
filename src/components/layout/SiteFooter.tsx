@@ -20,7 +20,7 @@ export const SiteFooter: React.FC = () => {
           </div>
 
           <div className="footer-col">
-            <h4>PRACTICE</h4>
+            <h3 className="footer-col-title">PRACTICE</h3>
             <ul>
               <li>
                 <Link href="/services/anorectal-care/">Anorectal Care</Link>
@@ -41,7 +41,7 @@ export const SiteFooter: React.FC = () => {
           </div>
 
           <div className="footer-col">
-            <h4>KNOWLEDGE</h4>
+            <h3 className="footer-col-title">KNOWLEDGE</h3>
             <ul>
               <li>
                 <Link href="/knowledge/playbooks/">Playbooks</Link>
@@ -59,7 +59,7 @@ export const SiteFooter: React.FC = () => {
           </div>
 
           <div className="footer-col">
-            <h4>VISIT US</h4>
+            <h3 className="footer-col-title">VISIT US</h3>
             <ul>
               <li>
                 <a href="tel:+918208927917">Appt · 8208927917</a>

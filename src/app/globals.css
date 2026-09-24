@@ -412,7 +412,9 @@ blockquote {
   opacity: 0.85 !important;
 }
 
-.footer-col h4 {
+.footer-col h4,
+.footer-col h3,
+.footer-col .footer-col-title {
   font-family: var(--sans) !important;
   font-size: 0.6875rem !important;
   font-weight: 600 !important;

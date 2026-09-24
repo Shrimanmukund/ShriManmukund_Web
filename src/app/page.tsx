@@ -64,13 +64,13 @@ export default function HomePage() {
 
           <div className="hero-visual relative flex items-center justify-center">
             <Image
-              src="/images/hero/ayurveda-meets-modern-surgery.png"
+              src="/images/hero/ayurveda-meets-modern-surgery.webp"
               alt="Where classical Ayurveda meets modern surgical care - Shri Manmukund Hospital"
-              width={500}
-              height={450}
+              width={480}
+              height={432}
+              sizes="(max-width: 768px) 300px, 480px"
               className="w-full h-auto object-contain select-none pointer-events-none"
               priority
-              unoptimized
             />
           </div>
         </div>
@@ -115,9 +115,9 @@ export default function HomePage() {
                 alt="Advanced Anorectal Care"
                 width={160}
                 height={160}
+                sizes="160px"
                 className="service-image-img"
-                unoptimized
-                priority
+                loading="lazy"
               />
             </div>
             <div className="service-icon">श</div>
@@ -138,9 +138,9 @@ export default function HomePage() {
                 alt="Ayurveda & Panchakarma"
                 width={160}
                 height={160}
+                sizes="160px"
                 className="service-image-img"
-                unoptimized
-                priority
+                loading="lazy"
               />
             </div>
             <div className="service-icon">आ</div>
@@ -161,9 +161,9 @@ export default function HomePage() {
                 alt="General Surgery"
                 width={160}
                 height={160}
+                sizes="160px"
                 className="service-image-img"
-                unoptimized
-                priority
+                loading="lazy"
               />
             </div>
             <div className="service-icon">म</div>
@@ -184,9 +184,9 @@ export default function HomePage() {
                 alt="Female Care Unit"
                 width={160}
                 height={160}
+                sizes="160px"
                 className="service-image-img"
-                unoptimized
-                priority
+                loading="lazy"
               />
             </div>
             <div className="service-icon">ऋ</div>
@@ -235,11 +235,11 @@ export default function HomePage() {
                 <Image
                   src="/images/doctors/dr-vipin-tongale.jpg"
                   alt="Dr. Vipin Tongale - General Surgeon & Proctologist"
-                  width={400}
-                  height={400}
+                  width={220}
+                  height={220}
+                  sizes="220px"
                   className="w-full h-full object-cover object-center"
-                  priority
-                  unoptimized
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -265,11 +265,11 @@ export default function HomePage() {
                 <Image
                   src="/images/doctors/dr-swati-tongale.jpg"
                   alt="Dr. Swati Tongale - Female Care Unit Lead"
-                  width={400}
-                  height={400}
+                  width={220}
+                  height={220}
+                  sizes="220px"
                   className="w-full h-full object-cover object-center"
-                  priority
-                  unoptimized
+                  loading="lazy"
                 />
               </div>
             </div>
