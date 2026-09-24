@@ -62,19 +62,16 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="hero-visual">
-            <div className="hero-leaf hero-leaf-1"></div>
-            <div className="hero-leaf hero-leaf-2"></div>
-            <div className="hero-circle">
-              <div className="hero-circle-inner">
-                <div className="hero-circle-devanagari">आयुर्वेद</div>
-                <div className="hero-circle-label">
-                  Integrated Care
-                  <br />
-                  Since 2011
-                </div>
-              </div>
-            </div>
+          <div className="hero-visual relative flex items-center justify-center">
+            <Image
+              src="/images/hero/ayurveda-meets-modern-surgery.png"
+              alt="Where classical Ayurveda meets modern surgical care - Shri Manmukund Hospital"
+              width={500}
+              height={450}
+              className="w-full h-auto object-contain select-none pointer-events-none"
+              priority
+              unoptimized
+            />
           </div>
         </div>
 
