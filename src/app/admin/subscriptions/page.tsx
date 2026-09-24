@@ -22,7 +22,7 @@ export default function AdminSubscriptionsPage() {
   const fetchSubscriptions = async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/admin/subscriptions');
+      const res = await fetch('/api/admin/subscriptions/');
       const data = await res.json();
       if (data.success && Array.isArray(data.subscriptions)) {
         setSubscriptions(data.subscriptions);
@@ -45,7 +45,7 @@ export default function AdminSubscriptionsPage() {
     );
 
     try {
-      await fetch('/api/admin/subscriptions', {
+      await fetch('/api/admin/subscriptions/', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id, status: newStatus }),

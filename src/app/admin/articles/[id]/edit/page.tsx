@@ -23,7 +23,7 @@ export default function EditArticlePage() {
       setLoading(true);
       setError('');
       try {
-        const res = await fetch(`/api/admin/articles/${id}`);
+        const res = await fetch(`/api/admin/articles/${id}/`);
         const data = await res.json();
         if (data.success && data.article) {
           setArticleData(data.article);

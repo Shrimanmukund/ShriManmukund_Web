@@ -19,7 +19,7 @@ export function AdminHeader() {
     if (confirm('Are you sure you want to sign out of the Admin Portal?')) {
       setLoggingOut(true);
       try {
-        await fetch('/api/admin/auth/logout', { method: 'POST' });
+        await fetch('/api/admin/auth/logout/', { method: 'POST' });
         router.push('/admin/login/');
         router.refresh();
       } catch (err) {

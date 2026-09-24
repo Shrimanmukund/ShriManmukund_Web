@@ -28,7 +28,7 @@ export default function AdminTestimonialsPage() {
   const fetchTestimonials = async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/admin/testimonials');
+      const res = await fetch('/api/admin/testimonials/');
       const data = await res.json();
       if (data.success && Array.isArray(data.testimonials)) {
         setTestimonials(data.testimonials);
@@ -50,7 +50,7 @@ export default function AdminTestimonialsPage() {
       prev.map((item) => (item.id === id ? { ...item, is_approved: nextVal } : item))
     );
     try {
-      await fetch('/api/admin/testimonials', {
+      await fetch('/api/admin/testimonials/', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id, is_approved: nextVal }),
@@ -68,7 +68,7 @@ export default function AdminTestimonialsPage() {
       )
     );
     try {
-      await fetch('/api/admin/testimonials', {
+      await fetch('/api/admin/testimonials/', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id, display_permission_granted: nextVal }),

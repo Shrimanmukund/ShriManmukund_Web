@@ -51,7 +51,7 @@ export default function AdminArticlesPage() {
   const fetchArticles = async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/admin/articles');
+      const res = await fetch('/api/admin/articles/');
       const data = await res.json();
       if (data.success && Array.isArray(data.articles)) {
         setArticles(data.articles);
@@ -73,7 +73,7 @@ export default function AdminArticlesPage() {
     }
     setActionLoading(id);
     try {
-      const res = await fetch(`/api/admin/articles/${id}`, {
+      const res = await fetch(`/api/admin/articles/${id}/`, {
         method: 'DELETE',
       });
       const data = await res.json();
@@ -94,7 +94,7 @@ export default function AdminArticlesPage() {
     const newStatus = currentStatus === 'published' ? 'draft' : 'published';
     setActionLoading(id);
     try {
-      const res = await fetch(`/api/admin/articles/${id}`, {
+      const res = await fetch(`/api/admin/articles/${id}/`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus }),

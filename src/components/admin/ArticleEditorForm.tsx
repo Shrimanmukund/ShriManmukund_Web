@@ -136,7 +136,7 @@ export function ArticleEditorForm({ initialData = {}, isEditing = false }: Artic
       const data = new FormData();
       data.append('file', file);
 
-      const res = await fetch('/api/admin/upload', {
+      const res = await fetch('/api/admin/upload/', {
         method: 'POST',
         body: data,
       });
@@ -174,8 +174,8 @@ export function ArticleEditorForm({ initialData = {}, isEditing = false }: Artic
       };
 
       const url = isEditing
-        ? `/api/admin/articles/${formData.id || formData.slug}`
-        : '/api/admin/articles';
+        ? `/api/admin/articles/${formData.id || formData.slug}/`
+        : '/api/admin/articles/';
 
       const method = isEditing ? 'PUT' : 'POST';
 

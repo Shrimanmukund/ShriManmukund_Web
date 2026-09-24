@@ -46,7 +46,7 @@ export default function AdminEnquiriesPage() {
   const fetchEnquiries = async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/admin/enquiries');
+      const res = await fetch('/api/admin/enquiries/');
       const data = await res.json();
       if (data.success && Array.isArray(data.enquiries)) {
         setEnquiries(data.enquiries);
@@ -67,7 +67,7 @@ export default function AdminEnquiriesPage() {
       prev.map((item) => (item.id === id ? { ...item, status: newStatus } : item))
     );
     try {
-      await fetch('/api/admin/enquiries', {
+      await fetch('/api/admin/enquiries/', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id, status: newStatus }),
