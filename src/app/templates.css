@@ -3637,21 +3637,16 @@ a { color: inherit; text-decoration: none; }
 }
 
 .journey-item::before {
-  content: '';
-  position: absolute;
-  left: 132px;
-  top: 2.5rem;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--white);
-  border: 3px solid var(--accent);
-  z-index: 2;
+  display: none;
 }
 
 .journey-period {
   text-align: right;
   padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+  background: var(--cream);
 }
 
 .journey-year {
@@ -4272,7 +4267,7 @@ a { color: inherit; text-decoration: none; }
   .journey { padding: 3rem 1.5rem; }
   .journey-timeline::before { left: 24px; }
   .journey-item { grid-template-columns: 1fr; gap: 0.75rem; padding-left: 4rem; }
-  .journey-item::before { left: 15px; }
+  .journey-item::before { display: none; }
   .journey-period { text-align: left; }
   .journey-content { padding-left: 0; }
   .publications { padding: 3rem 1.5rem; }
