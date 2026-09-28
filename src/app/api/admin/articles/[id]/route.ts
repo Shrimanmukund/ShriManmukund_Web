@@ -256,15 +256,21 @@ export async function DELETE(request: Request, { params }: RouteContext) {
 
     try {
       const supabase = createAdminClient();
-      const { error } = await (supabase.from('knowledge_pieces') as any)
-        .delete()
-        .or(`id.eq.${id},slug.eq.${id}`);
+      const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
+      let query = (supabase.from('knowledge_pieces') as any).delete();
 
+      if (isUuid) {
+        query = query.or(`id.eq.${id},slug.eq.${id}`);
+      } else {
+        query = query.eq('slug', id);
+      }
+
+      const { error } = await query;
       if (error) {
         console.warn('Supabase delete error:', error.message);
       }
     } catch (err) {
-      console.warn('Supabase offline delete:', err);
+      console.warn('Supabase delete error/offline:', err);
     }
 
     try {
@@ -272,14 +278,22 @@ export async function DELETE(request: Request, { params }: RouteContext) {
       revalidatePath('/knowledge/', 'page');
       revalidatePath('/admin/articles');
       revalidatePath('/admin/articles/', 'page');
+      revalidatePath('/api/articles');
     } catch (revalErr) {
       console.warn('Revalidation notice:', revalErr);
     }
 
-    return NextResponse.json({
-      success: true,
-      message: 'Article deleted successfully',
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        message: 'Article deleted successfully',
+      },
+      {
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+        },
+      }
+    );
   } catch (error: any) {
     return NextResponse.json(
       { success: false, message: error.message || 'Failed to delete article' },

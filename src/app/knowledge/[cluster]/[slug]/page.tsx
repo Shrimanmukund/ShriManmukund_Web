@@ -8,15 +8,72 @@ import {
   getAllPages,
 } from '@/lib/data/content-store';
 import { KNOWLEDGE_ARTICLES } from '@/lib/data/knowledge-articles';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { generateArticleSchema } from '@/lib/seo/schemas';
 import { MarkdownRenderer } from '@/components/content/MarkdownRenderer';
 import { ShareBar } from '@/components/knowledge/ShareBar';
+
+export const dynamicParams = true;
+export const revalidate = 0;
 
 interface KnowledgePiecePageProps {
   params: {
     cluster: string;
     slug: string;
   };
+}
+
+function formatDate(dateStr?: string) {
+  if (!dateStr) return '15 July 2026';
+  try {
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return dateStr;
+    return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  } catch {
+    return dateStr;
+  }
+}
+
+async function getDbArticle(slug: string) {
+  try {
+    const supabase = createAdminClient();
+    const { data, error } = await (supabase.from('knowledge_pieces') as any)
+      .select('*')
+      .eq('slug', slug)
+      .maybeSingle();
+
+    if (!error && data) {
+      const isSwati =
+        data.author?.toLowerCase().includes('swati') ||
+        data.author_slug === 'dr-swati' ||
+        data.author === 'Dr. Swati';
+      const authorSlug: 'dr-vipin' | 'dr-swati' = isSwati ? 'dr-swati' : 'dr-vipin';
+      const readTimeStr =
+        data.read_time ||
+        (data.estimated_read_time_mins ? `${data.estimated_read_time_mins} min` : '5 min');
+      const readTimeMins = parseInt(readTimeStr.replace(/[^0-9]/g, ''), 10) || 5;
+
+      return {
+        slug: data.slug,
+        title: data.title,
+        cluster: data.cluster || 'article',
+        authorSlug,
+        authorFull: isSwati ? 'Dr. Swati Tongale' : 'Dr. Vipin Tongale',
+        medicallyReviewedBySlug: isSwati ? ('dr-vipin' as const) : ('dr-swati' as const),
+        publishedDate: data.date_published || data.published_date || data.date || '2026-08-15',
+        lastUpdatedDate: data.date_updated || data.last_updated_date || data.date || '2026-09-10',
+        estimatedReadTimeMins: readTimeMins,
+        excerpt: data.excerpt || '',
+        bodyMarkdown: data.body_content || data.body_markdown || '',
+        metaTitle: data.meta_title || `${data.title} | Shri Manmukund Hospital`,
+        metaDescription: data.meta_description || data.excerpt || '',
+        categoryTag: data.category_tag || 'Clinical Care',
+      };
+    }
+  } catch (err) {
+    console.warn('Supabase article slug query error:', err);
+  }
+  return null;
 }
 
 export function generateStaticParams() {
@@ -40,32 +97,34 @@ export function generateStaticParams() {
   });
 }
 
-export function generateMetadata({ params }: KnowledgePiecePageProps) {
+export async function generateMetadata({ params }: KnowledgePiecePageProps) {
   const rawPage = getAllPages().find((p) =>
     p.url.includes(`/knowledge/${params.cluster}/${params.slug}/`)
   );
   const pieces = getAllKnowledgePieces();
   const piece = pieces.find((p) => p.slug === params.slug);
   const kbArticle = KNOWLEDGE_ARTICLES.find((a) => a.slug === params.slug);
+  const dbArticle = !rawPage && !piece && !kbArticle ? await getDbArticle(params.slug) : null;
 
   return {
-    title: rawPage?.metaTitle || piece?.title || kbArticle?.title || 'Knowledge Guide | Shri Manmukund Hospital',
-    description: rawPage?.metaDescription || piece?.excerpt || kbArticle?.excerpt,
+    title: rawPage?.metaTitle || piece?.title || kbArticle?.title || dbArticle?.metaTitle || `${dbArticle?.title || 'Knowledge Guide'} | Shri Manmukund Hospital`,
+    description: rawPage?.metaDescription || piece?.excerpt || kbArticle?.excerpt || dbArticle?.metaDescription || dbArticle?.excerpt,
     alternates: {
       canonical: `/knowledge/${params.cluster}/${params.slug}/`,
     },
   };
 }
 
-export default function KnowledgeDetailPage({ params }: KnowledgePiecePageProps) {
+export default async function KnowledgeDetailPage({ params }: KnowledgePiecePageProps) {
   const rawPage = getAllPages().find((p) =>
     p.url.includes(`/knowledge/${params.cluster}/${params.slug}/`)
   );
   const pieces = getAllKnowledgePieces();
   const piece = pieces.find((p) => p.slug === params.slug);
   const kbArticle = KNOWLEDGE_ARTICLES.find((a) => a.slug === params.slug);
+  const dbArticle = !rawPage && !piece && !kbArticle && params.slug !== 'ksharsutra-day-1-to-complete-healing' ? await getDbArticle(params.slug) : null;
 
-  if (!rawPage && !piece && !kbArticle && params.slug !== 'ksharsutra-day-1-to-complete-healing') {
+  if (!rawPage && !piece && !kbArticle && !dbArticle && params.slug !== 'ksharsutra-day-1-to-complete-healing') {
     notFound();
   }
 
@@ -77,15 +136,15 @@ export default function KnowledgeDetailPage({ params }: KnowledgePiecePageProps)
     ? 'Ksharsutra treatment, week by week'
     : rawPage
     ? rawPage.title
-    : piece?.title || kbArticle?.title || 'Clinical Guide';
+    : piece?.title || kbArticle?.title || dbArticle?.title || 'Clinical Guide';
 
   const excerpt = isKsharsutraPlaybook
     ? 'A practical, day-by-day guide for patients considering or currently undergoing Ksharsutra. What to expect at each stage, how to prepare, and when to call the hospital.'
-    : rawPage?.metaDescription || piece?.excerpt || kbArticle?.excerpt || '';
+    : rawPage?.metaDescription || piece?.excerpt || kbArticle?.excerpt || dbArticle?.excerpt || '';
 
   const answerFirstSummary = isKsharsutraPlaybook
     ? 'Ksharsutra treatment for anal fistula typically takes 6 to 8 weeks from first application to complete healing. It involves weekly changes of a medicated thread (Kshar Sutra) that gradually cuts through and heals the fistula tract. Most patients continue working throughout, with 2 to 3 days of light activity around each thread change. Pain is manageable with oral analgesics. Complete healing rates are excellent when the technique is applied correctly and follow-up is maintained.'
-    : rawPage?.answerFirstSummary || piece?.excerpt || kbArticle?.excerpt || '';
+    : rawPage?.answerFirstSummary || piece?.excerpt || kbArticle?.excerpt || dbArticle?.excerpt || '';
 
   const fallbackMarkdown = kbArticle
     ? `## Clinical Overview & Understanding
@@ -115,16 +174,44 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
 2. **Clear Diagnosis:** Explanation of the condition and why specific treatments are (or are not) necessary.
 3. **Honest Prognosis:** Step-by-step guidance on expected recovery times and prevention of recurrence.
 `
+    : dbArticle
+    ? `## Clinical Overview & Understanding
+
+${dbArticle.excerpt}
+
+---
+
+## What Patients Should Know
+
+At Shri Manmukund Hospital, Amravati, our clinical team focuses on accurate diagnostic differentiation and conservative, tissue-preserving management wherever possible.
+
+### Key Principles of Treatment
+- **Specialist Direct Consultation:** Thorough in-person examination by ${dbArticle.authorFull}, MS Ayurveda Shalya Tantra.
+- **Combined Modern & Ayurvedic Science:** Integrating classical Shalya Tantra protocols with modern diagnostic imaging and minimally invasive tools.
+- **Patient Comfort & Dignity:** Complete privacy and transparent explanations at every step of your clinical journey.
+
+---
+
+## When to Seek Prompt Medical Attention
+If you experience acute discomfort, rectal bleeding, persistent discharge, or worsening symptoms, do not self-medicate or delay consultation. Early intervention allows simpler, ambulatory interventions without extensive surgery.
+
+---
+
+## What to Expect During Consultation
+1. **Confidential Assessment:** Discussion of your medical history, symptoms, and previous treatments.
+2. **Clear Diagnosis:** Explanation of the condition and why specific treatments are (or are not) necessary.
+3. **Honest Prognosis:** Step-by-step guidance on expected recovery times and prevention of recurrence.
+`
     : '';
 
-  const bodyContent = rawPage?.bodyMarkdown || piece?.bodyMarkdown || fallbackMarkdown;
+  const bodyContent = rawPage?.bodyMarkdown || piece?.bodyMarkdown || dbArticle?.bodyMarkdown || fallbackMarkdown;
   const clusterLabel =
     params.cluster.charAt(0).toUpperCase() + params.cluster.slice(1);
   const clusterSingular = params.cluster.endsWith('s')
     ? clusterLabel.slice(0, -1)
     : clusterLabel;
 
-  const authorSlug = piece?.authorSlug || (kbArticle?.author === 'Dr. Swati' ? 'dr-swati' : 'dr-vipin');
+  const authorSlug = piece?.authorSlug || dbArticle?.authorSlug || (kbArticle?.author === 'Dr. Swati' ? 'dr-swati' : 'dr-vipin');
   const author = DOCTORS[authorSlug] || DOCTORS['dr-vipin'];
   const reviewer = authorSlug === 'dr-vipin' ? DOCTORS['dr-swati'] : DOCTORS['dr-vipin'];
 
@@ -146,17 +233,23 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
     .filter((p) => p.slug !== params.slug)
     .slice(0, 3);
 
+  const rawPublishedDate = dbArticle?.publishedDate || kbArticle?.date || piece?.publishedDate || '2026-07-15';
+  const rawUpdatedDate = dbArticle?.lastUpdatedDate || piece?.lastUpdatedDate || '2026-09-02';
+  const publishedDateFormatted = formatDate(rawPublishedDate);
+  const lastUpdatedDateFormatted = formatDate(rawUpdatedDate);
+  const estimatedReadTime = piece?.estimatedReadTimeMins || kbArticle?.readTimeMins || dbArticle?.estimatedReadTimeMins || 8;
+
   const pieceData = {
     slug: params.slug,
     cluster: params.cluster as any,
     title,
     authorSlug,
-    publishedDate: kbArticle?.date || '2026-07-15',
-    lastUpdatedDate: '2026-09-02',
-    estimatedReadTimeMins: piece?.estimatedReadTimeMins || kbArticle?.readTimeMins || 8,
+    publishedDate: rawPublishedDate,
+    lastUpdatedDate: rawUpdatedDate,
+    estimatedReadTimeMins: estimatedReadTime,
     excerpt,
     bodyMarkdown: bodyContent,
-    categories: [clusterLabel, 'Clinical Care'],
+    categories: [clusterLabel, dbArticle?.categoryTag || 'Clinical Care'],
     tags: ['Amravati', 'Surgery'],
     metaTitle: `${title} | Shri Manmukund Hospital`,
     metaDescription: excerpt,
@@ -232,18 +325,18 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
 
           <div className="article-meta-item">
             <span className="article-meta-label">Published</span>
-            <span className="article-meta-value">15 July 2026</span>
+            <span className="article-meta-value">{publishedDateFormatted}</span>
           </div>
 
           <div className="article-meta-item">
             <span className="article-meta-label">Updated</span>
-            <span className="article-meta-value">2 September 2026</span>
+            <span className="article-meta-value">{lastUpdatedDateFormatted}</span>
           </div>
 
           <div className="article-meta-item">
             <span className="article-meta-label">Reading Time</span>
             <span className="article-meta-value">
-              {piece?.estimatedReadTimeMins || 12} minutes
+              {estimatedReadTime} minutes
             </span>
           </div>
         </div>
@@ -618,7 +711,7 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
               .
             </p>
             <p className="medical-review-meta">
-              Published 15 July 2026 · Last reviewed and updated 2 September 2026 · Next scheduled review: March 2027. If you have questions about the content, please call our team at 8208927917.
+              Published {publishedDateFormatted} · Last reviewed and updated {lastUpdatedDateFormatted} · Next scheduled review: March 2027. If you have questions about the content, please call our team at 8208927917.
             </p>
           </div>
         </div>

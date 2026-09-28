@@ -3,7 +3,12 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { getKnowledgePiecesByCluster, getAllKnowledgePieces } from '@/lib/data/content-store';
+import { KNOWLEDGE_ARTICLES } from '@/lib/data/knowledge-articles';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { ChevronRight, BookOpen } from 'lucide-react';
+
+export const dynamicParams = true;
+export const revalidate = 0;
 
 interface ClusterPageProps {
   params: {
@@ -35,12 +40,84 @@ export function generateMetadata({ params }: ClusterPageProps) {
   };
 }
 
-export default function KnowledgeClusterPage({ params }: ClusterPageProps) {
+export default async function KnowledgeClusterPage({ params }: ClusterPageProps) {
   // Normalize singular/plural (e.g. playbook -> playbooks)
   const clusterKey = params.cluster.endsWith('s') ? params.cluster.slice(0, -1) : params.cluster;
-  const pieces = getAllKnowledgePieces().filter(
-    (p) => p.cluster === params.cluster || p.cluster === clusterKey
+  const targetPlural = params.cluster.endsWith('s') ? params.cluster : `${params.cluster}s`;
+
+  // 1. Static base pieces
+  const staticPieces = getAllKnowledgePieces().filter(
+    (p) => p.cluster === params.cluster || p.cluster === clusterKey || p.cluster === targetPlural
   );
+  const staticKbArticles = KNOWLEDGE_ARTICLES.filter(
+    (a) => a.category === params.cluster || a.category === clusterKey || a.category === targetPlural
+  ).map((a) => ({
+    slug: a.slug,
+    cluster: a.category,
+    title: a.title,
+    authorSlug: (a.author === 'Dr. Swati' ? 'dr-swati' : 'dr-vipin') as 'dr-swati' | 'dr-vipin',
+    medicallyReviewedBySlug: (a.author === 'Dr. Swati' ? 'dr-vipin' : 'dr-swati') as 'dr-swati' | 'dr-vipin',
+    publishedDate: a.date,
+    lastUpdatedDate: a.date,
+    estimatedReadTimeMins: a.readTimeMins,
+    excerpt: a.excerpt,
+    bodyMarkdown: '',
+    categories: [a.topic],
+    tags: [a.topic],
+    metaTitle: `${a.title} | Shri Manmukund Hospital`,
+    metaDescription: a.excerpt,
+  }));
+
+  const piecesMap = new Map<string, any>();
+  for (const sp of staticPieces) piecesMap.set(sp.slug, sp);
+  for (const kb of staticKbArticles) {
+    if (!piecesMap.has(kb.slug)) piecesMap.set(kb.slug, kb);
+  }
+
+  // 2. Fetch live published items from Supabase
+  try {
+    const supabase = createAdminClient();
+    const { data, error } = await (supabase.from('knowledge_pieces') as any)
+      .select('*')
+      .or('status.eq.published,is_published.eq.true')
+      .in('cluster', [params.cluster, clusterKey, targetPlural])
+      .order('created_at', { ascending: false });
+
+    if (!error && data && data.length > 0) {
+      for (const row of data) {
+        const isSwati =
+          row.author?.toLowerCase().includes('swati') ||
+          row.author_slug === 'dr-swati' ||
+          row.author === 'Dr. Swati';
+        const authorSlug = isSwati ? 'dr-swati' : 'dr-vipin';
+        const readTimeStr =
+          row.read_time ||
+          (row.estimated_read_time_mins ? `${row.estimated_read_time_mins} min` : '5 min');
+        const readTimeMins = parseInt(readTimeStr.replace(/[^0-9]/g, ''), 10) || 5;
+
+        piecesMap.set(row.slug, {
+          slug: row.slug,
+          cluster: params.cluster,
+          title: row.title,
+          authorSlug,
+          medicallyReviewedBySlug: isSwati ? 'dr-vipin' : 'dr-swati',
+          publishedDate: row.date_published || row.published_date || row.date || '2026-08-15',
+          lastUpdatedDate: row.date_updated || row.last_updated_date || row.date || '2026-09-10',
+          estimatedReadTimeMins: readTimeMins,
+          excerpt: row.excerpt || '',
+          bodyMarkdown: row.body_content || row.body_markdown || '',
+          categories: [row.category_tag || 'Clinical Care'],
+          tags: ['Amravati', 'Healthcare'],
+          metaTitle: row.meta_title || `${row.title} | Shri Manmukund Hospital`,
+          metaDescription: row.meta_description || row.excerpt || '',
+        });
+      }
+    }
+  } catch (err) {
+    console.warn('Supabase cluster query notice:', err);
+  }
+
+  const pieces = Array.from(piecesMap.values());
 
   return (
     <div className="py-8 bg-[#FBF7EC]">

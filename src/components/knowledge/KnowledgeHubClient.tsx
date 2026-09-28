@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { KNOWLEDGE_ARTICLES, type KnowledgeArticle } from '@/lib/data/knowledge-articles';
 
@@ -10,6 +10,7 @@ type SortOrder = 'latest' | 'oldest' | 'read-time';
 const PAGE_SIZE = 9;
 
 export function KnowledgeHubClient() {
+  const [articles, setArticles] = useState<KnowledgeArticle[]>(KNOWLEDGE_ARTICLES);
   const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<SortOrder>('latest');
@@ -17,28 +18,56 @@ export function KnowledgeHubClient() {
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
 
-  // Dynamic counts for each filter pill
-  const countAll = KNOWLEDGE_ARTICLES.length;
+  // Fetch live published articles from API on mount
+  useEffect(() => {
+    let isMounted = true;
+    async function loadLiveArticles() {
+      try {
+        const res = await fetch(`/api/articles/?_t=${Date.now()}`, {
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache',
+          },
+        });
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && Array.isArray(json.data) && json.data.length > 0 && isMounted) {
+            setArticles(json.data);
+          }
+        }
+      } catch (err) {
+        console.warn('Live articles fetch fallback to default:', err);
+      }
+    }
+    loadLiveArticles();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  // Dynamic counts for each filter pill based on live articles
+  const countAll = articles.length;
   const countPlaybooks = useMemo(
-    () => KNOWLEDGE_ARTICLES.filter((a) => a.category === 'playbooks').length,
-    []
+    () => articles.filter((a) => a.category === 'playbooks').length,
+    [articles]
   );
   const countArticles = useMemo(
-    () => KNOWLEDGE_ARTICLES.filter((a) => a.category === 'articles').length,
-    []
+    () => articles.filter((a) => a.category === 'articles').length,
+    [articles]
   );
   const countInsights = useMemo(
-    () => KNOWLEDGE_ARTICLES.filter((a) => a.category === 'insights').length,
-    []
+    () => articles.filter((a) => a.category === 'insights').length,
+    [articles]
   );
   const countPatientResources = useMemo(
-    () => KNOWLEDGE_ARTICLES.filter((a) => a.category === 'patient-resources').length,
-    []
+    () => articles.filter((a) => a.category === 'patient-resources').length,
+    [articles]
   );
 
   // Filter and sort items
   const filteredArticles = useMemo(() => {
-    let result = [...KNOWLEDGE_ARTICLES];
+    let result = [...articles];
 
     // 1. Category Filter
     if (selectedCategory !== 'all') {
