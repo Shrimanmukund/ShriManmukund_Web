@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { SERVICE_CATEGORIES } from '@/lib/data/content-store';
 
 export const metadata = {
@@ -29,8 +30,8 @@ export default function ServicesHubPage() {
           <span>Services</span>
         </div>
 
-        <div className="unit-hero-inner">
-          <div className="unit-hero-content">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 lg:gap-14 items-center relative z-10 max-w-7xl mx-auto">
+          <div className="md:col-span-7 flex flex-col justify-center">
             <div className="unit-hero-eyebrow">
               Clinical Services
               <span className="unit-hero-eyebrow-badge">4 Dedicated Units</span>
@@ -49,6 +50,29 @@ export default function ServicesHubPage() {
               <a href="#units" className="btn btn-ghost">
                 Explore clinical units
               </a>
+            </div>
+          </div>
+
+          <div className="md:col-span-5 flex justify-center md:justify-end">
+            <div className="w-full max-w-[480px] bg-white rounded-3xl p-2.5 shadow-2xl border border-[#6B7F5F]/20 relative overflow-hidden group">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE5D9]">
+                <Image
+                  src="/images/doctors/doctors-reception.jpg"
+                  alt="Dr. Vipin Tongale and Dr. Swati Tongale at Shri Manmukund Hospital, Amravati"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 480px"
+                  priority
+                  className="object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="mt-2.5 px-2 pb-0.5 flex flex-col">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#6B7F5F]">
+                  Direct Specialist Care
+                </span>
+                <span className="font-serif text-base font-semibold text-[#1B3A5B] mt-0.5">
+                  Dr. Vipin Tongale &amp; Dr. Swati Tongale
+                </span>
+              </div>
             </div>
           </div>
         </div>
