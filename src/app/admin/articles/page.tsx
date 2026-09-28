@@ -112,26 +112,50 @@ export default function AdminArticlesPage() {
     }
   };
 
+function normalizeCluster(raw: string = ''): string {
+  const c = raw.toLowerCase().trim();
+  if (c === 'playbooks' || c === 'playbook') return 'playbook';
+  if (c === 'articles' || c === 'article') return 'article';
+  if (c === 'insights' || c === 'insight') return 'insights';
+  if (c === 'blogs' || c === 'blog') return 'blog';
+  if (c === 'whitepapers' || c === 'whitepaper') return 'whitepaper';
+  if (c === 'research') return 'research';
+  if (c.includes('patient') || c.includes('guide') || c.includes('resource')) return 'patient-resources';
+  return c;
+}
+
+function matchesCluster(articleCluster: string, filterVal: string): boolean {
+  if (!filterVal || filterVal === 'all') return true;
+  return normalizeCluster(articleCluster) === normalizeCluster(filterVal);
+}
+
   // Filtered list
   const filteredArticles = articles.filter((a) => {
     const matchesSearch =
+      !searchTerm ||
       (a.title || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
       (a.slug || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
       (a.category_tag || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
       (a.author || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
       (a.excerpt || '').toLowerCase().includes(searchTerm.toLowerCase());
 
-    const matchesCluster = filterCluster === 'all' || a.cluster === filterCluster;
-    const matchesStatus = filterStatus === 'all' || a.status === filterStatus;
+    const isMatchCluster = matchesCluster(a.cluster, filterCluster);
+    const isMatchStatus = filterStatus === 'all' || (a.status || 'published') === filterStatus;
 
-    return matchesSearch && matchesCluster && matchesStatus;
+    return matchesSearch && isMatchCluster && isMatchStatus;
   });
 
   // Calculate statistics
   const totalCount = articles.length;
-  const publishedCount = articles.filter((a) => a.status === 'published').length;
+  const publishedCount = articles.filter((a) => (a.status || 'published') === 'published').length;
   const draftCount = articles.filter((a) => a.status === 'draft').length;
   const totalViews = articles.reduce((acc, curr) => acc + (curr.views || 0), 0);
+
+  const articleCount = articles.filter((a) => normalizeCluster(a.cluster) === 'article').length;
+  const playbookCount = articles.filter((a) => normalizeCluster(a.cluster) === 'playbook').length;
+  const insightCount = articles.filter((a) => normalizeCluster(a.cluster) === 'insights').length;
+  const blogCount = articles.filter((a) => normalizeCluster(a.cluster) === 'blog').length;
+  const patientCount = articles.filter((a) => normalizeCluster(a.cluster) === 'patient-resources').length;
 
   return (
     <div className="space-y-6">
@@ -206,21 +230,21 @@ export default function AdminArticlesPage() {
             <select
               value={filterCluster}
               onChange={(e) => setFilterCluster(e.target.value)}
-              className="px-3 py-1.5 border border-gray-300 rounded-lg text-xs bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-slate-900"
+              className="px-3 py-1.5 border border-gray-300 rounded-lg text-xs bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-slate-900 font-medium"
             >
               <option value="all">All Types ({totalCount})</option>
-              <option value="playbooks">Playbooks</option>
-              <option value="articles">Articles</option>
-              <option value="insights">Insights</option>
-              <option value="blog">Blog Posts</option>
-              <option value="patient-resources">Patient Guides</option>
+              <option value="article">Articles ({articleCount})</option>
+              <option value="playbook">Playbooks ({playbookCount})</option>
+              <option value="insights">Doctor Insights ({insightCount})</option>
+              {blogCount > 0 && <option value="blog">Blog Posts ({blogCount})</option>}
+              {patientCount > 0 && <option value="patient-resources">Patient Guides ({patientCount})</option>}
             </select>
 
             {/* Status Filter Dropdown */}
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="px-3 py-1.5 border border-gray-300 rounded-lg text-xs bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-slate-900"
+              className="px-3 py-1.5 border border-gray-300 rounded-lg text-xs bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-slate-900 font-medium"
             >
               <option value="all">All Status</option>
               <option value="published">Published ({publishedCount})</option>
