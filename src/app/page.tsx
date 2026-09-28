@@ -68,9 +68,10 @@ export default function HomePage() {
               alt="Where classical Ayurveda meets modern surgical care - Shri Manmukund Hospital"
               width={480}
               height={432}
-              sizes="(max-width: 768px) 300px, 480px"
+              sizes="(max-width: 640px) 280px, (max-width: 1024px) 380px, 480px"
               className="w-full h-auto object-contain select-none pointer-events-none"
               priority
+              quality={80}
             />
           </div>
         </div>
