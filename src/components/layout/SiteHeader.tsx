@@ -73,6 +73,7 @@ export const SiteHeader: React.FC = () => {
           </div>
 
           <button
+            type="button"
             className="nav-hamburger"
             aria-label="Open menu"
             onClick={() => setMobileOpen(!mobileOpen)}

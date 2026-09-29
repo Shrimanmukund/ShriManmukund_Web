@@ -56,6 +56,7 @@ export function AdminHeader() {
 
         {/* Mobile Logout */}
         <button
+          type="button"
           onClick={handleLogout}
           disabled={loggingOut}
           className="md:hidden p-2 text-gray-400 hover:text-red-400 rounded-lg hover:bg-slate-800 transition"
@@ -126,6 +127,7 @@ export function AdminHeader() {
 
         {/* Desktop Logout Button */}
         <button
+          type="button"
           onClick={handleLogout}
           disabled={loggingOut}
           className="hidden md:flex items-center gap-1.5 px-3 py-1.5 text-red-300 hover:text-white hover:bg-red-900/40 rounded-lg transition font-medium border border-red-900/30 ml-2"

@@ -46,6 +46,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
             </div>
           </div>
           <button
+            type="button"
             onClick={onClose}
             className="p-2 text-[#5C4F3A] hover:text-[#1B3A5B] rounded-full hover:bg-[#E5EBDD] transition"
             aria-label="Close menu"
@@ -76,6 +77,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
             {/* Services Dropdown */}
             <div>
               <button
+                type="button"
                 onClick={() => setServicesExpanded(!servicesExpanded)}
                 className="w-full flex items-center justify-between px-3 py-2.5 rounded-warm text-base font-medium text-[#1B3A5B] hover:bg-[#E5EBDD] transition"
               >
@@ -130,6 +132,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
             {/* Knowledge Hub */}
             <div>
               <button
+                type="button"
                 onClick={() => setKnowledgeExpanded(!knowledgeExpanded)}
                 className="w-full flex items-center justify-between px-3 py-2.5 rounded-warm text-base font-medium text-[#1B3A5B] hover:bg-[#E5EBDD] transition"
               >

@@ -59,6 +59,7 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({
               className="bg-white rounded-warm border border-[#6B7F5F]/20 overflow-hidden shadow-warm-sm transition-all"
             >
               <button
+                type="button"
                 onClick={() => setOpenIndex(isOpen ? null : index)}
                 className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 hover:bg-[#FBF7EC]/60 transition"
                 aria-expanded={isOpen}

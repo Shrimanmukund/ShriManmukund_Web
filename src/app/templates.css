@@ -1795,7 +1795,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .timeline {
-  max-width: 900px;
+  max-width: 880px;
   margin: 0 auto;
   position: relative;
 }
@@ -1803,37 +1803,34 @@ a { color: inherit; text-decoration: none; }
 .timeline::before {
   content: '';
   position: absolute;
-  left: 100px;
+  left: 140px;
   top: 40px;
   bottom: 40px;
   width: 2px;
-  background: linear-gradient(180deg,
-    var(--sage-soft) 0%,
-    var(--gold-soft) 50%,
-    var(--rose-soft) 100%);
+  background: linear-gradient(180deg, var(--accent-soft) 0%, var(--gold-soft) 100%);
   opacity: 0.4;
 }
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 180px 1fr;
   gap: 3rem;
-  padding: 2.5rem 0;
+  padding: 2rem 0;
   position: relative;
   align-items: start;
 }
 
 .timeline-item::before {
-  content: '';
-  position: absolute;
-  left: 92px;
-  top: 3rem;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--white);
-  border: 3px solid var(--sage);
-  z-index: 2;
+  display: none !important;
+}
+
+.timeline-period {
+  text-align: right;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+  background: var(--cream);
 }
 
 .timeline-year {
@@ -2658,10 +2655,11 @@ a { color: inherit; text-decoration: none; }
   .answer-summary { padding: 0 1.5rem; }
   .answer-summary-inner { padding: 2rem 1.75rem; }
   .story { padding: 3rem 1.5rem; }
-  .timeline::before { left: 30px; }
-  .timeline-item { grid-template-columns: 1fr; gap: 1rem; padding-left: 5rem; }
-  .timeline-item::before { left: 22px; }
-  .timeline-year { text-align: left; font-size: 2.5rem; }
+  .timeline::before { left: 24px; }
+  .timeline-item { grid-template-columns: 1fr; gap: 0.75rem; padding-left: 4rem; }
+  .timeline-item::before { display: none !important; }
+  .timeline-period { text-align: left; }
+  .timeline-year { text-align: left; font-size: 2.25rem; }
   .timeline-year-sub { text-align: left; }
   .timeline-content { padding-left: 0; }
   .mission-vision { padding: 4rem 1.5rem; }

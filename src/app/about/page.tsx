@@ -56,7 +56,7 @@ export default function AboutPage() {
 
         <div className="timeline">
           <div className="timeline-item">
-            <div>
+            <div className="timeline-period">
               <div className="timeline-year">2011</div>
               <div className="timeline-year-sub">The beginning</div>
             </div>
@@ -69,7 +69,7 @@ export default function AboutPage() {
           </div>
 
           <div className="timeline-item">
-            <div>
+            <div className="timeline-period">
               <div className="timeline-year">2016</div>
               <div className="timeline-year-sub">Becoming a hospital</div>
             </div>
@@ -82,7 +82,7 @@ export default function AboutPage() {
           </div>
 
           <div className="timeline-item">
-            <div>
+            <div className="timeline-period">
               <div className="timeline-year">2024</div>
               <div className="timeline-year-sub">A permanent home</div>
             </div>

@@ -1719,8 +1719,22 @@ blockquote {
   margin-top: 1.5rem !important;
 }
 
+.timeline::before {
+  left: 140px !important;
+}
+
 .timeline-item {
   padding: 1.25rem 0 !important;
+}
+
+.timeline-item::before {
+  display: none !important;
+}
+
+.timeline-period {
+  position: relative !important;
+  z-index: 1 !important;
+  background: var(--cream) !important;
 }
 
 .timeline-item:last-child {

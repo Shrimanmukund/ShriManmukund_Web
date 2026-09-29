@@ -28,6 +28,7 @@ export default function Error({
 
         <div className="flex gap-3 justify-center">
           <button
+            type="button"
             onClick={() => reset()}
             className="px-4 py-2.5 bg-[#1B3A5B] text-white rounded-warm text-xs font-semibold hover:bg-[#122844] transition flex items-center gap-1.5"
           >
