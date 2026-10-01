@@ -91,6 +91,16 @@ export const SiteFooter: React.FC = () => {
 
         <div className="footer-bottom">
           <span>© 2026 Shri Manmukund Hospital</span>
+          <p>
+            Website developed by{' '}
+            <a
+              href="https://magicworksitsolutions.com/"
+              rel="nofollow"
+              target="_blank"
+            >
+              MagicWorks
+            </a>
+          </p>
           <span>
             <Link href="/legal/privacy-policy/">Privacy</Link> ·{' '}
             <Link href="/legal/terms-of-use/">Terms</Link> ·{' '}
