@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { SERVICE_CATEGORIES } from '@/lib/data/content-store';
 
 export const metadata = {
-  title: 'Clinical Services & Specialised Units',
+  title: 'Clinical Services & Specialised Departments',
   description:
-    'Advanced Anorectal Care, Ayurveda & Panchakarma, General Surgery, and Female Specialty Care. Full spectrum of treatment tiers chosen honestly for your case.',
+    'Advanced Anorectal Care, Ayurveda & Panchakarma, General Surgery, Female Proctology, and Women\'s Healthcare. Full spectrum of treatment tiers chosen honestly for your case.',
   alternates: {
     canonical: '/services/',
   },
@@ -15,9 +15,30 @@ export const metadata = {
 export default function ServicesHubPage() {
   const iconMap: Record<string, string> = {
     'anorectal-care': 'श',
-    'ayurveda-panchakarma': 'आ',
+    'ksharsutra': 'क्ष',
+    'laser-proctology': 'ले',
+    'non-surgical-piles-treatment': 'अ',
     'general-surgery': 'म',
+    'ayurveda': 'आ',
+    'ayurveda-panchakarma': 'आ',
+    'panchakarma': 'प',
+    'spine-care': 'मे',
     'female-care': 'ऋ',
+    'specialty-care': 'वि',
+  };
+
+  const eyebrowMap: Record<string, string> = {
+    'anorectal-care': 'Flagship Practice',
+    'ksharsutra': 'Classical Parasurgery',
+    'laser-proctology': 'Minimally Invasive Laser',
+    'non-surgical-piles-treatment': 'Day-Care OPD Care',
+    'general-surgery': 'Modern Surgical Range',
+    'ayurveda': 'Rooted in Classical',
+    'ayurveda-panchakarma': 'Rooted in Classical',
+    'panchakarma': 'Detox & Rejuvenation',
+    'spine-care': 'Non-Surgical Spine Care',
+    'female-care': 'Led by Dr. Swati',
+    'specialty-care': 'Specialized Clinical Units',
   };
 
   return (
@@ -34,7 +55,7 @@ export default function ServicesHubPage() {
           <div className="md:col-span-7 flex flex-col justify-center">
             <div className="unit-hero-eyebrow">
               Clinical Services
-              <span className="unit-hero-eyebrow-badge">4 Dedicated Units</span>
+              <span className="unit-hero-eyebrow-badge">Comprehensive Specialties</span>
             </div>
             <div className="unit-hero-devanagari">चिकित्सा विभाग</div>
             <h1 className="unit-hero-title">
@@ -48,7 +69,7 @@ export default function ServicesHubPage() {
                 Book a consultation
               </Link>
               <a href="#units" className="btn btn-ghost">
-                Explore clinical units
+                Explore clinical specialties
               </a>
             </div>
           </div>
@@ -83,7 +104,7 @@ export default function ServicesHubPage() {
         <div className="answer-summary-inner">
           <div className="answer-summary-label">In one paragraph</div>
           <p className="answer-summary-text">
-            Shri Manmukund Hospital operates four focused clinical departments: Advanced Anorectal Care, Classical Ayurveda &amp; Panchakarma, General &amp; Laparoscopic Surgery, and Female Care. Because we offer all treatment tiers under one roof—from lifestyle correction and classical herbal therapies through Ksharsutra, diode laser, and conventional open/laparoscopic surgery—our specialists recommend what is genuinely optimal for the patient, without commercial bias toward any single technique.
+            Shri Manmukund Hospital provides comprehensive, integrated clinical care across specialized departments: Advanced Proctology &amp; Anorectal Surgery, Classical Ayurveda &amp; Panchakarma, General &amp; Minimally Invasive Surgery, Female Care &amp; Women&apos;s Health, Infertility (Uttarbasti), and Day-Care Surgery. Because we offer all treatment tiers under one roof—from lifestyle correction and classical herbal therapies through Ksharsutra, diode laser, and conventional open/laparoscopic surgery—our specialists recommend what is genuinely optimal for the patient, without commercial bias toward any single technique.
           </p>
         </div>
       </section>
@@ -91,12 +112,12 @@ export default function ServicesHubPage() {
       {/* 3. UNITS GRID */}
       <section className="services" id="units">
         <div className="services-header">
-          <div className="section-tag">Clinical Units</div>
+          <div className="section-tag">Clinical Specialties</div>
           <h2 className="section-title">
-            Four specialized units, <em>one standard of care.</em>
+            Comprehensive clinical specialties, <em>one standard of care.</em>
           </h2>
           <p className="services-lede">
-            Click into any unit to explore specific conditions, grading criteria, treatment options, and recovery timelines.
+            Click into any specialty department to explore specific conditions, grading criteria, treatment options, and recovery timelines.
           </p>
         </div>
 
@@ -105,13 +126,7 @@ export default function ServicesHubPage() {
             <article key={cat.slug} className={`service service-${(idx % 4) + 1}`}>
               <div className="service-icon">{iconMap[cat.slug] || 'श'}</div>
               <div className="service-eyebrow">
-                {cat.slug === 'anorectal-care'
-                  ? 'Flagship Practice'
-                  : cat.slug === 'ayurveda-panchakarma'
-                  ? 'Rooted in Classical'
-                  : cat.slug === 'female-care'
-                  ? 'Led by Dr. Swati'
-                  : 'Modern Surgical Range'}
+                {eyebrowMap[cat.slug] || 'Specialized Clinical Care'}
               </div>
               <h3 className="service-title">{cat.name}</h3>
               <p className="service-desc">{cat.shortDescription}</p>

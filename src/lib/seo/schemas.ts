@@ -25,7 +25,7 @@ export function generateHospitalSchema() {
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Plot No 7, Bapatwadi, Near Tapovan Gate',
+      streetAddress: 'Plot No. 7, Bapatwadi, Vivekanand Colony to Radient Hospital Road',
       addressLocality: 'Amravati',
       addressRegion: 'Maharashtra',
       postalCode: '444604',

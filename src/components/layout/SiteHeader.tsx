@@ -38,8 +38,8 @@ export const SiteHeader: React.FC = () => {
               Services
             </Link>
             <Link
-              href="/dr-vipin/"
-              className={pathname.startsWith('/dr-vipin') || pathname.startsWith('/dr-swati') ? 'active' : ''}
+              href="/doctors/"
+              className={pathname.startsWith('/doctors') || pathname.startsWith('/dr-vipin') || pathname.startsWith('/dr-swati') ? 'active' : ''}
             >
               Our Doctors
             </Link>
@@ -48,6 +48,12 @@ export const SiteHeader: React.FC = () => {
               className={pathname.startsWith('/about') ? 'active' : ''}
             >
               About
+            </Link>
+            <Link
+              href="/achievements/"
+              className={pathname.startsWith('/achievements') ? 'active' : ''}
+            >
+              Achievements
             </Link>
             <Link
               href="/knowledge/"
@@ -104,14 +110,20 @@ export const SiteHeader: React.FC = () => {
             <Link href="/services/" onClick={() => setMobileOpen(false)}>
               Services &amp; Units
             </Link>
-            <Link href="/dr-vipin/" onClick={() => setMobileOpen(false)}>
-              Dr. Vipin Tongale
+            <Link href="/doctors/" onClick={() => setMobileOpen(false)}>
+              Our Doctors
             </Link>
-            <Link href="/dr-swati/" onClick={() => setMobileOpen(false)}>
-              Dr. Swati Tongale
+            <Link href="/dr-vipin/" onClick={() => setMobileOpen(false)} style={{ paddingLeft: '2rem', fontSize: '0.875rem' }}>
+              ↳ Dr. Vipin Tongale
+            </Link>
+            <Link href="/dr-swati/" onClick={() => setMobileOpen(false)} style={{ paddingLeft: '2rem', fontSize: '0.875rem' }}>
+              ↳ Dr. Swati Tongale
             </Link>
             <Link href="/about/" onClick={() => setMobileOpen(false)}>
               About Us
+            </Link>
+            <Link href="/achievements/" onClick={() => setMobileOpen(false)}>
+              Achievements &amp; Recognition
             </Link>
             <Link href="/knowledge/" onClick={() => setMobileOpen(false)}>
               Knowledge Hub

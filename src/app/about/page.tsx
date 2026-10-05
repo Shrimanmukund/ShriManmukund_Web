@@ -89,7 +89,7 @@ export default function AboutPage() {
             <div className="timeline-content">
               <h3 className="timeline-title">Our own facility, Bapatwadi</h3>
               <p className="timeline-desc">
-                In June 2024, the hospital moved into its own purpose-built facility at Plot 7, Bapatwadi, just beside Ahilya Mangal Karyalaya and about a hundred metres from Radient Hospital. The facility includes a dedicated proctology suite, Panchakarma unit, day-care beds, and consultation chambers designed for privacy and dignity. Same year, Dr. Vipin completed his PhD from Government Ayurved College Nanded, with research on Apamarga Kshara ointment for internal haemorrhoids.
+                In June 2024, the hospital moved into its own purpose-built facility at Plot No. 7, Bapatwadi, Vivekanand Colony to Radient Hospital Road (just beside Ahilya Mangal Karyalaya and about a hundred metres from Radient Hospital). The facility includes a dedicated proctology suite, Panchakarma unit, day-care beds, and consultation chambers designed for privacy and dignity. Same year, Dr. Vipin completed his PhD from Government Ayurved College Nanded, with research on Apamarga Kshara ointment for internal haemorrhoids.
               </p>
             </div>
           </div>

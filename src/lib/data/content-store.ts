@@ -103,7 +103,7 @@ Dr. Swati addresses a critical healthcare need in the region by providing female
     consultationTimings: {
       morning: 'Morning surgical hours',
       evening: '2:30 PM to 4:30 PM & 6:00 PM to 8:00 PM (Mon-Sat)',
-      sunday: 'Prior Appointment Only',
+      sunday: 'Closed',
       emergency: '24 Hours Emergency Care',
     },
     metaTitle: 'Dr. Swati Tongale | Female Proctologist & Ayurvedic Surgeon | Amravati',

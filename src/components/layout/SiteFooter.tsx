@@ -76,7 +76,11 @@ export const SiteFooter: React.FC = () => {
                 <a href="tel:+919405404492">Emergency · 9405404492</a>
               </li>
               <li>
-                <Link href="/contact/">Bapatwadi, Amravati</Link>
+                <Link href="/contact/" style={{ display: 'block', lineHeight: '1.5' }}>
+                  Plot No. 7, Bapatwadi,<br />
+                  Vivekanand Colony to Radient Hospital Road,<br />
+                  Amravati 444604, Maharashtra
+                </Link>
               </li>
             </ul>
           </div>

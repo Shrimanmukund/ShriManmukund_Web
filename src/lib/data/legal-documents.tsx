@@ -71,7 +71,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
           <span className="h2-num">01</span> Introduction and scope
         </h2>
         <p>
-          Shri Manmukund Hospital (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;, or &ldquo;the hospital&rdquo;) is a specialist proctology and integrated Ayurvedic surgical hospital located at Plot No. 7, Bapatwadi, Amravati 444604, Maharashtra, India. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal and medical information when you visit our facility, use our website, or interact with us through any other means.
+          Shri Manmukund Hospital (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;, or &ldquo;the hospital&rdquo;) is a specialist proctology and integrated Ayurvedic surgical hospital located at Plot No. 7, Bapatwadi, Vivekanand Colony to Radient Hospital Road, Amravati 444604, Maharashtra, India. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal and medical information when you visit our facility, use our website, or interact with us through any other means.
         </p>
         <p>
           We take your privacy seriously, particularly given the sensitive nature of medical information. This policy has been prepared in accordance with the <strong>Digital Personal Data Protection Act, 2023</strong> (&ldquo;DPDP Act&rdquo;), the <strong>Information Technology Act, 2000</strong>, and applicable rules governing the storage and processing of medical records in India.
@@ -304,7 +304,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
       officerRole: 'Co-founder & Chief Consultant',
       email: 'privacy@shrimanmukund.in',
       phone: '+91 82089 27917',
-      address: 'Shri Manmukund Hospital, Plot No. 7, Bapatwadi, Amravati 444604, Maharashtra, India',
+      address: 'Shri Manmukund Hospital, Plot No. 7, Bapatwadi, Vivekanand Colony to Radient Hospital Road, Amravati 444604, Maharashtra, India',
     },
   },
 
@@ -471,7 +471,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
       officerRole: 'Governance & Compliance Desk',
       email: 'admin@shrimanmukund.in',
       phone: '+91 82089 27917',
-      address: 'Shri Manmukund Hospital, Plot No. 7, Bapatwadi, Amravati 444604, Maharashtra, India',
+      address: 'Shri Manmukund Hospital, Plot No. 7, Bapatwadi, Vivekanand Colony to Radient Hospital Road, Amravati 444604, Maharashtra, India',
     },
   },
 
@@ -595,7 +595,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
       officerRole: 'Chief Surgeon & Medical Director',
       email: 'clinical@shrimanmukund.in',
       phone: '+91 82089 27917',
-      address: 'Shri Manmukund Hospital, Plot No. 7, Bapatwadi, Amravati 444604, Maharashtra, India',
+      address: 'Shri Manmukund Hospital, Plot No. 7, Bapatwadi, Vivekanand Colony to Radient Hospital Road, Amravati 444604, Maharashtra, India',
     },
   },
 
@@ -737,7 +737,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
       officerRole: 'Digital Services & Compliance',
       email: 'privacy@shrimanmukund.in',
       phone: '+91 82089 27917',
-      address: 'Shri Manmukund Hospital, Plot No. 7, Bapatwadi, Amravati 444604, Maharashtra, India',
+      address: 'Shri Manmukund Hospital, Plot No. 7, Bapatwadi, Vivekanand Colony to Radient Hospital Road, Amravati 444604, Maharashtra, India',
     },
   },
 };

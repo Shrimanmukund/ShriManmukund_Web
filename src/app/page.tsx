@@ -378,9 +378,11 @@ export default function HomePage() {
               <div className="contact-row-text">
                 <div className="contact-row-label">Address</div>
                 <div className="contact-row-value">
-                  Plot 7, Bapatwadi
+                  Plot No. 7, Bapatwadi
                   <br />
-                  Amravati 444604
+                  Vivekanand Colony to Radient Hospital Road
+                  <br />
+                  Amravati 444604, Maharashtra
                 </div>
               </div>
             </div>

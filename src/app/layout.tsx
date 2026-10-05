@@ -4,6 +4,7 @@ import './templates.css';
 import './globals.css';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
+import { WhatsAppFloat } from '@/components/layout/WhatsAppFloat';
 import { generateHospitalSchema } from '@/lib/seo/schemas';
 
 const fraunces = Fraunces({
@@ -127,6 +128,7 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <SiteFooter />
+        <WhatsAppFloat />
       </body>
     </html>
   );

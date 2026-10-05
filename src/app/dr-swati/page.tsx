@@ -216,7 +216,7 @@ export default function DrSwatiPage() {
           <div className="journey-timeline">
             <div className="journey-item">
               <div className="journey-period">
-                <div className="journey-year">2008–2011</div>
+                <div className="journey-year">2014–2017</div>
                 <div className="journey-year-label">Postgraduate</div>
               </div>
               <div className="journey-content">
@@ -297,29 +297,31 @@ export default function DrSwatiPage() {
               <div className="schedule-row">
                 <div className="schedule-day">Mon–Sat</div>
                 <div className="schedule-time">
-                  1:00 PM – 4:30 PM
-                  <small>Afternoon session</small>
+                  2:30 PM – 4:30 PM
+                  <small>Afternoon consultation</small>
                 </div>
               </div>
               <div className="schedule-row">
                 <div className="schedule-day">Mon–Sat</div>
                 <div className="schedule-time">
-                  6:00 PM – 8:30 PM
-                  <small>Evening session</small>
+                  6:00 PM – 8:00 PM
+                  <small>Evening consultation</small>
                 </div>
               </div>
               <div className="schedule-row">
                 <div className="schedule-day">Sunday</div>
                 <div className="schedule-time">
-                  By prior appointment
-                  <small>Emergency &amp; scheduled cases only</small>
+                  Closed
+                  <small>Prior appointment for emergencies only</small>
                 </div>
               </div>
               <div className="schedule-row">
-                <div className="schedule-day">Emergency</div>
+                <div className="schedule-day">Booking</div>
                 <div className="schedule-time">
-                  <strong>24 hours</strong> · 9405404492
-                  <small>Monitored round the clock</small>
+                  <a href="tel:+918208927917" className="hover:underline">
+                    Call 8208927917
+                  </a>
+                  <small>To book with Dr. Swati specifically</small>
                 </div>
               </div>
             </div>

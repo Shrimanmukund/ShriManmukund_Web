@@ -98,6 +98,26 @@ blockquote {
 /* ============================================================
    NAVIGATION PRECISION STYLING
    ============================================================ */
+.nav {
+  background: var(--cream) !important;
+  padding: 1.5rem 0 !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+  border-bottom: 1px solid var(--leaf-line) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.nav-inner {
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding: 0 3rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 1.25rem !important;
+}
+
 .nav-logo {
   display: flex !important;
   align-items: center !important;
@@ -168,17 +188,18 @@ blockquote {
 
 .nav-menu {
   display: flex !important;
-  gap: 2rem !important;
+  gap: 0.85rem !important;
   align-items: center !important;
   justify-content: center !important;
   white-space: nowrap !important;
+  flex-shrink: 1 !important;
 }
 
 .nav-menu a {
   font-family: var(--sans) !important;
   font-size: 0.9375rem !important;
   color: var(--brown) !important;
-  padding: 0.5rem 0.75rem !important;
+  padding: 0.5rem 0.625rem !important;
   border-radius: 100px !important;
   transition: all 0.2s !important;
   font-weight: 500 !important;
@@ -197,12 +218,13 @@ blockquote {
   gap: 0.75rem !important;
   align-items: center !important;
   white-space: nowrap !important;
+  flex-shrink: 0 !important;
 }
 
 .btn {
   font-family: var(--sans) !important;
   font-weight: 600 !important;
-  padding: 0.75rem 1.5rem !important;
+  padding: 0.75rem 1.375rem !important;
   border-radius: 100px !important;
   cursor: pointer !important;
   transition: all 0.2s !important;
@@ -236,6 +258,36 @@ blockquote {
 .btn-ghost:hover {
   background: var(--sage-lighter) !important;
   border-color: var(--sage-dark, #3E5437) !important;
+}
+
+@media (max-width: 1200px) {
+  .nav-inner {
+    padding: 0 1.5rem !important;
+    gap: 1rem !important;
+  }
+  .nav-menu {
+    gap: 0.5rem !important;
+  }
+  .nav-menu a {
+    padding: 0.4rem 0.5rem !important;
+    font-size: 0.875rem !important;
+  }
+  .btn {
+    padding: 0.625rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav-hamburger {
+    display: flex !important;
+  }
+  .nav-cta {
+    display: none !important;
+  }
+  .nav-menu {
+    display: none !important;
+  }
 }
 
 /* ============================================================
@@ -1715,29 +1767,29 @@ blockquote {
   padding-bottom: 2.25rem !important;
 }
 
-.timeline {
+.story .timeline {
   margin-top: 1.5rem !important;
 }
 
-.timeline::before {
+.story .timeline::before {
   left: 140px !important;
 }
 
-.timeline-item {
+.story .timeline-item {
   padding: 1.25rem 0 !important;
 }
 
-.timeline-item::before {
+.story .timeline-item::before {
   display: none !important;
 }
 
-.timeline-period {
+.story .timeline-period {
   position: relative !important;
   z-index: 1 !important;
   background: var(--cream) !important;
 }
 
-.timeline-item:last-child {
+.story .timeline-item:last-child {
   padding-bottom: 0.5rem !important;
 }
 
