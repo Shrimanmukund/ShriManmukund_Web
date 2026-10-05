@@ -249,7 +249,7 @@ export default function DrVipinPage() {
 
           <div className="journey-item">
             <div className="journey-period">
-              <div className="journey-year">2011–2023</div>
+              <div className="journey-year">2011–2026</div>
               <div className="journey-year-label">Government Service</div>
             </div>
             <div className="journey-content">

@@ -40,7 +40,7 @@ Over the past 15 years, including 12 years of dedicated service as an AYUSH Medi
     `,
     journey: [
       { year: '2011', title: 'Clinical Launch', institution: 'Started dedicated anorectal practice in Amravati on 6 June 2011.' },
-      { year: '2012-2024', title: 'Government AYUSH Service', institution: 'Served 12 years at District Hospital Amravati handling complex surgical & anorectal cases.' },
+      { year: '2011–2026', title: 'Government AYUSH Service', institution: 'Served as AYUSH Medical Officer at District Hospital Amravati handling complex surgical & anorectal cases.' },
       { year: '2016', title: 'Hospital Expansion', institution: 'Expanded into full-fledged surgical facility at Bapatwadi on 28 October 2016.' },
       { year: '2024', title: 'New State-of-the-Art Hospital', institution: 'Inaugurated owned custom-built hospital facility with modern OT on 1 June 2024.' },
     ],

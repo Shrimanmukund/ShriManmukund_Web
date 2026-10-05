@@ -57,7 +57,7 @@ export default function DrVipinJourneyPage() {
                 Dr. Vipin Tongale earned his Bachelor of Ayurvedic Medicine and Surgery (BAMS) and went on to complete his post-graduation (MS in Ayurveda - Shalya Tantra) specializing in surgical and parasurgical procedures. He subsequently completed his PhD in Shalya Tantra, contributing valuable clinical research on parasurgical Ksharsutra interventions for complex fistulas.
               </p>
               <p>
-                For 12 years (2012 to 2024), Dr. Tongale served as AYUSH Medical Officer at District Hospital Amravati, managing thousands of general surgical cases, minor emergency trauma, and complex proctology referrals from across the Amravati district and broader Vidarbha region.
+                From 2011 to 2026, Dr. Tongale served as AYUSH Medical Officer at District Hospital Amravati, managing thousands of general surgical cases, minor emergency trauma, and complex proctology referrals from across the Amravati district and broader Vidarbha region.
               </p>
             </div>
           </div>
