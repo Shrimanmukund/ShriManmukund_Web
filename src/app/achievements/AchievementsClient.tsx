@@ -154,13 +154,13 @@ const HONOURS_DATA: HonourItem[] = [
   {
     id: 'gurusmaran-2024',
     categories: ['community'],
-    tag: 'National Committee',
+    tag: 'Organising Committee',
     year: '2024',
-    title: 'Organising Committee, Gurusmaran 2024',
-    issuer: 'National Conference on Pranavaha Srotas, Amravati',
-    desc: 'Dr. Vipin Tongale addressing and co-organising the 3-day national Ayurveda conference in Amravati.',
+    title: 'Gurusmaran 2024',
+    issuer: 'Gurusmaran 2024, Amravati',
+    desc: 'Dr. Vipin Tongale on the organising committee of Gurusmaran 2024 in Amravati.',
     image: '/images/achievements/achievement-img-11.jpg',
-    alt: 'Dr. Vipin Tongale addressing Gurusmaran 2024 National Conference, Amravati',
+    alt: 'Dr. Vipin Tongale at Gurusmaran 2024, Amravati',
     who: 'Dr. Vipin Tongale',
     whoType: 'vipin',
   },
@@ -277,9 +277,9 @@ const MOSAIC_ITEMS: MosaicItem[] = [
   {
     id: 'mosaic-4',
     title: 'Gurusmaran 2024',
-    subtitle: 'National Ayurveda conference, Amravati',
+    subtitle: 'Gurusmaran 2024, Amravati',
     image: '/images/achievements/achievement-img-11.jpg',
-    alt: 'Gurusmaran 2024 national Ayurveda conference, Amravati',
+    alt: 'Gurusmaran 2024, Amravati',
     sizeClass: 'tile wide',
   },
 ];
@@ -425,35 +425,7 @@ export const AchievementsClient: React.FC = () => {
           </div>
         </section>
 
-        {/* 2. PROOF BAR */}
-        <section className="proof">
-          <div className="wrap">
-            <div className="proof-grid rv">
-              <div className="proof-item">
-                <div className="proof-num">
-                  15<sup>yrs</sup>
-                </div>
-                <div className="proof-lbl">of continuous care in Amravati, since 2011</div>
-              </div>
-              <div className="proof-item">
-                <div className="proof-num">2</div>
-                <div className="proof-lbl">MS Ayurveda (Shalya Tantra) surgeons and proctologists</div>
-              </div>
-              <div className="proof-item">
-                <div className="proof-num">5</div>
-                <div className="proof-lbl">specialty units under one roof</div>
-              </div>
-              <div className="proof-item">
-                <div className="proof-num">
-                  4.6<sup>★</sup>
-                </div>
-                <div className="proof-lbl">from 191 patient ratings on Justdial (October 2026)</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 3. JOURNEY */}
+        {/* 2. JOURNEY */}
         <section id="journey">
           <div className="wrap">
             <div className="sec-head center sec-head-center" style={{ justifyContent: 'center', textAlign: 'center', alignItems: 'center' }}>
@@ -468,7 +440,7 @@ export const AchievementsClient: React.FC = () => {
                   <div className="tl-year">2011</div>
                   <h3>The first OPD opens</h3>
                   <p>
-                    Dr. Vipin and Dr. Swati Tongale begin outpatient practice in Amravati with one aim: to blend the advances of modern surgery with the depth of Ayurveda.
+                    Dr. Vipin and Dr. Swati Tongale begin outpatient practice in Amravati, blending the advances of modern surgery with the depth of Ayurveda.
                   </p>
                 </div>
                 <div className="tl-dot"></div>
@@ -479,16 +451,16 @@ export const AchievementsClient: React.FC = () => {
                   <div className="tl-year">2016</div>
                   <h3>A full inpatient hospital</h3>
                   <p>
-                    Shri Manmukund Hospital grows into an inpatient facility with its own operation theatre, wards and Panchakarma services, so surgery and recovery happen under one roof.
+                    The hospital opens inpatient care with its own operation theatre.
                   </p>
                 </div>
               </div>
               <div className="tl-item rv">
                 <div className="tl-card">
                   <div className="tl-year">Jan 2024</div>
-                  <h3>Hosting a national conference</h3>
+                  <h3>Gurusmaran 2024</h3>
                   <p>
-                    Dr. Vipin Tongale serves on the organising committee of Gurusmaran 2024, a three-day national Ayurveda conference on Pranavaha Srotas held in Amravati.
+                    Dr. Vipin Tongale serves on the organising committee of Gurusmaran 2024 in Amravati.
                   </p>
                 </div>
                 <div className="tl-dot"></div>
@@ -499,7 +471,7 @@ export const AchievementsClient: React.FC = () => {
                   <div className="tl-year">Jun 2024</div>
                   <h3>Our permanent home in Bapatwadi</h3>
                   <p>
-                    The hospital moves into its own premises in Vivekanand Colony, with a modern operation theatre, Panchakarma and Swedan rooms, general ward, special AC rooms and an in-house pharmacy.
+                    In June, the hospital moves to its permanent premises in Bapatwadi.
                   </p>
                 </div>
               </div>
@@ -681,8 +653,8 @@ export const AchievementsClient: React.FC = () => {
                   <li>
                     <span className="yr">2024</span>
                     <div>
-                      <strong>Gurusmaran 2024, organising committee</strong>
-                      <span>National Conference on Pranavaha Srotas, Amravati</span>
+                      <strong>Gurusmaran 2024</strong>
+                      <span>Organising committee, Gurusmaran 2024</span>
                     </div>
                   </li>
                   <li>

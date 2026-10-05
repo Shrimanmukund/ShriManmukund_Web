@@ -42,7 +42,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
     slug: 'privacy-policy',
     title: 'Privacy',
     titleEm: 'Policy',
-    metaTitle: 'Privacy Policy — Shri Manmukund Hospital, Amravati',
+    metaTitle: 'Privacy Policy | Shri Manmukund Hospital, Amravati',
     metaDescription: 'How Shri Manmukund Hospital collects, uses, protects, and respects the personal and medical information of patients and visitors.',
     eyebrow: 'Legal Document',
     deck: 'How Shri Manmukund Hospital collects, uses, protects, and respects the personal and medical information of patients and visitors.',
@@ -312,7 +312,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
     slug: 'terms-of-use',
     title: 'Terms of',
     titleEm: 'Use',
-    metaTitle: 'Terms of Use — Shri Manmukund Hospital, Amravati',
+    metaTitle: 'Terms of Use | Shri Manmukund Hospital, Amravati',
     metaDescription: 'Terms of Use governing your use of the Shri Manmukund Hospital website and digital healthcare information services.',
     eyebrow: 'Legal Document',
     deck: 'Terms and conditions governing the access, browsing, and use of the Shri Manmukund Hospital website and digital services.',
@@ -393,7 +393,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
           <span className="h2-num">04</span> Intellectual property rights
         </h2>
         <p>
-          All content published on this website—including text, graphics, logos, images, illustrations, medical articles, surgical playbooks, audio/video clips, and brand marks—is the exclusive intellectual property of Shri Manmukund Hospital and its founders, Dr. Vipin Tongale and Dr. Swati Tongale, protected under Indian and international copyright laws.
+          All content published on this website (including text, graphics, logos, images, illustrations, medical articles, surgical playbooks, audio/video clips, and brand marks) is the exclusive intellectual property of Shri Manmukund Hospital and its founders, Dr. Vipin Tongale and Dr. Swati Tongale, protected under Indian and international copyright laws.
         </p>
         <p>
           You may view, read, and share links to educational articles for personal, non-commercial purposes. Reproduction, modification, or commercial distribution of any text or media without prior written consent is strictly prohibited.
@@ -479,7 +479,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
     slug: 'medical-disclaimer',
     title: 'Medical',
     titleEm: 'Disclaimer',
-    metaTitle: 'Medical Disclaimer — Shri Manmukund Hospital, Amravati',
+    metaTitle: 'Medical Disclaimer | Shri Manmukund Hospital, Amravati',
     metaDescription: 'Important clinical and statutory medical disclaimer regarding healthcare information, treatment descriptions, and surgical guidance.',
     eyebrow: 'Statutory Notice',
     deck: 'Important statutory and clinical disclaimer regarding health information, surgical descriptions, and educational content on this website.',
@@ -506,7 +506,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
           <span className="h2-num">01</span> General informational purpose
         </h2>
         <p>
-          The content provided on <strong>www.shrimanmukund.com</strong>—including all medical articles, anatomical diagrams, surgical recovery playbooks, clinical FAQs, and condition overviews—is published exclusively for general informational and patient educational purposes.
+          The content provided on <strong>www.shrimanmukund.com</strong> (including all medical articles, anatomical diagrams, surgical recovery playbooks, clinical FAQs, and condition overviews) is published exclusively for general informational and patient educational purposes.
         </p>
 
         <h2 id="sec-02">
@@ -544,7 +544,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
             </p>
             <ul>
               <li>Call our 24-hour emergency hospital line directly at <strong>+91 94054 04492</strong>.</li>
-              <li>Or visit our emergency unit immediately at Plot No. 7, Bapatwadi, Amravati.</li>
+              <li>Or visit our emergency unit immediately at Plot No. 7, Bapatwadi, Vivekanand Colony to Radient Hospital Road, Amravati 444604, Maharashtra, India.</li>
               <li>Or dial national emergency services (<strong>108 / 112</strong>).</li>
             </ul>
           </div>
@@ -603,7 +603,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
     slug: 'cookie-policy',
     title: 'Cookie',
     titleEm: 'Policy',
-    metaTitle: 'Cookie Policy — Shri Manmukund Hospital, Amravati',
+    metaTitle: 'Cookie Policy | Shri Manmukund Hospital, Amravati',
     metaDescription: 'How Shri Manmukund Hospital uses cookies and tracking technologies to ensure optimal website performance and patient privacy.',
     eyebrow: 'Tracking & Privacy',
     deck: 'Information about how Shri Manmukund Hospital uses cookies and tracking technologies to ensure optimal website performance and user experience.',
@@ -678,7 +678,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
           <span className="h2-num">05</span> Analytics and traffic measurement
         </h2>
         <p>
-          We use privacy-respecting analytics tools to gauge general engagement metrics. All IP addresses are anonymized, and no sensitive personal or medical health data is ever transmitted to analytics services.
+          We use privacy-respecting analytics tools to gauge general engagement metrics. All IP addresses are anonymised, and no sensitive personal or medical health data is ever transmitted to analytics services.
         </p>
 
         <h2 id="sec-06">
@@ -692,7 +692,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
           <span className="h2-num">07</span> Third-party embeds
         </h2>
         <p>
-          Certain pages may embed third-party services—such as Google Maps for hospital driving directions or YouTube for educational surgical animations. These third-party providers may deploy their own cookies in accordance with their respective privacy policies.
+          Certain pages may embed third-party services, such as Google Maps for hospital driving directions or YouTube for educational surgical animations. These third-party providers may deploy their own cookies in accordance with their respective privacy policies.
         </p>
 
         <h2 id="sec-08">

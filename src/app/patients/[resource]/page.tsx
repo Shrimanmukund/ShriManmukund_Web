@@ -95,7 +95,7 @@ export default function PatientResourceDetailPage({ params }: PatientResourcePag
             Ready to come and <em>see us?</em>
           </h2>
           <p className="cta-lede">
-            We consult at Plot 7, Bapatwadi, Amravati. Monday to Saturday. Appointments are unhurried, and you will speak directly with Dr. Vipin or Dr. Swati.
+            We consult at Plot No. 7, Bapatwadi, Vivekanand Colony to Radient Hospital Road, Amravati 444604, Maharashtra, India. Monday to Saturday. Appointments are unhurried, and you will speak directly with Dr. Vipin or Dr. Swati.
           </p>
           <div className="cta-buttons">
             <Link href="/contact/#book" className="btn btn-primary">

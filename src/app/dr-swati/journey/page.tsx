@@ -56,7 +56,7 @@ export default function DrSwatiJourneyPage() {
                 Dr. Swati Tongale holds an MS in Ayurveda (Shalya Tantra - Surgery). Throughout her clinical practice across Vidarbha, Dr. Swati observed that thousands of female patients suffer in silence from bleeding piles, painful fissures, or fistulas for years due to embarrassment and hesitation in consulting male practitioners.
               </p>
               <p>
-                At Shri Manmukund Hospital, Dr. Swati has pioneered a fully private clinical environment for women, accompanied by female nursing staff. In addition, she has developed an authoritative practice in Uttarbasti—a specialized Ayurvedic therapy for tubal blockage, thin endometrium, PCOD, and female infertility.
+                At Shri Manmukund Hospital, Dr. Swati has pioneered a fully private clinical environment for women, accompanied by female nursing staff. In addition, she has developed an authoritative practice in Uttarbasti, a specialised Ayurvedic therapy for tubal blockage, thin endometrium, PCOD, and female infertility.
               </p>
             </div>
           </div>

@@ -357,11 +357,11 @@ export function KnowledgeHubClient() {
                 </div>
                 <h3 className="featured-side-title">
                   <Link href="/knowledge/insights/why-i-chose-to-lead-a-female-care-unit/">
-                    Why patient dignity matters most in anorectal care
+                    Why I chose to lead a Female Care Unit
                   </Link>
                 </h3>
                 <p className="featured-side-excerpt">
-                  Especially for women, and especially for those who have been dismissed elsewhere. A personal reflection.
+                  A personal reflection on the access gap for women in Vidarbha seeking surgical Ayurveda and proctology with dignity and complete privacy.
                 </p>
                 <div className="article-meta">
                   <div className="author-avatar author-avatar--swati">S</div>

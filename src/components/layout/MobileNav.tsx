@@ -224,7 +224,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
           </Link>
           <div className="grid grid-cols-2 gap-2">
             <a
-              href="tel:8208927917"
+              href="tel:+918208927917"
               className="flex items-center justify-center gap-1.5 py-2.5 bg-[#E5EBDD] text-[#1B3A5B] rounded-warm font-medium text-xs hover:bg-[#6B7F5F] hover:text-white transition"
             >
               <Phone className="w-3.5 h-3.5" />

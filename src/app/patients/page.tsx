@@ -5,8 +5,18 @@ export const metadata = {
   title: 'Patient Resources & Guides',
   description:
     'Helpful guides for patients: what to expect on your first visit, pre-surgery preparation, post-surgery recovery, diet advice, and FAQs.',
+  authors: [{ name: 'Shri Manmukund Hospital' }],
   alternates: {
     canonical: '/patients/',
+  },
+  openGraph: {
+    title: 'Patient Resources & Guides | Shri Manmukund Hospital',
+    description:
+      'Helpful guides for patients: first visit expectations, pre-surgery preparation, post-surgery recovery, diet advice, and insurance help.',
+    url: 'https://shrimanmukundhospital.com/patients/',
+    siteName: 'Shri Manmukund Hospital',
+    locale: 'en_IN',
+    type: 'website',
   },
 };
 

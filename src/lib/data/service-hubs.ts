@@ -532,7 +532,7 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
         nameSanskrit: 'स्वेदग्रन्थि शोथ',
         shortSummary:
           'Complete surgical excision of cyst wall and capsule under local anaesthesia to prevent recurrence or secondary infection.',
-        tags: ['Local anaesthesia', 'Zero recurrence aim'],
+        tags: ['Local anaesthesia', 'Near-zero recurrence aim'],
         linkUrl: '/services/general-surgery/sebaceous-cyst/',
         iconLetter: 'स्वे',
       },
@@ -611,9 +611,9 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
     eyebrow: 'Classical Traditional Medicine',
     eyebrowBadge: 'Specialist Unit',
     heroHeadline: 'Classical Ayurveda & Panchakarma, ',
-    heroHeadlineEm: 'delivered with clinical rigor.',
+    heroHeadlineEm: 'delivered with clinical rigour.',
     heroSubheadline:
-      'Authentic classical Ayurvedic treatments and five-fold Panchakarma purification protocols delivered by MS Ayurveda Shalya Tantra specialists in a modern hospital setting. Not a wellness spa—actual clinical medicine.',
+      'Authentic classical Ayurvedic treatments and five-fold Panchakarma purification protocols delivered by MS Ayurveda Shalya Tantra specialists in a modern hospital setting. Not a wellness spa: actual clinical medicine.',
     primaryCtaText: 'Book a consultation',
     primaryCtaUrl: '/contact/#book',
     secondaryCtaText: 'Explore therapies',
@@ -665,7 +665,7 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
     conditionsSectionTitle: 'Conditions & Therapies ',
     conditionsSectionTitleEm: 'managed under one roof.',
     conditionsSectionLede:
-      'Comprehensive Ayurvedic clinical care, specialized Panchakarma detox, and non-surgical restorative therapies.',
+      'Comprehensive Ayurvedic clinical care, specialised Panchakarma detox, and non-surgical restorative therapies.',
     conditions: [
       {
         slug: 'vata-vikar',
@@ -702,7 +702,7 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
         name: 'Uttarbasti Therapy',
         nameSanskrit: 'उत्तरबस्ति',
         shortSummary:
-          'Specialized intra-cavitary therapy for urethral strictures (led by Dr. Vipin) and female infertility / tubal blockages (led by Dr. Swati).',
+          'Specialised intra-cavitary therapy for urethral strictures (led by Dr. Vipin) and female infertility / tubal blockages (led by Dr. Swati).',
         tags: ['Stricture Urethra', 'Infertility Care'],
         linkUrl: '/services/panchakarma/uttarbasti/',
         iconLetter: 'उ',
@@ -712,7 +712,7 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
         name: 'Jalauka (Leech Therapy)',
         nameSanskrit: 'जलौकावचारण',
         shortSummary:
-          'Therapeutic bio-purification for localized vascular stasis, varicose veins, thrombosed veins, and non-healing ulcers.',
+          'Therapeutic bio-purification for localised vascular stasis, varicose veins, thrombosed veins, and non-healing ulcers.',
         tags: ['Vascular stasis', 'Varicose veins'],
         linkUrl: '/services/panchakarma/jalauka-leech-therapy/',
         iconLetter: 'ज',
@@ -788,7 +788,7 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
         iconLetter: 'मे',
       },
     ],
-    signaturesHeading: 'Signature therapies & specialized ',
+    signaturesHeading: 'Signature therapies & specialised ',
     signaturesHeadingEm: 'hospital facilities.',
     signaturesLede:
       'Delivered in dedicated therapy suites under direct MS Ayurveda surgeon supervision.',
@@ -855,7 +855,7 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
       {
         question: 'Is Jalauka (Leech Therapy) safe and hygienic?',
         answer:
-          'Yes. We use medically bred, single-use, purified medicinal leeches (Jalauka) in an aseptic hospital environment. It provides natural anticoagulant enzymes that rapidly relieve localized vascular congestion, varicose stasis, and non-healing ulcers.',
+          'Yes. We use medically bred, single-use, purified medicinal leeches (Jalauka) in an aseptic hospital environment. It provides natural anticoagulant enzymes that rapidly relieve localised vascular congestion, varicose stasis, and non-healing ulcers.',
       },
       {
         question: 'What is Suvarna Prashan and when is it given?',
@@ -1013,7 +1013,7 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
         iconLetter: 'दु',
       },
     ],
-    signaturesHeading: 'Two specialized Ayurvedic units ',
+    signaturesHeading: 'Two specialised Ayurvedic units ',
     signaturesHeadingEm: 'operating daily.',
     signaturesLede:
       'Deep sub-specialty units providing classical Panchakarma and spine rehabilitation under one roof.',
@@ -1031,7 +1031,7 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
         badgeLetter: 'मे',
         eyebrow: 'Spine & Joints',
         title: 'Spine Care Unit',
-        desc: 'Non-surgical Ayurvedic spine rehabilitation for sciatica, cervical spondylosis, and lumbar disc disease using localized Kati Basti, Greeva Basti, and herbal protocols.',
+        desc: 'Non-surgical Ayurvedic spine rehabilitation for sciatica, cervical spondylosis, and lumbar disc disease using localised Kati Basti, Greeva Basti, and herbal protocols.',
         features: ['Kati Basti', 'Greeva Basti', 'Sciatica', 'Spondylosis'],
         linkText: 'Explore spine care hub',
         linkUrl: '/services/spine-care/',

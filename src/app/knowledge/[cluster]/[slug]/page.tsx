@@ -106,11 +106,26 @@ export async function generateMetadata({ params }: KnowledgePiecePageProps) {
   const kbArticle = KNOWLEDGE_ARTICLES.find((a) => a.slug === params.slug);
   const dbArticle = !rawPage && !piece && !kbArticle ? await getDbArticle(params.slug) : null;
 
+  const rawTitle = rawPage?.metaTitle || piece?.title || kbArticle?.title || dbArticle?.metaTitle || dbArticle?.title || 'Knowledge Guide';
+  const cleanTitle = rawTitle.replace(/\s*\|\s*Shri Manmukund Hospital.*$/i, '').trim();
+  const desc = rawPage?.metaDescription || piece?.excerpt || kbArticle?.excerpt || dbArticle?.metaDescription || dbArticle?.excerpt || `${cleanTitle} from Shri Manmukund Hospital, Amravati.`;
+  const isSwati = kbArticle?.author === 'Dr. Swati' || piece?.authorSlug === 'dr-swati' || dbArticle?.authorSlug === 'dr-swati';
+  const authorName = isSwati ? 'Dr. Swati Tongale' : 'Dr. Vipin Tongale';
+
   return {
-    title: rawPage?.metaTitle || piece?.title || kbArticle?.title || dbArticle?.metaTitle || `${dbArticle?.title || 'Knowledge Guide'} | Shri Manmukund Hospital`,
-    description: rawPage?.metaDescription || piece?.excerpt || kbArticle?.excerpt || dbArticle?.metaDescription || dbArticle?.excerpt,
+    title: cleanTitle,
+    description: desc,
+    authors: [{ name: 'Shri Manmukund Hospital' }],
     alternates: {
       canonical: `/knowledge/${params.cluster}/${params.slug}/`,
+    },
+    openGraph: {
+      title: `${cleanTitle} | Shri Manmukund Hospital`,
+      description: desc,
+      url: `https://shrimanmukundhospital.com/knowledge/${params.cluster}/${params.slug}/`,
+      siteName: 'Shri Manmukund Hospital',
+      locale: 'en_IN',
+      type: 'article',
     },
   };
 }
@@ -237,7 +252,9 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
   const rawUpdatedDate = dbArticle?.lastUpdatedDate || piece?.lastUpdatedDate || '2026-09-02';
   const publishedDateFormatted = formatDate(rawPublishedDate);
   const lastUpdatedDateFormatted = formatDate(rawUpdatedDate);
-  const estimatedReadTime = piece?.estimatedReadTimeMins || kbArticle?.readTimeMins || dbArticle?.estimatedReadTimeMins || 8;
+  const wordCount = `${title} ${excerpt} ${bodyContent}`.trim().split(/\s+/).filter(Boolean).length;
+  const dynamicReadTime = Math.max(2, Math.ceil(wordCount / 200));
+  const estimatedReadTime = dynamicReadTime || piece?.estimatedReadTimeMins || kbArticle?.readTimeMins || dbArticle?.estimatedReadTimeMins || 5;
 
   const pieceData = {
     slug: params.slug,
@@ -429,7 +446,7 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
               What is Ksharsutra and <em>how does it work?</em>
             </h2>
             <p>
-              Ksharsutra is a <strong>two-thousand-year-old Ayurvedic surgical technique</strong> refined in modern practice, used primarily for the treatment of anal fistula. It involves a medicated thread — the Ksharsutra — that is passed through the fistula tract and tied. Over the following weeks, the thread slowly cuts through the fistula tissue while simultaneously promoting healing behind it.
+              Ksharsutra is a <strong>two-thousand-year-old Ayurvedic surgical technique</strong> refined in modern practice, used primarily for the treatment of anal fistula. It involves a medicated thread (the Ksharsutra) that is passed through the fistula tract and tied. Over the following weeks, the thread slowly cuts through the fistula tissue while simultaneously promoting healing behind it.
             </p>
             <p>
               Unlike conventional fistula surgery, Ksharsutra <strong>preserves the anal sphincter</strong>. This is crucial: the sphincter controls continence, and damage to it during traditional fistula surgery is a well-documented complication. Because Ksharsutra works gradually and heals as it cuts, this risk is substantially reduced.
@@ -517,7 +534,7 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
               <h4>The next 3 days</h4>
               <ul>
                 <li>Mild to moderate discomfort, managed with oral pain medication</li>
-                <li>Some clear or slightly blood-tinged discharge from the area — this is normal</li>
+                <li>Some clear or slightly blood-tinged discharge from the area; this is normal</li>
                 <li>Rest for 2 days, then gradual return to normal light activity</li>
                 <li>Sitz baths (warm water) 2 to 3 times daily</li>
                 <li>No heavy lifting, no cycling, no long walks</li>
@@ -588,7 +605,7 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
                 <li>New tissue can be seen forming where the tract was</li>
               </ul>
               <p>
-                We continue weekly follow-up during this phase, but the interventions become minimal — mainly monitoring healing progress.
+                We continue weekly follow-up during this phase, but the interventions become minimal, mainly monitoring healing progress.
               </p>
             </div>
 
@@ -608,7 +625,7 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
                 <li>You are given a hospital contact for any concerns</li>
               </ul>
               <p>
-                Occasionally, complex or high-position fistulae may need one or two additional weeks. Very rarely, a second Ksharsutra course may be needed for particularly deep tracts. Your case will determine this — and if it is likely, we will tell you at the start, not surprise you at Week 8.
+                Occasionally, complex or high-position fistulae may need one or two additional weeks. Very rarely, a second Ksharsutra course may be needed for particularly deep tracts. Your case will determine this, and if it is likely, we will tell you at the start, not surprise you at Week 8.
               </p>
             </div>
 

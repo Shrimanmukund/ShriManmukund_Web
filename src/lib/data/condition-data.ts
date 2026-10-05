@@ -63,50 +63,50 @@ export interface ConditionDetailData {
   titleAccent: string;
   subtitle: string;
   lede: string;
-  glance: {
-    sanskrit: string;
-    grades: string;
-    commonIn: string;
-    treatmentTier: string;
-    recovery: string;
-    consultation: string;
+  glance?: {
+    sanskrit?: string;
+    grades?: string;
+    commonIn?: string;
+    treatmentTier?: string;
+    recovery?: string;
+    consultation?: string;
   };
   answerSummary: string;
-  symptoms: {
+  symptoms?: {
     sectionTitle: string;
     sectionLede: string;
     items: SymptomItem[];
     warningTitle: string;
     warningBody: string;
   };
-  grades: {
+  grades?: {
     sectionTag: string;
     sectionTitle: string;
     sectionLede: string;
     items: GradeItem[];
   };
-  causes: {
+  causes?: {
     leadHeadline: string;
     leadParagraphs: string[];
     causesList: Array<{ title: string; desc: string }>;
   };
-  diagnosis: {
+  diagnosis?: {
     sectionTitle: string;
     sectionLede: string;
     steps: DiagnosisStep[];
   };
-  treatments: {
+  treatments?: {
     sectionTitle: string;
     sectionLede: string;
     items: TreatmentItem[];
   };
-  expect: {
+  expect?: {
     sectionTitle: string;
     sectionLede: string;
     steps: ExpectStep[];
   };
-  faqs: FAQItem[];
-  related: RelatedConditionItem[];
+  faqs?: FAQItem[];
+  related?: RelatedConditionItem[];
 }
 
 export const PILES_DETAIL: ConditionDetailData = {
@@ -288,7 +288,7 @@ export const PILES_DETAIL: ConditionDetailData = {
         tierLabel: 'First Line',
         title: 'Conservative Management',
         suitability: 'Best suited for: Grade I piles, early symptoms, prevention of progression',
-        desc: 'Dietary correction (high fibre, adequate water intake), stool softeners, sitz baths, topical medications, and specific lifestyle adjustments. This is where every patient starts, regardless of grade, because it addresses the underlying cause. For Grade I patients, conservative management alone often resolves the problem completely.',
+        desc: 'Dietary correction (high fibre, adequate water intake), stool softeners, sitz baths, topical medications, and specific lifestyle adjustments. This is where every patient starts, regardless of grade, because it addresses the underlying cause. For Grade I patients, conservative management alone often resolves early symptoms effectively.',
         facts: [
           { label: 'Duration', value: '4 – 8 weeks' },
           { label: 'Cost', value: 'Minimal' },
@@ -464,7 +464,7 @@ export const FISSURE_DETAIL: ConditionDetailData = {
   titleMain: 'Anal Fissure',
   titleAccent: 'Treatment',
   subtitle: 'Sphincter-preserving healing for acute and chronic fissures in Amravati',
-  lede: 'An anal fissure is a small tear in the lining of the anal canal causing intense burning pain during and after bowel movements. With specialized Ayurvedic Matra Basti and precision laser techniques, over 90% of fissures heal completely without cut-surgery.',
+  lede: 'An anal fissure is a small tear in the lining of the anal canal causing intense burning pain during and after bowel movements. With specialised Ayurvedic Matra Basti and precision laser techniques, over 90% of fissures achieve healing without conventional cut-surgery.',
   glance: {
     sanskrit: 'Parikartika (परिकर्तिका)',
     grades: 'Acute / Chronic',
@@ -474,7 +474,7 @@ export const FISSURE_DETAIL: ConditionDetailData = {
     consultation: '30 – 45 minutes',
   },
   answerSummary:
-    'Anal fissure is an ulcerated split in the anoderm caused by passing hard stools or chronic spasm of the internal anal sphincter. At Shri Manmukund Hospital, treatment focuses on relieving sphincter spasm and promoting rapid tissue healing. Early fissures respond excellently to high-fibre diet, sitz baths, and Ayurvedic Matra Basti with Jatyadi Taila. For chronic non-healing fissures with sentinel tags, diode laser sphincterotomy or gentle Ksharkarma offers instant pain relief with zero risk of incontinence.',
+    'Anal fissure is an ulcerated split in the anoderm caused by passing hard stools or chronic spasm of the internal anal sphincter. At Shri Manmukund Hospital, treatment focuses on relieving sphincter spasm and promoting rapid tissue healing. Early fissures respond excellently to high-fibre diet, sitz baths, and Ayurvedic Matra Basti with Jatyadi Taila. For chronic non-healing fissures with sentinel tags, diode laser sphincterotomy or gentle Ksharkarma offers rapid pain relief while safeguarding sphincter continence.',
   symptoms: {
     sectionTitle: 'How an anal fissure <em>presents.</em>',
     sectionLede:
@@ -511,7 +511,7 @@ export const FISSURE_DETAIL: ConditionDetailData = {
         desc: 'Patients often delay toilet visits due to severe pain, creating a vicious cycle of harder stools.',
       },
     ],
-    warningTitle: 'When to seek specialized care',
+    warningTitle: 'When to seek specialised care',
     warningBody:
       'If anal pain lasts more than an hour after defecation or persists beyond 2 weeks despite OTC ointments, you likely have a chronic fissure with high sphincter tone. Professional sphincter-preserving therapy is needed to prevent deep ulceration.',
   },
@@ -581,7 +581,7 @@ export const FISSURE_DETAIL: ConditionDetailData = {
     ],
   },
   diagnosis: {
-    sectionTitle: 'Gentle, painless <em>examination protocol.</em>',
+    sectionTitle: 'Gentle, comfortable <em>examination protocol.</em>',
     sectionLede:
       'We understand how sensitive and painful a fissure is. We never perform aggressive or painful examinations.',
     steps: [
@@ -601,7 +601,7 @@ export const FISSURE_DETAIL: ConditionDetailData = {
         stepNum: 'Step 03',
         icon: 'स्ने',
         title: 'Topical Anaesthesia (If Needed)',
-        desc: 'Lignocaine gel application before any gentle digital assessment, ensuring zero discomfort.',
+        desc: 'Lignocaine gel application before any gentle digital assessment, ensuring minimal discomfort.',
       },
       {
         stepNum: 'Step 04',
@@ -651,11 +651,11 @@ export const FISSURE_DETAIL: ConditionDetailData = {
         modifierClass: 'treatment-card--laser',
         title: 'Precision Laser Sphincterotomy',
         suitability: 'Best suited for: Severe chronic spasm unresponsive to medications',
-        desc: 'Diode laser energy delivers controlled thermal relaxation to a few hypertonic muscle fibers of the internal sphincter. Immediately abolishes spasm while 100% preserving continence.',
+        desc: 'Diode laser energy delivers controlled thermal relaxation to a few hypertonic muscle fibers of the internal sphincter. Immediately abolishes spasm while preserving continence.',
         facts: [
           { label: 'Duration', value: '15 – 20 min' },
           { label: 'Pain Relief', value: 'Immediate' },
-          { label: 'Continence Risk', value: 'Zero' },
+          { label: 'Continence Risk', value: 'Preserved / Minimal' },
         ],
         linkText: 'Read about Laser Fissure Treatment',
         linkHref: '/knowledge/articles/laser-piles-surgery-what-it-is-what-it-is-not/',
@@ -677,7 +677,7 @@ export const FISSURE_DETAIL: ConditionDetailData = {
         stepNum: '02',
         time: 'Days 2 – 7 · Active Therapy',
         title: 'Matra Basti or Laser procedure',
-        desc: 'Targeted relaxation of internal sphincter; daily bowel movements become painless.',
+        desc: 'Targeted relaxation of internal sphincter; daily bowel movements become comfortable.',
       },
       {
         stepNum: '03',
@@ -702,12 +702,12 @@ export const FISSURE_DETAIL: ConditionDetailData = {
     {
       question: 'Will surgery for fissure cause loss of bowel control (incontinence)?',
       answer:
-        '<p><strong>No, not at our hospital.</strong> Traditional open surgical sphincterotomy carried a small risk if too much muscle was divided. We use non-surgical Ayurvedic Matra Basti, mild Ksharkarma, or ultra-precise diode laser energy, which completely protect the anal sphincter and maintain 100% continence.</p>',
+        '<p><strong>No, not at our hospital.</strong> Traditional open surgical sphincterotomy carried a small risk if too much muscle was divided. We use non-surgical Ayurvedic Matra Basti, mild Ksharkarma, or ultra-precise diode laser energy, which protect the anal sphincter and maintain normal continence.</p>',
     },
     {
       question: 'How does Matra Basti cure chronic fissures?',
       answer:
-        '<p>Matra Basti introduces nourishing medicated herbal oil (such as Jatyadi Taila) into the rectum. This lubricates the anal canal, pacifies Vata dosha, relaxes muscular spasm, and provides localized wound-healing phyto-compounds directly to the fissure bed.</p>',
+        '<p>Matra Basti introduces nourishing medicated herbal oil (such as Jatyadi Taila) into the rectum. This lubricates the anal canal, pacifies Vata dosha, relaxes muscular spasm, and provides localised wound-healing phyto-compounds directly to the fissure bed.</p>',
     },
   ],
   related: [
@@ -854,7 +854,7 @@ export const FISTULA_DETAIL: ConditionDetailData = {
     ],
   },
   diagnosis: {
-    sectionTitle: 'Precise tract mapping for <em>zero recurrence.</em>',
+    sectionTitle: 'Precise tract mapping for <em>near-zero recurrence.</em>',
     sectionLede:
       'We identify every primary opening, secondary branch, and cavity before beginning treatment.',
     steps: [
@@ -885,7 +885,7 @@ export const FISTULA_DETAIL: ConditionDetailData = {
     ],
   },
   treatments: {
-    sectionTitle: 'Specialized interventions for <em>anal fistula.</em>',
+    sectionTitle: 'Specialised interventions for <em>anal fistula.</em>',
     sectionLede:
       'Dr. Vipin Tongale has over 15 years of experience resolving thousands of complex and recurrent fistulas.',
     items: [
@@ -895,7 +895,7 @@ export const FISTULA_DETAIL: ConditionDetailData = {
         modifierClass: 'treatment-card--ksharsutra',
         title: 'Classical Ksharsutra Parasurgery',
         suitability: 'Best suited for: All grades of simple, complex, and recurrent fistulas',
-        desc: 'A specially prepared linen thread coated 21 times with Snuhi Ksheera, Apamarga Kshara, and Haridra powder. Cuts the infected tract mechanically and chemically while laying down healthy fibrous tissue behind it, preserving 100% sphincter continence.',
+        desc: 'A specially prepared linen thread coated 21 times with Snuhi Ksheera, Apamarga Kshara, and Haridra powder. Cuts the infected tract mechanically and chemically while laying down healthy fibrous tissue behind it, preserving sphincter continence.',
         facts: [
           { label: 'Weekly Change', value: 'Simple OPD procedure' },
           { label: 'Recurrence Rate', value: 'Less than 2%' },
@@ -945,7 +945,7 @@ export const FISTULA_DETAIL: ConditionDetailData = {
         stepNum: '01',
         time: 'Day 1 · Thread Placement',
         title: 'Initial Ksharsutra insertion',
-        desc: 'Minor procedure under local or spinal anesthesia. Medicated thread is gently routed through the tract.',
+        desc: 'Minor procedure under local or spinal anaesthesia. Medicated thread is gently routed through the tract.',
       },
       {
         stepNum: '02',
@@ -963,7 +963,7 @@ export const FISTULA_DETAIL: ConditionDetailData = {
         stepNum: '04',
         time: 'Week 8 · Final Discharge',
         title: 'Permanent closure confirmed',
-        desc: 'Thread comes off naturally once tract is completely healed. Scar is strong, clean, and sphincter is intact.',
+        desc: 'Thread comes off naturally once tract is healed. Scar is strong, clean, and sphincter is intact.',
       },
     ],
   },
@@ -971,7 +971,7 @@ export const FISTULA_DETAIL: ConditionDetailData = {
     {
       question: 'Why is Ksharsutra better than open surgery for fistula?',
       answer:
-        '<p>Open surgery (fistulectomy) cuts through the anal sphincter muscle in one go, carrying a high risk of stool leakage or fecal incontinence, and has a 20-30% recurrence rate. <strong>Ksharsutra cuts through the muscle gradually (1 mm per week)</strong>, allowing the divided muscle to scar down and fuse before the next fiber is cut. This guarantees 100% sphincter continence and brings recurrence down to under 2%.</p>',
+        '<p>Open surgery (fistulectomy) cuts through the anal sphincter muscle in one go, carrying a high risk of stool leakage or fecal incontinence, and has a 20-30% recurrence rate. <strong>Ksharsutra cuts through the muscle gradually (1 mm per week)</strong>, allowing the divided muscle to scar down and fuse before the next fiber is cut. This safeguards sphincter continence and brings recurrence down to under 2%.</p>',
     },
     {
       question: 'Can I go to office and do routine activities during Ksharsutra?',
@@ -1025,7 +1025,7 @@ export const FEMALE_PROCTOLOGY_DETAIL: ConditionDetailData = {
     consultation: '30 – 45 minutes (Private & Unhurried)',
   },
   answerSummary:
-    'Female Proctology at Shri Manmukund Hospital is a specialized clinical service led exclusively by Dr. Swati Tongale, MS (Ayurveda Shalya Tantra). Designed for women who prefer a female surgeon, it provides unhurried private consultations, gentle examinations in a confidential room with female nursing staff, and the complete spectrum of advanced treatments—from soothing Ayurvedic Matra Basti to Ksharsutra and minimally invasive day-care laser procedures.',
+    'Female Proctology at Shri Manmukund Hospital is a specialised clinical service led exclusively by Dr. Swati Tongale, MS (Ayurveda Shalya Tantra). Designed for women who prefer a female surgeon, it provides unhurried private consultations, gentle examinations in a confidential room with female nursing staff, and the complete spectrum of advanced treatments, from soothing Ayurvedic Matra Basti to Ksharsutra and minimally invasive day-care laser procedures.',
   symptoms: {
     sectionTitle: 'Common female anorectal symptoms <em>needing clinical review.</em>',
     sectionLede:
@@ -1090,7 +1090,7 @@ export const FEMALE_PROCTOLOGY_DETAIL: ConditionDetailData = {
         badge: '03',
         label: 'Anal Fistula',
         title: 'Simple & Complex Fistula',
-        desc: 'Infected perianal tracks treated with classical Ksharsutra or FiLaC laser, ensuring zero damage to pelvic sphincters.',
+        desc: 'Infected perianal tracks treated with classical Ksharsutra or FiLaC laser, protecting pelvic sphincter integrity.',
         treatment: 'Gradual Ksharsutra ligation, IFTAK, FiLaC laser closure',
       },
       {
@@ -1105,7 +1105,7 @@ export const FEMALE_PROCTOLOGY_DETAIL: ConditionDetailData = {
   causes: {
     leadHeadline: 'Pregnancy, pelvic biomechanics, and hormonal shifts <em>drive female proctology conditions.</em>',
     leadParagraphs: [
-      'Women experience unique physiological milestones—such as pregnancy, hormonal fluctuations during the luteal phase, labor strain, and menopause—that place distinct mechanical stress on pelvic floor veins and tissues.',
+      'Women experience unique physiological milestones (such as pregnancy, hormonal fluctuations during the luteal phase, labor strain, and menopause) that place distinct mechanical stress on pelvic floor veins and tissues.',
       'Recognizing these distinct anatomical dynamics allows us to formulate treatment plans that protect pelvic floor integrity while delivering rapid, lasting relief.',
     ],
     causesList: [
@@ -1151,7 +1151,7 @@ export const FEMALE_PROCTOLOGY_DETAIL: ConditionDetailData = {
       {
         stepNum: 'Step 03',
         icon: 'यं',
-        title: 'Painless Proctoscopy',
+        title: 'Gentle Proctoscopy',
         desc: 'If required, an illuminated mini-scope with local anaesthetic gel visualises internal cushions with minimal discomfort.',
       },
       {
@@ -1174,7 +1174,7 @@ export const FEMALE_PROCTOLOGY_DETAIL: ConditionDetailData = {
         suitability: 'Best suited for: Grade I piles, acute postpartum fissures, and early digestive sluggishness',
         desc: 'Classical Jatyadi oil retention enemas (Matra Basti), herbal stool modulators, warm medicinal sitz baths (Avagaha Sweda), and pelvic relaxation guidance.',
         facts: [
-          { label: 'Approach', value: '100% Non-invasive' },
+          { label: 'Approach', value: 'Non-invasive' },
           { label: 'Hospital Stay', value: 'None (OPD)' },
           { label: 'Comfort', value: 'Immediate soothing' },
         ],
@@ -1187,7 +1187,7 @@ export const FEMALE_PROCTOLOGY_DETAIL: ConditionDetailData = {
         modifierClass: 'treatment-card--nonsurgical',
         title: 'Rubber Band Ligation & Sclerotherapy',
         suitability: 'Best suited for: Bleeding Grade II piles seeking rapid resolution without hospital stay',
-        desc: 'Quick 10-minute office procedures that interrupt blood flow to prolapsing piles cushions. Performed painlessly above the dentate line with zero stitches.',
+        desc: 'Quick 10-minute office procedures that interrupt blood flow to prolapsing piles cushions. Performed comfortably above the dentate line with no stitches.',
         facts: [
           { label: 'Duration', value: '10 – 15 min' },
           { label: 'Recovery', value: 'Same day return' },
@@ -1204,9 +1204,9 @@ export const FEMALE_PROCTOLOGY_DETAIL: ConditionDetailData = {
         suitability: 'Best suited for: Simple & complex anal fistulas, high tracts, and recurrent infections',
         desc: 'Gold-standard Ayurvedic parasurgical technique utilizing medicated alkaline threads to gently excise the tract while allowing simultaneously healthy granulation with near-zero recurrence.',
         facts: [
-          { label: 'Sphincter Safety', value: '100% Preserved' },
+          { label: 'Sphincter Safety', value: 'Preserved / Protected' },
           { label: 'Recurrence', value: 'Near Zero' },
-          { label: 'Anesthesia', value: 'Local / Spinal' },
+          { label: 'Anaesthesia', value: 'Local / Spinal' },
         ],
         linkText: 'Read about Ksharsutra therapy',
         linkHref: '/services/ksharsutra/',
@@ -1263,7 +1263,7 @@ export const FEMALE_PROCTOLOGY_DETAIL: ConditionDetailData = {
     {
       question: 'Will Dr. Swati conduct the examination and procedure herself?',
       answer:
-        '<p><strong>Yes, 100%.</strong> Dr. Swati Tongale personally conducts the consultation, physical examination, proctoscopy, procedures, and all follow-up visits. Female nursing staff are always present in the examination room.</p>',
+        '<p><strong>Yes, completely.</strong> Dr. Swati Tongale personally conducts the consultation, physical examination, proctoscopy, procedures, and all follow-up visits. Female nursing staff are always present in the examination room.</p>',
     },
     {
       question: 'Can I bring my mother, sister, or husband with me?',
@@ -1312,7 +1312,7 @@ export const UTTARBASTI_DETAIL: ConditionDetailData = {
   titleMain: 'Uttarbasti for Infertility &',
   titleAccent: 'Tubal Blockage',
   subtitle: 'Classical intrauterine Panchakarma procedure by Dr. Swati Tongale in Amravati',
-  lede: 'Uttarbasti is a revered classical Ayurvedic procedure involving the sterile administration of medicated herbal oils and ghritas directly into the uterine cavity. Practiced with modern aseptic standards by Dr. Swati Tongale, it is widely utilized for tubal factor infertility, thin endometrium, recurrent IVF implantation failures, and chronic pelvic inflammatory conditions.',
+  lede: 'Uttarbasti is a revered classical Ayurvedic procedure involving the sterile administration of medicated herbal oils and ghritas directly into the uterine cavity. Practised with modern aseptic standards by Dr. Swati Tongale, it is widely utilized for tubal factor infertility, thin endometrium, recurrent IVF implantation failures, and chronic pelvic inflammatory conditions.',
   glance: {
     sanskrit: 'Uttarbasti (उत्तरबस्ती चिकित्सा)',
     grades: 'Unilateral/Bilateral Tubal Block, Endometrial <7mm',
@@ -1322,7 +1322,7 @@ export const UTTARBASTI_DETAIL: ConditionDetailData = {
     consultation: '30 – 45 min with modern HSG/USG review',
   },
   answerSummary:
-    'Uttarbasti for infertility is a specialized classical Ayurvedic Panchakarma therapy where sterile, heated medicated ghritas (such as Phala Ghrita, Kshara Taila, or Dhanwantaram Taila) are administered through the cervical canal into the uterus during the follicular phase (days 6 to 11 of the menstrual cycle). Performed by Dr. Swati Tongale, MS (Ayurveda Shalya Tantra), it acts locally to dissolve soft inflammatory tubal adhesions, enhance endometrial vascularity, and restore ovarian-uterine receptivity.',
+    'Uttarbasti for infertility is a specialised classical Ayurvedic Panchakarma therapy where sterile, heated medicated ghritas (such as Phala Ghrita, Kshara Taila, or Dhanwantaram Taila) are administered through the cervical canal into the uterus during the follicular phase (days 6 to 11 of the menstrual cycle). Performed by Dr. Swati Tongale, MS (Ayurveda Shalya Tantra), it acts locally to dissolve soft inflammatory tubal adhesions, enhance endometrial vascularity, and restore ovarian-uterine receptivity.',
   symptoms: {
     sectionTitle: 'Clinical indications where Uttarbasti is <em>most effective.</em>',
     sectionLede:
@@ -1351,7 +1351,7 @@ export const UTTARBASTI_DETAIL: ConditionDetailData = {
       {
         icon: 'अ',
         title: 'Anovulatory Cycles & PCOD',
-        desc: 'Follicular growth arrest and poor oocyte quality benefiting from localized tissue nourishment (Dhatu Poshana).',
+        desc: 'Follicular growth arrest and poor oocyte quality benefiting from localised tissue nourishment (Dhatu Poshana).',
       },
       {
         icon: 'अ',
@@ -1373,7 +1373,7 @@ export const UTTARBASTI_DETAIL: ConditionDetailData = {
         badge: '01',
         label: 'Cycle 1',
         title: 'Preparatory Deepana & Snehana',
-        desc: 'Internal metabolic purification (Agni Deepana) followed by 3–6 consecutive post-menstrual Uttarbasti sessions using specialized Sukshma oils.',
+        desc: 'Internal metabolic purification (Agni Deepana) followed by 3–6 consecutive post-menstrual Uttarbasti sessions using specialised Sukshma oils.',
         treatment: 'Dosha pacification, cervical clearance, and initial tubal mucosal softening',
       },
       {
@@ -1465,7 +1465,7 @@ export const UTTARBASTI_DETAIL: ConditionDetailData = {
         tierLabel: 'Primary Therapy',
         title: 'Classical Intrauterine Uttarbasti',
         suitability: 'Best suited for: Tubal blockage, thin endometrium, and unexplained infertility',
-        desc: 'Administration of 3 to 5 ml of sterile Phala Ghrita, Kshara Taila, or Kalyanaka Ghrita under gentle aseptic intrauterine technique. Painless, requiring 20 minutes rest before walking home.',
+        desc: 'Administration of 3 to 5 ml of sterile Phala Ghrita, Kshara Taila, or Kalyanaka Ghrita under gentle aseptic intrauterine technique. Well-tolerated and gentle, requiring 20 minutes rest before walking home.',
         facts: [
           { label: 'Session Time', value: '20 – 30 min' },
           { label: 'Cycle Timing', value: 'Days 6 – 11 of cycle' },
@@ -1494,7 +1494,7 @@ export const UTTARBASTI_DETAIL: ConditionDetailData = {
         modifierClass: 'treatment-card--ksharsutra',
         title: 'Systemic Panchakarma (Virechana & Matra Basti)',
         suitability: 'Best suited for: Patients with high BMI, chronic metabolic toxins (Ama), or PCOD',
-        desc: 'Full-body therapeutic purgation (Virechana) or specialized enema cycles (Yoga Basti) performed before starting Uttarbasti to eliminate systemic metabolic congestion.',
+        desc: 'Full-body therapeutic purgation (Virechana) or specialised enema cycles (Yoga Basti) performed before starting Uttarbasti to eliminate systemic metabolic congestion.',
         facts: [
           { label: 'Timing', value: 'Prior to Uttarbasti cycle' },
           { label: 'Benefit', value: 'Boosts tissue absorption' },
@@ -1540,12 +1540,12 @@ export const UTTARBASTI_DETAIL: ConditionDetailData = {
     {
       question: 'Is Uttarbasti painful?',
       answer:
-        '<p><strong>No, Uttarbasti is generally painless.</strong> It feels similar to a routine gynaecological swab or mild menstrual fullness. No general anaesthesia is needed, and patients walk home immediately after 20 minutes of rest.</p>',
+        '<p><strong>No, Uttarbasti is generally well-tolerated.</strong> It feels similar to a routine gynaecological swab or mild menstrual fullness. No general anaesthesia is needed, and patients walk home immediately after 20 minutes of rest.</p>',
     },
     {
       question: 'How successful is Uttarbasti for tubal blockages?',
       answer:
-        '<p>Clinical studies and our hospital data show a <strong>recanalization success rate of 65% to 80%</strong> for corneal and mid-tubal inflammatory blocks after 2 to 3 consecutive cycles. Severe hydrosalpinx or extensive dense pelvic adhesions are evaluated honestly for surgical or IVF referral.</p>',
+        '<p>Clinical studies and our hospital data show a <strong>recanalization success rate of 65% to 80%</strong> for cornual and mid-tubal inflammatory blocks after 2 to 3 consecutive cycles. Severe hydrosalpinx or extensive dense pelvic adhesions are evaluated honestly for surgical or IVF referral.</p>',
     },
     {
       question: 'Can Uttarbasti be combined with IVF treatment?',
@@ -1745,7 +1745,7 @@ export const GARBHSANSKARA_DETAIL: ConditionDetailData = {
         desc: 'Prescription of traditional month-by-month herbs (such as Yashtimadhu, Shatavari, Bala, Gokshura, Sariva) combined with tailored high-nutrition dietary plans.',
         facts: [
           { label: 'Frequency', value: 'Daily home regimen' },
-          { label: 'Safety', value: 'Classical, 100% natural' },
+          { label: 'Safety', value: 'Classical, purely natural' },
           { label: 'Review', value: 'Monthly OPD checkup' },
         ],
         linkText: 'Read about antenatal care',
@@ -1822,7 +1822,7 @@ export const GARBHSANSKARA_DETAIL: ConditionDetailData = {
     {
       question: 'Is Garbhsanskara safe alongside modern obstetric medications?',
       answer:
-        '<p><strong>Yes, completely safe.</strong> All Ayurvedic preparations used in Masanumasik Garbhsanskara are time-tested, mild, food-grade rasayanas and safe herbs. We coordinate with your obstetrician and do not stop any essential obstetric vitamins or supplements.</p>',
+        '<p><strong>Yes, safe and gentle.</strong> All Ayurvedic preparations used in Masanumasik Garbhsanskara are time-tested, mild, food-grade rasayanas and safe herbs. We coordinate with your obstetrician and do not stop any essential obstetric vitamins or supplements.</p>',
     },
     {
       question: 'Can Garbhsanskara guarantee a normal delivery?',
@@ -1913,7 +1913,7 @@ export const MENSTRUAL_PCOD_DETAIL: ConditionDetailData = {
         desc: 'Premenstrual dysphoria, chronic daytime fatigue, brain fog, and severe anxiety before menstruation.',
       },
     ],
-    warningTitle: 'When to seek specialized gynaecological review',
+    warningTitle: 'When to seek specialised gynaecological review',
     warningBody:
       'Sudden heavy continuous bleeding soaking a pad every hour, severe acute pelvic pain, or periods absent for more than 3 consecutive months warrant prompt clinical evaluation and pelvic sonography.',
   },
@@ -2037,7 +2037,7 @@ export const MENSTRUAL_PCOD_DETAIL: ConditionDetailData = {
         desc: 'Targeted rectal administration of medicated Dhanwantaram or Sahacharadi oils (Matra Basti) to pacify Apana Vata, combined with seasonal therapeutic purgation (Virechana) to clear liver metabolic congestion.',
         facts: [
           { label: 'Procedure', value: 'Outpatient (OPD)' },
-          { label: 'Comfort', value: 'Painless, rapid relief' },
+          { label: 'Comfort', value: 'Gentle, rapid relief' },
           { label: 'Impact', value: 'Regulates pelvic Vata' },
         ],
         linkText: 'Read about Panchakarma Unit',
@@ -2094,7 +2094,7 @@ export const MENSTRUAL_PCOD_DETAIL: ConditionDetailData = {
     {
       question: 'Can PCOD be cured permanently with Ayurveda?',
       answer:
-        '<p>PCOD is a metabolic tendency. With structured Ayurvedic treatment, dietary correction, and lifestyle adjustments, you can <strong>completely reverse symptoms, shrink ovarian cysts, achieve regular natural periods, and conceive naturally</strong> without needing lifelong birth control or hormone pills.</p>',
+        '<p>PCOD is a metabolic tendency. With structured Ayurvedic treatment, dietary correction, and lifestyle adjustments, you can <strong>significantly relieve symptoms, support healthy ovarian function, achieve regular natural periods, and conceive naturally</strong> without needing lifelong birth control or hormone pills.</p>',
     },
     {
       question: 'Will I need to take birth control pills while on Ayurvedic treatment?',
@@ -2153,7 +2153,7 @@ export const POSTNATAL_CARE_DETAIL: ConditionDetailData = {
     consultation: 'Dedicated new mother & baby-friendly visits',
   },
   answerSummary:
-    'Postnatal Panchakarma (Sutika Paricharya) at Shri Manmukund Hospital is a specialized restorative healthcare programme designed by Dr. Swati Tongale, MS (Ayurveda Shalya Tantra). Adapted for both normal and caesarean deliveries, it combines full-body medicated oil massages (Abhyanga with Bala Taila), herbal steam, gentle pelvic binding (Udaraveshtana), classical uterine toning formulations, and galactagogues to replenish maternal vitality, relieve back pain, and support rich lactation.',
+    'Postnatal Panchakarma (Sutika Paricharya) at Shri Manmukund Hospital is a specialised restorative healthcare programme designed by Dr. Swati Tongale, MS (Ayurveda Shalya Tantra). Adapted for both normal and caesarean deliveries, it combines full-body medicated oil massages (Abhyanga with Bala Taila), herbal steam, gentle pelvic binding (Udaraveshtana), classical uterine toning formulations, and galactagogues to replenish maternal vitality, relieve back pain, and support rich lactation.',
   symptoms: {
     sectionTitle: 'Common postpartum concerns <em>resolved with Sutika Paricharya.</em>',
     sectionLede:
@@ -2187,7 +2187,7 @@ export const POSTNATAL_CARE_DETAIL: ConditionDetailData = {
       {
         icon: 'त्व',
         title: 'Abdominal Laxity & Stretch Marks',
-        desc: 'Loss of core pelvic floor tone and skin laxity addressed through specialized traditional abdominal binding.',
+        desc: 'Loss of core pelvic floor tone and skin laxity addressed through specialised traditional abdominal binding.',
       },
     ],
     warningTitle: 'Full obstetric clearance and coordination',
@@ -2313,7 +2313,7 @@ export const POSTNATAL_CARE_DETAIL: ConditionDetailData = {
         desc: 'Prescription of classical formulations such as Shatavari Gulam, Dashamoolarishta, Jeerakarishta, and Soubhagya Shunti Lehyam to promote healthy milk supply and core vitality.',
         facts: [
           { label: 'Form', value: 'Herbal arishtas & lehyas' },
-          { label: 'Safety', value: '100% safe for baby' },
+          { label: 'Safety', value: 'Safe for mother and baby' },
           { label: 'Duration', value: '45 – 90 days' },
         ],
         linkText: 'Read about Dr. Swati',
@@ -2376,12 +2376,12 @@ export const POSTNATAL_CARE_DETAIL: ConditionDetailData = {
     {
       question: 'Are the Ayurvedic medicines safe for my breastfed baby?',
       answer:
-        '<p><strong>Yes, 100% safe.</strong> Classical Sutika Paricharya formulations like Shatavari, Jeerakarishta, and Dashamoolarishta enhance breast milk quality and volume while passing gentle digestive benefits to the baby, reducing infant colic and gas.</p>',
+        '<p><strong>Yes, safe and supportive.</strong> Classical Sutika Paricharya formulations like Shatavari, Jeerakarishta, and Dashamoolarishta enhance breast milk quality and volume while passing gentle digestive benefits to the baby, reducing infant colic and gas.</p>',
     },
     {
       question: 'Can I bring my newborn baby with me for consultations?',
       answer:
-        '<p>Yes, our Female Care Unit is completely baby-friendly. We have comfortable nursing spaces, and appointment timings can easily be adapted around your feeding schedules.</p>',
+        '<p>Yes, our Female Care Unit is welcoming and baby-friendly. We have comfortable nursing spaces, and appointment timings can easily be adapted around your feeding schedules.</p>',
     },
     {
       question: 'How do I book a consultation with Dr. Swati?',
@@ -2420,7 +2420,7 @@ export const JALAUKA_DETAIL: ConditionDetailData = {
   titleMain: 'Jalauka (Leech Therapy) &',
   titleAccent: 'Raktamokshana',
   subtitle: 'Classical Ayurvedic bio-purification and bloodletting with medicinal leeches in Amravati',
-  lede: 'Jalaukavacharana (medicinal leech therapy) is one of the most sophisticated classical Ayurvedic parasurgical procedures described in Sushruta Samhita. By utilizing specially cultivated, sterile medicinal leeches (Hirudo medicinalis), it delivers targeted bio-purification for localized vascular congestion, varicose eczema, chronic non-healing ulcers, venous stasis, and severe dermatological diseases.',
+  lede: 'Jalaukavacharana (medicinal leech therapy) is one of the most sophisticated classical Ayurvedic parasurgical procedures described in Sushruta Samhita. By utilizing specially cultivated, sterile medicinal leeches (Hirudo medicinalis), it delivers targeted bio-purification for localised vascular congestion, varicose eczema, chronic non-healing ulcers, venous stasis, and severe dermatological diseases.',
   glance: {
     sanskrit: 'Jalaukavacharana (जलौकावचारण)',
     grades: 'Sterile Single-Patient Medicinal Leech Application',
@@ -2430,7 +2430,7 @@ export const JALAUKA_DETAIL: ConditionDetailData = {
     consultation: '30 – 45 min clinical & vascular evaluation',
   },
   answerSummary:
-    'Jalauka (Medicinal Leech Therapy) at Shri Manmukund Hospital is a specialized classical Ayurvedic bloodletting procedure (Raktamokshana) performed under strict aseptic surgical protocols. As the medicinal leech feeds on locally stagnant venous blood, its saliva releases over 100 bioactive compounds—including hirudin (a potent anticoagulant), hyaluronidase, histamine-like vasodilators, and natural anti-inflammatory enzymes—providing immediate decompression of congested tissues, boosting micro-vascular circulation, and accelerating tissue regeneration.',
+    'Jalauka (Medicinal Leech Therapy) at Shri Manmukund Hospital is a specialised classical Ayurvedic bloodletting procedure (Raktamokshana) performed under strict aseptic surgical protocols. As the medicinal leech feeds on locally stagnant venous blood, its saliva releases over 100 bioactive compounds (including hirudin, a potent anticoagulant, hyaluronidase, histamine-like vasodilators, and natural anti-inflammatory enzymes), providing immediate decompression of congested tissues, boosting micro-vascular circulation, and accelerating tissue regeneration.',
   symptoms: {
     sectionTitle: 'Conditions treated with <em>Jalaukavacharana.</em>',
     sectionLede:
@@ -2449,22 +2449,22 @@ export const JALAUKA_DETAIL: ConditionDetailData = {
       {
         icon: 'त्व',
         title: 'Severe Chronic Skin Diseases',
-        desc: 'Localized plaque psoriasis, chronic eczema, lichen planus, and deep cystic acne refractory to oral medications.',
+        desc: 'Localised plaque psoriasis, chronic eczema, lichen planus, and deep cystic acne refractory to oral medications.',
       },
       {
         icon: 'शो',
-        title: 'Localized Inflammatory Swellings',
-        desc: 'Cellulitis, perianal inflammatory congestion, painful thrombosed piles, and localized tissue hematomas.',
+        title: 'Localised Inflammatory Swellings',
+        desc: 'Cellulitis, perianal inflammatory congestion, painful thrombosed piles, and localised tissue hematomas.',
       },
       {
         icon: 'सं',
         title: 'Osteoarthritis & Joint Inflammation',
-        desc: 'Chronic inflammatory joint effusion, localized redness, and intense peri-articular pain.',
+        desc: 'Chronic inflammatory joint effusion, localised redness, and intense peri-articular pain.',
       },
       {
         icon: 'ना',
         title: 'Filariasis & Lymphoedema (Early)',
-        desc: 'Early lymphatic stasis and micro-vascular stagnation causing limb heaviness and localized thickening.',
+        desc: 'Early lymphatic stasis and micro-vascular stagnation causing limb heaviness and localised thickening.',
       },
     ],
     warningTitle: 'Strict clinical safety standards',
@@ -2489,7 +2489,7 @@ export const JALAUKA_DETAIL: ConditionDetailData = {
         label: 'Hyaluronidase',
         title: 'Tissue Penetration & Anti-Edema',
         desc: 'Breaks down intercellular ground substance, promoting deep penetration of healing compounds and rapid fluid drainage.',
-        treatment: 'Reduces localized inflammatory edema and induration',
+        treatment: 'Reduces localised inflammatory edema and induration',
       },
       {
         badge: '03',
@@ -2510,7 +2510,7 @@ export const JALAUKA_DETAIL: ConditionDetailData = {
   causes: {
     leadHeadline: 'Raktamokshana: The classical surgical remedy for <em>Dushita Rakta (toxic blood).</em>',
     leadParagraphs: [
-      'According to Sushruta Samhita, when vitiated Pitta combines with Rakta (blood), it creates localized inflammation, burning, discoloration, and tissue necrosis.',
+      'According to Sushruta Samhita, when vitiated Pitta combines with Rakta (blood), it creates localised inflammation, burning, discoloration, and tissue necrosis.',
       'Jalauka is described as the supreme, gentlest method of Raktamokshana for delicate patients, women, and sensitive anatomical regions because it extracts only vitiated blood without painful cutting or surgical trauma.',
     ],
     causesList: [
@@ -2527,7 +2527,7 @@ export const JALAUKA_DETAIL: ConditionDetailData = {
         desc: 'Circulating inflammatory mediators depositing in cutaneous and subcutaneous tissues.',
       },
       {
-        title: 'Localized Tissue Ischemia & Congestion.',
+        title: 'Localised Tissue Ischemia & Congestion.',
         desc: 'Dark dusky skin surrounding non-healing ulcers signaling urgent need for capillary decompression.',
       },
     ],
@@ -2566,14 +2566,14 @@ export const JALAUKA_DETAIL: ConditionDetailData = {
   treatments: {
     sectionTitle: 'Integrated parasurgical care for <em>vascular & skin health.</em>',
     sectionLede:
-      'Leech therapy is paired with specialized classical herbal washes and wound-healing oils.',
+      'Leech therapy is paired with specialised classical herbal washes and wound-healing oils.',
     items: [
       {
         tierNum: 'Tier 1',
         tierLabel: 'Bio-Purification',
         title: 'Classical Jalaukavacharana (Leech Application)',
         suitability: 'Best suited for: Varicose ulcers, eczema, chronic skin diseases, and thrombosed piles',
-        desc: 'Application of 2 to 6 sterile medicinal leeches per session depending on the surface area of pathology. Painless sensation, minimal downtime.',
+        desc: 'Application of 2 to 6 sterile medicinal leeches per session depending on the surface area of pathology. Mild sensation, minimal downtime.',
         facts: [
           { label: 'Duration', value: '30 – 45 min per session' },
           { label: 'Safety', value: 'Single-use certified leeches' },
@@ -2616,7 +2616,7 @@ export const JALAUKA_DETAIL: ConditionDetailData = {
   expect: {
     sectionTitle: 'What to expect during a <em>leech therapy session.</em>',
     sectionLede:
-      'A hygienic, painless, and deeply restorative therapeutic experience.',
+      'A hygienic, gentle, and deeply restorative therapeutic experience.',
     steps: [
       {
         stepNum: '01',
@@ -2648,12 +2648,12 @@ export const JALAUKA_DETAIL: ConditionDetailData = {
     {
       question: 'Does leech therapy hurt?',
       answer:
-        '<p><strong>No.</strong> The initial attachment feels like a very mild prick or ant bite for a few seconds. The leech immediately secretes natural anesthetic compounds in its saliva, making the remainder of the 30-minute session completely painless.</p>',
+        '<p><strong>No.</strong> The initial attachment feels like a very mild prick or ant bite for a few seconds. The leech immediately secretes natural anesthetic compounds in its saliva, making the remainder of the 30-minute session comfortable and well-tolerated.</p>',
     },
     {
       question: 'Are leeches reused on other patients?',
       answer:
-        '<p><strong>Absolutely not.</strong> Shri Manmukund Hospital maintains a strict zero-reuse policy. Each medicinal leech is used on a single patient for a single session and is subsequently purified and disposed of in accordance with biomedical protocols.</p>',
+        '<p><strong>Absolutely not.</strong> Shri Manmukund Hospital maintains a strict single-use only protocol. Each medicinal leech is used on a single patient for a single session and is subsequently purified and disposed of in accordance with biomedical protocols.</p>',
     },
     {
       question: 'How many sessions of leech therapy will I need?',
@@ -2726,282 +2726,49 @@ export function getConditionDetailData(
     return CONDITION_REGISTRY[conditionSlug];
   }
 
-  // Generate a structured high-fidelity clinical profile matching template design
+  // Baseline clinical profile without generic multi-tier/anorectal treatment blocks
   const cleanName = fallbackName.replace(/\s*\(.*?\)\s*/g, '').trim();
   const sanskrit = fallbackSanskrit || 'आयुर्वेदीय चिकित्सा';
   const catName = fallbackCategoryName || 'Specialist Care';
 
+  // Fix broken headings (avoid "Hydrocele Treatment Treatment" or "Sebaceous Cyst Excision Treatment")
+  let titleMain = cleanName;
+  let titleAccent = 'Treatment';
+  const suffixMatch = cleanName.match(/^(.*?)\s+(Treatment|Surgery|Excision|Therapy|Care|Program|Management|Rehabilitation)$/i);
+  if (suffixMatch) {
+    titleMain = suffixMatch[1];
+    titleAccent = suffixMatch[2];
+  }
+
   return {
     eyebrow: `${catName} · Condition`,
     devanagari: sanskrit.split(' ')[0] || 'चिकित्सा',
-    titleMain: cleanName,
-    titleAccent: 'Treatment',
-    subtitle: `Specialized diagnosis and integrated care in Amravati`,
+    titleMain,
+    titleAccent,
+    subtitle: `Specialised diagnosis and integrated care in Amravati`,
     lede:
       fallbackSummary ||
       `${cleanName} diagnosis and treatment at Shri Manmukund Hospital, Amravati. Combining classical Ayurvedic surgical science with modern minimally invasive options.`,
     glance: {
       sanskrit: `${cleanName} (${sanskrit})`,
-      grades: 'Clinical Grade I – IV / Severity Staged',
-      commonIn: 'Adults across all age groups',
-      treatmentTier: 'Comprehensive Multitier Care',
-      recovery: '1 day to 3 weeks',
-      consultation: '30 – 45 minutes',
     },
     answerSummary:
       fallbackSummary ||
-      `${cleanName} is carefully evaluated through clinical history, physical examination, and appropriate diagnostic investigation. Treatment plans are customized based on severity, personal health factors, and patient preference between classical Ayurvedic parasurgery and modern surgical care.`,
-    symptoms: {
-      sectionTitle: `What ${cleanName.toLowerCase()} usually <em>look and feel like.</em>`,
-      sectionLede:
-        'Not everyone experiences identical symptoms. If any two or more symptoms persist, a clinical consultation is advised.',
-      items: [
-        {
-          icon: 'रु',
-          title: 'Discomfort & Pain',
-          desc: 'Localized discomfort, soreness, or aching sensations that worsen during physical strain.',
-        },
-        {
-          icon: 'शो',
-          title: 'Swelling or Inflammation',
-          desc: 'Noticeable fullness, swelling, or palpable lumps in the affected anatomical region.',
-        },
-        {
-          icon: 'स्रा',
-          title: 'Discharge or Bleeding',
-          desc: 'Periodic staining, abnormal moisture, or bleeding during routine function.',
-        },
-        {
-          icon: 'सं',
-          title: 'Functional Impairment',
-          desc: 'Difficulty with sitting, walking, or performing everyday domestic and occupational activities.',
-        },
-        {
-          icon: 'खु',
-          title: 'Burning & Irritation',
-          desc: 'Persistent mucosal or cutaneous irritation exacerbated by friction or hygiene challenges.',
-        },
-        {
-          icon: 'भा',
-          title: 'Recurrent Episodes',
-          desc: 'Temporary remission followed by recurring flare-ups when underlying causes remain untreated.',
-        },
-      ],
-      warningTitle: 'When to seek immediate attention',
-      warningBody:
-        'Sudden acute pain, fever, spreading redness, or persistent bleeding require timely clinical evaluation. Do not delay examination or attempt unverified home remedies.',
-    },
-    grades: {
-      sectionTag: 'Clinical Staging',
-      sectionTitle: `${cleanName} is staged by <em>clinical severity.</em>`,
-      sectionLede:
-        'Accurate staging ensures you receive the most conservative yet effective therapy suited to your case.',
-      items: [
-        {
-          badge: 'I',
-          label: 'Mild',
-          title: 'Stage I (Early)',
-          desc: 'Early onset with localized symptoms and minimal anatomical disruption.',
-          treatment: 'Conservative dietary regimen, lifestyle adjustments, herbal formulations',
-        },
-        {
-          badge: 'II',
-          label: 'Moderate',
-          title: 'Stage II',
-          desc: 'Recurrent symptoms with noticeable anatomical changes during exertion.',
-          treatment: 'OPD procedures, specialized Ayurvedic local therapies, targeted medication',
-        },
-        {
-          badge: 'III',
-          label: 'Advanced',
-          title: 'Stage III',
-          desc: 'Persistent discomfort requiring specialized surgical or parasurgical intervention.',
-          treatment: 'Classical Ksharsutra, Laser proctology, or precision day-care procedures',
-        },
-        {
-          badge: 'IV',
-          label: 'Complex',
-          title: 'Stage IV / Recurrent',
-          desc: 'Chronic or secondary complications requiring comprehensive surgical reconstruction.',
-          treatment: 'Integrated operative care, inpatient monitoring, preventive rehabilitation',
-        },
-      ],
-    },
-    causes: {
-      leadHeadline: `Anatomical and lifestyle factors form the <em>underlying etiology.</em>`,
-      leadParagraphs: [
-        `Development of ${cleanName.toLowerCase()} is often multifactorial, involving localized biomechanical stress, constitutional vulnerability (Prakriti), and chronic digestive or metabolic imbalances.`,
-        'Addressing both the immediate anatomical lesion and the root systemic causes ensures durable, recurrence-free healing.',
-      ],
-      causesList: [
-        {
-          title: 'Digestive & Bowel Irregularities.',
-          desc: 'Chronic constipation or irregular bowel habits creating repetitive pelvic congestion.',
-        },
-        {
-          title: 'Sedentary Habits & Posture.',
-          desc: 'Prolonged sitting without adequate physical movement weakening supportive connective tissues.',
-        },
-        {
-          title: 'Dietary Incompatibilities.',
-          desc: 'Low-fiber, spicy, or processed foods aggravating Vata and Pitta doshas.',
-        },
-        {
-          title: 'Occupational Straining.',
-          desc: 'Heavy physical exertion or long commuting hours increasing intra-abdominal pressure.',
-        },
-      ],
-    },
-    diagnosis: {
-      sectionTitle: 'Structured four-step <em>diagnostic protocol.</em>',
-      sectionLede:
-        'Every consultation follows an unhurried, private, and dignity-centered examination structure.',
-      steps: [
-        {
-          stepNum: 'Step 01',
-          icon: 'प्र',
-          title: 'Detailed Clinical History',
-          desc: 'Discussion of onset, symptom pattern, previous interventions, and family health background.',
-        },
-        {
-          stepNum: 'Step 02',
-          icon: 'प',
-          title: 'Private Physical Examination',
-          desc: 'Gentle, respectful physical inspection conducted in complete privacy with informed consent.',
-        },
-        {
-          stepNum: 'Step 03',
-          icon: 'यं',
-          title: 'Specialized In-Clinic Assessment',
-          desc: 'Proctoscopy or localized assessment to visually confirm pathology and staging.',
-        },
-        {
-          stepNum: 'Step 04',
-          icon: 'रि',
-          title: 'Diagnostic Investigations',
-          desc: 'Blood panels, imaging, or differential screening ordered only when clinically necessary.',
-        },
-      ],
-    },
-    treatments: {
-      sectionTitle: `Tailored options for <em>${cleanName.toLowerCase()}.</em>`,
-      sectionLede:
-        'We offer the complete spectrum of care, helping you choose the treatment that fits your body and schedule.',
-      items: [
-        {
-          tierNum: 'Tier 1',
-          tierLabel: 'First Line',
-          title: 'Conservative & Ayurvedic Management',
-          suitability: 'Best suited for: Early stages, mild symptoms, and preventive stabilization',
-          desc: 'Dietary corrections, gut-toning herbal preparations, localized herbal fomentation, and pathya guidelines that address root causes without surgery.',
-          facts: [
-            { label: 'Duration', value: '2 – 6 weeks' },
-            { label: 'Cost', value: 'Minimal' },
-            { label: 'Approach', value: '100% Non-invasive' },
-          ],
-          linkText: 'Read about conservative care',
-          linkHref: '/services/ayurveda-panchakarma/',
-        },
-        {
-          tierNum: 'Tier 2',
-          tierLabel: 'Classical Parasurgery',
-          modifierClass: 'treatment-card--ksharsutra',
-          title: 'Ayurvedic Shalya Tantra / Ksharsutra',
-          suitability: 'Best suited for: Moderate-to-severe conditions, complex tracts, and recurrence prevention',
-          desc: 'Classical techniques practiced by MS Ayurvedic surgeons that utilize medicated alkaline preparations for precise anatomical excision and rapid healing.',
-          facts: [
-            { label: 'Hospital Stay', value: 'Day-care / OPD' },
-            { label: 'Recurrence', value: 'Extremely low' },
-            { label: 'Tissue Safety', value: 'Preserves natural tone' },
-          ],
-          linkText: 'Read about Shalya Tantra care',
-          linkHref: '/knowledge/articles/understanding-ksharsutra-in-simple-terms/',
-        },
-        {
-          tierNum: 'Tier 3',
-          tierLabel: 'Advanced Surgical',
-          modifierClass: 'treatment-card--laser',
-          title: 'Modern Minimally Invasive Surgery',
-          suitability: 'Best suited for: Patients requiring immediate resolution and rapid return to work',
-          desc: 'Advanced surgical and laser interventions performed in our modern operation theatre with minimal incisions, minimal blood loss, and rapid recovery.',
-          facts: [
-            { label: 'Duration', value: '30 – 60 min' },
-            { label: 'Recovery', value: '3 – 7 days' },
-            { label: 'Anesthesia', value: 'Safe day-care protocol' },
-          ],
-          linkText: 'Read about surgical options',
-          linkHref: '/services/general-surgery/',
-        },
-      ],
-    },
-    expect: {
-      sectionTitle: 'From first consultation to <em>full recovery.</em>',
-      sectionLede:
-        'A transparent care journey with dedicated doctor follow-ups at every milestone.',
-      steps: [
-        {
-          stepNum: '01',
-          time: 'Day 1 · Consultation',
-          title: 'In-depth assessment & staging',
-          desc: 'Thorough evaluation, honest treatment discussion, and zero-pressure decision timeline.',
-        },
-        {
-          stepNum: '02',
-          time: 'Pre-Procedure',
-          title: 'Preparation & counseling',
-          desc: 'Clear guidance on dietary preparation, blood investigations, and procedural schedule.',
-        },
-        {
-          stepNum: '03',
-          time: 'Procedure Day',
-          title: 'Precision clinical treatment',
-          desc: 'Procedure conducted in our purpose-built operation theatre or specialized therapy wing.',
-        },
-        {
-          stepNum: '04',
-          time: 'Follow-Up Visits',
-          title: 'Monitored recovery & wound review',
-          desc: 'Scheduled check-ups to track tissue healing and reinforce preventive dietary habits.',
-        },
-      ],
-    },
+      `${cleanName} is carefully evaluated through clinical history, physical examination, and appropriate diagnostic investigation. Treatment plans are customised based on severity, personal health factors, and patient preference between classical Ayurvedic parasurgery and modern surgical care.`,
     faqs: [
       {
         question: `Will I definitely need surgery for ${cleanName}?`,
-        answer: `<p><strong>No, surgery is not always required.</strong> Early stages often resolve with dietary adjustments, specialized Ayurvedic medications, and non-surgical procedures. We recommend surgical intervention only when clinically necessary.</p>`,
+        answer: `<p><strong>No, surgery is not always required.</strong> Early stages often resolve with dietary adjustments, specialised Ayurvedic medications, and non-surgical procedures. We recommend surgical intervention only when clinically necessary.</p>`,
       },
       {
         question: 'How do I book a consultation with the specialist?',
         answer:
-          '<p>You can book an appointment by calling <strong>8208927917</strong> or using our online booking form. Walk-ins are also welcome during OPD hours.</p>',
+          '<p>You can book an appointment by calling <strong>+918208927917</strong> or using our online booking form. Walk-ins are also welcome during OPD hours.</p>',
       },
       {
         question: 'Are treatments covered by insurance?',
         answer:
           '<p>Shri Manmukund Hospital is ROHINI registered and partners with major insurance providers and TPAs for cashless surgical hospitalization.</p>',
-      },
-    ],
-    related: [
-      {
-        icon: 'पा',
-        title: 'Piles (Haemorrhoids)',
-        desc: 'Advanced care across all grades of haemorrhoids in Amravati.',
-        linkText: 'Read about piles',
-        href: '/services/anorectal-care/piles/',
-      },
-      {
-        icon: 'भ',
-        title: 'Anal Fissure',
-        desc: 'Sphincter-preserving healing for acute and chronic anal fissures.',
-        linkText: 'Read about fissure',
-        href: '/services/anorectal-care/anal-fissure/',
-      },
-      {
-        icon: 'भ',
-        title: 'Anal Fistula',
-        desc: 'Near-zero recurrence Ksharsutra and laser proctology.',
-        linkText: 'Read about fistula',
-        href: '/services/anorectal-care/anal-fistula/',
       },
     ],
   };

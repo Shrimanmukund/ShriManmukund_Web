@@ -9,6 +9,15 @@ export const metadata = {
   alternates: {
     canonical: '/about/',
   },
+  openGraph: {
+    title: 'About Shri Manmukund Hospital, Amravati',
+    description:
+      'A hospital built on quiet conviction. Founded in Amravati in 2011 by Dr. Vipin Tongale and Dr. Swati Tongale. Proctology, general surgery, and integrated Ayurvedic care.',
+    url: 'https://shrimanmukundhospital.com/about/',
+    siteName: 'Shri Manmukund Hospital',
+    locale: 'en_IN',
+    type: 'website',
+  },
 };
 
 export default function AboutPage() {
@@ -22,12 +31,12 @@ export default function AboutPage() {
             <span className="breadcrumb-sep">·</span>
             <span>About</span>
           </div>
-          <div className="page-hero-devanagari">श्री मनमुकुंद रुग्णालय</div>
+          <div className="page-hero-devanagari">श्री मनमुकूंद हाॅस्पिटल</div>
           <h1 className="page-hero-title">
             A hospital built on <em>quiet conviction.</em>
           </h1>
           <p className="page-hero-lede">
-            Founded in Amravati in 2011 as a small OPD by two MS Ayurveda Shalya Tantra specialists. Grown, patient by patient, into a hospital where the right treatment is chosen honestly for the case at hand.
+            Founded in Amravati in 2011 as a small OPD. Grown, patient by patient, into a hospital where the right treatment is chosen honestly for the case at hand.
           </p>
         </div>
       </section>
@@ -63,7 +72,7 @@ export default function AboutPage() {
             <div className="timeline-content">
               <h3 className="timeline-title">A small OPD in Amravati</h3>
               <p className="timeline-desc">
-                Dr. Vipin Tongale, fresh from his MS in Shalya Tantra at Government Ayurved College Nanded, opened a small OPD in June 2011. Dr. Swati Tongale, then completing her own MS training, joined the practice. Alongside this private work, Dr. Vipin served twelve years in the AYUSH department at District Hospital Amravati, gaining public health experience across roughly 3,000 procedures.
+                Dr. Vipin and Dr. Swati Tongale begin outpatient practice in Amravati, blending the advances of modern surgery with the depth of Ayurveda. Alongside this private work, Dr. Vipin served at General Hospital Amravati (2014 to till now), gaining extensive clinical experience.
               </p>
             </div>
           </div>
@@ -76,7 +85,7 @@ export default function AboutPage() {
             <div className="timeline-content">
               <h3 className="timeline-title">Full hospital operations begin</h3>
               <p className="timeline-desc">
-                By October 2016, the practice had grown enough to warrant a proper hospital setup. A rented facility with operating theatre, admission beds, Panchakarma unit, and full outpatient services was established. Around 5,000 procedures were performed here over the next eight years.
+                The hospital opens inpatient care with its own operation theatre, admission beds, Panchakarma unit, and full outpatient services.
               </p>
             </div>
           </div>
@@ -89,7 +98,7 @@ export default function AboutPage() {
             <div className="timeline-content">
               <h3 className="timeline-title">Our own facility, Bapatwadi</h3>
               <p className="timeline-desc">
-                In June 2024, the hospital moved into its own purpose-built facility at Plot No. 7, Bapatwadi, Vivekanand Colony to Radient Hospital Road (just beside Ahilya Mangal Karyalaya and about a hundred metres from Radient Hospital). The facility includes a dedicated proctology suite, Panchakarma unit, day-care beds, and consultation chambers designed for privacy and dignity. Same year, Dr. Vipin completed his PhD from Government Ayurved College Nanded, with research on Apamarga Kshara ointment for internal haemorrhoids.
+                In June, the hospital moves to its permanent premises in Bapatwadi (Plot No. 7, Bapatwadi, Vivekanand Colony to Radient Hospital Road). The facility includes a dedicated proctology suite, Panchakarma unit, day-care beds, and consultation chambers designed for privacy and dignity. Same year, Dr. Vipin completed his PhD from Government Ayurved College Nanded.
               </p>
             </div>
           </div>
@@ -338,7 +347,7 @@ export default function AboutPage() {
               <div className="doctor-role">Female Care Unit Lead</div>
               <div className="doctor-creds">MS Ayurveda Shalya Tantra</div>
               <p className="doctor-bio">
-                Specialist in female proctology, Uttarbasti-based fertility care, and Masanumasik Garbhsanskara. Practice built to ensure women across Vidarbha receive specialized surgical care with complete dignity.
+                Specialist in female proctology, Uttarbasti-based fertility care, and Masanumasik Garbhsanskara. Practice built to ensure women across Vidarbha receive specialised surgical care with complete dignity.
               </p>
               <Link href="/dr-swati/" className="doctor-link">
                 View Dr. Swati&apos;s full profile

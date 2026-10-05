@@ -19,6 +19,30 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', 'clsx', 'tailwind-merge'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/services/ksharkarma',
+        destination: '/services/anorectal-care/',
+        permanent: true,
+      },
+      {
+        source: '/services/ksharkarma/:slug*',
+        destination: '/services/anorectal-care/',
+        permanent: true,
+      },
+      {
+        source: '/services/female-care-unit',
+        destination: '/services/female-care/',
+        permanent: true,
+      },
+      {
+        source: '/services/female-care-unit/:slug*',
+        destination: '/services/female-care/:slug*',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

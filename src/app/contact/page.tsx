@@ -6,8 +6,18 @@ export const metadata = {
   title: 'Contact & Visit Us',
   description:
     'Book a consultation, ask a question, or just find us. We are here Monday to Saturday, and our emergency line is monitored around the clock.',
+  authors: [{ name: 'Shri Manmukund Hospital' }],
   alternates: {
     canonical: '/contact/',
+  },
+  openGraph: {
+    title: 'Contact & Visit Us | Shri Manmukund Hospital',
+    description:
+      'Book a consultation, ask a question, or find Shri Manmukund Hospital in Amravati. Full outpatient and surgical emergency contact details.',
+    url: 'https://shrimanmukundhospital.com/contact/',
+    siteName: 'Shri Manmukund Hospital',
+    locale: 'en_IN',
+    type: 'website',
   },
 };
 
@@ -43,7 +53,7 @@ export default function ContactPage() {
             </div>
             <h3 className="contact-primary-title">Book a consultation</h3>
             <p className="contact-primary-desc">
-              Call directly to book with either Dr. Vipin or Dr. Swati, or ask questions before booking. Response usually within a few rings.
+              Call directly to book with either Dr. Vipin or Dr. Swati, or ask questions before booking.
             </p>
             <a href="tel:+918208927917" className="contact-primary-number">
               +91 82089 27917
@@ -133,7 +143,7 @@ export default function ContactPage() {
           </div>
 
           <div className="location-details">
-            <div className="location-devanagari">श्री मनमुकुंद रुग्णालय</div>
+            <div className="location-devanagari">श्री मनमुकूंद हाॅस्पिटल</div>
             <h3 className="location-name">Shri Manmukund Hospital</h3>
             <p className="location-address">
               Plot No. 7, Bapatwadi<br />
@@ -144,12 +154,12 @@ export default function ContactPage() {
             <div className="location-landmarks-label">Nearby Landmarks</div>
             <ul className="location-landmarks">
               <li>
-                <strong>Beside Ahilya Mangal Karyalaya</strong> — right next door, the most reliable landmark
+                <strong>Beside Ahilya Mangal Karyalaya</strong>: right next door, the most reliable landmark
               </li>
               <li>
-                <strong>Radient Hospital</strong> — approximately 100 metres away
+                <strong>Radient Hospital</strong>: approximately 100 metres away
               </li>
-              <li>Vivekanand Colony area — well known to auto drivers in Amravati</li>
+              <li>Vivekanand Colony area: well known to auto drivers in Amravati</li>
               <li>10 minutes from Amravati Bus Stand</li>
               <li>15 minutes from Amravati Railway Station</li>
             </ul>
@@ -276,7 +286,7 @@ export default function ContactPage() {
                   <strong>Any previous prescriptions</strong> relating to your current concern
                 </li>
                 <li>
-                  <strong>Imaging reports</strong> — X-ray, ultrasound, MRI, or colonoscopy if available
+                  <strong>Imaging reports</strong>: X-ray, ultrasound, MRI, or colonoscopy if available
                 </li>
                 <li>
                   <strong>Recent blood tests</strong> including HbA1c if you are diabetic

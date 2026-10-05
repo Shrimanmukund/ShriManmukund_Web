@@ -55,12 +55,23 @@ export function generateMetadata({ params }: ConditionPageProps) {
 
   const rawTitle = rawPage?.metaTitle || condition?.metaTitle || `${condition?.name || ''} Treatment`;
   const cleanTitle = rawTitle.replace(/\s*\|\s*Shri Manmukund Hospital.*$/i, '').trim();
+  const desc = rawPage?.metaDescription || condition?.metaDescription || `${cleanTitle} at Shri Manmukund Hospital, Amravati.`;
+  const leadDoc = condition?.leadDoctorSlug === 'dr-swati' || params.category === 'female-care' ? 'Dr. Swati Tongale' : 'Dr. Vipin Tongale';
 
   return {
     title: cleanTitle,
-    description: rawPage?.metaDescription || condition?.metaDescription,
+    description: desc,
+    authors: [{ name: 'Shri Manmukund Hospital' }],
     alternates: {
       canonical: `/services/${params.category}/${params.slug}/`,
+    },
+    openGraph: {
+      title: `${cleanTitle} | Shri Manmukund Hospital`,
+      description: desc,
+      url: `https://shrimanmukundhospital.com/services/${params.category}/${params.slug}/`,
+      siteName: 'Shri Manmukund Hospital',
+      locale: 'en_IN',
+      type: 'article',
     },
   };
 }
@@ -104,7 +115,7 @@ export default function ConditionDetailPage({ params }: ConditionPageProps) {
     treatmentOptions: [],
     recoveryMarkdown: '',
     preventionMarkdown: '',
-    faqs: detail.faqs,
+    faqs: detail.faqs || [],
     relatedConditionSlugs: [],
     leadDoctorSlug,
     medicallyReviewedBySlug: leadDoctorSlug === 'dr-vipin' ? 'dr-swati' : 'dr-vipin',
@@ -159,44 +170,58 @@ export default function ConditionDetailPage({ params }: ConditionPageProps) {
             </div>
 
             {/* At a Glance Card */}
-            <aside className="glance-card">
-              <div className="glance-card-title">At a Glance</div>
-              <div className="glance-row">
-                <span className="glance-label">Sanskrit</span>
-                <span className="glance-value">{detail.glance.sanskrit}</span>
-              </div>
-              <div className="glance-row">
-                <span className="glance-label">Grades</span>
-                <span className="glance-value">{detail.glance.grades}</span>
-              </div>
-              <div className="glance-row">
-                <span className="glance-label">Common in</span>
-                <span className="glance-value">{detail.glance.commonIn}</span>
-              </div>
-              <div className="glance-row">
-                <span className="glance-label">Treatment tier</span>
-                <span className="glance-value">{detail.glance.treatmentTier}</span>
-              </div>
-              <div className="glance-row">
-                <span className="glance-label">Typical recovery</span>
-                <span className="glance-value">{detail.glance.recovery}</span>
-              </div>
-              <div className="glance-row">
-                <span className="glance-label">Consultation</span>
-                <span className="glance-value">
-                  <strong>{detail.glance.consultation}</strong>
-                </span>
-              </div>
-              <div className="glance-cta">
-                <Link
-                  href="/contact/#book"
-                  className="btn btn-primary btn-small"
-                  style={{ width: '100%', justifyContent: 'center' }}
-                >
-                  Book with a specialist
-                </Link>
-              </div>
-            </aside>
+            {detail.glance && (
+              <aside className="glance-card">
+                <div className="glance-card-title">At a Glance</div>
+                {detail.glance.sanskrit && (
+                  <div className="glance-row">
+                    <span className="glance-label">Sanskrit</span>
+                    <span className="glance-value">{detail.glance.sanskrit}</span>
+                  </div>
+                )}
+                {detail.glance.grades && (
+                  <div className="glance-row">
+                    <span className="glance-label">Grades</span>
+                    <span className="glance-value">{detail.glance.grades}</span>
+                  </div>
+                )}
+                {detail.glance.commonIn && (
+                  <div className="glance-row">
+                    <span className="glance-label">Common in</span>
+                    <span className="glance-value">{detail.glance.commonIn}</span>
+                  </div>
+                )}
+                {detail.glance.treatmentTier && (
+                  <div className="glance-row">
+                    <span className="glance-label">Treatment tier</span>
+                    <span className="glance-value">{detail.glance.treatmentTier}</span>
+                  </div>
+                )}
+                {detail.glance.recovery && (
+                  <div className="glance-row">
+                    <span className="glance-label">Typical recovery</span>
+                    <span className="glance-value">{detail.glance.recovery}</span>
+                  </div>
+                )}
+                {detail.glance.consultation && (
+                  <div className="glance-row">
+                    <span className="glance-label">Consultation</span>
+                    <span className="glance-value">
+                      <strong>{detail.glance.consultation}</strong>
+                    </span>
+                  </div>
+                )}
+                <div className="glance-cta">
+                  <Link
+                    href="/contact/#book"
+                    className="btn btn-primary btn-small"
+                    style={{ width: '100%', justifyContent: 'center' }}
+                  >
+                    Book with a specialist
+                  </Link>
+                </div>
+              </aside>
+            )}
           </div>
         </section>
 
@@ -284,7 +309,7 @@ export default function ConditionDetailPage({ params }: ConditionPageProps) {
             <div className="section-header--left">
               <div className="section-tag">Causes &amp; Risk Factors</div>
               <h2 className="section-title">
-                Why {conditionName.toLowerCase()} <em>develop.</em>
+                Why {conditionName.toLowerCase()} <em>develops.</em>
               </h2>
             </div>
 

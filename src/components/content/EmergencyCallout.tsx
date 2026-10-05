@@ -28,7 +28,7 @@ export const EmergencyCallout: React.FC<EmergencyCalloutProps> = ({
         </div>
 
         <a
-          href="tel:9405404492"
+          href="tel:+919405404492"
           className="flex-shrink-0 flex items-center gap-2 px-4 py-2.5 bg-[#B91C1C] text-white rounded-warm font-semibold text-xs hover:bg-[#991B1B] transition shadow-warm-sm"
         >
           <PhoneCall className="w-4 h-4" />

@@ -40,14 +40,16 @@ Dr. Vipin Tongale is a leading Ayurvedic Surgeon and Proctologist based in Amrav
 Over the past 15 years, including 12 years of dedicated service as an AYUSH Medical Officer/Surgeon at District Hospital Amravati and as honorary faculty at Shri Gurudev Ayurved Mahavidyalaya, Dr. Tongale has performed more than 16,000 surgical and parasurgical procedures. He is widely recognized across Vidarbha for successfully treating complex, high, and recurrent anal fistulas with minimal recurrence using classical Ksharsutra therapy.
     `,
     journey: [
-      { year: '2011', title: 'Clinical Launch', institution: 'Started dedicated anorectal practice in Amravati on 6 June 2011.' },
-      { year: '2011–2026', title: 'Government AYUSH Service', institution: 'Served as AYUSH Medical Officer at District Hospital Amravati handling complex surgical & anorectal cases.' },
-      { year: '2016', title: 'Hospital Expansion', institution: 'Expanded into full-fledged surgical facility at Bapatwadi on 28 October 2016.' },
-      { year: '2024', title: 'New State-of-the-Art Hospital', institution: 'Inaugurated owned custom-built hospital facility with modern OT on 1 June 2024.' },
+      { year: '2011', title: 'Clinical Practice Begins', institution: 'Dr. Vipin and Dr. Swati Tongale begin outpatient practice in Amravati, blending the advances of modern surgery with the depth of Ayurveda.' },
+      { year: '2014 to till now', title: 'Government Service', institution: 'AYUSH Medical Officer at General Hospital Amravati (Govt. of Maharashtra).' },
+      { year: '2016', title: 'Inpatient Hospital Care', institution: 'The hospital opens inpatient care with its own operation theatre.' },
+      { year: '2024', title: 'Permanent Facility', institution: 'In June, the hospital moves to its permanent premises in Bapatwadi.' },
     ],
     awards: [
-      { title: 'Excellence in Ayurvedic Surgery & Ksharsutra', issuer: 'Regional Medical Association' },
-      { title: 'Best AYUSH Medical Officer Recognition', issuer: 'Public Health Department, Maharashtra' },
+      { title: 'PhD in Ayurveda (Doctorate on MS in Shalya Tantra)', issuer: 'Government Ayurved College, Nanded (2024)' },
+      { title: 'Sakal Idols of Maharashtra', issuer: 'Sakal Media Group (2022)' },
+      { title: 'Jury at National & International Conferences', issuer: 'Basticon 2023; 10th World Ayurveda Congress, Dehradun (2023–2024)' },
+      { title: 'Research Presenter & Clinical Papers', issuer: 'World Ayurveda Congresses (Jaipur, New Delhi, Ahmedabad); AIIA (2008–2024)' },
     ],
     memberships: [
       'National Sushrut Association of Shalya Tantra',
@@ -87,15 +89,19 @@ Over the past 15 years, including 12 years of dedicated service as an AYUSH Medi
     fullBioMarkdown: `
 Dr. Swati Tongale (Wankhade) is a specialist Female Ayurvedic Surgeon and Proctologist in Vidarbha holding an MS in Ayurveda (Shalya Tantra - Surgery). 
 
-Dr. Swati addresses a critical healthcare need in the region by providing female patients with a comfortable, dignified environment for proctological examinations and treatments. She also leads the hospital's specialized fertility and gynaecological unit, delivering classical Uttarbasti therapies for tubal blocks, thin endometrium, PCOD, and female infertility.
+Dr. Swati addresses a critical healthcare need in the region by providing female patients with a comfortable, dignified environment for proctological examinations and treatments. She also leads the hospital's specialised fertility and gynaecological unit, delivering classical Uttarbasti therapies for tubal blocks, thin endometrium, PCOD, and female infertility.
     `,
     journey: [
-      { year: '2011', title: 'Consultant Surgeon', institution: 'Initiated specialized clinical practice for female proctology in Amravati.' },
-      { year: '2016', title: 'Co-Founder', institution: 'Co-founded Shri Manmukund Hospital with dedicated female consultation & Panchakarma wing.' },
-      { year: '2024', title: 'Women’s Specialty Wing', institution: 'Established dedicated female patient wing with private recovery and Uttarbasti chamber.' },
+      { year: '2011', title: 'Outpatient Practice Begins', institution: 'Dr. Vipin and Dr. Swati Tongale begin outpatient practice in Amravati, blending the advances of modern surgery with the depth of Ayurveda.' },
+      { year: '2016', title: 'Inpatient Hospital Care', institution: 'The hospital opens inpatient care with its own operation theatre.' },
+      { year: '2017', title: 'MS in Ayurveda (Shalya Tantra)', institution: 'In July 2017 Dr. Swati Tongale completes her MS in Ayurveda (Shalya Tantra).' },
+      { year: '2024', title: 'Permanent Facility', institution: 'In June, the hospital moves to its permanent premises in Bapatwadi.' },
     ],
     awards: [
-      { title: 'Women in Healthcare Excellence Award', issuer: 'Vidarbha Vaidya Mandal' },
+      { title: 'Prabhavshali Ayurvedacharya of Vidarbha', issuer: 'Sakal Gauravagatha 2025, Nagpur (2025)' },
+      { title: 'MS Ayurveda, Shalya Tantra (Postgraduate in Surgery)', issuer: 'Vidarbha Ayurved Mahavidyalaya, Amravati (July 2017)' },
+      { title: 'Research Paper Presentation', issuer: '8th World Ayurveda Congress, Ahmedabad (2016)' },
+      { title: 'Felicitated for Women’s Healthcare', issuer: 'JCI Amravati Golden' },
     ],
     memberships: [
       'Maharashtra Council of Indian Medicine (MCIM)',
@@ -223,7 +229,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     name: 'Ksharsutra and Ksharkarma',
     nameSanskrit: 'क्षारसूत्र चिकित्सा',
     shortDescription:
-      'The gold-standard classical Ayurvedic parasurgical treatment for simple, complex, and recurrent anal fistulas with minimal recurrence and zero sphincter damage.',
+      'The gold-standard classical Ayurvedic parasurgical treatment for simple, complex, and recurrent anal fistulas with minimal recurrence and preserved sphincter function.',
     iconName: 'activity',
     leadDoctorSlug: 'dr-vipin',
     orderIndex: 2,
@@ -326,14 +332,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     orderIndex: 7,
     conditions: [
       { slug: 'full-panchakarma', categorySlug: 'panchakarma', name: 'Full Panchakarma Programme', shortSummary: 'Comprehensive 5-fold seasonal body purification and metabolic reset.' },
-      { slug: 'uttarbasti', categorySlug: 'panchakarma', name: 'Uttarbasti Therapy', shortSummary: 'Specialized intra-cavitary therapy for urethral strictures and female infertility.' },
-      { slug: 'jalauka-leech-therapy', categorySlug: 'panchakarma', name: 'Jalauka (Leech Therapy)', shortSummary: 'Therapeutic bio-purification for localized vascular stasis, varicose veins, and wounds.' },
+      { slug: 'uttarbasti', categorySlug: 'panchakarma', name: 'Uttarbasti Therapy', shortSummary: 'Specialised intra-cavitary therapy for urethral strictures and female infertility.' },
+      { slug: 'jalauka-leech-therapy', categorySlug: 'panchakarma', name: 'Jalauka (Leech Therapy)', shortSummary: 'Therapeutic bio-purification for localised vascular stasis, varicose veins, and wounds.' },
       { slug: 'leech-therapy-jalaukavacharana', categorySlug: 'panchakarma', name: 'Leech Therapy (Jalaukavacharana)', shortSummary: 'Classical Ayurvedic parasurgical bloodletting for skin conditions, varicose veins, and non-healing ulcers.' },
       { slug: 'basti', categorySlug: 'panchakarma', name: 'Basti (Medicated Enema)', shortSummary: 'The crown jewel of Panchakarma for Vata disorders, constipation, and back pain.' },
       { slug: 'virechana', categorySlug: 'panchakarma', name: 'Virechana (Therapeutic Purgation)', shortSummary: 'Targeted detoxification for excess Pitta, liver disorders, and skin ailments.' },
       { slug: 'vamana', categorySlug: 'panchakarma', name: 'Vamana (Therapeutic Emesis)', shortSummary: 'Targeted cleansing for Kapha disorders, chronic allergies, and respiratory issues.' },
       { slug: 'nasya', categorySlug: 'panchakarma', name: 'Nasya (Nasal Medication)', shortSummary: 'Medicated nasal administration for cervical issues, sinusitis, and headaches.' },
-      { slug: 'raktamokshana', categorySlug: 'panchakarma', name: 'Raktamokshana (Bloodletting)', shortSummary: 'Classical blood purification for severe skin diseases and localized toxins.' },
+      { slug: 'raktamokshana', categorySlug: 'panchakarma', name: 'Raktamokshana (Bloodletting)', shortSummary: 'Classical blood purification for severe skin diseases and localised toxins.' },
       { slug: 'swedan-steam-therapy', categorySlug: 'panchakarma', name: 'Swedan (Steam Therapy)', shortSummary: 'Herbal steam therapy for muscle relaxation, stiffness, and toxin release.' },
     ],
     metaTitle: 'Panchakarma Unit in Amravati | Shri Manmukund Hospital',
@@ -353,7 +359,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { slug: 'lumbar-spondylosis', categorySlug: 'spine-care', name: 'Lumbar Spondylosis', shortSummary: 'Restorative therapy for lower back degeneration, disc bulges, and stiffness.' },
       { slug: 'sciatica', categorySlug: 'spine-care', name: 'Sciatica (Gridhrasi)', shortSummary: 'Targeted Ayurvedic treatment for sharp, shooting leg pain and nerve compression.' },
       { slug: 'kati-basti', categorySlug: 'spine-care', name: 'Kati Basti Therapy', shortSummary: 'Retention of warm medicated herbal oil on the lumbosacral spine for deep nourishment.' },
-      { slug: 'greeva-basti', categorySlug: 'spine-care', name: 'Greeva Basti Therapy', shortSummary: 'Localized warm medicated oil pooling for chronic cervical pain and stiffness.' },
+      { slug: 'greeva-basti', categorySlug: 'spine-care', name: 'Greeva Basti Therapy', shortSummary: 'Localised warm medicated oil pooling for chronic cervical pain and stiffness.' },
     ],
     metaTitle: 'Spine Care & Sciatica Treatment in Amravati | Shri Manmukund Hospital',
     metaDescription: 'Non-surgical Ayurvedic spine care for sciatica, cervical and lumbar spondylosis in Amravati using Kati Basti and Panchakarma.',
@@ -386,7 +392,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     name: 'Specialty Units',
     nameSanskrit: 'विशेष चिकित्सा विभाग',
     shortDescription:
-      'Specialized clinical units for non-healing diabetic wound salvage, paediatric care, and preventive immunity protocols.',
+      'Specialised clinical units for non-healing diabetic wound salvage, paediatric care, and preventive immunity protocols.',
     iconName: 'star',
     leadDoctorSlug: 'dr-vipin',
     orderIndex: 10,
@@ -395,7 +401,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { slug: 'child-care', categorySlug: 'specialty-care', name: 'Child Care (Paediatric Ayurveda)', shortSummary: 'Gentle classical treatments for childhood digestion, recurrent infections, and growth.' },
     ],
     metaTitle: 'Specialty Care Units | Shri Manmukund Hospital, Amravati',
-    metaDescription: 'Specialized clinical units in Amravati for diabetic wound salvage, paediatric Ayurvedic care, and immunity enhancement.',
+    metaDescription: 'Specialised clinical units in Amravati for diabetic wound salvage, paediatric Ayurvedic care, and immunity enhancement.',
   },
 ];
 

@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Shri Manmukund Hospital, Amravati',
     description:
-      'Premier Center for Advanced Proctology, Ksharsutra, Laser Surgery & Ayurveda in Vidarbha.',
+      'Advanced Proctology & Integrated Care: Ksharsutra, Laser Surgery & Ayurveda in Amravati.',
     images: ['/images/logo/logo.jpg'],
   },
   robots: {

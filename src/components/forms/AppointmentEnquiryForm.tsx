@@ -27,7 +27,7 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
       ? 'Dr. Vipin Tongale'
       : initialDoctorSlug === 'dr-swati' || defaultDoctor === 'dr-swati'
       ? 'Dr. Swati Tongale'
-      : 'No preference — first available';
+      : 'No preference (first available)';
 
   const [fullName, setFullName] = useState('');
   const [age, setAge] = useState('');
@@ -223,7 +223,7 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
             value={whichDoctor}
             onChange={(e) => setWhichDoctor(e.target.value)}
           >
-            <option>No preference — first available</option>
+            <option>No preference (first available)</option>
             <option>Dr. Vipin Tongale</option>
             <option>Dr. Swati Tongale</option>
           </select>
@@ -244,7 +244,7 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
             <option>Fertility (Uttarbasti)</option>
             <option>Panchakarma / Ayurvedic Care</option>
             <option>Second Opinion</option>
-            <option>Other — will describe below</option>
+            <option>Other (will describe below)</option>
           </select>
         </div>
       </div>

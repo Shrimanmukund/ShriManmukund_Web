@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 import { ConsultantTeamSection } from '@/components/doctors/ConsultantTeamSection';
 
 export const metadata: Metadata = {
-  title: 'Our Doctors & Surgeons | Shri Manmukund Hospital, Amravati',
+  title: 'Our Doctors & Specialists',
   description:
     'Meet Dr. Vipin Tongale and Dr. Swati Tongale, MS Ayurveda (Shalya Tantra) surgeons and proctologists at Shri Manmukund Hospital in Amravati. Over 15 years of dedicated surgical care.',
   alternates: {
@@ -71,7 +71,7 @@ export default function DoctorsPage() {
             <p className="specialist-role">General Surgeon &amp; Proctologist · Co-Founder</p>
             <div className="specialist-creds">MS Ayurveda (Shalya Tantra) · PhD</div>
             <p className="specialist-bio">
-              Senior Ayurvedic Surgeon, General Surgeon, and Proctologist with 15+ years of continuous practice, 12 years of AYUSH government surgical service at District Hospital Amravati, and over 16,000 procedures performed. Widely recognized for successfully treating complex and recurrent fistulas with Ksharsutra and laser proctology.
+              Senior Ayurvedic Surgeon, General Surgeon, and Proctologist with 15+ years of continuous practice, AYUSH government surgical service at General Hospital Amravati (2014 to till now), and over 16,000 procedures performed. Widely recognized for successfully treating complex and recurrent fistulas with Ksharsutra and laser proctology.
             </p>
             <div className="specialist-tags">
               <span className="specialist-tag">Ksharsutra Parasurgery</span>
@@ -158,7 +158,7 @@ export default function DoctorsPage() {
               <div className="tier-label">Safety Priority</div>
               <h3 className="tier-title">Sphincter Preservation</h3>
               <p className="tier-desc">
-                In every anorectal procedure—from Ksharsutra to diode laser—our priority is protecting anal continence and avoiding unnecessary muscle cutting.
+                In every anorectal procedure, from Ksharsutra to diode laser, our priority is protecting anal continence and avoiding unnecessary muscle cutting.
               </p>
             </div>
 

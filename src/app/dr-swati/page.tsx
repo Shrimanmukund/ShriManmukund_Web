@@ -6,8 +6,26 @@ export const metadata = {
   title: 'Dr. Swati Tongale | Female Care Lead & Proctologist',
   description:
     'Dr. Swati Tongale (Wankhade), MS (Ayurveda Shalya Tantra). Lead of Female Care Unit at Shri Manmukund Hospital, Amravati. Female proctology, Uttarbasti fertility care, Garbhsanskara.',
+  authors: [{ name: 'Shri Manmukund Hospital' }],
   alternates: {
     canonical: '/dr-swati/',
+  },
+  openGraph: {
+    title: 'Dr. Swati Tongale | Female Care Lead & Proctologist | Shri Manmukund Hospital',
+    description:
+      'Dr. Swati Tongale (Wankhade), MS (Ayurveda Shalya Tantra). Lead of Female Care Unit at Shri Manmukund Hospital, Amravati. Female proctology, Uttarbasti fertility care, Garbhsanskara.',
+    url: 'https://shrimanmukundhospital.com/dr-swati/',
+    siteName: 'Shri Manmukund Hospital',
+    locale: 'en_IN',
+    type: 'profile',
+    images: [
+      {
+        url: '/images/doctors/dr-swati-tongale.jpg',
+        width: 800,
+        height: 800,
+        alt: 'Dr. Swati Tongale, MS (Ayu)',
+      },
+    ],
   },
 };
 
@@ -216,30 +234,45 @@ export default function DrSwatiPage() {
           <div className="journey-timeline">
             <div className="journey-item">
               <div className="journey-period">
-                <div className="journey-year">2014–2017</div>
-                <div className="journey-year-label">Postgraduate</div>
+                <div className="journey-year">2011</div>
+                <div className="journey-year-label">Founding</div>
               </div>
               <div className="journey-content">
-                <span className="journey-badge">Postgraduate</span>
-                <h3 className="journey-title">MS in Ayurveda Shalya Tantra</h3>
-                <div className="journey-institution">Vidarbha Ayurved Mahavidyalaya, Amravati</div>
+                <span className="journey-badge">Clinical Practice</span>
+                <h3 className="journey-title">Outpatient Practice Begins</h3>
+                <div className="journey-institution">Amravati</div>
                 <p className="journey-desc">
-                  Specialized training in Ayurvedic surgical procedures, gynecological parasurgical applications, and classical operative techniques.
+                  Dr. Vipin and Dr. Swati Tongale begin outpatient practice in Amravati, blending the advances of modern surgery with the depth of Ayurveda.
                 </p>
               </div>
             </div>
 
             <div className="journey-item">
               <div className="journey-period">
-                <div className="journey-year">2011</div>
-                <div className="journey-year-label">Founding</div>
+                <div className="journey-year">2016</div>
+                <div className="journey-year-label">Inpatient Care</div>
               </div>
               <div className="journey-content">
-                <span className="journey-badge">Clinical Practice</span>
-                <h3 className="journey-title">Shri Manmukund Hospital Co-founded</h3>
+                <span className="journey-badge">Hospital Operations</span>
+                <h3 className="journey-title">Inpatient Care &amp; OT Facility</h3>
                 <div className="journey-institution">Amravati</div>
                 <p className="journey-desc">
-                  Co-established the hospital and established the dedicated Female Care Unit for confidential women&apos;s healthcare.
+                  The hospital opens inpatient care with its own operation theatre.
+                </p>
+              </div>
+            </div>
+
+            <div className="journey-item">
+              <div className="journey-period">
+                <div className="journey-year">2017</div>
+                <div className="journey-year-label">Postgraduate</div>
+              </div>
+              <div className="journey-content">
+                <span className="journey-badge">Postgraduate</span>
+                <h3 className="journey-title">MS in Ayurveda (Shalya Tantra)</h3>
+                <div className="journey-institution">Vidarbha Ayurved Mahavidyalaya, Amravati</div>
+                <p className="journey-desc">
+                  In July 2017 Dr. Swati Tongale completes her MS in Ayurveda (Shalya Tantra).
                 </p>
               </div>
             </div>
@@ -247,15 +280,49 @@ export default function DrSwatiPage() {
             <div className="journey-item">
               <div className="journey-period">
                 <div className="journey-year">2024</div>
-                <div className="journey-year-label">New Facility</div>
+                <div className="journey-year-label">Permanent Home</div>
               </div>
               <div className="journey-content">
-                <span className="journey-badge">Modern Infrastructure</span>
-                <h3 className="journey-title">Dedicated Women&apos;s Suite at Bapatwadi</h3>
-                <div className="journey-institution">Plot 7, Bapatwadi, Amravati</div>
+                <span className="journey-badge">Modern Facility</span>
+                <h3 className="journey-title">Permanent Hospital Facility at Bapatwadi</h3>
+                <div className="journey-institution">Plot No. 7, Bapatwadi, Amravati</div>
                 <p className="journey-desc">
-                  Designed an exclusive private consulting room, Uttarbasti procedure chamber, and Panchakarma recovery suite for women.
+                  In June, the hospital moves to its permanent premises in Bapatwadi.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 5B. APPROVED HONOURS */}
+        <section className="honours-section py-12 border-t border-[#6B7F5F]/15">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6">
+            <div className="section-header mb-8">
+              <div className="section-tag">Recognition &amp; Credentials</div>
+              <h2 className="section-title">
+                Honours &amp; <em>Academic Work.</em>
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-white p-5 rounded-lg border border-[#6B7F5F]/20 shadow-sm">
+                <div className="text-xs font-bold text-[#C08477] uppercase tracking-wider mb-1">2025 · State Honour</div>
+                <h3 className="font-serif text-lg font-bold text-[#1B3A5B]">Prabhavshali Ayurvedacharya of Vidarbha</h3>
+                <p className="text-xs text-[#5C4F3A] mt-1">Sakal Gauravagatha 2025, Nagpur</p>
+              </div>
+              <div className="bg-white p-5 rounded-lg border border-[#6B7F5F]/20 shadow-sm">
+                <div className="text-xs font-bold text-[#C08477] uppercase tracking-wider mb-1">July 2017 · Postgraduate Degree</div>
+                <h3 className="font-serif text-lg font-bold text-[#1B3A5B]">MS Ayurveda, Shalya Tantra</h3>
+                <p className="text-xs text-[#5C4F3A] mt-1">Postgraduate degree in surgery, Vidarbha Ayurved Mahavidyalaya</p>
+              </div>
+              <div className="bg-white p-5 rounded-lg border border-[#6B7F5F]/20 shadow-sm">
+                <div className="text-xs font-bold text-[#C08477] uppercase tracking-wider mb-1">2016 · Conference Paper</div>
+                <h3 className="font-serif text-lg font-bold text-[#1B3A5B]">Research Paper Presentation</h3>
+                <p className="text-xs text-[#5C4F3A] mt-1">8th World Ayurveda Congress, Ahmedabad</p>
+              </div>
+              <div className="bg-white p-5 rounded-lg border border-[#6B7F5F]/20 shadow-sm">
+                <div className="text-xs font-bold text-[#C08477] uppercase tracking-wider mb-1">Recognition</div>
+                <h3 className="font-serif text-lg font-bold text-[#1B3A5B]">Felicitated for Women’s Healthcare</h3>
+                <p className="text-xs text-[#5C4F3A] mt-1">JCI Amravati Golden</p>
               </div>
             </div>
           </div>

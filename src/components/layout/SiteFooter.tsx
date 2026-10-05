@@ -58,7 +58,7 @@ export const SiteFooter: React.FC = () => {
                 <Link href="/knowledge/articles/">Articles</Link>
               </li>
               <li>
-                <Link href="/achievements/">Research</Link>
+                <Link href="/achievements/">Achievements</Link>
               </li>
               <li>
                 <Link href="/knowledge/insights/">Insights</Link>
@@ -79,7 +79,7 @@ export const SiteFooter: React.FC = () => {
                 <Link href="/contact/" style={{ display: 'block', lineHeight: '1.5' }}>
                   Plot No. 7, Bapatwadi,<br />
                   Vivekanand Colony to Radient Hospital Road,<br />
-                  Amravati 444604, Maharashtra
+                  Amravati 444604, Maharashtra, India
                 </Link>
               </li>
             </ul>
@@ -87,7 +87,7 @@ export const SiteFooter: React.FC = () => {
         </div>
 
         <div className="footer-tagline">
-          <div className="footer-tagline-devanagari">श्री मनमुकुंद रुग्णालय</div>
+          <div className="footer-tagline-devanagari">श्री मनमुकूंद हाॅस्पिटल</div>
           <div className="footer-tagline-text">
             ADVANCED PROCTOLOGY &amp; INTEGRATED CARE
           </div>
@@ -108,7 +108,8 @@ export const SiteFooter: React.FC = () => {
           <span>
             <Link href="/legal/privacy-policy/">Privacy</Link> ·{' '}
             <Link href="/legal/terms-of-use/">Terms</Link> ·{' '}
-            <Link href="/legal/medical-disclaimer/">Medical Disclaimer</Link>
+            <Link href="/legal/medical-disclaimer/">Medical Disclaimer</Link> ·{' '}
+            <Link href="/legal/cookie-policy/">Cookie Policy</Link>
           </span>
         </div>
       </div>

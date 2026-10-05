@@ -6,8 +6,26 @@ export const metadata = {
   title: 'Dr. Vipin Tongale | General Surgeon & Proctologist',
   description:
     'Dr. Vipin Tongale, MS (Ayurveda Shalya Tantra), PhD. 15+ years of dedicated proctology and integrated surgery in Amravati. Over 16,000 procedures. Ksharsutra and laser proctology specialist.',
+  authors: [{ name: 'Shri Manmukund Hospital' }],
   alternates: {
     canonical: '/dr-vipin/',
+  },
+  openGraph: {
+    title: 'Dr. Vipin Tongale | General Surgeon & Proctologist | Shri Manmukund Hospital',
+    description:
+      'Dr. Vipin Tongale, MS (Ayurveda Shalya Tantra), PhD. 15+ years of dedicated proctology and integrated surgery in Amravati. Over 16,000 procedures.',
+    url: 'https://shrimanmukundhospital.com/dr-vipin/',
+    siteName: 'Shri Manmukund Hospital',
+    locale: 'en_IN',
+    type: 'profile',
+    images: [
+      {
+        url: '/images/doctors/dr-vipin-tongale.jpg',
+        width: 800,
+        height: 800,
+        alt: 'Dr. Vipin Tongale, MS (Ayu), PhD',
+      },
+    ],
   },
 };
 
@@ -239,25 +257,25 @@ export default function DrVipinPage() {
             </div>
             <div className="journey-content">
               <span className="journey-badge">Private Practice</span>
-              <h3 className="journey-title">Shri Manmukund OPD opens</h3>
+              <h3 className="journey-title">Outpatient Practice Begins</h3>
               <div className="journey-institution">Amravati</div>
               <p className="journey-desc">
-                Started a small private OPD focused on anorectal and Ayurvedic surgical care, alongside AYUSH service at District Hospital.
+                Dr. Vipin and Dr. Swati Tongale begin outpatient practice in Amravati, blending the advances of modern surgery with the depth of Ayurveda.
               </p>
             </div>
           </div>
 
           <div className="journey-item">
             <div className="journey-period">
-              <div className="journey-year">2011–2026</div>
+              <div className="journey-year">2014 to till now</div>
               <div className="journey-year-label">Government Service</div>
             </div>
             <div className="journey-content">
               <span className="journey-badge">Public Health</span>
               <h3 className="journey-title">AYUSH Medical Officer</h3>
-              <div className="journey-institution">District Hospital, Amravati (Govt. of Maharashtra)</div>
+              <div className="journey-institution">General Hospital, Amravati (Govt. of Maharashtra)</div>
               <p className="journey-desc">
-                Twelve years of AYUSH service across mixed surgical and Ayurvedic caseload, approximately 3,000 procedures. Concurrent teaching and private practice.
+                Dedicated government service at General Hospital Amravati managing general surgical cases, emergency care, and proctology referrals across Vidarbha.
               </p>
             </div>
           </div>
@@ -268,11 +286,11 @@ export default function DrVipinPage() {
               <div className="journey-year-label">Hospital Stage</div>
             </div>
             <div className="journey-content">
-              <span className="journey-badge">Milestone</span>
-              <h3 className="journey-title">Full hospital operations</h3>
-              <div className="journey-institution">Shri Manmukund Hospital, Amravati</div>
+              <span className="journey-badge">Hospital Operations</span>
+              <h3 className="journey-title">Inpatient Hospital Operations</h3>
+              <div className="journey-institution">Amravati</div>
               <p className="journey-desc">
-                Practice expanded to full hospital scale with operating theatre, admission beds, and Panchakarma unit.
+                The hospital opens inpatient care with its own operation theatre.
               </p>
             </div>
           </div>
@@ -284,10 +302,10 @@ export default function DrVipinPage() {
             </div>
             <div className="journey-content">
               <span className="journey-badge">PhD</span>
-              <h3 className="journey-title">PhD in Ayurveda Shalya Tantra</h3>
+              <h3 className="journey-title">PhD in Ayurveda (Shalya Tantra)</h3>
               <div className="journey-institution">Government Ayurved College, Nanded</div>
               <p className="journey-desc">
-                Doctoral research on the safety and efficacy of Apamarga Kshara ointment in the management of internal haemorrhoids. Awarded 2024.
+                Doctorate built on an MS in Shalya Tantra with research on Apamarga Kshara ointment in internal haemorrhoids.
               </p>
             </div>
           </div>
@@ -295,15 +313,49 @@ export default function DrVipinPage() {
           <div className="journey-item">
             <div className="journey-period">
               <div className="journey-year">2024</div>
-              <div className="journey-year-label">Own Facility</div>
+              <div className="journey-year-label">Permanent Home</div>
             </div>
             <div className="journey-content">
-              <span className="journey-badge">Present</span>
-              <h3 className="journey-title">Permanent hospital facility</h3>
-              <div className="journey-institution">Plot 7, Bapatwadi, Amravati</div>
+              <span className="journey-badge">Permanent Facility</span>
+              <h3 className="journey-title">Permanent Hospital Facility at Bapatwadi</h3>
+              <div className="journey-institution">Plot No. 7, Bapatwadi, Amravati</div>
               <p className="journey-desc">
-                Move to purpose-built facility with dedicated proctology suite, full Panchakarma unit, and Female Care Unit under Dr. Swati.
+                In June, the hospital moves to its permanent premises in Bapatwadi.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5B. APPROVED HONOURS */}
+      <section className="honours-section py-12 border-t border-[#6B7F5F]/15">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="section-header mb-8">
+            <div className="section-tag">Recognition &amp; Credentials</div>
+            <h2 className="section-title">
+              Honours &amp; <em>Academic Recognition.</em>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-white p-5 rounded-lg border border-[#6B7F5F]/20 shadow-sm">
+              <div className="text-xs font-bold text-[#B8894A] uppercase tracking-wider mb-1">2024 · Doctorate</div>
+              <h3 className="font-serif text-lg font-bold text-[#1B3A5B]">PhD in Ayurveda</h3>
+              <p className="text-xs text-[#5C4F3A] mt-1">Doctorate built on an MS in Shalya Tantra, Govt. Ayurved College Nanded</p>
+            </div>
+            <div className="bg-white p-5 rounded-lg border border-[#6B7F5F]/20 shadow-sm">
+              <div className="text-xs font-bold text-[#B8894A] uppercase tracking-wider mb-1">2022 · State Honour</div>
+              <h3 className="font-serif text-lg font-bold text-[#1B3A5B]">Sakal Idols of Maharashtra</h3>
+              <p className="text-xs text-[#5C4F3A] mt-1">Sakal Media Group</p>
+            </div>
+            <div className="bg-white p-5 rounded-lg border border-[#6B7F5F]/20 shadow-sm">
+              <div className="text-xs font-bold text-[#B8894A] uppercase tracking-wider mb-1">2023–2024 · Conference Jury</div>
+              <h3 className="font-serif text-lg font-bold text-[#1B3A5B]">Jury at National &amp; International Conferences</h3>
+              <p className="text-xs text-[#5C4F3A] mt-1">Basticon 2023; 10th World Ayurveda Congress, Dehradun</p>
+            </div>
+            <div className="bg-white p-5 rounded-lg border border-[#6B7F5F]/20 shadow-sm">
+              <div className="text-xs font-bold text-[#B8894A] uppercase tracking-wider mb-1">2008–2024 · Research Presenter</div>
+              <h3 className="font-serif text-lg font-bold text-[#1B3A5B]">Research Presenter &amp; Papers</h3>
+              <p className="text-xs text-[#5C4F3A] mt-1">World Ayurveda Congresses in Jaipur, New Delhi, Ahmedabad; All India Institute of Ayurveda</p>
             </div>
           </div>
         </div>

@@ -36,6 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/patients/', priority: 0.8, changeFrequency: 'monthly' },
     { url: '/testimonials/', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/achievements/', priority: 0.7, changeFrequency: 'monthly' },
+    { url: '/doctors/', priority: 0.9, changeFrequency: 'monthly' },
     { url: '/dr-vipin/', priority: 0.9, changeFrequency: 'monthly' },
     { url: '/dr-vipin/appointment/', priority: 0.8, changeFrequency: 'monthly' },
     { url: '/dr-vipin/journey/', priority: 0.7, changeFrequency: 'monthly' },
@@ -57,29 +58,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 2. Service categories & conditions
   for (const cat of SERVICE_CATEGORIES) {
     urlMap.set(`/services/${cat.slug}/`, { priority: 0.9, changeFrequency: 'weekly' });
-    if (cat.slug === 'female-care') {
-      urlMap.set(`/services/female-care-unit/`, { priority: 0.9, changeFrequency: 'weekly' });
-    }
-    if (cat.slug === 'panchakarma' || cat.slug === 'ayurveda') {
-      urlMap.set(`/services/ayurveda-panchakarma/`, { priority: 0.9, changeFrequency: 'weekly' });
-    }
     for (const cond of cat.conditions) {
       urlMap.set(`/services/${cat.slug}/${cond.slug}/`, {
         priority: 0.85,
         changeFrequency: 'weekly',
       });
-      if (cat.slug === 'female-care') {
-        urlMap.set(`/services/female-care-unit/${cond.slug}/`, {
-          priority: 0.85,
-          changeFrequency: 'weekly',
-        });
-      }
-      if (cat.slug === 'panchakarma' || cat.slug === 'ayurveda') {
-        urlMap.set(`/services/ayurveda-panchakarma/${cond.slug}/`, {
-          priority: 0.85,
-          changeFrequency: 'weekly',
-        });
-      }
     }
   }
 

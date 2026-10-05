@@ -52,7 +52,7 @@ export default function NotFound() {
             <span>Return to Homepage</span>
           </Link>
           <a
-            href="tel:8208927917"
+            href="tel:+918208927917"
             className="px-5 py-2.5 bg-[#E5EBDD] text-[#1B3A5B] rounded-warm text-xs font-semibold hover:bg-[#6B7F5F] hover:text-white transition flex items-center justify-center gap-1.5"
           >
             <Phone className="w-3.5 h-3.5" />

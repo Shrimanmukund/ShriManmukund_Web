@@ -49,7 +49,7 @@ export function generateMetadata({ params }: CategoryPageProps) {
   if (!category) return {};
 
   return {
-    title: `${category.name} — Shri Manmukund Hospital, Amravati`,
+    title: `${category.name} | Shri Manmukund Hospital, Amravati`,
     description: category.shortDescription,
     alternates: {
       canonical: `/services/${params.category}/`,
@@ -121,7 +121,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
           <div className="answer-summary-inner">
             <div className="answer-summary-label">In one paragraph</div>
             <p className="answer-summary-text">
-              The {category.name} Unit at Shri Manmukund Hospital treats conditions ranging from early presentations to complex cases. Because we offer all treatment tiers under one roof—from conservative medical management and classical Ayurvedic therapies through Ksharsutra, laser proctology, and modern surgery—the recommendation you receive reflects your specific case rather than commercial bias toward any single technique.
+              The {category.name} Unit at Shri Manmukund Hospital treats conditions ranging from early presentations to complex cases. Because we offer all treatment tiers under one roof, from conservative medical management and classical Ayurvedic therapies through Ksharsutra, laser proctology, and modern surgery, the recommendation you receive reflects your specific case rather than commercial bias toward any single technique.
             </p>
           </div>
         </section>

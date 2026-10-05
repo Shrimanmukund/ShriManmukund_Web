@@ -45,7 +45,7 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-inner">
           <div>
-            <div className="hero-devanagari">श्री मनमुकुंद रुग्णालय</div>
+            <div className="hero-devanagari">श्री मनमुकूंद हाॅस्पिटल</div>
             <h1 className="hero-headline">
               Where classical Ayurveda meets <em className="whitespace-nowrap inline-block">modern surgical care.</em>
             </h1>
@@ -56,7 +56,7 @@ export default function HomePage() {
               <Link href="/contact/#book" className="btn btn-primary">
                 Book a consultation
               </Link>
-              <Link href="/about/" className="btn btn-ghost">
+              <Link href="/doctors/" className="btn btn-ghost">
                 Meet our doctors
               </Link>
             </div>
@@ -349,7 +349,7 @@ export default function HomePage() {
               <div className="contact-row-text">
                 <div className="contact-row-label">Appointment</div>
                 <div className="contact-row-value">
-                  <a href="tel:8208927917">8208927917</a>
+                  <a href="tel:+918208927917">8208927917</a>
                 </div>
               </div>
             </div>
@@ -358,7 +358,7 @@ export default function HomePage() {
               <div className="contact-row-text">
                 <div className="contact-row-label">Emergency · 24 hours</div>
                 <div className="contact-row-value">
-                  <a href="tel:9405404492">9405404492</a>
+                  <a href="tel:+919405404492">9405404492</a>
                 </div>
               </div>
             </div>

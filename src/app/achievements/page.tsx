@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { AchievementsClient } from './AchievementsClient';
 
 export const metadata: Metadata = {
-  title: 'Achievements and Recognition | Shri Manmukund Hospital, Amravati',
+  title: 'Achievements & Recognition',
   description:
     'Fifteen years of milestones, honours, academic work and community service at Shri Manmukund Hospital, Amravati. Advanced Proctology and Integrated Care.',
   alternates: {

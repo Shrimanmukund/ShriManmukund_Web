@@ -7,8 +7,18 @@ export const metadata = {
   title: 'Clinical Services & Specialised Departments',
   description:
     'Advanced Anorectal Care, Ayurveda & Panchakarma, General Surgery, Female Proctology, and Women\'s Healthcare. Full spectrum of treatment tiers chosen honestly for your case.',
+  authors: [{ name: 'Shri Manmukund Hospital' }],
   alternates: {
     canonical: '/services/',
+  },
+  openGraph: {
+    title: 'Clinical Services & Specialised Departments | Shri Manmukund Hospital',
+    description:
+      'Advanced Anorectal Care, Ayurveda & Panchakarma, General Surgery, Female Proctology, and Women\'s Healthcare in Amravati.',
+    url: 'https://shrimanmukundhospital.com/services/',
+    siteName: 'Shri Manmukund Hospital',
+    locale: 'en_IN',
+    type: 'website',
   },
 };
 
@@ -38,7 +48,7 @@ export default function ServicesHubPage() {
     'panchakarma': 'Detox & Rejuvenation',
     'spine-care': 'Non-Surgical Spine Care',
     'female-care': 'Led by Dr. Swati',
-    'specialty-care': 'Specialized Clinical Units',
+    'specialty-care': 'Specialised Clinical Units',
   };
 
   return (
@@ -104,7 +114,7 @@ export default function ServicesHubPage() {
         <div className="answer-summary-inner">
           <div className="answer-summary-label">In one paragraph</div>
           <p className="answer-summary-text">
-            Shri Manmukund Hospital provides comprehensive, integrated clinical care across specialized departments: Advanced Proctology &amp; Anorectal Surgery, Classical Ayurveda &amp; Panchakarma, General &amp; Minimally Invasive Surgery, Female Care &amp; Women&apos;s Health, Infertility (Uttarbasti), and Day-Care Surgery. Because we offer all treatment tiers under one roof—from lifestyle correction and classical herbal therapies through Ksharsutra, diode laser, and conventional open/laparoscopic surgery—our specialists recommend what is genuinely optimal for the patient, without commercial bias toward any single technique.
+            Shri Manmukund Hospital provides comprehensive, integrated clinical care across specialised departments: Advanced Proctology &amp; Anorectal Surgery, Classical Ayurveda &amp; Panchakarma, General &amp; Minimally Invasive Surgery, Female Care &amp; Women&apos;s Health, Infertility (Uttarbasti), and Day-Care Surgery. Because we offer all treatment tiers under one roof, from lifestyle correction and classical herbal therapies through Ksharsutra, diode laser, and conventional open/laparoscopic surgery, our specialists recommend what is genuinely optimal for the patient, without commercial bias toward any single technique.
           </p>
         </div>
       </section>
@@ -126,7 +136,7 @@ export default function ServicesHubPage() {
             <article key={cat.slug} className={`service service-${(idx % 4) + 1}`}>
               <div className="service-icon">{iconMap[cat.slug] || 'श'}</div>
               <div className="service-eyebrow">
-                {eyebrowMap[cat.slug] || 'Specialized Clinical Care'}
+                {eyebrowMap[cat.slug] || 'Specialised Clinical Care'}
               </div>
               <h3 className="service-title">{cat.name}</h3>
               <p className="service-desc">{cat.shortDescription}</p>

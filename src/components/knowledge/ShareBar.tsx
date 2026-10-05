@@ -16,7 +16,7 @@ export function ShareBar({ title }: ShareBarProps) {
     }
   }, []);
 
-  const shareText = `${title} — Shri Manmukund Hospital`;
+  const shareText = `${title} | Shri Manmukund Hospital`;
 
   const handleCopy = async () => {
     const currentUrl = url || (typeof window !== 'undefined' ? window.location.href : '');

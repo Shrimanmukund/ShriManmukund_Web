@@ -6,8 +6,18 @@ export const metadata = {
   title: 'Patient Stories & Testimonials',
   description:
     'Verified patient reviews and experiences at Shri Manmukund Hospital, Amravati. Published with explicit consent under NMC and AYUSH guidelines.',
+  authors: [{ name: 'Shri Manmukund Hospital' }],
   alternates: {
     canonical: '/testimonials/',
+  },
+  openGraph: {
+    title: 'Patient Stories & Testimonials | Shri Manmukund Hospital',
+    description:
+      'Verified patient reviews and experiences at Shri Manmukund Hospital, Amravati. Published with explicit consent under NMC and AYUSH guidelines.',
+    url: 'https://shrimanmukundhospital.com/testimonials/',
+    siteName: 'Shri Manmukund Hospital',
+    locale: 'en_IN',
+    type: 'website',
   },
 };
 
