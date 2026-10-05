@@ -178,3 +178,16 @@ export interface TestimonialData {
   isApproved: boolean;
   isFeatured: boolean;
 }
+
+export interface ConsultantDoctor {
+  id: string;
+  name: string;
+  qualification: string;
+  role: string;
+  specialty: string;
+  phone: string;
+  displayPhone: string;
+  image: string;
+  tags: string[];
+}
+

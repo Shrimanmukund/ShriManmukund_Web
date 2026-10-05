@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { ConsultantTeamSection } from '@/components/doctors/ConsultantTeamSection';
 
 export const metadata: Metadata = {
   title: 'Our Doctors & Surgeons | Shri Manmukund Hospital, Amravati',
@@ -117,6 +118,9 @@ export default function DoctorsPage() {
         </div>
       </section>
 
+      {/* 2. CONSULTANT & VISITING DOCTORS TEAM */}
+      <ConsultantTeamSection />
+
       {/* 3. PHILOSOPHY & CLINICAL APPROACH */}
       <section className="tiers" style={{ background: 'var(--cream-warm, #F7F3E8)' }}>
         <div className="tiers-inner">
@@ -224,7 +228,7 @@ export default function DoctorsPage() {
               </li>
               <li>
                 <span>Sunday</span>
-                <strong>Prior Appointment Only</strong>
+                <strong>Closed</strong>
               </li>
               <li>
                 <span>Morning Hours</span>

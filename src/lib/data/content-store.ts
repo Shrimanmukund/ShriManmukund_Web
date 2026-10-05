@@ -1,6 +1,7 @@
 import rawPages from './seeded-content.json';
 import type {
   DoctorProfile,
+  ConsultantDoctor,
   ServiceCategory,
   ConditionPageData,
   ProcedurePageData,
@@ -685,3 +686,66 @@ export function getAllPatientResources(): PatientResourceData[] {
 export function getPatientResourceBySlug(slug: string): PatientResourceData | undefined {
   return getAllPatientResources().find((r) => r.slug === slug);
 }
+
+export const CONSULTANT_DOCTORS: ConsultantDoctor[] = [
+  {
+    id: 'dr-nandakishor-lohana',
+    name: 'Dr. Nandakishor Lohana',
+    qualification: 'M.S. (Ayurveda) Shalya Tantra',
+    role: 'Consultant General Surgeon & Shalya Tantra Specialist',
+    specialty: 'Consultant General Surgeon & Specialist in Fistula (Bhagandar) and Piles (Bawasir)',
+    phone: '+919405233039',
+    displayPhone: '+91 94052 33039',
+    image: '/images/doctors/consultants/dr-nandakishor-lohana.jpg',
+    tags: ['Shalya Tantra', 'Fistula & Piles', 'Anorectal Surgery'],
+  },
+  {
+    id: 'dr-apeksha-moray-patil',
+    name: 'Dr. Apeksha Moray - Patil',
+    qualification: 'M.S. (Ayurveda) Shalya Tantra',
+    role: 'Consultant General Surgeon & Proctologist',
+    specialty: 'Consultant General Surgeon & Specialist in Fistula (Bhagandar) and Piles (Bawasir)',
+    phone: '+917020466076',
+    displayPhone: '+91 70204 66076',
+    image: '/images/doctors/consultants/dr-apeksha-moray-patil.jpg',
+    tags: ['Shalya Tantra', 'Female Proctology', 'General Surgery'],
+  },
+  {
+    id: 'dr-nitin-dok',
+    name: 'Dr. Nitin T. Dok',
+    qualification: 'M.D. (Ayurveda) Dravyagun',
+    role: 'Consultant Ayurvedic Physician',
+    specialty: 'Consultant in Ayurveda & Panchakarma Therapy',
+    phone: '+919421819333',
+    displayPhone: '+91 94218 19333',
+    image: '/images/doctors/consultants/dr-nitin-dok.jpg',
+    tags: ['Dravyagun', 'Ayurveda', 'Panchakarma'],
+  },
+  {
+    id: 'dr-dk-saurkar',
+    name: 'Dr. D. K. Saurkar',
+    qualification: 'B.A.M.S.',
+    role: 'Consultant Ayurvedic Physician',
+    specialty: 'Consultant in Ayurveda, Panchakarma & Specialist in Viddhagni',
+    phone: '+919420722880',
+    displayPhone: '+91 94207 22880',
+    image: '/images/doctors/consultants/dr-dk-saurkar.jpg',
+    tags: ['Viddhagni', 'Ayurveda', 'Panchakarma'],
+  },
+  {
+    id: 'dr-mangesh-bhongade',
+    name: 'Dr. Mangesh Bhongade',
+    qualification: 'M.D. (Ayurveda) Anesthesiology',
+    role: 'Consultant Anesthesiologist',
+    specialty: 'Consultant in Ayurveda & Panchakarma Therapy',
+    phone: '+918668911610',
+    displayPhone: '+91 86689 11610',
+    image: '/images/doctors/consultants/dr-mangesh-bhongade.jpg',
+    tags: ['Anesthesiology', 'Perioperative Care', 'Panchakarma'],
+  },
+];
+
+export function getAllConsultantDoctors(): ConsultantDoctor[] {
+  return CONSULTANT_DOCTORS;
+}
+
