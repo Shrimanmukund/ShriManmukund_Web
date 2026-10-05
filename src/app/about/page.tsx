@@ -263,6 +263,19 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
+
+          {/* General Surgery Unit (matching the exact structure of the 3 cards above, centered with reduced width) */}
+          <div className="max-w-2xl mx-auto mt-8">
+            <div className="facility-card">
+              <div className="facility-icon" style={{ background: 'rgba(27, 58, 91, 0.1)', color: 'var(--indigo)' }}>
+                स
+              </div>
+              <h3 className="facility-title">General Surgery Unit</h3>
+              <p className="facility-desc">
+                Specialist evaluation and surgical management for common and complex general surgical conditions, delivered by MS Ayurveda Shalya Tantra qualified surgeons. Equipped minor operation theatre for planned surgeries with strict sterile protocols, anaesthetic safety, and day-care recovery.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
