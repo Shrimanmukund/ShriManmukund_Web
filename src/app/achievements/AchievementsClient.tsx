@@ -32,6 +32,7 @@ interface MosaicItem {
   image: string;
   alt: string;
   sizeClass: string;
+  imagePosition?: string;
 }
 
 const HONOURS_DATA: HonourItem[] = [
@@ -196,12 +197,12 @@ const HONOURS_DATA: HonourItem[] = [
     id: 'wac-presentation-8th-swati',
     categories: ['academic'],
     tag: 'Research',
-    year: '2018',
-    title: 'Women\'s Healthcare Research at 8th WAC',
-    issuer: '8th World Ayurveda Congress 2018, Ahmedabad',
-    desc: 'Dr. Swati Tongale presenting clinical research on Ayurvedic management of female anorectal health and Garbhasanskar.',
+    year: '2016',
+    title: 'Presentation of Research Paper at 8th WAC',
+    issuer: '8th World Ayurved Congress 2016, Ahmedabad',
+    desc: 'Presentation of research paper at the 8th World Ayurved Congress in Ahmedabad.',
     image: '/images/achievements/achievement-img-6.jpg',
-    alt: 'Dr. Swati Tongale presenting research at 8th World Ayurved Congress 2018, Ahmedabad',
+    alt: 'Presentation of Research paper at 8th World Ayurved Congress 2016, Ahmedabad',
     who: 'Dr. Swati Tongale, MS (Ayu)',
     whoType: 'swati',
   },
@@ -262,23 +263,23 @@ const MOSAIC_ITEMS: MosaicItem[] = [
     id: 'mosaic-2',
     title: 'Operation theatre',
     subtitle: 'Fully equipped for day-care surgery',
-    image: '/images/achievements/photo_2025-08-17_22-57-17-3.jpg',
-    alt: 'Operation theatre at Shri Manmukund Hospital',
+    image: '/images/achievements/facility-operation-theatre.jpg',
+    alt: 'Well equipped Operation Theater at Shri Manmukund Hospital',
     sizeClass: 'tile',
   },
   {
     id: 'mosaic-3',
     title: 'Panchakarma & Swedan',
     subtitle: 'Dedicated therapy rooms',
-    image: '/images/achievements/achievement-img-3.jpg',
-    alt: 'Hon. MP Dr. Amol Kolhe visiting the Panchakarma Unit at Shri Manmukund Hospital',
+    image: '/images/achievements/facility-panchakarma-droni.jpg',
+    alt: 'Panchakarma and Swedan therapy facility at Shri Manmukund Hospital',
     sizeClass: 'tile',
   },
   {
     id: 'mosaic-4',
     title: 'Gurusmaran 2024',
     subtitle: 'Gurusmaran 2024, Amravati',
-    image: '/images/achievements/achievement-img-11.jpg',
+    image: '/images/achievements/gurusmaran-2024.jpg',
     alt: 'Gurusmaran 2024, Amravati',
     sizeClass: 'tile wide',
   },
@@ -750,6 +751,7 @@ export const AchievementsClient: React.FC = () => {
                     width={800}
                     height={600}
                     className="object-cover w-full h-full"
+                    style={tile.imagePosition ? { objectPosition: tile.imagePosition } : undefined}
                   />
                   <span className="cap">
                     <b>{tile.title}</b>

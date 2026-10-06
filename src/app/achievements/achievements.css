@@ -846,6 +846,10 @@
   grid-column: span 2 !important;
 }
 
+.achievements-page .tile.wide img {
+  object-position: center center !important;
+}
+
 .achievements-page .tile .cap {
   position: absolute !important;
   left: 0 !important;
