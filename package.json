@@ -30,7 +30,11 @@
     "typescript": "^5.7.3"
   },
   "browserslist": [
-    "defaults and fully supports es6-module",
-    "maintained node versions"
+    "Chrome >= 90",
+    "Firefox >= 90",
+    "Edge >= 90",
+    "Safari >= 15",
+    "iOS >= 15",
+    "not dead"
   ]
 }
