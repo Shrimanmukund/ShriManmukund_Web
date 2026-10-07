@@ -7,27 +7,65 @@ interface ShareBarProps {
 }
 
 export function ShareBar({ title }: ShareBarProps) {
-  const [url, setUrl] = useState('');
+  const [currentUrl, setCurrentUrl] = useState('');
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setUrl(window.location.href);
+      setCurrentUrl(window.location.href);
     }
   }, []);
 
+  const getUrl = () => {
+    if (typeof window !== 'undefined' && window.location.href) {
+      return window.location.href;
+    }
+    return currentUrl || 'https://shrimanmukundhospital.com';
+  };
+
   const shareText = `${title} | Shri Manmukund Hospital`;
 
+  const handleShareWhatsApp = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const urlToShare = getUrl();
+    const waUrl = `https://wa.me/?text=${encodeURIComponent(`${shareText}\n\n${urlToShare}`)}`;
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleShareFacebook = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const urlToShare = getUrl();
+    const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(urlToShare)}`;
+    window.open(fbUrl, '_blank', 'noopener,noreferrer,width=600,height=500');
+  };
+
+  const handleShareTwitter = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const urlToShare = getUrl();
+    const xUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(urlToShare)}`;
+    window.open(xUrl, '_blank', 'noopener,noreferrer,width=600,height=500');
+  };
+
+  const handleShareEmail = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const urlToShare = getUrl();
+    const subject = encodeURIComponent(`${title} | Shri Manmukund Hospital`);
+    const body = encodeURIComponent(
+      `I thought you might find this medical guide from Shri Manmukund Hospital helpful:\n\n${title}\n\nRead the complete guide here:\n${urlToShare}`
+    );
+    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+  };
+
   const handleCopy = async () => {
-    const currentUrl = url || (typeof window !== 'undefined' ? window.location.href : '');
-    if (!currentUrl) return;
+    const urlToShare = getUrl();
+    if (!urlToShare) return;
 
     try {
       if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(currentUrl);
+        await navigator.clipboard.writeText(urlToShare);
       } else {
         const textArea = document.createElement('textarea');
-        textArea.value = currentUrl;
+        textArea.value = urlToShare;
         textArea.style.position = 'fixed';
         textArea.style.left = '-999999px';
         textArea.style.top = '-999999px';
@@ -40,55 +78,31 @@ export function ShareBar({ title }: ShareBarProps) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch (err) {
-      console.error('Failed to copy: ', err);
+      console.error('Failed to copy link: ', err);
     }
   };
-
-  const openSharePopup = (shareUrl: string) => {
-    if (typeof window !== 'undefined') {
-      window.open(shareUrl, '_blank', 'noopener,noreferrer,width=600,height=500');
-    }
-  };
-
-  const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(
-    `${shareText}\n${url}`
-  )}`;
-
-  const emailUrl = `mailto:?subject=${encodeURIComponent(
-    title
-  )}&body=${encodeURIComponent(
-    `I thought you might find this article from Shri Manmukund Hospital helpful:\n\n${title}\n\nRead the complete article here:\n${url}`
-  )}`;
-
-  const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-    url
-  )}`;
-
-  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-    shareText
-  )}&url=${encodeURIComponent(url)}`;
 
   return (
-    <div className="share-bar">
+    <div className="share-bar" aria-label="Share article section">
       <span className="share-label">Share this article</span>
       <div className="share-buttons" style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
         {/* WhatsApp */}
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          type="button"
+          onClick={handleShareWhatsApp}
           className="share-btn"
           aria-label="Share on WhatsApp"
           title="Share on WhatsApp"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.057-1.127-.08-.276-.088-.63-.207-1.077-.4-1.895-.818-3.128-2.736-3.223-2.863-.095-.127-.768-1.021-.768-1.948 0-.927.487-1.382.66-1.571.173-.189.378-.236.504-.236.126 0 .252.002.362.007.116.006.271-.044.425.326.158.378.536 1.309.583 1.404.047.095.079.205.016.331-.063.126-.095.205-.189.315-.095.11-.199.246-.284.331-.095.095-.194.198-.083.388.11.19.49 1.135 1.05 1.634.721.642 1.328.84 1.517.935.19.095.3.079.41-.047.11-.126.473-.551.6-.74.126-.19.252-.158.425-.095.173.063 1.103.52 1.292.615.19.095.315.142.362.221.047.079.047.457-.097.862zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.175L2 22l4.966-1.398A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
           </svg>
-        </a>
+        </button>
 
         {/* Email */}
-        <a
-          href={emailUrl}
+        <button
+          type="button"
+          onClick={handleShareEmail}
           className="share-btn"
           aria-label="Share via Email"
           title="Share via Email"
@@ -97,16 +111,16 @@ export function ShareBar({ title }: ShareBarProps) {
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
             <polyline points="22,6 12,13 2,6"/>
           </svg>
-        </a>
+        </button>
 
         {/* Copy Link */}
         <button
           type="button"
           className="share-btn"
           onClick={handleCopy}
-          aria-label="Copy link"
+          aria-label={copied ? 'Link copied to clipboard' : 'Copy article link'}
           title={copied ? 'Link copied!' : 'Copy link'}
-          style={copied ? { background: 'var(--sage)', color: 'var(--white)', borderColor: 'var(--sage)' } : {}}
+          style={copied ? { background: '#6B7F5F', color: '#FFFFFF', borderColor: '#6B7F5F' } : {}}
         >
           {copied ? (
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -124,7 +138,7 @@ export function ShareBar({ title }: ShareBarProps) {
         <button
           type="button"
           className="share-btn"
-          onClick={() => openSharePopup(facebookUrl)}
+          onClick={handleShareFacebook}
           aria-label="Share on Facebook"
           title="Share on Facebook"
         >
@@ -137,7 +151,7 @@ export function ShareBar({ title }: ShareBarProps) {
         <button
           type="button"
           className="share-btn"
-          onClick={() => openSharePopup(twitterUrl)}
+          onClick={handleShareTwitter}
           aria-label="Share on X (Twitter)"
           title="Share on X (Twitter)"
         >
@@ -149,21 +163,23 @@ export function ShareBar({ title }: ShareBarProps) {
         {/* Copied Toast Indicator */}
         {copied && (
           <div
+            role="status"
+            aria-live="polite"
             style={{
               position: 'absolute',
-              bottom: '120%',
+              bottom: '125%',
               left: '50%',
               transform: 'translateX(-50%)',
               background: '#1B3A5B',
               color: '#FFFFFF',
               fontSize: '0.75rem',
               fontWeight: 600,
-              padding: '4px 10px',
+              padding: '5px 12px',
               borderRadius: '6px',
               whiteSpace: 'nowrap',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+              boxShadow: '0 4px 14px rgba(27,58,91,0.25)',
               pointerEvents: 'none',
-              animation: 'fadeIn 0.2s ease',
+              zIndex: 10,
             }}
           >
             ✓ Link copied to clipboard!

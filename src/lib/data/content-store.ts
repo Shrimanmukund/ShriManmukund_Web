@@ -241,6 +241,19 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     metaDescription: 'Classical Ayurvedic Ksharsutra treatment for anal fistula and pilonidal sinus by Dr. Vipin Tongale in Amravati. Near-zero recurrence, sphincter safe.',
   },
   {
+    slug: 'ksharkarma',
+    name: 'Ksharkarma',
+    nameSanskrit: 'क्षारकर्म चिकित्सा',
+    shortDescription:
+      'Classical Ayurvedic caustic therapy using medicated alkaline paste. A non-cutting parasurgical alternative to surgery.',
+    iconName: 'activity',
+    leadDoctorSlug: 'dr-vipin',
+    orderIndex: 2.5,
+    conditions: [],
+    metaTitle: 'Ksharkarma Treatment | Classical Ayurvedic Caustic Therapy | Amravati',
+    metaDescription: 'Ksharkarma for chronic anal fissure and select conditions. Classical Ayurvedic caustic technique. Non-cutting alternative to surgery.',
+  },
+  {
     slug: 'laser-proctology',
     name: 'Laser Proctology',
     nameSanskrit: 'लेसर शल्यचिकित्सा',

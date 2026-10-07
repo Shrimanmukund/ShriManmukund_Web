@@ -310,7 +310,7 @@ export const PILES_DETAIL: ConditionDetailData = {
           { label: 'Effectiveness', value: 'Grade II–III: 85%' },
         ],
         linkText: 'Read about non-surgical options',
-        linkHref: '/knowledge/articles/why-rectal-bleeding-should-never-be-ignored/',
+        linkHref: '/services/non-surgical-piles-treatment/',
       },
       {
         tierNum: 'Tier 3',
@@ -325,7 +325,7 @@ export const PILES_DETAIL: ConditionDetailData = {
           { label: 'Effectiveness', value: 'Grade II–III: 90%+' },
         ],
         linkText: 'Read about Ksharkarma',
-        linkHref: '/knowledge/articles/understanding-ksharsutra-in-simple-terms/',
+        linkHref: '/services/ksharkarma/',
       },
       {
         tierNum: 'Tier 3',
@@ -340,7 +340,7 @@ export const PILES_DETAIL: ConditionDetailData = {
           { label: 'Effectiveness', value: 'Grade III–IV: 90%' },
         ],
         linkText: 'Read about Laser Haemorrhoidoplasty',
-        linkHref: '/knowledge/articles/laser-piles-surgery-what-it-is-what-it-is-not/',
+        linkHref: '/services/laser-proctology/laser-piles-surgery/',
       },
       {
         tierNum: 'Tier 4',
@@ -643,7 +643,7 @@ export const FISSURE_DETAIL: ConditionDetailData = {
           { label: 'Recovery', value: '5 – 7 days' },
         ],
         linkText: 'Read about Ksharkarma',
-        linkHref: '/knowledge/articles/understanding-ksharsutra-in-simple-terms/',
+        linkHref: '/services/ksharkarma/',
       },
       {
         tierNum: 'Tier 3',
@@ -658,7 +658,7 @@ export const FISSURE_DETAIL: ConditionDetailData = {
           { label: 'Continence Risk', value: 'Preserved / Minimal' },
         ],
         linkText: 'Read about Laser Fissure Treatment',
-        linkHref: '/knowledge/articles/laser-piles-surgery-what-it-is-what-it-is-not/',
+        linkHref: '/services/laser-proctology/laser-fissure-treatment/',
       },
     ],
   },
@@ -917,7 +917,7 @@ export const FISTULA_DETAIL: ConditionDetailData = {
           { label: 'Wound Care', value: 'Minimal dressing' },
         ],
         linkText: 'Read about FiLaC Laser Treatment',
-        linkHref: '/knowledge/articles/choosing-between-ksharsutra-and-laser-for-fistula/',
+        linkHref: '/services/laser-proctology/laser-fistula-treatment/',
       },
       {
         tierNum: 'Tier 3',
@@ -932,7 +932,7 @@ export const FISTULA_DETAIL: ConditionDetailData = {
           { label: 'Effectiveness', value: 'High complex cases: 96%' },
         ],
         linkText: 'Read about IFTAK Protocol',
-        linkHref: '/knowledge/playbooks/ksharsutra-day-1-to-complete-healing/',
+        linkHref: '/services/ksharsutra/for-anal-fistula/',
       },
     ],
   },
@@ -2695,10 +2695,6 @@ const CONDITION_REGISTRY: Record<string, ConditionDetailData> = {
   piles: PILES_DETAIL,
   'anal-fissure': FISSURE_DETAIL,
   'anal-fistula': FISTULA_DETAIL,
-  'for-anal-fistula': FISTULA_DETAIL,
-  'laser-piles-surgery': PILES_DETAIL,
-  'laser-fissure-treatment': FISSURE_DETAIL,
-  'laser-fistula-treatment': FISTULA_DETAIL,
   'female-proctology': FEMALE_PROCTOLOGY_DETAIL,
   'uttarbasti-for-infertility': UTTARBASTI_DETAIL,
   'uttarbasti-therapy': UTTARBASTI_DETAIL,
@@ -2726,50 +2722,48 @@ export function getConditionDetailData(
     return CONDITION_REGISTRY[conditionSlug];
   }
 
-  // Baseline clinical profile without generic multi-tier/anorectal treatment blocks
+  // Baseline clinical profile for specific procedure or condition subpage
   const cleanName = fallbackName.replace(/\s*\(.*?\)\s*/g, '').trim();
   const sanskrit = fallbackSanskrit || 'आयुर्वेदीय चिकित्सा';
   const catName = fallbackCategoryName || 'Specialist Care';
 
-  // Fix broken headings (avoid "Hydrocele Treatment Treatment" or "Sebaceous Cyst Excision Treatment")
   let titleMain = cleanName;
   let titleAccent = 'Treatment';
-  const suffixMatch = cleanName.match(/^(.*?)\s+(Treatment|Surgery|Excision|Therapy|Care|Program|Management|Rehabilitation)$/i);
+  const suffixMatch = cleanName.match(/^(.*?)\s+(Treatment|Surgery|Excision|Therapy|Care|Program|Programme|Management|Rehabilitation|Ligation|Sclerotherapy|Sphincterotomy|Haemorrhoidoplasty|Closure|Drainage|Procedures|Guide)$/i);
   if (suffixMatch) {
     titleMain = suffixMatch[1];
     titleAccent = suffixMatch[2];
+  } else if (cleanName.includes(' ')) {
+    const words = cleanName.split(' ');
+    titleAccent = words.pop() || '';
+    titleMain = words.join(' ');
   }
 
+  const isLaser = categorySlug === 'laser-proctology' || conditionSlug.includes('laser');
+  const isOPD = categorySlug === 'non-surgical-piles-treatment' || conditionSlug.includes('ligation') || conditionSlug.includes('sclerotherapy');
+  const isKsharsutra = categorySlug === 'ksharsutra' || conditionSlug.includes('ksharsutra') || conditionSlug.includes('ksharkarma');
+
+  const recoveryText = isOPD ? 'Same day (OPD)' : isLaser ? '2 – 5 days (Day-care)' : isKsharsutra ? 'Ambulatory / Weekly OPD' : '1 – 2 weeks';
+  const tierText = isOPD ? 'Non-Surgical OPD' : isLaser ? 'Minimally Invasive Laser' : isKsharsutra ? 'Classical Parasurgery' : 'Specialist Surgical Care';
+
   return {
-    eyebrow: `${catName} · Condition`,
+    eyebrow: `${catName} · ${isLaser || isOPD ? 'Procedure' : 'Clinical Care'}`,
     devanagari: sanskrit.split(' ')[0] || 'चिकित्सा',
     titleMain,
     titleAccent,
-    subtitle: `Specialised diagnosis and integrated care in Amravati`,
+    subtitle: `Specialised procedure and integrated clinical care in Amravati`,
     lede:
       fallbackSummary ||
-      `${cleanName} diagnosis and treatment at Shri Manmukund Hospital, Amravati. Combining classical Ayurvedic surgical science with modern minimally invasive options.`,
+      `${cleanName} at Shri Manmukund Hospital, Amravati. Combining classical Ayurvedic surgical science with modern minimally invasive options.`,
     glance: {
-      sanskrit: `${cleanName} (${sanskrit})`,
+      sanskrit: fallbackSanskrit ? `${cleanName} (${sanskrit})` : undefined,
+      treatmentTier: tierText,
+      recovery: recoveryText,
+      consultation: '30 – 45 minutes',
     },
     answerSummary:
       fallbackSummary ||
-      `${cleanName} is carefully evaluated through clinical history, physical examination, and appropriate diagnostic investigation. Treatment plans are customised based on severity, personal health factors, and patient preference between classical Ayurvedic parasurgery and modern surgical care.`,
-    faqs: [
-      {
-        question: `Will I definitely need surgery for ${cleanName}?`,
-        answer: `<p><strong>No, surgery is not always required.</strong> Early stages often resolve with dietary adjustments, specialised Ayurvedic medications, and non-surgical procedures. We recommend surgical intervention only when clinically necessary.</p>`,
-      },
-      {
-        question: 'How do I book a consultation with the specialist?',
-        answer:
-          '<p>You can book an appointment by calling <strong>+918208927917</strong> or using our online booking form. Walk-ins are also welcome during OPD hours.</p>',
-      },
-      {
-        question: 'Are treatments covered by insurance?',
-        answer:
-          '<p>Shri Manmukund Hospital is ROHINI registered and partners with major insurance providers and TPAs for cashless surgical hospitalization.</p>',
-      },
-    ],
+      `${cleanName} is carefully evaluated through clinical history, physical examination, and appropriate diagnostic investigation. Treatment plans are customised based on severity, personal health factors, and patient preference.`,
+    faqs: [],
   };
 }

@@ -48,7 +48,7 @@ const HONOURS_DATA: HonourItem[] = [
     quote:
       'Honoured for extraordinary clinical dedication in proctology, Ayurvedic surgery, and uplifting healthcare standards across Vidarbha.',
     image: '/images/achievements/0C0A6891-1.jpg',
-    alt: 'Dr. Swati Tongale receiving the Prabhavshali Ayurvedacharya of Vidarbha award at Sakal Gauravagatha 2025, Nagpur',
+    alt: 'Dr. Swati Tongale receiving Prabhavshali Ayurvedacharya Award 2025',
     who: 'Dr. Swati Tongale, MS (Ayu)',
     whoType: 'swati',
     isFeatured: true,
@@ -105,7 +105,7 @@ const HONOURS_DATA: HonourItem[] = [
     issuer: 'Shri Manmukund Hospital Panchakarma Unit',
     desc: 'Hon. MP and Veteran Actor Dr. Amol Kolhe visited and commended the hospital’s integrated proctology and Panchakarma facilities.',
     image: '/images/achievements/achievement-img-10.jpg',
-    alt: 'Honorable MP and Veteran Actor Dr. Amol Kolhe visit at Panchakarma Unit of Shri Manmukund Hospital',
+    alt: 'Hon. MP Dr. Amol Kolhe visit at Shri Manmukund Hospital Panchakarma Unit',
     who: 'Shri Manmukund Hospital',
     whoType: 'hosp',
   },
@@ -146,7 +146,7 @@ const HONOURS_DATA: HonourItem[] = [
     issuer: '10th World Ayurveda Congress, Dehradun',
     desc: 'Invited as expert jury evaluator for international research papers and scientific poster presentations.',
     image: '/images/achievements/20241214_194213-scaled.jpg',
-    alt: 'Dr. Vipin Tongale judging poster presentations at the 10th World Ayurveda Congress, Dehradun, 2024',
+    alt: 'Dr. Vipin Tongale judging at 10th World Ayurveda Congress, Dehradun',
     who: 'Dr. Vipin Tongale',
     whoType: 'vipin',
   },
@@ -361,7 +361,7 @@ export const AchievementsClient: React.FC = () => {
         <section className="hero">
           <div className="wrap">
             <div className="crumbs">
-              <Link href="/">Home</Link> &nbsp;/&nbsp; <Link href="/about/">About</Link> &nbsp;/&nbsp; Achievements
+              <Link href="/">Home</Link> &nbsp;/&nbsp; Achievements
             </div>
             <div className="hero-grid">
               <div>

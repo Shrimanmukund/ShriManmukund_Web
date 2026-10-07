@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,300..800;1,300..800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -26,9 +28,9 @@
   --brown-warm: #8B7355;
   --mute: #A69880;
   --leaf-line: rgba(107, 127, 95, 0.15);
-  --serif: var(--font-fraunces), 'Fraunces', Georgia, serif;
-  --sans: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --devanagari: var(--font-noto-devanagari), 'Noto Sans Devanagari', var(--font-inter), 'Inter', sans-serif;
+  --serif: 'Fraunces', var(--font-fraunces), Georgia, serif;
+  --sans: 'Inter', var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --devanagari: 'Noto Sans Devanagari', var(--font-noto-devanagari), var(--font-inter), 'Inter', sans-serif;
 }
 
 html {
@@ -72,6 +74,26 @@ em, i, .italic {
 }
 
 .hero-headline em {
+  white-space: nowrap !important;
+}
+
+.page-hero-title {
+  font-family: var(--serif) !important;
+  font-size: clamp(2.35rem, 4.6vw, 3.85rem) !important;
+  font-weight: 500 !important;
+  color: var(--indigo) !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.12 !important;
+  max-width: 32ch !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-wrap: balance !important;
+}
+
+.page-hero-title em {
+  font-style: italic !important;
+  color: var(--sage-dark, #3E5437) !important;
+  font-weight: 400 !important;
   white-space: nowrap !important;
 }
 

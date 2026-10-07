@@ -5,6 +5,7 @@ const SESSION_SECRET = process.env.ADMIN_SESSION_SECRET || 'smh_hospital_secret_
 
 // Authorized emails list
 export const ALLOWLISTED_ADMIN_EMAILS = [
+  process.env.ADMIN_EMAIL,
   'admin@shrimanmukundhospital.com',
   'vipin@shrimanmukundhospital.com',
   'swati@shrimanmukundhospital.com',
@@ -12,9 +13,10 @@ export const ALLOWLISTED_ADMIN_EMAILS = [
   'dr.swati@shrimanmukundhospital.com',
   'drvipintongale@gmail.com',
   'drswatitongale@gmail.com',
-];
+].filter(Boolean) as string[];
 
-// Default administrative password (can be overridden via environment variable)
+// Default administrative credentials (can be overridden via environment variables)
+export const DEFAULT_ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@shrimanmukundhospital.com';
 export const DEFAULT_ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'Manmukund@2026';
 
 export interface AdminSession {

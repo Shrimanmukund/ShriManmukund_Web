@@ -99,7 +99,7 @@ export const SiteFooter: React.FC = () => {
             Website developed by{' '}
             <a
               href="https://magicworksitsolutions.com/"
-              rel="nofollow"
+              rel="noopener noreferrer nofollow"
               target="_blank"
             >
               MagicWorks

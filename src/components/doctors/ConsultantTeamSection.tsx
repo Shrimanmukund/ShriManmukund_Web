@@ -197,7 +197,7 @@ export const ConsultantTeamSection: React.FC = () => {
                 <a
                   href={`https://wa.me/${selectedDoctor.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hello ${selectedDoctor.name}, I would like to enquire about consultation at Shri Manmukund Hospital.`)}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="w-full py-2.5 px-4 bg-[#E5EBDD] hover:bg-[#6B7F5F] text-[#1B3A5B] hover:text-white rounded-xl font-semibold text-xs flex items-center justify-center gap-2 transition-all"
                 >
                   <MessageCircle className="w-4 h-4 text-[#25D366]" />

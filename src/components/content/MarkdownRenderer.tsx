@@ -287,6 +287,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
 
 function renderInlineFormatting(text: string): string {
   return text
+    .replace(/\[(.*?)\]\((https?:\/\/.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer nofollow" class="text-[#6B7F5F] underline hover:text-[#1B3A5B] font-medium transition-colors">$1</a>')
     .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-[#6B7F5F] underline hover:text-[#1B3A5B] font-medium transition-colors">$1</a>')
     .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-[#1B3A5B]">$1</strong>')
     .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')

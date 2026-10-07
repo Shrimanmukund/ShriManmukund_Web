@@ -98,6 +98,10 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: KnowledgePiecePageProps) {
+  const isKsharsutraPlaybook =
+    params.cluster === 'playbooks' &&
+    params.slug === 'ksharsutra-day-1-to-complete-healing';
+
   const rawPage = getAllPages().find((p) =>
     p.url.includes(`/knowledge/${params.cluster}/${params.slug}/`)
   );
@@ -106,9 +110,13 @@ export async function generateMetadata({ params }: KnowledgePiecePageProps) {
   const kbArticle = KNOWLEDGE_ARTICLES.find((a) => a.slug === params.slug);
   const dbArticle = !rawPage && !piece && !kbArticle ? await getDbArticle(params.slug) : null;
 
-  const rawTitle = rawPage?.metaTitle || piece?.title || kbArticle?.title || dbArticle?.metaTitle || dbArticle?.title || 'Knowledge Guide';
-  const cleanTitle = rawTitle.replace(/\s*\|\s*Shri Manmukund Hospital.*$/i, '').trim();
-  const desc = rawPage?.metaDescription || piece?.excerpt || kbArticle?.excerpt || dbArticle?.metaDescription || dbArticle?.excerpt || `${cleanTitle} from Shri Manmukund Hospital, Amravati.`;
+  const rawTitle = isKsharsutraPlaybook
+    ? 'Ksharsutra treatment, week by week'
+    : rawPage?.metaTitle || piece?.title || kbArticle?.title || dbArticle?.metaTitle || dbArticle?.title || 'Knowledge Guide';
+  const cleanTitle = rawTitle.replace(/\s*\|\s*Shri Manmukund Hospital.*$/i, '').replace(/^(Article|Playbook|Whitepaper|Guide|Insights|Insight):\s*/i, '').trim();
+  const desc = isKsharsutraPlaybook
+    ? 'A practical, day-by-day guide for patients considering or currently undergoing Ksharsutra. What to expect at each stage, how to prepare, and when to call the hospital.'
+    : rawPage?.metaDescription || piece?.excerpt || kbArticle?.excerpt || dbArticle?.metaDescription || dbArticle?.excerpt || `${cleanTitle} from Shri Manmukund Hospital, Amravati.`;
   const isSwati = kbArticle?.author === 'Dr. Swati' || piece?.authorSlug === 'dr-swati' || dbArticle?.authorSlug === 'dr-swati';
   const authorName = isSwati ? 'Dr. Swati Tongale' : 'Dr. Vipin Tongale';
 
@@ -131,27 +139,31 @@ export async function generateMetadata({ params }: KnowledgePiecePageProps) {
 }
 
 export default async function KnowledgeDetailPage({ params }: KnowledgePiecePageProps) {
+  const isKsharsutraPlaybook =
+    params.cluster === 'playbooks' &&
+    params.slug === 'ksharsutra-day-1-to-complete-healing';
+
   const rawPage = getAllPages().find((p) =>
     p.url.includes(`/knowledge/${params.cluster}/${params.slug}/`)
   );
   const pieces = getAllKnowledgePieces();
   const piece = pieces.find((p) => p.slug === params.slug);
   const kbArticle = KNOWLEDGE_ARTICLES.find((a) => a.slug === params.slug);
-  const dbArticle = !rawPage && !piece && !kbArticle && params.slug !== 'ksharsutra-day-1-to-complete-healing' ? await getDbArticle(params.slug) : null;
+  const dbArticle = !rawPage && !piece && !kbArticle && !isKsharsutraPlaybook ? await getDbArticle(params.slug) : null;
 
-  if (!rawPage && !piece && !kbArticle && !dbArticle && params.slug !== 'ksharsutra-day-1-to-complete-healing') {
+  if (!rawPage && !piece && !kbArticle && !dbArticle && !isKsharsutraPlaybook) {
     notFound();
   }
 
-  const isKsharsutraPlaybook =
-    params.slug === 'ksharsutra-day-1-to-complete-healing' ||
-    params.slug.includes('ksharsutra');
-
-  const title = isKsharsutraPlaybook
+  const rawTitle = isKsharsutraPlaybook
     ? 'Ksharsutra treatment, week by week'
     : rawPage
     ? rawPage.title
     : piece?.title || kbArticle?.title || dbArticle?.title || 'Clinical Guide';
+
+  const title = isKsharsutraPlaybook
+    ? 'Ksharsutra treatment, week by week'
+    : rawTitle.replace(/^(Article|Playbook|Whitepaper|Guide|Insights|Insight):\s*/i, '').trim();
 
   const excerpt = isKsharsutraPlaybook
     ? 'A practical, day-by-day guide for patients considering or currently undergoing Ksharsutra. What to expect at each stage, how to prepare, and when to call the hospital.'
@@ -301,7 +313,19 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
         <div className="article-badges">
           <span className="article-badge">{clusterSingular}</span>
           <span className="article-badge article-badge--topic">
-            {isKsharsutraPlaybook ? 'Ksharsutra' : 'Clinical Care'}
+            {isKsharsutraPlaybook
+              ? 'Ksharsutra'
+              : params.slug.includes('fistula')
+              ? 'Fistula'
+              : params.slug.includes('piles')
+              ? 'Piles'
+              : params.slug.includes('fissure')
+              ? 'Fissure'
+              : params.slug.includes('laser')
+              ? 'Laser Proctology'
+              : params.slug.includes('ksharsutra')
+              ? 'Ksharsutra'
+              : 'Clinical Care'}
           </span>
         </div>
 
@@ -748,8 +772,8 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
                 alt={`Dr. ${authorSlug === 'dr-swati' ? 'Swati Tongale' : 'Vipin Tongale'}`}
                 width={240}
                 height={240}
+                sizes="120px"
                 className="w-full h-full object-cover object-center rounded-full"
-                unoptimized
               />
             </div>
           </div>

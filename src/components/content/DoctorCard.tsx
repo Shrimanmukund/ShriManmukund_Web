@@ -36,7 +36,6 @@ export const DoctorCard: React.FC<DoctorCardProps> = ({ doctor, variant = 'featu
               fill
               sizes="(max-width: 640px) 120px, 160px"
               className="object-cover object-center"
-              unoptimized
             />
           </div>
         </div>

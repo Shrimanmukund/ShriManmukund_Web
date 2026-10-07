@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { DOCTORS } from '@/lib/data/content-store';
+import { generateDoctorSchema } from '@/lib/seo/schemas';
 
 export const metadata = {
   title: 'Dr. Vipin Tongale | General Surgeon & Proctologist',
@@ -30,14 +32,22 @@ export const metadata = {
 };
 
 export default function DrVipinPage() {
+  const doctor = DOCTORS['dr-vipin'];
+  const doctorSchema = generateDoctorSchema(doctor);
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(doctorSchema) }}
+      />
+
       {/* 1. DOCTOR HERO */}
       <section className="doctor-hero">
         <div className="breadcrumb">
           <Link href="/">Home</Link>
           <span className="breadcrumb-sep">·</span>
-          <Link href="/about/">Our Doctors</Link>
+          <Link href="/doctors/">Our Doctors</Link>
           <span className="breadcrumb-sep">·</span>
           <span>Dr. Vipin Tongale</span>
         </div>
@@ -81,7 +91,6 @@ export default function DrVipinPage() {
                   sizes="(max-width: 768px) 320px, 460px"
                   className="object-cover object-center"
                   priority
-                  unoptimized
                 />
               </div>
             </div>

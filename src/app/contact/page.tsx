@@ -134,7 +134,7 @@ export default function ContactPage() {
               <a
                 href="https://maps.google.com/?q=Shri+Manmukund+Hospital+Amravati"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="btn btn-primary btn-large"
               >
                 Get Directions →
@@ -168,7 +168,7 @@ export default function ContactPage() {
               <a
                 href="https://maps.google.com/?q=Shri+Manmukund+Hospital+Amravati"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="btn btn-primary"
               >
                 Open in Google Maps

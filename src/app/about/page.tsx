@@ -309,9 +309,9 @@ export default function AboutPage() {
                   alt="Dr. Vipin Tongale"
                   width={400}
                   height={400}
+                  sizes="(max-width: 640px) 200px, 400px"
                   className="w-full h-full object-cover object-center rounded-full"
                   priority
-                  unoptimized
                 />
               </div>
             </div>
@@ -336,9 +336,9 @@ export default function AboutPage() {
                   alt="Dr. Swati Tongale"
                   width={400}
                   height={400}
+                  sizes="(max-width: 640px) 200px, 400px"
                   className="w-full h-full object-cover object-center rounded-full"
                   priority
-                  unoptimized
                 />
               </div>
             </div>

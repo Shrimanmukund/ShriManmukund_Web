@@ -238,8 +238,8 @@ export function ServiceHubLayout({ hub }: ServiceHubLayoutProps) {
                       alt="Dr. Vipin Tongale - General Surgeon & Proctologist"
                       width={400}
                       height={400}
+                      sizes="(max-width: 640px) 200px, 400px"
                       className="w-full h-full object-cover object-center"
-                      unoptimized
                     />
                   </div>
                 </div>
@@ -269,8 +269,8 @@ export function ServiceHubLayout({ hub }: ServiceHubLayoutProps) {
                       alt="Dr. Swati Tongale - Female Care Unit Lead"
                       width={400}
                       height={400}
+                      sizes="(max-width: 640px) 200px, 400px"
                       className="w-full h-full object-cover object-center"
-                      unoptimized
                     />
                   </div>
                 </div>

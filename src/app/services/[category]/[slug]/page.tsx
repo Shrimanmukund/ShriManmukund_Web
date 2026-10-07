@@ -5,11 +5,13 @@ import {
   SERVICE_CATEGORIES,
   getServiceCategoryBySlug,
   getConditionBySlug,
+  getAllConditions,
   DOCTORS,
   getAllPages,
 } from '@/lib/data/content-store';
 import { getConditionDetailData } from '@/lib/data/condition-data';
 import { generateConditionSchema } from '@/lib/seo/schemas';
+import { MarkdownRenderer } from '@/components/content/MarkdownRenderer';
 
 interface ConditionPageProps {
   params: {
@@ -18,22 +20,51 @@ interface ConditionPageProps {
   };
 }
 
+function cleanServiceMarkdown(rawMd?: string) {
+  if (!rawMd) return '';
+  const sections = rawMd.split(/(?=\n##\s+)/);
+  const filtered = sections.filter((sec) => {
+    const headerMatch = sec.match(/^\s*##\s+([^\n]+)/);
+    if (!headerMatch) return true;
+    const header = headerMatch[1].trim().toLowerCase();
+    const skipHeaders = [
+      'hero',
+      'answer-first summary',
+      'answer first summary',
+      'frequently asked questions',
+      'faqs',
+      'faq',
+      'meet your specialists',
+      'meet your specialist',
+      'cta',
+      'call to action',
+      'related resources',
+      'related services',
+      'related content',
+    ];
+    return !skipHeaders.includes(header);
+  });
+  return filtered.join('').trim();
+}
+
 export function generateStaticParams() {
+  const allConditions = getAllConditions();
+  const seen = new Set<string>();
   const params: Array<{ category: string; slug: string }> = [];
 
-  for (const cat of SERVICE_CATEGORIES) {
-    for (const cond of cat.conditions) {
+  for (const cond of allConditions) {
+    const key = `${cond.categorySlug}/${cond.slug}`;
+    if (!seen.has(key)) {
+      seen.add(key);
       params.push({
-        category: cat.slug,
+        category: cond.categorySlug,
         slug: cond.slug,
       });
-      if (cat.slug === 'female-care') {
-        params.push({
-          category: 'female-care-unit',
-          slug: cond.slug,
-        });
-      }
-      if (cat.slug === 'panchakarma' || cat.slug === 'ayurveda') {
+    }
+    if (cond.categorySlug === 'panchakarma' || cond.categorySlug === 'ayurveda') {
+      const altKey = `ayurveda-panchakarma/${cond.slug}`;
+      if (!seen.has(altKey)) {
+        seen.add(altKey);
         params.push({
           category: 'ayurveda-panchakarma',
           slug: cond.slug,
@@ -101,13 +132,30 @@ export default function ConditionDetailPage({ params }: ConditionPageProps) {
     category.name
   );
 
+  const cleanBodyMarkdown = cleanServiceMarkdown(rawPage?.bodyMarkdown || condition?.definitionMarkdown);
+  const faqs = detail.faqs && detail.faqs.length > 0 ? detail.faqs : rawPage?.faqs || [];
+
+  const relatedItems =
+    detail.related && detail.related.length > 0
+      ? detail.related
+      : category.conditions
+          .filter((c) => c.slug !== params.slug)
+          .slice(0, 3)
+          .map((c) => ({
+            icon: c.iconLetter || '⚕',
+            title: c.name,
+            desc: c.shortSummary || `Specialist care for ${c.name} at Shri Manmukund Hospital.`,
+            linkText: c.linkText || `Learn more about ${c.name}`,
+            href: `/services/${category.slug}/${c.slug}/`,
+          }));
+
   const conditionData = condition || {
     slug: params.slug,
     categorySlug: category.slug,
     categoryName: category.name,
     name: conditionName,
     answerFirstSummary: detail.answerSummary,
-    definitionMarkdown: '',
+    definitionMarkdown: rawPage?.bodyMarkdown || '',
     symptomsMarkdown: '',
     causesRiskFactorsMarkdown: '',
     whenToSeeSpecialistMarkdown: '',
@@ -115,7 +163,7 @@ export default function ConditionDetailPage({ params }: ConditionPageProps) {
     treatmentOptions: [],
     recoveryMarkdown: '',
     preventionMarkdown: '',
-    faqs: detail.faqs || [],
+    faqs,
     relatedConditionSlugs: [],
     leadDoctorSlug,
     medicallyReviewedBySlug: leadDoctorSlug === 'dr-vipin' ? 'dr-swati' : 'dr-vipin',
@@ -235,7 +283,7 @@ export default function ConditionDetailPage({ params }: ConditionPageProps) {
           </section>
         )}
 
-        {/* 3. SYMPTOMS */}
+        {/* 3. SYMPTOMS (FOR PRIMARY CONDITION HUBS) */}
         {detail.symptoms && detail.symptoms.items.length > 0 && (
           <section className="symptoms">
             <div className="section-header--left">
@@ -272,7 +320,7 @@ export default function ConditionDetailPage({ params }: ConditionPageProps) {
           </section>
         )}
 
-        {/* 4. GRADES / STAGING */}
+        {/* 4. GRADES / STAGING (FOR PRIMARY CONDITION HUBS) */}
         {detail.grades && detail.grades.items.length > 0 && (
           <section className="grades">
             <div className="grades-inner">
@@ -303,7 +351,7 @@ export default function ConditionDetailPage({ params }: ConditionPageProps) {
           </section>
         )}
 
-        {/* 5. CAUSES */}
+        {/* 5. CAUSES (FOR PRIMARY CONDITION HUBS) */}
         {detail.causes && (
           <section className="causes">
             <div className="section-header--left">
@@ -332,7 +380,7 @@ export default function ConditionDetailPage({ params }: ConditionPageProps) {
           </section>
         )}
 
-        {/* 6. DIAGNOSIS */}
+        {/* 6. DIAGNOSIS (FOR PRIMARY CONDITION HUBS) */}
         {detail.diagnosis && detail.diagnosis.steps.length > 0 && (
           <section className="diagnosis">
             <div className="diagnosis-inner">
@@ -359,7 +407,7 @@ export default function ConditionDetailPage({ params }: ConditionPageProps) {
           </section>
         )}
 
-        {/* 7. TREATMENT OPTIONS */}
+        {/* 7. TREATMENT OPTIONS (FOR PRIMARY CONDITION HUBS) */}
         {detail.treatments && detail.treatments.items.length > 0 && (
           <section className="treatments">
             <div className="section-header--left">
@@ -408,7 +456,7 @@ export default function ConditionDetailPage({ params }: ConditionPageProps) {
           </section>
         )}
 
-        {/* 8. WHAT TO EXPECT */}
+        {/* 8. WHAT TO EXPECT (FOR PRIMARY CONDITION HUBS) */}
         {detail.expect && detail.expect.steps.length > 0 && (
           <section className="expect">
             <div className="expect-inner">
@@ -437,8 +485,31 @@ export default function ConditionDetailPage({ params }: ConditionPageProps) {
           </section>
         )}
 
+        {/* DEDICATED CLINICAL PROCEDURE MARKDOWN (FOR SUB-PROCEDURE / NON-HUB PAGES) */}
+        {!detail.symptoms && cleanBodyMarkdown && (
+          <section
+            className="procedure-content"
+            style={{
+              padding: '3.5rem 0',
+              background: 'var(--cream, #FAF7F2)',
+            }}
+          >
+            <div
+              style={{
+                maxWidth: '860px',
+                margin: '0 auto',
+                padding: '0 1.5rem',
+              }}
+            >
+              <article className="article-body">
+                <MarkdownRenderer content={cleanBodyMarkdown} />
+              </article>
+            </div>
+          </section>
+        )}
+
         {/* 9. FAQ */}
-        {detail.faqs && detail.faqs.length > 0 && (
+        {faqs && faqs.length > 0 && (
           <section className="faq">
             <div className="section-header">
               <div className="section-tag">Frequently Asked Questions</div>
@@ -448,7 +519,7 @@ export default function ConditionDetailPage({ params }: ConditionPageProps) {
             </div>
 
             <div className="faq-list">
-              {detail.faqs.map((faq, idx) => (
+              {faqs.map((faq, idx) => (
                 <details key={idx} className="faq-item">
                   <summary className="faq-question">{faq.question}</summary>
                   <div
@@ -462,18 +533,18 @@ export default function ConditionDetailPage({ params }: ConditionPageProps) {
         )}
 
         {/* 10. RELATED CONDITIONS */}
-        {detail.related && detail.related.length > 0 && (
+        {relatedItems && relatedItems.length > 0 && (
           <section className="related">
             <div className="related-inner">
               <div className="section-header">
-                <div className="section-tag">Related Conditions</div>
+                <div className="section-tag">Related Conditions &amp; Care</div>
                 <h2 className="section-title">
-                  Often confused with, or <em>occurring alongside.</em>
+                  Explore related <em>treatments and conditions.</em>
                 </h2>
               </div>
 
               <div className="related-grid">
-                {detail.related.map((rel, idx) => (
+                {relatedItems.map((rel, idx) => (
                   <Link key={idx} href={rel.href} className="related-card">
                     <div className="related-icon">{rel.icon}</div>
                     <h3 className="related-title">{rel.title}</h3>

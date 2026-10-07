@@ -233,7 +233,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
             <a
               href="https://wa.me/918208927917"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="flex items-center justify-center gap-1.5 py-2.5 bg-[#E0EEFA] text-[#1D6EAE] rounded-warm font-medium text-xs hover:bg-[#1D6EAE] hover:text-white transition"
             >
               <MessageCircle className="w-3.5 h-3.5" />

@@ -6,6 +6,18 @@ export const metadata = {
   title: 'Shri Manmukund Hospital, Amravati | Advanced Proctology & Surgery',
   description:
     'Where classical Ayurveda meets modern surgical care. 15 years of proctology and integrated surgery in Amravati. Ksharsutra, laser, and modern surgery under one roof.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Shri Manmukund Hospital, Amravati | Advanced Proctology & Surgery',
+    description:
+      'Where classical Ayurveda meets modern surgical care. 15 years of proctology and integrated surgery in Amravati. Ksharsutra, laser, and modern surgery under one roof.',
+    url: 'https://shrimanmukundhospital.com/',
+    siteName: 'Shri Manmukund Hospital',
+    locale: 'en_IN',
+    type: 'website',
+  },
 };
 
 export default function HomePage() {

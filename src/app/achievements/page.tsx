@@ -75,6 +75,23 @@ const jsonLdData = {
         'Felicitation by JCI Amravati Golden',
       ],
     },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://shrimanmukundhospital.com/',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Achievements & Recognition',
+          item: 'https://shrimanmukundhospital.com/achievements/',
+        },
+      ],
+    },
   ],
 };
 

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Fraunces, Inter, Noto_Sans_Devanagari } from 'next/font/google';
 import './templates.css';
 import './globals.css';
@@ -6,6 +6,8 @@ import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import { WhatsAppFloat } from '@/components/layout/WhatsAppFloat';
 import { generateHospitalSchema } from '@/lib/seo/schemas';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://shrimanmukundhospital.com';
 
 const fraunces = Fraunces({
   subsets: ['latin'],
@@ -30,8 +32,15 @@ const notoDevanagari = Noto_Sans_Devanagari({
   variable: '--font-noto-devanagari',
 });
 
+export const viewport: Viewport = {
+  themeColor: '#1B3A5B',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://shrimanmukundhospital.com'),
+  metadataBase: new URL(siteUrl),
   title: {
     default: 'Shri Manmukund Hospital, Amravati | Advanced Proctology & Surgery',
     template: '%s | Shri Manmukund Hospital',
@@ -48,6 +57,8 @@ export const metadata: Metadata = {
     'Dr Vipin Tongale',
     'Dr Swati Tongale',
     'Shri Manmukund Hospital',
+    'anorectal surgeon Amravati',
+    'Panchakarma Vidarbha',
   ],
   authors: [{ name: 'Dr. Vipin Tongale' }, { name: 'Dr. Swati Tongale' }],
   creator: 'Shri Manmukund Hospital',
@@ -57,10 +68,16 @@ export const metadata: Metadata = {
     address: true,
     email: true,
   },
+  other: {
+    'geo.region': 'IN-MH',
+    'geo.placename': 'Amravati',
+    'geo.position': '20.9374;77.7796',
+    'ICBM': '20.9374, 77.7796',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://shrimanmukundhospital.com/',
+    url: `${siteUrl}/`,
     siteName: 'Shri Manmukund Hospital, Amravati',
     title: 'Shri Manmukund Hospital, Amravati | Advanced Proctology & Surgery',
     description:
@@ -92,9 +109,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  alternates: {
-    canonical: '/',
-  },
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -119,6 +133,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable} ${notoDevanagari.variable}`}>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(hospitalSchema) }}
