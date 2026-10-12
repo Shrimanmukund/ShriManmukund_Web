@@ -196,7 +196,7 @@ export default function ServicesHubPage() {
 
             <div className="pt-4 border-t border-[rgba(107,127,95,0.15)]">
               <Link href="/services/anorectal-care/" className="service-cta font-bold text-sm text-[#6B7F5F] flex items-center gap-1.5 hover:gap-2.5 transition-all">
-                Explore Full Anorectal Unit &rarr;
+                Explore Full Anorectal Unit
               </Link>
             </div>
           </article>
@@ -264,7 +264,7 @@ export default function ServicesHubPage() {
 
             <div className="pt-4 border-t border-[rgba(184,137,74,0.18)]">
               <Link href="/services/general-surgery/" className="service-cta font-bold text-sm text-[#8C6226] flex items-center gap-1.5 hover:gap-2.5 transition-all">
-                Explore General Surgery Unit &rarr;
+                Explore General Surgery Unit
               </Link>
             </div>
           </article>
@@ -332,7 +332,7 @@ export default function ServicesHubPage() {
 
             <div className="pt-4 border-t border-[rgba(107,127,95,0.15)]">
               <Link href="/services/ayurveda-panchakarma/" className="service-cta font-bold text-sm text-[#6B7F5F] flex items-center gap-1.5 hover:gap-2.5 transition-all">
-                Explore Ayurved &amp; Panchakarma Hub &rarr;
+                Explore Ayurved &amp; Panchakarma Hub
               </Link>
             </div>
           </article>
@@ -411,7 +411,7 @@ export default function ServicesHubPage() {
 
             <div className="pt-4 border-t border-[rgba(192,132,119,0.2)]">
               <Link href="/services/specialty-care/" className="service-cta font-bold text-sm text-[#9E4B3E] flex items-center gap-1.5 hover:gap-2.5 transition-all">
-                Explore Speciality Care Unit &rarr;
+                Explore Speciality Care Unit
               </Link>
             </div>
           </article>
@@ -439,7 +439,7 @@ export default function ServicesHubPage() {
                 <h3 className="service-title">{cat.name}</h3>
                 <p className="service-desc">{cat.shortDescription}</p>
                 <Link href={`/services/${cat.slug}/`} className="service-cta">
-                  Explore {cat.name} &rarr;
+                  Explore {cat.name}
                 </Link>
               </article>
             ))}

@@ -312,7 +312,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
                 <span className="specialist-tag">General Surgery</span>
               </div>
               <Link href="/dr-vipin/" className="specialist-link">
-                Read profile →
+                Read profile
               </Link>
             </article>
 
@@ -340,7 +340,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
                 <span className="specialist-tag">Garbhsanskara</span>
               </div>
               <Link href="/dr-swati/" className="specialist-link">
-                Read profile →
+                Read profile
               </Link>
             </article>
           </div>

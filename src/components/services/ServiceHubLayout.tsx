@@ -286,7 +286,7 @@ export function ServiceHubLayout({ hub }: ServiceHubLayoutProps) {
                   <span className="specialist-tag">General Surgery</span>
                 </div>
                 <Link href="/dr-vipin/" className="specialist-link">
-                  Read profile →
+                  Read profile
                 </Link>
               </article>
             )}
@@ -317,7 +317,7 @@ export function ServiceHubLayout({ hub }: ServiceHubLayoutProps) {
                   <span className="specialist-tag">Garbhsanskara</span>
                 </div>
                 <Link href="/dr-swati/" className="specialist-link">
-                  Read profile →
+                  Read profile
                 </Link>
               </article>
             )}
