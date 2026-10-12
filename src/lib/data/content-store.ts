@@ -94,7 +94,7 @@ Dr. Swati addresses a critical healthcare need in the region by providing female
     journey: [
       { year: '2011', title: 'Outpatient Practice Begins', institution: 'Dr. Vipin and Dr. Swati Tongale begin outpatient practice in Amravati, blending the advances of modern surgery with the depth of Ayurveda.' },
       { year: '2016', title: 'Inpatient Hospital Care', institution: 'The hospital opens inpatient care with its own operation theatre.' },
-      { year: '2017', title: 'MS in Ayurveda (Shalya Tantra)', institution: 'In July 2017 Dr. Swati Tongale completes her MS in Ayurveda (Shalya Tantra).' },
+      { year: '2017', title: 'MS in Ayurveda (Shalya Tantra)', institution: 'Gramin Ayurved College, Patur, Akola — In July 2017 Dr. Swati Tongale completes her MS in Ayurveda (Shalya Tantra).' },
       { year: '2024', title: 'Permanent Facility', institution: 'In June, the hospital moves to its permanent premises in Bapatwadi.' },
     ],
     awards: [
