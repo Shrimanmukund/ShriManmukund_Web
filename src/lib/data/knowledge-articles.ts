@@ -304,7 +304,7 @@ export const KNOWLEDGE_ARTICLES: KnowledgeArticle[] = [
   {
     id: 'kb-15',
     slug: 'choosing-between-ksharsutra-and-laser-for-fistula',
-    title: 'Choosing between Ksharsutra and Laser for Fistula: FiLaC vs Parasurgery',
+    title: 'Choosing between Ksharsutra and Laser for Fistula: FiLaC vs Para Surgery',
     category: 'articles',
     categoryLabel: 'Article',
     typeClass: '',
@@ -329,7 +329,7 @@ export const KNOWLEDGE_ARTICLES: KnowledgeArticle[] = [
     categoryLabel: 'Insight',
     typeClass: 'article-card-type--insight',
     topic: 'Surgery',
-    excerpt: 'The clinical realization that ancient parasurgical methods solve anorectal problems where radical scalpel surgery often risks incontinence or high recurrence.',
+    excerpt: 'The clinical realization that ancient para surgical methods solve anorectal problems where radical scalpel surgery often risks incontinence or high recurrence.',
     author: 'Dr. Vipin',
     authorFull: 'Dr. Vipin Tongale',
     authorAvatar: 'V',

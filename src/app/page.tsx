@@ -62,7 +62,7 @@ export default function HomePage() {
               Where classical Ayurveda meets <em className="whitespace-nowrap inline-block">modern surgical care.</em>
             </h1>
             <p className="hero-sub">
-              Fifteen years of proctology and integrated surgery in Amravati. Ksharsutra, laser, non-surgical, and modern surgery available under one roof, chosen honestly for your case.
+              Fifteen + years of proctology and integrated surgery in Amravati. Ksharsutra, laser, para surgical, and modern surgery available under one roof, chosen honestly for your case.
             </p>
             <div className="hero-ctas">
               <Link href="/contact/#book" className="btn btn-primary">

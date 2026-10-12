@@ -74,7 +74,7 @@ export default function DoctorsPage() {
               Senior Ayurvedic Surgeon, General Surgeon, and Proctologist with 15+ years of continuous practice, AYUSH government surgical service at General Hospital Amravati (2014 to till now), and over 16,000 procedures performed. Widely recognized for successfully treating complex and recurrent fistulas with Ksharsutra and laser proctology.
             </p>
             <div className="specialist-tags">
-              <span className="specialist-tag">Ksharsutra Parasurgery</span>
+              <span className="specialist-tag">Ksharsutra Para Surgery</span>
               <span className="specialist-tag">Laser Proctology</span>
               <span className="specialist-tag">Complex Fistula</span>
               <span className="specialist-tag">General Surgery</span>
@@ -149,7 +149,7 @@ export default function DoctorsPage() {
               <div className="tier-label">Honest Choice</div>
               <h3 className="tier-title">Conservative First</h3>
               <p className="tier-desc">
-                We only recommend surgical or parasurgical procedures when conservative lifestyle and medical management are insufficient for the clinical grade.
+                We only recommend surgical or para surgical procedures when conservative lifestyle and medical management are insufficient for the clinical grade.
               </p>
             </div>
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ServiceHubData } from '@/lib/data/service-hubs';
+import { ServiceHubData, HubCondition } from '@/lib/data/service-hubs';
 
 interface ServiceHubLayoutProps {
   hub: ServiceHubData;
@@ -9,6 +9,46 @@ interface ServiceHubLayoutProps {
 
 export function ServiceHubLayout({ hub }: ServiceHubLayoutProps) {
   const isSwatiTheme = hub.themeColor === 'rose' || hub.slug === 'female-care' || hub.slug === 'female-care-unit';
+
+  const renderConditionCard = (cond: HubCondition) => (
+    <div key={cond.slug} className="condition-card">
+      {cond.iconLetter && (
+        <div className="condition-icon font-devanagari">
+          {cond.iconLetter}
+        </div>
+      )}
+      <h3 className="condition-title">{cond.name}</h3>
+      {cond.nameSanskrit && (
+        <div className="condition-sanskrit font-devanagari">
+          {cond.nameSanskrit}
+        </div>
+      )}
+      <p className="condition-desc">{cond.shortSummary}</p>
+      
+      {cond.tags && cond.tags.length > 0 && (
+        <div className="condition-tags">
+          {cond.tags.map((tag) => (
+            <span key={tag} className="condition-tag">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {cond.linkUrl ? (
+        <Link href={cond.linkUrl} className="condition-link">
+          Read about {cond.name.toLowerCase()}
+        </Link>
+      ) : (
+        <Link
+          href={`/services/${hub.canonicalSlug}/${cond.slug}/`}
+          className="condition-link"
+        >
+          Read about {cond.name.toLowerCase()}
+        </Link>
+      )}
+    </div>
+  );
 
   return (
     <div className={`service-hub-page ${isSwatiTheme ? 'doctor-page-swati' : ''}`}>
@@ -119,47 +159,38 @@ export function ServiceHubLayout({ hub }: ServiceHubLayoutProps) {
               <p className="section-lede">{hub.conditionsSectionLede}</p>
             </div>
 
-            <div className="conditions-grid">
-              {hub.conditions.map((cond) => (
-                <div key={cond.slug} className="condition-card">
-                  {cond.iconLetter && (
-                    <div className="condition-icon font-devanagari">
-                      {cond.iconLetter}
+            {hub.conditionGroups && hub.conditionGroups.length > 0 ? (
+              <div className="space-y-12">
+                {hub.conditionGroups.map((group, gIdx) => (
+                  <div key={gIdx} className="condition-group-block">
+                    <div className="mb-6 pb-3 border-b border-[rgba(107,127,95,0.2)] flex flex-col md:flex-row md:items-end justify-between gap-3">
+                      <div>
+                        {group.eyebrow && (
+                          <div className="text-xs uppercase tracking-widest font-bold text-[#8C6226]">
+                            {group.eyebrow}
+                          </div>
+                        )}
+                        <h3 className="font-serif text-2xl font-bold text-[#1B3A5B] mt-0.5">
+                          {group.title}
+                        </h3>
+                      </div>
+                      {group.lede && (
+                        <p className="text-sm text-[#4A5568] max-w-xl">
+                          {group.lede}
+                        </p>
+                      )}
                     </div>
-                  )}
-                  <h3 className="condition-title">{cond.name}</h3>
-                  {cond.nameSanskrit && (
-                    <div className="condition-sanskrit font-devanagari">
-                      {cond.nameSanskrit}
+                    <div className="conditions-grid">
+                      {group.conditions.map((cond) => renderConditionCard(cond))}
                     </div>
-                  )}
-                  <p className="condition-desc">{cond.shortSummary}</p>
-                  
-                  {cond.tags && cond.tags.length > 0 && (
-                    <div className="condition-tags">
-                      {cond.tags.map((tag) => (
-                        <span key={tag} className="condition-tag">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-
-                  {cond.linkUrl ? (
-                    <Link href={cond.linkUrl} className="condition-link">
-                      Read about {cond.name.toLowerCase()}
-                    </Link>
-                  ) : (
-                    <Link
-                      href={`/services/${hub.canonicalSlug}/${cond.slug}/`}
-                      className="condition-link"
-                    >
-                      Read about {cond.name.toLowerCase()}
-                    </Link>
-                  )}
-                </div>
-              ))}
-            </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="conditions-grid">
+                {hub.conditions.map((cond) => renderConditionCard(cond))}
+              </div>
+            )}
           </section>
         )}
 

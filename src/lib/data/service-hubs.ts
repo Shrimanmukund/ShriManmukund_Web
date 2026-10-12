@@ -8,6 +8,13 @@ export interface HubCondition {
   iconLetter?: string;
 }
 
+export interface HubConditionGroup {
+  eyebrow?: string;
+  title: string;
+  lede?: string;
+  conditions: HubCondition[];
+}
+
 export interface HubTier {
   num: string;
   tierLabel: string;
@@ -80,6 +87,7 @@ export interface ServiceHubData {
   conditionsSectionTitleEm: string;
   conditionsSectionLede: string;
   conditions: HubCondition[];
+  conditionGroups?: HubConditionGroup[];
   // Signatures Section
   signaturesHeading?: string;
   signaturesHeadingEm?: string;
@@ -128,13 +136,13 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
     themeColor: 'indigo',
     metaTitle: 'Anorectal Care Unit, Amravati | Piles, Fissure, Fistula Specialist',
     metaDescription:
-      'Specialist proctology in Amravati by two MS Ayurveda surgeons. Full spectrum: non-surgical, Ksharsutra, laser, and modern surgery.',
+      'Specialist proctology in Amravati by two MS Ayurveda surgeons. Full spectrum: para surgical, Ksharsutra, laser, and modern surgery.',
     eyebrow: 'Care Unit',
     eyebrowBadge: 'Flagship',
     heroHeadline: 'Advanced Anorectal Care, chosen ',
     heroHeadlineEm: 'honestly for the case.',
     heroSubheadline:
-      'The full spectrum of anorectal treatment under one roof: conservative management, non-surgical OPD interventions, Ksharsutra, laser proctology, and modern surgery. The right choice for your case, not the technique that sells best.',
+      'The full spectrum of anorectal treatment under one roof: conservative management, para surgical OPD interventions, Ksharsutra, laser proctology, and modern surgery. The right choice for your case, not the technique that sells best.',
     primaryCtaText: 'Book a consultation',
     primaryCtaUrl: '/contact/#book',
     secondaryCtaText: 'Explore conditions',
@@ -159,8 +167,8 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
       },
       {
         num: '02',
-        tierLabel: 'Non-Surgical',
-        title: 'OPD Interventions',
+        tierLabel: 'Para Surgical',
+        title: 'OPD Para Surgical Interventions',
         desc: 'Office-based procedures that avoid surgery entirely. Rubber band ligation, injection sclerotherapy, Matra Basti for chronic fissure. Same-day, back to work next day.',
         whenApplied: 'Grade II–III piles · Chronic fissure · No sphincter involvement',
       },
@@ -277,29 +285,38 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
         iconLetter: 'बा',
       },
     ],
-    signaturesHeading: 'Two practices we are ',
-    signaturesHeadingEm: 'particularly known for.',
+    signaturesHeading: 'Three treatment approaches ',
+    signaturesHeadingEm: 'under one roof.',
     signaturesLede:
-      'Both are minimally invasive and sphincter-preserving. The right choice depends on your case, and we offer both so the choice is genuine.',
+      'From classical Ksharsutra and Ksharkarma to modern diode laser and office-based para surgical OPD procedures — matched honestly to your case.',
     signatures: [
       {
         badgeLetter: 'क्ष',
-        eyebrow: 'Classical Signature',
-        title: 'Ksharsutra & Its Specialised Variants',
-        desc: 'Two-thousand-year-old technique combined with modern refinements. Classical Ksharsutra, IFTAK for complex cases, and Partial Fistulectomy with Ksharsutra Ligation. Ksharkarma also available for internal piles.',
-        features: ['Classical Ksharsutra', 'IFTAK', 'PF-KsL', 'Ksharkarma'],
+        eyebrow: 'Classical Para Surgical',
+        title: 'Ksharsutra and Ksharkarma',
+        desc: 'Gold-standard classical para surgical techniques for simple, complex, and recurrent fistulas, piles, and chronic fissures with minimal recurrence and preserved sphincter function.',
+        features: ['Classical Ksharsutra', 'Ksharkarma Therapy', 'IFTAK Protocol', 'PF-KsL Variant'],
         linkText: 'Explore Ksharsutra hub',
         linkUrl: '/services/ksharsutra/',
       },
       {
         badgeLetter: 'ल',
-        eyebrow: 'Modern Signature',
+        eyebrow: 'Modern Minimally Invasive',
         title: 'Laser Proctology',
-        desc: 'Modern minimally invasive suite for anorectal conditions. Laser Haemorrhoidoplasty for piles, FiLaC for fistula, laser fissure treatment, and SiLaC for pilonidal sinus. Faster recovery.',
-        features: ['LHP', 'FiLaC', 'SiLaC', 'Laser Fissure'],
+        desc: 'Modern minimally invasive suite for anorectal conditions. Laser Haemorrhoidoplasty (LHP) for piles, FiLaC for fistula, laser fissure treatment, and SiLaC for pilonidal sinus. Faster recovery.',
+        features: ['LHP Piles Laser', 'FiLaC Fistula Laser', 'SiLaC Pilonidal', 'Laser Fissure'],
         linkText: 'Explore laser proctology hub',
         linkUrl: '/services/laser-proctology/',
         isLaser: true,
+      },
+      {
+        badgeLetter: 'अ',
+        eyebrow: 'Day-Care OPD',
+        title: 'Para Surgical Piles Interventions',
+        desc: 'Office-based, day-care OPD procedures for early-to-moderate piles without surgery, incisions, or hospital stays: Rubber Band Ligation, Injection Sclerotherapy, and Matra Basti.',
+        features: ['Rubber Band Ligation', 'Injection Sclerotherapy', 'Matra Basti', 'Zero Cuts / No Stitches'],
+        linkText: 'Explore Para Surgical Interventions',
+        linkUrl: '/services/non-surgical-piles-treatment/',
       },
     ],
     specialistsSection: {
@@ -599,84 +616,72 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
     ctaPrimaryUrl: '/contact/#book',
   },
 
-  'ayurveda-panchakarma': {
-    slug: 'ayurveda-panchakarma',
-    canonicalSlug: 'ayurveda-panchakarma',
-    name: 'Ayurveda & Panchakarma',
-    nameSanskrit: 'आयुर्वेद व पंचकर्म शोधन',
+  panchakarma: {
+    slug: 'panchakarma',
+    canonicalSlug: 'panchakarma',
+    name: 'Panchakarma Unit',
+    nameSanskrit: 'पंचकर्म शोधन चिकित्सा',
     themeColor: 'gold',
-    metaTitle: 'Ayurveda & Panchakarma Unit Amravati | Shri Manmukund Hospital',
+    metaTitle: 'Panchakarma Unit Amravati | Classical 5-Fold Detox & Shodhana Therapies',
     metaDescription:
-      'Classical Ayurvedic medicine and five-fold Panchakarma therapies in Amravati by MS Ayurveda specialists. Vata disorders, spine care, skin diseases, Uttarbasti, and detox.',
-    eyebrow: 'Classical Traditional Medicine',
+      'Authentic classical Panchakarma in Amravati by MS Ayurveda specialists. Basti, Uttarbasti, Jalauka (Leech Therapy), Vamana, Virechana, and full detox regimens.',
+    eyebrow: 'Classical Shodhana & Detox',
     eyebrowBadge: 'Specialist Unit',
-    heroHeadline: 'Classical Ayurveda & Panchakarma, ',
-    heroHeadlineEm: 'delivered with clinical rigour.',
+    heroHeadline: 'Panchakarma Unit, delivered ',
+    heroHeadlineEm: 'with authentic clinical rigour.',
     heroSubheadline:
-      'Authentic classical Ayurvedic treatments and five-fold Panchakarma purification protocols delivered by MS Ayurveda Shalya Tantra specialists in a modern hospital setting. Not a wellness spa: actual clinical medicine.',
+      'Supervised hospital-based 5-fold purification therapies and specialised procedures (Basti, Uttarbasti, Jalauka, Virechana, Vamana, Nasya, Raktamokshana) performed in dedicated therapy suites under direct MS Ayurveda surgeon supervision.',
     primaryCtaText: 'Book a consultation',
     primaryCtaUrl: '/contact/#book',
     secondaryCtaText: 'Explore therapies',
     secondaryCtaUrl: '#conditions',
     heroStatNum: '15',
     heroStatSmall: '+',
-    heroStatLabel: 'Years Clinical Experience',
-    heroStatDesc: 'Grounded in classical Ayurvedic texts, modern diagnostics, and honest clinical practice.',
+    heroStatLabel: 'Years Panchakarma Practice',
+    heroStatDesc: 'Administered with classical Purvakarma, Pradhanakarma, and Paschatkarma protocols.',
     answerFirstSummary:
-      "The Ayurveda & Panchakarma Department at Shri Manmukund Hospital provides classical Ayurvedic medicine and structured Panchakarma therapies for chronic Vata disorders, spine and joint diseases, skin conditions, hyperacidity, non-healing wounds, and metabolic conditions. Supervised directly by MS Ayurveda specialists Dr. Vipin Tongale and Dr. Swati Tongale, all therapies follow classical texts with proper Purvakarma, Pradhanakarma, and Paschatkarma protocols, integrated safely with modern diagnostics.",
-    tiersHeading: 'Four clinical pillars of our ',
-    tiersHeadingEm: 'Ayurveda & Panchakarma practice.',
+      'The Panchakarma Unit at Shri Manmukund Hospital provides classical five-fold purification therapies and specialised restorative procedures including Basti, Uttarbasti, Jalauka (Leech Therapy), Virechana, and Nasya. Supervised directly by MS Ayurveda specialists Dr. Swati Tongale and Dr. Vipin Tongale, every regimen follows authentic Ayurvedic Shodhana protocols in dedicated hospital therapy rooms.',
+    tiersHeading: 'Four stages of our ',
+    tiersHeadingEm: 'clinical Panchakarma protocol.',
     tiersLede:
-      'Evidence-grounded, classical protocols combined with modern diagnostic clarity.',
+      'Classical procedural integrity ensuring safe, effective detoxification and cellular rejuvenation.',
     tiers: [
       {
         num: '01',
-        tierLabel: 'Foundation',
-        title: 'Classical Textual Root',
-        desc: 'Treatment principles derived directly from Sushruta Samhita, Charaka Samhita, and authentic pharmacopoeial formulations.',
-        whenApplied: 'Chronic conditions · Constitutional analysis',
+        tierLabel: 'Preparation',
+        title: 'Purvakarma (Deepana & Snehana)',
+        desc: 'Digestive fire activation (Deepana/Pachana) followed by internal/external oleation (Snehana) and medicated steam (Swedana) to loosen doshas.',
+        whenApplied: 'Pre-procedure phase · Essential for all major cleanses',
       },
       {
         num: '02',
-        tierLabel: 'Diagnostic',
-        title: 'Prakriti & Vikriti Assessment',
-        desc: 'Thorough evaluation of individual constitution and doshic imbalance to customize herbal formulations rather than generic remedies.',
-        whenApplied: 'Vata disorders · Metabolic imbalance',
+        tierLabel: 'Purification',
+        title: 'Pradhanakarma (Main Therapy)',
+        desc: 'Precise administration of primary classical Shodhana: Basti, Virechana, Vamana, Nasya, or Raktamokshana according to individual constitution and doshic state.',
+        whenApplied: 'Chronic conditions · Doshic accumulation · Seasonal detox',
       },
       {
         num: '03',
-        tierLabel: 'Purification',
-        title: '5-Fold Panchakarma Therapies',
-        desc: 'Supervised hospital-based detoxification (Vamana, Virechana, Basti, Nasya, Raktamokshana) delivered with dedicated therapist care.',
-        whenApplied: 'Deep tissue cleansing · Autoimmune & skin',
-        linkText: 'Explore Panchakarma therapies →',
-        linkUrl: '#conditions',
+        tierLabel: 'Specialised',
+        title: 'Specialised Intra-cavitary & Bio-therapies',
+        desc: 'High-precision Uttarbasti for urethral strictures and infertility, and medicinal leech therapy (Jalauka) for localised vascular stasis.',
+        whenApplied: 'Stricture urethra · Infertility · Varicose veins & ulcers',
       },
       {
         num: '04',
-        tierLabel: 'Integration',
-        title: 'Modern Medical Collaboration',
-        desc: 'We work alongside modern laboratory investigations and imaging, never asking patients to stop essential life-saving medications.',
-        whenApplied: 'Hypertension · Diabetes · Non-healing wounds',
+        tierLabel: 'Restoration',
+        title: 'Paschatkarma (Samsarjana Krama)',
+        desc: 'Graduated post-cleansing dietary and lifestyle regimen restoring metabolic fire (Agni) and preventing toxic rebound.',
+        whenApplied: 'Post-procedure recovery · Metabolic stabilisation',
       },
     ],
     tiersNote:
-      'Ayurvedic and Panchakarma therapies work through structured root-cause correction. We set clinical expectations honestly from day one.',
-    conditionsSectionTitle: 'Conditions & Therapies ',
+      'Every Panchakarma protocol is individualized based on pulse diagnosis (Nadi Pariksha) and Prakriti evaluation. Never standardized or rushed.',
+    conditionsSectionTitle: 'Panchakarma therapies ',
     conditionsSectionTitleEm: 'managed under one roof.',
     conditionsSectionLede:
-      'Comprehensive Ayurvedic clinical care, specialised Panchakarma detox, and non-surgical restorative therapies.',
+      'Authentic classical Shodhana and specialised bio-purification therapies delivered by MS specialists.',
     conditions: [
-      {
-        slug: 'vata-vikar',
-        name: 'Vata Vikar (Vata Disorders)',
-        nameSanskrit: 'वात विकार',
-        shortSummary:
-          'Systemic management for neurological disorders, degenerative joint diseases, chronic pain, stiffness, and tremors.',
-        tags: ['Neurological', 'Joint care'],
-        linkUrl: '/services/ayurveda/vata-vikar/',
-        iconLetter: 'वा',
-      },
       {
         slug: 'full-panchakarma',
         name: 'Full Panchakarma Programme',
@@ -718,74 +723,54 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
         iconLetter: 'ज',
       },
       {
-        slug: 'skin-disease',
-        name: 'Skin Diseases & Raktamokshana',
-        nameSanskrit: 'कुष्ठ व रक्तमोक्षण',
+        slug: 'virechana',
+        name: 'Virechana (Therapeutic Purgation)',
+        nameSanskrit: 'विरेचन शोधन',
         shortSummary:
-          'Classical blood purification, herbal decoctions, Virechana, and Leech therapy for eczema, psoriasis, and dermatitis.',
-        tags: ['Blood purification', 'Raktamokshana'],
-        linkUrl: '/services/ayurveda/skin-disease/',
-        iconLetter: 'त्व',
+          'Targeted Pitta detoxification for liver disorders, chronic skin ailments, acidity, and metabolic heat.',
+        tags: ['Pitta detox', 'Skin & liver'],
+        linkUrl: '/services/panchakarma/virechana/',
+        iconLetter: 'वि',
       },
       {
-        slug: 'hyperacidity-amlapitta',
-        name: 'Hyperacidity (Amlapitta)',
-        nameSanskrit: 'अम्लपित्त',
+        slug: 'vamana',
+        name: 'Vamana (Therapeutic Emesis)',
+        nameSanskrit: 'वमन शोधन',
         shortSummary:
-          'Root-cause management for chronic acid reflux, heartburn, GERD, and Pitta metabolic imbalances through herbal remedies and diet.',
-        tags: ['Pitta balance', 'Dietary correction'],
-        linkUrl: '/services/ayurveda/hyperacidity-amlapitta/',
-        iconLetter: 'अम्ल',
+          'Targeted cleansing for excess Kapha disorders, chronic respiratory allergies, asthma, and metabolic sluggishness.',
+        tags: ['Kapha detox', 'Respiratory care'],
+        linkUrl: '/services/panchakarma/vamana/',
+        iconLetter: 'व',
       },
       {
-        slug: 'spine-care',
-        name: 'Spine Care (Kati & Greeva Basti)',
-        nameSanskrit: 'मेरुदण्ड चिकित्सा',
+        slug: 'nasya',
+        name: 'Nasya (Nasal Medication)',
+        nameSanskrit: 'नस्य कर्म',
         shortSummary:
-          'Non-surgical Ayurvedic spine rehabilitation for sciatica, cervical spondylosis, and lumbar disc disease with warm medicated oils.',
-        tags: ['Kati Basti', 'Greeva Basti'],
-        linkUrl: '/services/spine-care/',
-        iconLetter: 'मे',
+          'Medicated herbal administration through nasal passages for cervical spondylosis, sinusitis, migraine, and ENT disorders.',
+        tags: ['ENT & Head', 'Cervical relief'],
+        linkUrl: '/services/panchakarma/nasya/',
+        iconLetter: 'न',
       },
       {
-        slug: 'suvarna-prashan',
-        name: 'Suvarna Prashan (Child Immunity)',
-        nameSanskrit: 'सुवर्ण प्राशन',
+        slug: 'raktamokshana',
+        name: 'Raktamokshana (Bloodletting)',
+        nameSanskrit: 'रक्तमोक्षण',
         shortSummary:
-          'Monthly administration of classical 24k gold bhasma, medhya herbs, and honey on Pushya Nakshatra for child immunity and memory.',
-        tags: ['Pushya Nakshatra', 'Child health'],
-        linkUrl: '/services/ayurveda/suvarna-prashan/',
-        iconLetter: 'सु',
+          'Classical blood purification techniques for severe chronic skin diseases, localized toxic stagnation, and inflammatory disorders.',
+        tags: ['Blood purification', 'Dermatology'],
+        linkUrl: '/services/panchakarma/raktamokshana/',
+        iconLetter: 'र',
       },
       {
-        slug: 'wound-management',
-        name: 'Ayurvedic Wound Management',
-        nameSanskrit: 'व्रण शोधन व रोपण',
+        slug: 'swedan-steam-therapy',
+        name: 'Swedan (Steam Therapy)',
+        nameSanskrit: 'स्वेदन चिकित्सा',
         shortSummary:
-          'Application of classical Shodhana (cleansing) and Ropana (healing) medicated oils and pastes for complex wounds.',
-        tags: ['Vrana Shodhana', 'Herbal oils'],
-        linkUrl: '/services/ayurveda/wound-management/',
-        iconLetter: 'व्र',
-      },
-      {
-        slug: 'non-healing-wounds',
-        name: 'Non-Healing & Diabetic Wounds',
-        nameSanskrit: 'दुष्ट व्रण',
-        shortSummary:
-          'Specialised tissue salvage protocols for chronic ulcerations, venous ulcers, and diabetic foot wounds preventing amputation.',
-        tags: ['Limb salvage', 'Diabetic care'],
-        linkUrl: '/services/ayurveda/non-healing-wounds/',
-        iconLetter: 'दु',
-      },
-      {
-        slug: 'weight-management',
-        name: 'Weight Management (Medoroga)',
-        nameSanskrit: 'मेदोविकार चिकित्सा',
-        shortSummary:
-          'Individualised metabolic reset using classical Medoroga therapies, Udwartanam, herbal teas, and sustainable lifestyle corrections.',
-        tags: ['Metabolic reset', 'Sustainable'],
-        linkUrl: '/services/ayurveda/weight-management/',
-        iconLetter: 'मे',
+          'Herbal steam bath and localized fomentation for muscle relaxation, stiffness, pain relief, and deep toxin release.',
+        tags: ['Steam fomentation', 'Pain relief'],
+        linkUrl: '/services/panchakarma/swedan-steam-therapy/',
+        iconLetter: 'स्वे',
       },
     ],
     signaturesHeading: 'Signature therapies & specialised ',
@@ -812,36 +797,25 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
         linkUrl: '/services/panchakarma/uttarbasti/',
       },
       {
-        badgeLetter: 'मे',
-        eyebrow: 'Spine & Joints',
-        title: 'Spine Care & Oil Reservoirs',
-        desc: 'Targeted non-surgical therapy for disc herniations, sciatica, cervical spondylosis using warm herbal reservoirs (Kati Basti, Greeva Basti, Janu Basti).',
-        features: ['Kati Basti', 'Greeva Basti', 'Sciatica Protocol', 'Pinda Sweda'],
-        linkText: 'Explore Spine Care',
-        linkUrl: '/services/spine-care/',
-        isLaser: true,
+        badgeLetter: 'ज',
+        eyebrow: 'Para Surgical Bio-Purification',
+        title: 'Jalauka (Leech) Therapy Suite',
+        desc: 'Aseptic medical leech therapy for rapid relief of vascular congestion, non-healing ulcers, varicose veins, and localized inflammation.',
+        features: ['Medical-grade Leeches', 'Aseptic Dressing', 'Rapid Decongestion', 'Tissue Salvage'],
+        linkText: 'Explore Leech Therapy',
+        linkUrl: '/services/panchakarma/jalauka-leech-therapy/',
       },
     ],
     specialistsSection: {
       heading: 'Both specialists, ',
       headingEm: 'consulting daily.',
-      lede: 'Consultations, constitutional evaluations, and Panchakarma regimens are directly designed and supervised by MS Ayurveda surgeons.',
+      lede: 'Panchakarma regimens are directly designed and supervised by MS Ayurveda surgeons.',
       doctorSlugs: ['dr-vipin', 'dr-swati'],
     },
     faqsHeading: 'Frequently asked questions about ',
-    faqsHeadingEm: 'Ayurveda & Panchakarma.',
-    faqsLede: 'Honest answers on how classical Ayurvedic therapy works and what to expect.',
+    faqsHeadingEm: 'Panchakarma therapy.',
+    faqsLede: 'Honest answers on how classical Panchakarma detoxification works and what to expect.',
     faqs: [
-      {
-        question: 'How is clinical Ayurveda different from wellness spa Ayurveda?',
-        answer:
-          'Wellness spas provide relaxation treatments. Our unit provides serious medical therapy: diagnostic pulse and physical examination, classical herbal formulations, supervised Panchakarma protocols, and integration with blood tests and imaging.',
-      },
-      {
-        question: 'Can Ayurvedic treatment be taken alongside my modern medications?',
-        answer:
-          'Yes. We evaluate your current prescriptions (e.g. for diabetes, hypertension, thyroid) and ensure there are no adverse drug interactions. We never ask patients to stop essential life-saving modern medicines abruptly.',
-      },
       {
         question: 'How long does a Panchakarma treatment take?',
         answer:
@@ -858,18 +832,18 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
           'Yes. We use medically bred, single-use, purified medicinal leeches (Jalauka) in an aseptic hospital environment. It provides natural anticoagulant enzymes that rapidly relieve localised vascular congestion, varicose stasis, and non-healing ulcers.',
       },
       {
-        question: 'What is Suvarna Prashan and when is it given?',
+        question: 'Is hospital admission required for Panchakarma?',
         answer:
-          'Suvarna Prashan is a classical Ayurvedic formulation of 24k purified gold bhasma, cow ghee, honey, and cognitive-enhancing herbs. It is administered to children on Pushya Nakshatra day every month to support immunity, memory, and digestion.',
+          'Most Panchakarma procedures (Basti, Nasya, Leech therapy, localized therapies) can be taken on a day-care OPD basis with daily 60–90 minute sessions. For intensive full 5-fold purification, admission is available for comprehensive monitoring.',
       },
     ],
     medicallyReviewedBy:
       'Medically reviewed by Dr. Vipin Tongale (MS Shalya Tantra, PhD) & Dr. Swati Tongale (MS Shalya Tantra)',
     ctaDevanagari: 'आइए, मिलते हैं',
     ctaHeadline: 'Ready for authentic ',
-    ctaHeadlineEm: 'Ayurveda & Panchakarma care?',
+    ctaHeadlineEm: 'Panchakarma care?',
     ctaLede:
-      'Experience classical clinical Ayurveda grounded in diagnostic clarity and patient-first care.',
+      'Experience classical clinical Panchakarma grounded in diagnostic clarity and patient-first care.',
     ctaPrimaryText: 'Book a consultation',
     ctaPrimaryUrl: '/contact/#book',
   },
@@ -1240,11 +1214,694 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
     ctaPrimaryText: 'Book with Dr. Swati',
     ctaPrimaryUrl: '/dr-swati/appointment/',
   },
+
+  'ayurveda-panchakarma': {
+    slug: 'ayurveda-panchakarma',
+    canonicalSlug: 'ayurveda-panchakarma',
+    name: 'Ayurveda & Panchakarma Unit',
+    nameSanskrit: 'आयुर्वेद व पंचकर्म शोधन',
+    themeColor: 'gold',
+    metaTitle: 'Ayurveda & Panchakarma Unit Amravati | Shri Manmukund Hospital',
+    metaDescription:
+      'Classical Ayurvedic medicine and five-fold Panchakarma therapies in Amravati by MS Ayurveda specialists. Chronic diseases, spine care, skin diseases, Uttarbasti, and full detox regimens.',
+    eyebrow: 'Classical Traditional Medicine',
+    eyebrowBadge: 'Specialist Unit',
+    heroHeadline: 'Classical Ayurveda & Panchakarma, ',
+    heroHeadlineEm: 'delivered with clinical rigour.',
+    heroSubheadline:
+      'Authentic classical Ayurvedic treatments and five-fold Panchakarma purification protocols delivered by MS Ayurveda Shalya Tantra specialists in a modern hospital setting. Serious clinical medicine, not wellness spa.',
+    primaryCtaText: 'Book a consultation',
+    primaryCtaUrl: '/contact/#book',
+    secondaryCtaText: 'Explore disciplines',
+    secondaryCtaUrl: '#conditions',
+    heroStatNum: '15',
+    heroStatSmall: '+',
+    heroStatLabel: 'Years Clinical Experience',
+    heroStatDesc: 'Grounded in classical Ayurvedic texts, modern diagnostics, and honest clinical practice.',
+    answerFirstSummary:
+      'The Ayurveda & Panchakarma Department at Shri Manmukund Hospital combines classical internal medicine and structured hospital-based purification therapies under one roof. Directed directly by MS Ayurveda specialists Dr. Vipin Tongale and Dr. Swati Tongale, patients receive individualised care for chronic diseases through our Clinical Ayurveda Unit, or targeted bio-purification through our dedicated 5-Fold Panchakarma Suite.',
+    tiersHeading: 'Four clinical pillars of our ',
+    tiersHeadingEm: 'Ayurveda & Panchakarma practice.',
+    tiersLede:
+      'Evidence-grounded, classical protocols combined with modern diagnostic clarity.',
+    tiers: [
+      {
+        num: '01',
+        tierLabel: 'Foundation',
+        title: 'Classical Textual Root',
+        desc: 'Treatment principles derived directly from Sushruta Samhita, Charaka Samhita, and authentic pharmacopoeial formulations.',
+        whenApplied: 'Chronic conditions · Constitutional analysis',
+      },
+      {
+        num: '02',
+        tierLabel: 'Diagnostic',
+        title: 'Prakriti & Vikriti Assessment',
+        desc: 'Thorough evaluation of individual constitution and doshic imbalance to customize herbal formulations rather than generic remedies.',
+        whenApplied: 'Vata disorders · Metabolic imbalance',
+      },
+      {
+        num: '03',
+        tierLabel: 'Purification',
+        title: '5-Fold Panchakarma Therapies',
+        desc: 'Supervised hospital-based detoxification (Vamana, Virechana, Basti, Nasya, Raktamokshana) delivered with dedicated therapist care.',
+        whenApplied: 'Deep tissue cleansing · Autoimmune & skin',
+        linkText: 'Explore Panchakarma therapies →',
+        linkUrl: '/services/panchakarma/',
+      },
+      {
+        num: '04',
+        tierLabel: 'Integration',
+        title: 'Modern Medical Collaboration',
+        desc: 'We work alongside modern laboratory investigations and imaging, never asking patients to stop essential life-saving medications.',
+        whenApplied: 'Hypertension · Diabetes · Non-healing wounds',
+      },
+    ],
+    tiersNote:
+      'Ayurvedic and Panchakarma therapies work through structured root-cause correction. We set clinical expectations honestly from day one.',
+    conditionsSectionTitle: 'Disciplines & therapies ',
+    conditionsSectionTitleEm: 'under one roof.',
+    conditionsSectionLede:
+      'Structured between Clinical Ayurvedic disease management and dedicated hospital-based Panchakarma bio-purification procedures.',
+    conditions: [
+      {
+        slug: 'vata-vikar',
+        name: 'Vata Vikar (Vata Disorders)',
+        nameSanskrit: 'वात विकार',
+        shortSummary:
+          'Systemic management for neurological disorders, degenerative joint diseases, chronic pain, stiffness, and tremors.',
+        tags: ['Ayurveda Medicine', 'Joint & Nerve'],
+        linkUrl: '/services/ayurveda/vata-vikar/',
+        iconLetter: 'वा',
+      },
+      {
+        slug: 'skin-disease',
+        name: 'Skin Diseases (Ayurvedic Care)',
+        nameSanskrit: 'कुष्ठ व त्वचा विकार',
+        shortSummary:
+          'Classical blood purification, herbal decoctions, and dietary correction for eczema, psoriasis, and chronic dermatitis.',
+        tags: ['Ayurveda Medicine', 'Dermatology'],
+        linkUrl: '/services/ayurveda/skin-disease/',
+        iconLetter: 'त्व',
+      },
+      {
+        slug: 'hyperacidity-amlapitta',
+        name: 'Hyperacidity (Amlapitta)',
+        nameSanskrit: 'अम्लपित्त',
+        shortSummary:
+          'Root-cause management for chronic acid reflux, heartburn, GERD, and Pitta metabolic imbalances through herbal remedies and diet.',
+        tags: ['Ayurveda Medicine', 'Pitta Balance'],
+        linkUrl: '/services/ayurveda/hyperacidity-amlapitta/',
+        iconLetter: 'अम्ल',
+      },
+      {
+        slug: 'weight-management',
+        name: 'Weight Management (Medoroga)',
+        nameSanskrit: 'मेदोविकार चिकित्सा',
+        shortSummary:
+          'Individualised metabolic reset using classical Medoroga therapies, Udwartanam, herbal teas, and sustainable lifestyle corrections.',
+        tags: ['Ayurveda Medicine', 'Metabolic Reset'],
+        linkUrl: '/services/ayurveda/weight-management/',
+        iconLetter: 'मे',
+      },
+      {
+        slug: 'full-panchakarma',
+        name: 'Full Panchakarma Programme',
+        nameSanskrit: 'पंचकर्म संपूर्ण शोधन',
+        shortSummary:
+          'Comprehensive classical 5-fold seasonal and therapeutic body purification and metabolic reset in a dedicated hospital setting.',
+        tags: ['Panchakarma Procedure', '5-Fold Detox'],
+        linkUrl: '/services/panchakarma/full-panchakarma/',
+        iconLetter: 'पं',
+      },
+      {
+        slug: 'basti',
+        name: 'Basti (Medicated Enema Therapy)',
+        nameSanskrit: 'बस्ति चिकित्सा',
+        shortSummary:
+          'The crown jewel of Panchakarma for Vata disorders, chronic constipation, sciatica, and lower back degeneration.',
+        tags: ['Panchakarma Procedure', 'Vata Pacification'],
+        linkUrl: '/services/panchakarma/basti/',
+        iconLetter: 'ब',
+      },
+      {
+        slug: 'uttarbasti',
+        name: 'Uttarbasti Therapy',
+        nameSanskrit: 'उत्तरबस्ति',
+        shortSummary:
+          'Specialised intra-cavitary therapy for urethral strictures (led by Dr. Vipin) and female infertility / tubal blockages (led by Dr. Swati).',
+        tags: ['Panchakarma Procedure', 'Stricture & Fertility'],
+        linkUrl: '/services/panchakarma/uttarbasti/',
+        iconLetter: 'उ',
+      },
+      {
+        slug: 'jalauka-leech-therapy',
+        name: 'Jalauka (Leech Therapy)',
+        nameSanskrit: 'जलौकावचारण',
+        shortSummary:
+          'Therapeutic bio-purification for localised vascular stasis, varicose veins, thrombosed veins, and non-healing ulcers.',
+        tags: ['Panchakarma Procedure', 'Vascular Stasis'],
+        linkUrl: '/services/panchakarma/jalauka-leech-therapy/',
+        iconLetter: 'ज',
+      },
+    ],
+    conditionGroups: [
+      {
+        eyebrow: 'Clinical Medicine (Kaya Chikitsa)',
+        title: 'Clinical Ayurveda (Chronic Disease Management)',
+        lede: 'Targeted internal herbal medicine, dietary correction, and metabolic reset for chronic constitutional ailments.',
+        conditions: [
+          {
+            slug: 'vata-vikar',
+            name: 'Vata Vikar (Vata Disorders)',
+            nameSanskrit: 'वात विकार',
+            shortSummary:
+              'Systemic management for neurological disorders, degenerative joint diseases, chronic pain, stiffness, and tremors.',
+            tags: ['Ayurveda Medicine', 'Joint & Nerve'],
+            linkUrl: '/services/ayurveda/vata-vikar/',
+            iconLetter: 'वा',
+          },
+          {
+            slug: 'skin-disease',
+            name: 'Skin Diseases (Ayurvedic Care)',
+            nameSanskrit: 'कुष्ठ व त्वचा विकार',
+            shortSummary:
+              'Classical blood purification, herbal decoctions, and dietary correction for eczema, psoriasis, and chronic dermatitis.',
+            tags: ['Ayurveda Medicine', 'Dermatology'],
+            linkUrl: '/services/ayurveda/skin-disease/',
+            iconLetter: 'त्व',
+          },
+          {
+            slug: 'hyperacidity-amlapitta',
+            name: 'Hyperacidity (Amlapitta)',
+            nameSanskrit: 'अम्लपित्त',
+            shortSummary:
+              'Root-cause management for chronic acid reflux, heartburn, GERD, and Pitta metabolic imbalances through herbal remedies and diet.',
+            tags: ['Ayurveda Medicine', 'Pitta Balance'],
+            linkUrl: '/services/ayurveda/hyperacidity-amlapitta/',
+            iconLetter: 'अम्ल',
+          },
+          {
+            slug: 'weight-management',
+            name: 'Weight Management (Medoroga)',
+            nameSanskrit: 'मेदोविकार चिकित्सा',
+            shortSummary:
+              'Individualised metabolic reset using classical Medoroga therapies, Udwartanam, herbal teas, and sustainable lifestyle corrections.',
+            tags: ['Ayurveda Medicine', 'Metabolic Reset'],
+            linkUrl: '/services/ayurveda/weight-management/',
+            iconLetter: 'मे',
+          },
+        ],
+      },
+      {
+        eyebrow: 'Bio-Purification (Shodhana Chikitsa)',
+        title: 'Panchakarma Therapies (Purification Procedures)',
+        lede: 'Dedicated hospital-based bio-cleansing and intra-cavitary procedures performed under direct MS specialist supervision.',
+        conditions: [
+          {
+            slug: 'full-panchakarma',
+            name: 'Full Panchakarma Programme',
+            nameSanskrit: 'पंचकर्म संपूर्ण शोधन',
+            shortSummary:
+              'Comprehensive classical 5-fold seasonal and therapeutic body purification and metabolic reset in a dedicated hospital setting.',
+            tags: ['Panchakarma Procedure', '5-Fold Detox'],
+            linkUrl: '/services/panchakarma/full-panchakarma/',
+            iconLetter: 'पं',
+          },
+          {
+            slug: 'basti',
+            name: 'Basti (Medicated Enema Therapy)',
+            nameSanskrit: 'बस्ति चिकित्सा',
+            shortSummary:
+              'The crown jewel of Panchakarma for Vata disorders, chronic constipation, sciatica, and lower back degeneration.',
+            tags: ['Panchakarma Procedure', 'Vata Pacification'],
+            linkUrl: '/services/panchakarma/basti/',
+            iconLetter: 'ब',
+          },
+          {
+            slug: 'uttarbasti',
+            name: 'Uttarbasti Therapy',
+            nameSanskrit: 'उत्तरबस्ति',
+            shortSummary:
+              'Specialised intra-cavitary therapy for urethral strictures (led by Dr. Vipin) and female infertility / tubal blockages (led by Dr. Swati).',
+            tags: ['Panchakarma Procedure', 'Stricture & Fertility'],
+            linkUrl: '/services/panchakarma/uttarbasti/',
+            iconLetter: 'उ',
+          },
+          {
+            slug: 'jalauka-leech-therapy',
+            name: 'Jalauka (Leech Therapy)',
+            nameSanskrit: 'जलौकावचारण',
+            shortSummary:
+              'Therapeutic bio-purification for localised vascular stasis, varicose veins, thrombosed veins, and non-healing ulcers.',
+            tags: ['Panchakarma Procedure', 'Vascular Stasis'],
+            linkUrl: '/services/panchakarma/jalauka-leech-therapy/',
+            iconLetter: 'ज',
+          },
+        ],
+      },
+    ],
+    signaturesHeading: 'Three clinical units ',
+    signaturesHeadingEm: 'operating daily.',
+    signaturesLede:
+      'Explore our dedicated Clinical Ayurveda Unit for disease management, our 5-Fold Panchakarma Suite for bio-purification, and our non-surgical Spine Care Unit.',
+    signatures: [
+      {
+        badgeLetter: 'आ',
+        eyebrow: 'Clinical Internal Medicine',
+        title: 'Clinical Ayurveda Unit',
+        desc: 'Evidence-grounded classical Ayurvedic treatment for chronic diseases: Vata Disorders (Vata Vikar), Skin Diseases, Hyperacidity (Amlapitta), Medoroga, Suvarna Prashan, and Non-Healing Wounds.',
+        features: ['Vata Vikar', 'Skin Diseases', 'Hyperacidity', 'Wound Management', 'Suvarna Prashan'],
+        linkText: 'Explore Ayurveda Unit',
+        linkUrl: '/services/ayurveda/',
+      },
+      {
+        badgeLetter: 'पं',
+        eyebrow: 'Classical Bio-Purification',
+        title: 'Panchakarma Unit',
+        desc: 'Dedicated hospital-based 5-fold purification suites: Vamana, Virechana, Basti (Medicated Enema), Nasya, and Raktamokshana, plus specialized Uttarbasti and Leech Therapy (Jalauka).',
+        features: ['5-Fold Detox', 'Basti Therapy', 'Uttarbasti Suite', 'Jalauka (Leech)', 'Virechana'],
+        linkText: 'Explore Panchakarma Hub',
+        linkUrl: '/services/panchakarma/',
+      },
+      {
+        badgeLetter: 'मे',
+        eyebrow: 'Spine & Joints',
+        title: 'Spine Care Unit',
+        desc: 'Non-surgical classical Ayurvedic spine rehabilitation for sciatica, cervical and lumbar disc compression with targeted Kati Basti, Greeva Basti, and herbal protocols.',
+        features: ['Kati Basti', 'Greeva Basti', 'Sciatica Protocol', 'Pinda Sweda'],
+        linkText: 'Explore Spine Care Unit',
+        linkUrl: '/services/spine-care/',
+        isLaser: true,
+      },
+    ],
+    specialistsSection: {
+      heading: 'Both specialists, ',
+      headingEm: 'consulting daily.',
+      lede: 'Consultations, constitutional evaluations, and Panchakarma regimens are directly designed and supervised by MS Ayurveda surgeons.',
+      doctorSlugs: ['dr-vipin', 'dr-swati'],
+    },
+    faqsHeading: 'Frequently asked questions about ',
+    faqsHeadingEm: 'Ayurveda & Panchakarma.',
+    faqsLede: 'Honest answers on how classical Ayurvedic therapy and Panchakarma work.',
+    faqs: [
+      {
+        question: 'What is the difference between the Ayurveda Unit and Panchakarma Unit?',
+        answer:
+          'The Ayurveda Unit focuses on diagnosis, internal herbal formulations, diet, and lifestyle protocols for chronic conditions (like Vata disorders, acidity, skin disease). The Panchakarma Unit provides hospital-based, procedural bio-cleansing therapies (like Basti, Virechana, Vamana, Uttarbasti, Leech therapy) to physically eliminate deep-seated toxins.',
+      },
+      {
+        question: 'Can Ayurvedic treatment be taken alongside modern medications?',
+        answer:
+          'Yes. We evaluate your current prescriptions (e.g. for diabetes, hypertension, thyroid) and ensure there are no adverse drug interactions. We never ask patients to stop essential life-saving modern medicines abruptly.',
+      },
+      {
+        question: 'How long does a Panchakarma treatment take?',
+        answer:
+          'A targeted procedure course (like Basti or Kati Basti) typically takes 7 to 14 days. A comprehensive full Panchakarma detox program lasts 21 to 28 days with proper preparatory (Purvakarma) and restorative dietary (Samsarjana Krama) phases.',
+      },
+    ],
+    medicallyReviewedBy:
+      'Medically reviewed by Dr. Vipin Tongale (MS Shalya Tantra, PhD) & Dr. Swati Tongale (MS Shalya Tantra)',
+    ctaDevanagari: 'आइए, मिलते हैं',
+    ctaHeadline: 'Ready for authentic ',
+    ctaHeadlineEm: 'Ayurveda & Panchakarma care?',
+    ctaLede:
+      'Experience classical clinical Ayurveda and authentic Panchakarma grounded in diagnostic clarity and patient-first care.',
+    ctaPrimaryText: 'Book a consultation',
+    ctaPrimaryUrl: '/contact/#book',
+  },
+
+  'specialty-care': {
+    slug: 'specialty-care',
+    canonicalSlug: 'specialty-care',
+    name: 'Specialty Care Units',
+    nameSanskrit: 'विशेष चिकित्सा विभाग',
+    themeColor: 'sage',
+    metaTitle: 'Specialty Care Units Amravati | Shri Manmukund Hospital',
+    metaDescription:
+      'Specialised clinical units in Amravati for female care, non-surgical spine care, and paediatric Ayurvedic care led by MS Ayurveda specialists.',
+    eyebrow: 'Specialised Departments',
+    eyebrowBadge: 'Specialist Units',
+    heroHeadline: 'Specialty Care Units, tailored ',
+    heroHeadlineEm: 'for specific patient needs.',
+    heroSubheadline:
+      'Dedicated sub-specialty units providing compassionate women-focused care, non-surgical spine rehabilitation, and paediatric care under qualified MS Ayurveda specialists.',
+    primaryCtaText: 'Book a consultation',
+    primaryCtaUrl: '/contact/#book',
+    secondaryCtaText: 'Explore units',
+    secondaryCtaUrl: '#conditions',
+    heroStatNum: '15',
+    heroStatSmall: '+',
+    heroStatLabel: 'Years Specialist Experience',
+    heroStatDesc: 'Delivered in dedicated private clinical spaces with specialist doctor attention throughout.',
+    answerFirstSummary:
+      'The Specialty Care Units at Shri Manmukund Hospital house specialized clinical practices including our Female Specialty Care Unit led by Dr. Swati Tongale, our Spine Care Unit offering non-surgical rehabilitation, and our Child Health and Diabetic Wound Care services.',
+    tiersHeading: 'Three pillars of our ',
+    tiersHeadingEm: 'Specialty Care Units.',
+    tiersLede:
+      'Focus areas designed to address specific patient barriers with dignity, privacy, and clinical expertise.',
+    tiers: [
+      {
+        num: '01',
+        tierLabel: 'Female Care',
+        title: 'Complete Female Privacy & Dignity',
+        desc: 'Female proctology, Uttarbasti for infertility, and Garbhsanskara conducted exclusively by female surgeon Dr. Swati Tongale with female staff.',
+        whenApplied: 'Female proctology · Infertility · Antenatal care',
+        linkText: 'Explore Female Care Unit →',
+        linkUrl: '/services/female-care/',
+      },
+      {
+        num: '02',
+        tierLabel: 'Spine Care',
+        title: 'Non-Surgical Spine Rehabilitation',
+        desc: 'Kati Basti, Greeva Basti, and classical Ayurvedic protocols for disc herniations, sciatica, and cervical spondylosis without surgery.',
+        whenApplied: 'Sciatica · Disc bulges · Spondylosis',
+        linkText: 'Explore Spine Care Unit →',
+        linkUrl: '/services/spine-care/',
+      },
+      {
+        num: '03',
+        tierLabel: 'Paediatric & Wounds',
+        title: 'Paediatric Care & Tissue Salvage',
+        desc: 'Monthly Pushya Nakshatra Suvarna Prashan for child immunity, and specialized Ayurvedic tissue regeneration for non-healing diabetic wounds.',
+        whenApplied: 'Child immunity · Diabetic ulcers · Tissue salvage',
+      },
+    ],
+    tiersNote:
+      'All specialty procedures are performed directly by our senior consultants in dedicated, sanitized clinical spaces.',
+    conditionsSectionTitle: 'Specialised care areas ',
+    conditionsSectionTitleEm: 'managed under one roof.',
+    conditionsSectionLede:
+      'Explore conditions treated across our female specialty, spine care, and specialised clinical units.',
+    conditions: [
+      {
+        slug: 'female-proctology',
+        name: 'Female Proctology',
+        nameSanskrit: 'महिला गुदविकार',
+        shortSummary:
+          'Gentle, private examination and surgical care of piles, fissure, and fistula by female specialist Dr. Swati Tongale.',
+        tags: ['Female Care', 'Dr. Swati'],
+        linkUrl: '/services/female-care/female-proctology/',
+        iconLetter: 'महि',
+      },
+      {
+        slug: 'uttarbasti-for-infertility',
+        name: 'Uttarbasti for Infertility',
+        nameSanskrit: 'उत्तरबस्ती वंध्यत्व चिकित्सा',
+        shortSummary:
+          'Classical Ayurvedic intrauterine protocol for tubal factor infertility, thin endometrium, and recurrent IVF failures.',
+        tags: ['Female Care', 'Infertility'],
+        linkUrl: '/services/female-care/uttarbasti-for-infertility/',
+        iconLetter: 'उ',
+      },
+      {
+        slug: 'sciatica',
+        name: 'Sciatica (Gridhrasi)',
+        nameSanskrit: 'गृध्रसी',
+        shortSummary:
+          'Targeted non-surgical Ayurvedic treatment for sharp shooting leg pain, lumbar disc bulges, and nerve compression.',
+        tags: ['Spine Care', 'Kati Basti'],
+        linkUrl: '/services/spine-care/sciatica/',
+        iconLetter: 'मे',
+      },
+      {
+        slug: 'cervical-spondylosis',
+        name: 'Cervical Spondylosis',
+        nameSanskrit: 'ग्रीवागत वात',
+        shortSummary:
+          'Relief from chronic neck stiffness, radiating arm numbness, and vertigo using Greeva Basti and herbal medicines.',
+        tags: ['Spine Care', 'Greeva Basti'],
+        linkUrl: '/services/spine-care/cervical-spondylosis/',
+        iconLetter: 'ग्री',
+      },
+      {
+        slug: 'suvarna-prashan',
+        name: 'Suvarna Prashan (Child Immunity)',
+        nameSanskrit: 'सुवर्ण प्राशन',
+        shortSummary:
+          'Monthly administration of 24k gold bhasma on Pushya Nakshatra for child brain development and immunity.',
+        tags: ['Paediatric', 'Pushya Nakshatra'],
+        linkUrl: '/services/ayurveda/suvarna-prashan/',
+        iconLetter: 'सु',
+      },
+      {
+        slug: 'diabetic-wound-management',
+        name: 'Diabetic Wound Management',
+        nameSanskrit: 'मधुमेह व्रण',
+        shortSummary:
+          'Specialised tissue salvage protocols for chronic ulcerations and diabetic foot wounds preventing amputation.',
+        tags: ['Wound Care', 'Limb Salvage'],
+        linkUrl: '/services/specialty-care/diabetic-wound-management/',
+        iconLetter: 'दु',
+      },
+    ],
+    signaturesHeading: 'Three dedicated specialty units ',
+    signaturesHeadingEm: 'operating daily.',
+    signaturesLede:
+      'Direct access to specialist doctors with complete clinical privacy and dedicated equipment.',
+    signatures: [
+      {
+        badgeLetter: 'ऋ',
+        eyebrow: 'Led by Dr. Swati',
+        title: 'Female Care Unit',
+        desc: 'Private female proctology, Uttarbasti for infertility & tubal blockages, Masanumasik Garbhsanskara, and postnatal care.',
+        features: ['Female Proctology', 'Uttarbasti for Infertility', 'Garbhsanskara', 'Sutika Paricharya'],
+        linkText: 'Explore Female Care',
+        linkUrl: '/services/female-care/',
+      },
+      {
+        badgeLetter: 'मे',
+        eyebrow: 'Non-Surgical Spine',
+        title: 'Spine Care Unit',
+        desc: 'Targeted Ayurvedic spine rehabilitation for sciatica, cervical spondylosis, and lumbar disc disease using warm herbal therapies (Kati Basti, Greeva Basti, Janu Basti).',
+        features: ['Kati Basti', 'Greeva Basti', 'Sciatica Protocol', 'Spondylosis Care'],
+        linkText: 'Explore Spine Care',
+        linkUrl: '/services/spine-care/',
+        isLaser: true,
+      },
+      {
+        badgeLetter: 'बा',
+        eyebrow: 'Specialized Clinical Care',
+        title: 'Paediatric & Diabetic Wound Care',
+        desc: 'Monthly Suvarna Prashan drops for child immunity, gentle paediatric Ayurvedic care, and limb-salvage protocols for non-healing diabetic wounds.',
+        features: ['Suvarna Prashan', 'Paediatric Care', 'Diabetic Foot Salvage', 'Aseptic Dressing'],
+        linkText: 'Explore Specialty Care',
+        linkUrl: '/services/specialty-care/',
+      },
+    ],
+    specialistsSection: {
+      heading: 'Both specialists, ',
+      headingEm: 'consulting daily.',
+      lede: 'Specialty units are led personally by Dr. Vipin Tongale and Dr. Swati Tongale.',
+      doctorSlugs: ['dr-vipin', 'dr-swati'],
+    },
+    faqsHeading: 'Frequently asked questions about ',
+    faqsHeadingEm: 'our specialty units.',
+    faqsLede: 'Common questions on appointments and specialised treatment options.',
+    faqs: [
+      {
+        question: 'How do I book an appointment with Dr. Swati for female care?',
+        answer:
+          'You can book online, call 8208927917, or message us on WhatsApp. Simply specify that you wish to consult with Dr. Swati Tongale.',
+      },
+      {
+        question: 'Can spine disc problems really be treated without surgery?',
+        answer:
+          'Yes, over 80% of lumbar and cervical disc conditions respond very well to conservative Ayurvedic therapy (Kati Basti, Greeva Basti, Matra Basti, and internal anti-inflammatory formulations) without surgical intervention.',
+      },
+    ],
+    medicallyReviewedBy:
+      'Medically reviewed by Dr. Vipin Tongale (MS Shalya Tantra, PhD) & Dr. Swati Tongale (MS Shalya Tantra)',
+    ctaDevanagari: 'आइए, मिलते हैं',
+    ctaHeadline: 'Ready for specialised ',
+    ctaHeadlineEm: 'clinical care?',
+    ctaLede:
+      'Experience respectful, private, and evidence-grounded treatment tailored to your condition.',
+    ctaPrimaryText: 'Book a consultation',
+    ctaPrimaryUrl: '/contact/#book',
+  },
+
+  'spine-care': {
+    slug: 'spine-care',
+    canonicalSlug: 'spine-care',
+    name: 'Spine Care Unit',
+    nameSanskrit: 'मेरुदण्ड चिकित्सा',
+    themeColor: 'indigo',
+    metaTitle: 'Spine Care & Sciatica Treatment Amravati | Shri Manmukund Hospital',
+    metaDescription:
+      'Non-surgical Ayurvedic spine rehabilitation in Amravati for sciatica, lumbar spondylosis, cervical spondylosis, and disc herniation using Kati Basti and Panchakarma.',
+    eyebrow: 'Non-Surgical Spine Unit',
+    eyebrowBadge: 'Specialist Unit',
+    heroHeadline: 'Non-Surgical Spine Care, chosen ',
+    heroHeadlineEm: 'honestly for the case.',
+    heroSubheadline:
+      'Targeted classical Ayurvedic spine rehabilitation for sciatica, lumbar disc prolapse, cervical spondylosis, and chronic back pain using warm medicated herbal oil reservoirs and classical therapies.',
+    primaryCtaText: 'Book a consultation',
+    primaryCtaUrl: '/contact/#book',
+    secondaryCtaText: 'Explore spine therapies',
+    secondaryCtaUrl: '#conditions',
+    heroStatNum: '15',
+    heroStatSmall: '+',
+    heroStatLabel: 'Years Spine Care Practice',
+    heroStatDesc: 'Over 80% of patients achieve long-term pain relief without surgical spine intervention.',
+    answerFirstSummary:
+      'The Spine Care Unit at Shri Manmukund Hospital provides comprehensive, non-surgical Ayurvedic therapy for degenerative and compressive spinal conditions: sciatica (Gridhrasi), lumbar disc prolapse, cervical spondylosis, and chronic back spasm. Led by MS Ayurveda surgeons, treatment combines targeted oil pooling (Kati Basti, Greeva Basti, Janu Basti) with specialized Basti regimens and internal nerve-strengthening medicines.',
+    tiersHeading: 'Four pillars of our ',
+    tiersHeadingEm: 'spine care protocol.',
+    tiersLede:
+      'Structured rehabilitation aimed at reducing nerve inflammation, nourishing disc tissue, and restoring mobility.',
+    tiers: [
+      {
+        num: '01',
+        tierLabel: 'Diagnosis',
+        title: 'Diagnostic & MRI Assessment',
+        desc: 'Clinical neurological examination correlated with MRI lumbar/cervical spine imaging to assess the exact degree of root compression.',
+        whenApplied: 'Sciatica · Disc prolapse · Spondylosis',
+      },
+      {
+        num: '02',
+        tierLabel: 'Oil Pooling',
+        title: 'Kati Basti & Greeva Basti',
+        desc: 'Retention of warm, medicated herbal oils in a herbal dough ring over the affected spinal segment for deep transdermal tissue nourishment.',
+        whenApplied: 'Lumbosacral pain · Cervical stiffness · Disc bulges',
+        linkText: 'Explore Kati Basti →',
+        linkUrl: '/services/spine-care/kati-basti/',
+      },
+      {
+        num: '03',
+        tierLabel: 'Systemic Care',
+        title: 'Targeted Basti Panchakarma',
+        desc: 'Classical medicated enema series (Matra Basti, Tikta Ksheera Basti) to pacify aggravated Vata dosha at its root seat in the pelvic girdle.',
+        whenApplied: 'Radiating sciatica · Chronic degenerative spine',
+        linkText: 'Explore Basti Therapy →',
+        linkUrl: '/services/panchakarma/basti/',
+      },
+      {
+        num: '04',
+        tierLabel: 'Rehab',
+        title: 'Postural & Lifestyle Rehabilitation',
+        desc: 'Strengthening exercises, ergonomic corrections, and long-term joint health guidance to prevent recurrence.',
+        whenApplied: 'Long-term maintenance · Post-pain recovery',
+      },
+    ],
+    tiersNote:
+      'If MRI or clinical examination indicates severe red-flag neurological deficits (cauda equina syndrome), we provide honest neurosurgical referrals immediately.',
+    conditionsSectionTitle: 'Spine conditions handled ',
+    conditionsSectionTitleEm: 'under one roof.',
+    conditionsSectionLede:
+      'From acute sciatica nerve compression to chronic cervical stiffness, treated without surgery.',
+    conditions: [
+      {
+        slug: 'sciatica',
+        name: 'Sciatica (Gridhrasi)',
+        nameSanskrit: 'गृध्रसी',
+        shortSummary:
+          'Targeted Ayurvedic treatment for sharp, shooting leg pain, numbness, and lumbar disc compression.',
+        tags: ['Sciatica', 'Kati Basti'],
+        linkUrl: '/services/spine-care/sciatica/',
+        iconLetter: 'मे',
+      },
+      {
+        slug: 'lumbar-spondylosis',
+        name: 'Lumbar Spondylosis',
+        nameSanskrit: 'कटिगत वात',
+        shortSummary:
+          'Restorative therapy for lower back degeneration, disc space narrowing, and morning back stiffness.',
+        tags: ['Lower Back', 'Degeneration'],
+        linkUrl: '/services/spine-care/lumbar-spondylosis/',
+        iconLetter: 'क',
+      },
+      {
+        slug: 'cervical-spondylosis',
+        name: 'Cervical Spondylosis',
+        nameSanskrit: 'ग्रीवागत वात',
+        shortSummary:
+          'Non-surgical relief for neck pain, shoulder spasm, radiating arm numbness, and cervical headaches.',
+        tags: ['Neck Pain', 'Greeva Basti'],
+        linkUrl: '/services/spine-care/cervical-spondylosis/',
+        iconLetter: 'ग्री',
+      },
+      {
+        slug: 'kati-basti',
+        name: 'Kati Basti Therapy',
+        nameSanskrit: 'कटिबस्ति',
+        shortSummary:
+          'Continuous warm herbal oil pooling on the lower back to relieve disc compression and relax deep lumbar muscles.',
+        tags: ['Warm Oil Pooling', 'Lumbosacral'],
+        linkUrl: '/services/spine-care/kati-basti/',
+        iconLetter: 'क',
+      },
+      {
+        slug: 'greeva-basti',
+        name: 'Greeva Basti Therapy',
+        nameSanskrit: 'ग्रीवाबस्ति',
+        shortSummary:
+          'Specialised retention of medicated oil over the cervical vertebrae for neck stiffness, pain, and vertigo.',
+        tags: ['Cervical Pooling', 'Spasm Relief'],
+        linkUrl: '/services/spine-care/greeva-basti/',
+        iconLetter: 'ग्री',
+      },
+    ],
+    signaturesHeading: 'Two core spine therapies ',
+    signaturesHeadingEm: 'delivered daily.',
+    signaturesLede:
+      'Non-invasive, deeply soothing classical procedures for rapid spine pain relief.',
+    signatures: [
+      {
+        badgeLetter: 'क',
+        eyebrow: 'Lumbar Spine Therapy',
+        title: 'Kati Basti Therapy Suite',
+        desc: 'Deep warm herbal oil retention on the lumbosacral spine providing rapid pain relief and disc rehydration for sciatica and spondylosis.',
+        features: ['Medicated Herbal Oils', 'Deep Disc Nourishment', 'Spasm Relief', 'No Downtime'],
+        linkText: 'Explore Kati Basti',
+        linkUrl: '/services/spine-care/kati-basti/',
+      },
+      {
+        badgeLetter: 'ग्री',
+        eyebrow: 'Cervical Spine Therapy',
+        title: 'Greeva Basti Therapy Suite',
+        desc: 'Specialised cervical spine oil retention for chronic neck stiffness, vertigo, radiating arm pain, and cervical spondylosis.',
+        features: ['Cervical Decompression', 'Relief from Numbness', 'Gentle & Non-invasive', 'Direct Doctor Oversight'],
+        linkText: 'Explore Greeva Basti',
+        linkUrl: '/services/spine-care/greeva-basti/',
+        isLaser: true,
+      },
+    ],
+    specialistsSection: {
+      heading: 'Both specialists, ',
+      headingEm: 'consulting daily.',
+      lede: 'Spine evaluations and treatment plans are directed by MS Ayurveda surgeons.',
+      doctorSlugs: ['dr-vipin', 'dr-swati'],
+    },
+    faqsHeading: 'Frequently asked questions about ',
+    faqsHeadingEm: 'non-surgical spine care.',
+    faqsLede: 'Clear, honest medical answers on our spine rehabilitation protocols.',
+    faqs: [
+      {
+        question: 'Can Kati Basti help with severe disc slip and sciatica?',
+        answer:
+          'Yes. Kati Basti works by providing sustained heat and transdermal penetration of anti-inflammatory, Vata-pacifying herbal oils. Combined with internal medication and Matra Basti, it significantly reduces nerve root inflammation and promotes disc rehydration.',
+      },
+      {
+        question: 'How many days of spine treatment are required?',
+        answer:
+          'A standard course of Kati Basti or Greeva Basti is 7 to 14 days, with daily 45-minute sessions. Most patients experience significant pain relief within 3 to 5 days.',
+      },
+    ],
+    medicallyReviewedBy:
+      'Medically reviewed by Dr. Vipin Tongale, MS (Ayurveda Shalya Tantra), PhD',
+    ctaDevanagari: 'आइए, मिलते हैं',
+    ctaHeadline: 'Ready for non-surgical ',
+    ctaHeadlineEm: 'spine care?',
+    ctaLede:
+      'Experience effective, classical Ayurvedic spine therapy tailored to your MRI and clinical symptoms.',
+    ctaPrimaryText: 'Book a consultation',
+    ctaPrimaryUrl: '/contact/#book',
+  },
 };
 
 // Aliases
 SERVICE_HUBS['female-care-unit'] = SERVICE_HUBS['female-care'];
-SERVICE_HUBS['panchakarma'] = SERVICE_HUBS['ayurveda-panchakarma'];
 
 export function getServiceHubData(slug: string): ServiceHubData | undefined {
   return SERVICE_HUBS[slug];

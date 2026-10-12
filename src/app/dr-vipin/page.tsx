@@ -141,7 +141,7 @@ export default function DrVipinPage() {
             </p>
 
             <p>
-              His clinical focus has remained deliberately narrow: <strong>proctology, general surgery, and Ayurvedic parasurgical procedures</strong>. Within that scope, he offers Ksharsutra and its specialised variants (including IFTAK and Partial Fistulectomy with Ksharsutra Ligation), laser proctology, non-surgical piles interventions, and conventional surgical options.
+              His clinical focus has remained deliberately narrow: <strong>proctology, general surgery, and Ayurvedic para surgical procedures</strong>. Within that scope, he offers Ksharsutra and its specialised variants (including IFTAK and Partial Fistulectomy with Ksharsutra Ligation), laser proctology, para surgical piles interventions, and conventional surgical options.
             </p>
 
             <p>
@@ -221,13 +221,13 @@ export default function DrVipinPage() {
             </div>
 
             <div className="focus-card">
-              <div className="focus-card-icon">रो</div>
-              <h3 className="focus-card-title">Non-Surgical Interventions</h3>
+              <div className="focus-card-icon">क्ष</div>
+              <h3 className="focus-card-title">Para Surgical Interventions</h3>
               <p className="focus-card-desc">
                 Rubber band ligation, injection sclerotherapy, Matra Basti for chronic fissure. First-line options before considering surgery.
               </p>
-              <Link href="/services/anorectal-care/piles/" className="focus-card-link">
-                Explore non-surgical options
+              <Link href="/services/non-surgical-piles-treatment/" className="focus-card-link">
+                Explore para surgical options
               </Link>
             </div>
           </div>

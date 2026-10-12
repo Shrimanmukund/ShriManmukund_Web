@@ -213,7 +213,7 @@ const HONOURS_DATA: HonourItem[] = [
     year: '2018',
     title: 'Research Papers at 8th World Ayurveda Congress',
     issuer: '8th World Ayurveda Congress 2018, Ahmedabad',
-    desc: 'Presentations on minimal invasive parasurgical protocols and clinical safety in chronic fissure and fistula.',
+    desc: 'Presentations on minimal invasive para surgical protocols and clinical safety in chronic fissure and fistula.',
     image: '/images/achievements/achievement-img-5.jpg',
     alt: 'Presentation of Research paper at 8th World Ayurved Congress 2018, Ahmedabad',
     who: 'Dr. Vipin Tongale',

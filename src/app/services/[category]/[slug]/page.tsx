@@ -201,7 +201,9 @@ export default function ConditionDetailPage({ params }: ConditionPageProps) {
           <div className="condition-hero-inner">
             <div>
               <div className="condition-hero-eyebrow">{detail.eyebrow}</div>
-              <div className="condition-hero-devanagari">{detail.devanagari}</div>
+              {detail.devanagari && (
+                <div className="condition-hero-devanagari">{detail.devanagari}</div>
+              )}
               <h1 className="condition-hero-title">
                 {detail.titleMain} <em>{detail.titleAccent}</em>
               </h1>

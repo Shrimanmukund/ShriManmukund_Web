@@ -22,7 +22,7 @@ export const DOCTORS: Record<'dr-vipin' | 'dr-swati', DoctorProfile> = {
     specialties: [
       'Anorectal Surgery',
       'Complex and Recurrent Fistula',
-      'Ksharsutra Parasurgery',
+      'Ksharsutra Para Surgery',
       'Laser Proctology (LHP, FiLaC)',
       'Uttarbasti for Stricture Urethra',
       'General Surgery (Hernia, Hydrocele, Stones)',
@@ -37,7 +37,7 @@ export const DOCTORS: Record<'dr-vipin' | 'dr-swati', DoctorProfile> = {
     fullBioMarkdown: `
 Dr. Vipin Tongale is a leading Ayurvedic Surgeon and Proctologist based in Amravati, Maharashtra. With an MS in Ayurveda (Shalya Tantra - Surgery) and a PhD in Shalya Tantra, Dr. Tongale combines classical Ayurvedic surgical science with modern minimally invasive proctology and general surgery.
 
-Over the past 15 years, including 12 years of dedicated service as an AYUSH Medical Officer/Surgeon at District Hospital Amravati and as honorary faculty at Shri Gurudev Ayurved Mahavidyalaya, Dr. Tongale has performed more than 16,000 surgical and parasurgical procedures. He is widely recognized across Vidarbha for successfully treating complex, high, and recurrent anal fistulas with minimal recurrence using classical Ksharsutra therapy.
+Over the past 15 years, including 12 years of dedicated service as an AYUSH Medical Officer/Surgeon at District Hospital Amravati and as honorary faculty at Shri Gurudev Ayurved Mahavidyalaya, Dr. Tongale has performed more than 16,000 surgical and para surgical procedures. He is widely recognized across Vidarbha for successfully treating complex, high, and recurrent anal fistulas with minimal recurrence using classical Ksharsutra therapy.
     `,
     journey: [
       { year: '2011', title: 'Clinical Practice Begins', institution: 'Dr. Vipin and Dr. Swati Tongale begin outpatient practice in Amravati, blending the advances of modern surgery with the depth of Ayurveda.' },
@@ -99,7 +99,7 @@ Dr. Swati addresses a critical healthcare need in the region by providing female
     ],
     awards: [
       { title: 'Prabhavshali Ayurvedacharya of Vidarbha', issuer: 'Sakal Gauravagatha 2025, Nagpur (2025)' },
-      { title: 'MS Ayurveda, Shalya Tantra (Postgraduate in Surgery)', issuer: 'Vidarbha Ayurved Mahavidyalaya, Amravati (July 2017)' },
+      { title: 'MS Ayurveda, Shalya Tantra (Postgraduate in Surgery)', issuer: 'Gramin Ayurved College, Patur, Akola (July 2017)' },
       { title: 'Research Paper Presentation', issuer: '8th World Ayurveda Congress, Ahmedabad (2016)' },
       { title: 'Felicitated for Women’s Healthcare', issuer: 'JCI Amravati Golden' },
     ],
@@ -227,31 +227,19 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     slug: 'ksharsutra',
     name: 'Ksharsutra and Ksharkarma',
-    nameSanskrit: 'क्षारसूत्र चिकित्सा',
+    nameSanskrit: 'क्षारसूत्र व क्षारकर्म चिकित्सा',
     shortDescription:
-      'The gold-standard classical Ayurvedic parasurgical treatment for simple, complex, and recurrent anal fistulas with minimal recurrence and preserved sphincter function.',
+      'The gold-standard classical Ayurvedic para surgical treatments: Ksharsutra for fistulas and Ksharkarma (medicated caustic therapy) for piles and fissures, ensuring minimal recurrence and preserved sphincter function.',
     iconName: 'activity',
     leadDoctorSlug: 'dr-vipin',
     orderIndex: 2,
     conditions: [
-      { slug: 'for-anal-fistula', categorySlug: 'ksharsutra', name: 'Ksharsutra for Anal Fistula', shortSummary: 'Step-by-step classical parasurgical track excision and simultaneous healing.' },
+      { slug: 'for-anal-fistula', categorySlug: 'ksharsutra', name: 'Ksharsutra for Anal Fistula', shortSummary: 'Step-by-step classical para surgical track excision and simultaneous healing.' },
+      { slug: 'ksharkarma-therapy', categorySlug: 'ksharsutra', name: 'Ksharkarma (Caustic Therapy)', shortSummary: 'Classical Ayurvedic alkaline caustic therapy as a non-cutting para surgical alternative for piles and fissures.' },
       { slug: 'procedure-and-recovery', categorySlug: 'ksharsutra', name: 'Procedure and Recovery Guide', shortSummary: 'What patients can expect from initial threading to complete track closure.' },
     ],
-    metaTitle: 'Ksharsutra Treatment for Fistula in Amravati | Shri Manmukund Hospital',
-    metaDescription: 'Classical Ayurvedic Ksharsutra treatment for anal fistula and pilonidal sinus by Dr. Vipin Tongale in Amravati. Near-zero recurrence, sphincter safe.',
-  },
-  {
-    slug: 'ksharkarma',
-    name: 'Ksharkarma',
-    nameSanskrit: 'क्षारकर्म चिकित्सा',
-    shortDescription:
-      'Classical Ayurvedic caustic therapy using medicated alkaline paste. A non-cutting parasurgical alternative to surgery.',
-    iconName: 'activity',
-    leadDoctorSlug: 'dr-vipin',
-    orderIndex: 2.5,
-    conditions: [],
-    metaTitle: 'Ksharkarma Treatment | Classical Ayurvedic Caustic Therapy | Amravati',
-    metaDescription: 'Ksharkarma for chronic anal fissure and select conditions. Classical Ayurvedic caustic technique. Non-cutting alternative to surgery.',
+    metaTitle: 'Ksharsutra & Ksharkarma in Amravati | Shri Manmukund Hospital',
+    metaDescription: 'Classical Ayurvedic Ksharsutra and Ksharkarma treatments for anal fistula, piles, and fissure by Dr. Vipin Tongale in Amravati.',
   },
   {
     slug: 'laser-proctology',
@@ -274,10 +262,10 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   },
   {
     slug: 'non-surgical-piles-treatment',
-    name: 'Non-Surgical Piles Interventions',
-    nameSanskrit: 'अशस्त्र अर्श चिकित्सा',
+    name: 'Para Surgical Piles Interventions',
+    nameSanskrit: 'अशस्त्र / क्षारकर्म अर्श चिकित्सा',
     shortDescription:
-      'Office-based, day-care OPD procedures for early-to-moderate piles without surgery, incisions, or hospital stays.',
+      'Office-based, day-care OPD procedures for early-to-moderate piles without surgery, incisions, or hospital stays: Rubber Band Ligation, Injection Sclerotherapy, and Matra Basti.',
     iconName: 'check-circle',
     leadDoctorSlug: 'dr-vipin',
     orderIndex: 4,
@@ -285,8 +273,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { slug: 'rubber-band-ligation', categorySlug: 'non-surgical-piles-treatment', name: 'Rubber Band Ligation', shortSummary: 'Barron’s band ligation cutting off blood flow to internal haemorrhoidal cushions.' },
       { slug: 'sclerotherapy', categorySlug: 'non-surgical-piles-treatment', name: 'Injection Sclerotherapy', shortSummary: 'Micro-injections causing shrinkage and fibrosis of bleeding haemorrhoidal veins.' },
     ],
-    metaTitle: 'Non-Surgical Piles Treatment in Amravati | Shri Manmukund Hospital',
-    metaDescription: 'OPD non-surgical treatments for early piles in Amravati. Rubber band ligation and sclerotherapy without hospital admission.',
+    metaTitle: 'Para Surgical Piles Treatment in Amravati | Shri Manmukund Hospital',
+    metaDescription: 'OPD para surgical treatments for early piles in Amravati. Rubber band ligation and sclerotherapy without hospital admission.',
   },
   {
     slug: 'general-surgery',
@@ -347,7 +335,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { slug: 'full-panchakarma', categorySlug: 'panchakarma', name: 'Full Panchakarma Programme', shortSummary: 'Comprehensive 5-fold seasonal body purification and metabolic reset.' },
       { slug: 'uttarbasti', categorySlug: 'panchakarma', name: 'Uttarbasti Therapy', shortSummary: 'Specialised intra-cavitary therapy for urethral strictures and female infertility.' },
       { slug: 'jalauka-leech-therapy', categorySlug: 'panchakarma', name: 'Jalauka (Leech Therapy)', shortSummary: 'Therapeutic bio-purification for localised vascular stasis, varicose veins, and wounds.' },
-      { slug: 'leech-therapy-jalaukavacharana', categorySlug: 'panchakarma', name: 'Leech Therapy (Jalaukavacharana)', shortSummary: 'Classical Ayurvedic parasurgical bloodletting for skin conditions, varicose veins, and non-healing ulcers.' },
+      { slug: 'leech-therapy-jalaukavacharana', categorySlug: 'panchakarma', name: 'Leech Therapy (Jalaukavacharana)', shortSummary: 'Classical Ayurvedic para surgical bloodletting for skin conditions, varicose veins, and non-healing ulcers.' },
       { slug: 'basti', categorySlug: 'panchakarma', name: 'Basti (Medicated Enema)', shortSummary: 'The crown jewel of Panchakarma for Vata disorders, constipation, and back pain.' },
       { slug: 'virechana', categorySlug: 'panchakarma', name: 'Virechana (Therapeutic Purgation)', shortSummary: 'Targeted detoxification for excess Pitta, liver disorders, and skin ailments.' },
       { slug: 'vamana', categorySlug: 'panchakarma', name: 'Vamana (Therapeutic Emesis)', shortSummary: 'Targeted cleansing for Kapha disorders, chronic allergies, and respiratory issues.' },
@@ -522,6 +510,12 @@ export function getServiceCategoryBySlug(slug: string): ServiceCategory | undefi
   }
   if (slug === 'female-care-unit') {
     return SERVICE_CATEGORIES.find((c) => c.slug === 'female-care');
+  }
+  if (slug === 'ksharkarma') {
+    return SERVICE_CATEGORIES.find((c) => c.slug === 'ksharsutra');
+  }
+  if (slug === 'parasurgical-piles-treatment' || slug === 'para-surgical-piles-treatment') {
+    return SERVICE_CATEGORIES.find((c) => c.slug === 'non-surgical-piles-treatment');
   }
   return SERVICE_CATEGORIES.find((c) => c.slug === slug);
 }

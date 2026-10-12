@@ -46,7 +46,7 @@ export default function AboutPage() {
         <div className="answer-summary-inner">
           <div className="answer-summary-label">In one paragraph</div>
           <p className="answer-summary-text">
-            Shri Manmukund Hospital is a specialist proctology and integrated Ayurvedic surgical hospital in Amravati, Maharashtra. Founded by Dr. Vipin Tongale (MS Shalya Tantra, PhD) and Dr. Swati Tongale (MS Shalya Tantra), it offers Ksharsutra, laser proctology, non-surgical interventions, and modern surgery under one roof. The practice has completed over 16,000 procedures since 2011 across three institutions, and moved to its own permanent facility in June 2024.
+            Shri Manmukund Hospital is a specialist proctology and integrated Ayurvedic surgical hospital in Amravati, Maharashtra. Founded by Dr. Vipin Tongale (MS Shalya Tantra, PhD) and Dr. Swati Tongale (MS Shalya Tantra), it offers Ksharsutra, laser proctology, para surgical interventions, and modern surgery under one roof. The practice has completed over 16,000 procedures since 2011 across three institutions, and moved to its own permanent facility in June 2024.
           </p>
         </div>
       </section>
@@ -157,7 +157,7 @@ export default function AboutPage() {
               <div className="pillar-num">02</div>
               <h3 className="pillar-title">Full-Spectrum Care</h3>
               <p className="pillar-desc">
-                Ksharsutra, laser, non-surgical, and conventional options under one roof. Patients get a fair choice based on their case, not a sales pitch for whatever we happen to offer.
+                Ksharsutra, laser, para surgical, and conventional options under one roof. Patients get a fair choice based on their case, not a sales pitch for whatever we happen to offer.
               </p>
             </div>
             <div className="pillar">
@@ -197,7 +197,7 @@ export default function AboutPage() {
         <div className="section-header">
           <div className="section-tag">The Practice Today</div>
           <h2 className="section-title">
-            Fifteen years in, the numbers <em>tell one story.</em>
+            Fifteen + years in, the numbers <em>tell one story.</em>
           </h2>
         </div>
 
@@ -205,7 +205,7 @@ export default function AboutPage() {
           <div className="practice-today-content">
             <h3>A specialist hospital, not a general one.</h3>
             <p>
-              We deliberately kept the practice narrow. Proctology, general surgery, Ayurveda, Panchakarma, spine care, and female specialty care. Not everything for everyone. Just what we are qualified to do well, done consistently for fifteen years.
+              We deliberately kept the practice narrow. Proctology, general surgery, Ayurveda, Panchakarma, spine care, and female specialty care. Not everything for everyone. Just what we are qualified to do well, done consistently for fifteen + years.
             </p>
             <p>
               This narrowness is why the numbers on the right add up the way they do. It is also why our patients travel from across Vidarbha, and why doctors from other hospitals refer to us for cases that fall within our scope.
@@ -320,7 +320,7 @@ export default function AboutPage() {
               <div className="doctor-role">General Surgeon &amp; Proctologist</div>
               <div className="doctor-creds">MS Ayurveda Shalya Tantra · PhD</div>
               <p className="doctor-bio">
-                Fifteen years of dedicated proctology and integrated surgical practice. Trained at Government Ayurved College Nanded. PhD in Apamarga Kshara for internal piles. 12 years of AYUSH service at District Hospital Amravati.
+                Fifteen + years of dedicated proctology and integrated surgical practice. Trained at Government Ayurved College Nanded. PhD in Apamarga Kshara for internal piles. 12 years of AYUSH service at District Hospital Amravati.
               </p>
               <Link href="/dr-vipin/" className="doctor-link">
                 View Dr. Vipin&apos;s full profile

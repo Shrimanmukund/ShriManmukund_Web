@@ -105,7 +105,7 @@ export function generateHospitalSchema() {
       {
         '@type': 'MedicalProcedure',
         name: 'Ksharsutra Treatment for Anal Fistula and Piles',
-        description: 'Gold-standard Ayurvedic parasurgical ligation for high, complex, and recurrent anal fistulas.',
+        description: 'Gold-standard Ayurvedic para surgical ligation for high, complex, and recurrent anal fistulas.',
       },
       {
         '@type': 'MedicalProcedure',

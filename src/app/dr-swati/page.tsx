@@ -134,7 +134,7 @@ export default function DrSwatiPage() {
             </div>
             <div className="about-doctor-body">
               <p>
-                Dr. Swati Tongale completed her postgraduate surgical degree, <strong>MS in Ayurveda Shalya Tantra</strong>, from Vidarbha Ayurved Mahavidyalaya, Amravati. She co-founded Shri Manmukund Hospital in 2011 with the goal of creating a dedicated, private space where women can seek proctological and gynaecological care without hesitation or embarrassment.
+                Dr. Swati Tongale completed her postgraduate surgical degree, <strong>MS in Ayurveda Shalya Tantra</strong>, from Gramin Ayurved College, Patur, Akola. She co-founded Shri Manmukund Hospital in 2011 with the goal of creating a dedicated, private space where women can seek proctological and gynaecological care without hesitation or embarrassment.
               </p>
 
               <p>
@@ -221,7 +221,7 @@ export default function DrSwatiPage() {
                 <div className="focus-card-icon">ज</div>
                 <h3 className="focus-card-title">Leech Therapy (Jalauka)</h3>
                 <p className="focus-card-desc">
-                  Ayurvedic parasurgical bloodletting for chronic skin conditions, varicose eczema, non-healing wounds, and local stasis.
+                  Ayurvedic para surgical bloodletting for chronic skin conditions, varicose eczema, non-healing wounds, and local stasis.
                 </p>
                 <Link href="/services/ayurveda-panchakarma/leech-therapy-jalaukavacharana/" className="focus-card-link">
                   Explore Leech therapy
@@ -279,7 +279,7 @@ export default function DrSwatiPage() {
               <div className="journey-content">
                 <span className="journey-badge">Postgraduate</span>
                 <h3 className="journey-title">MS in Ayurveda (Shalya Tantra)</h3>
-                <div className="journey-institution">Vidarbha Ayurved Mahavidyalaya, Amravati</div>
+                <div className="journey-institution">Gramin Ayurved College, Patur, Akola</div>
                 <p className="journey-desc">
                   In July 2017 Dr. Swati Tongale completes her MS in Ayurveda (Shalya Tantra).
                 </p>
@@ -321,7 +321,7 @@ export default function DrSwatiPage() {
               <div className="bg-white p-5 rounded-lg border border-[#6B7F5F]/20 shadow-sm">
                 <div className="text-xs font-bold text-[#C08477] uppercase tracking-wider mb-1">July 2017 · Postgraduate Degree</div>
                 <h3 className="font-serif text-lg font-bold text-[#1B3A5B]">MS Ayurveda, Shalya Tantra</h3>
-                <p className="text-xs text-[#5C4F3A] mt-1">Postgraduate degree in surgery, Vidarbha Ayurved Mahavidyalaya</p>
+                <p className="text-xs text-[#5C4F3A] mt-1">Postgraduate degree in surgery, Gramin Ayurved College, Patur, Akola</p>
               </div>
               <div className="bg-white p-5 rounded-lg border border-[#6B7F5F]/20 shadow-sm">
                 <div className="text-xs font-bold text-[#C08477] uppercase tracking-wider mb-1">2016 · Conference Paper</div>

@@ -299,7 +299,7 @@ export const PILES_DETAIL: ConditionDetailData = {
       },
       {
         tierNum: 'Tier 2',
-        tierLabel: 'Non-Surgical OPD',
+        tierLabel: 'Para Surgical OPD',
         modifierClass: 'treatment-card--nonsurgical',
         title: 'Rubber Band Ligation & Sclerotherapy',
         suitability: 'Best suited for: Grade II and select Grade III piles, patients wanting no-surgery option',
@@ -309,7 +309,7 @@ export const PILES_DETAIL: ConditionDetailData = {
           { label: 'Recovery', value: 'Same day' },
           { label: 'Effectiveness', value: 'Grade II–III: 85%' },
         ],
-        linkText: 'Read about non-surgical options',
+        linkText: 'Read about para surgical options',
         linkHref: '/services/non-surgical-piles-treatment/',
       },
       {
@@ -318,14 +318,14 @@ export const PILES_DETAIL: ConditionDetailData = {
         modifierClass: 'treatment-card--ksharsutra',
         title: 'Ksharkarma (Ayurvedic Cauterisation)',
         suitability: 'Best suited for: Internal piles across grades, patients preferring classical approach',
-        desc: "Ancient Ayurvedic parasurgical technique using medicated caustic paste (Kshara) applied to the base of internal haemorrhoids. Causes them to shrink and detach. Dr. Vipin's PhD research was on the safety and efficacy of Apamarga Kshara ointment for this exact indication. Excellent results for Grade II and III with minimal complications.",
+        desc: "Ancient Ayurvedic para surgical technique using medicated caustic paste (Kshara) applied to the base of internal haemorrhoids. Causes them to shrink and detach. Dr. Vipin's PhD research was on the safety and efficacy of Apamarga Kshara ointment for this exact indication. Excellent results for Grade II and III with minimal complications.",
         facts: [
           { label: 'Duration', value: '20 – 30 min' },
           { label: 'Recovery', value: '7 – 14 days' },
           { label: 'Effectiveness', value: 'Grade II–III: 90%+' },
         ],
         linkText: 'Read about Ksharkarma',
-        linkHref: '/services/ksharkarma/',
+        linkHref: '/services/ksharsutra/',
       },
       {
         tierNum: 'Tier 3',
@@ -410,7 +410,7 @@ export const PILES_DETAIL: ConditionDetailData = {
     {
       question: 'What is Ksharkarma and how is it different from surgery?',
       answer:
-        "<p><strong>Ksharkarma is a classical Ayurvedic parasurgical technique</strong> that uses a medicated caustic paste (Kshara) to shrink and detach internal haemorrhoids without cutting. Unlike surgery, there is no excision, no stitches, and no wound. The tissue simply falls off in 7 to 14 days as it heals internally.</p><p>Dr. Vipin's PhD research was on the safety and efficacy of Apamarga Kshara ointment for this exact indication. It is particularly effective for Grade II and III internal piles, with success rates comparable to modern techniques and less risk of anal stricture or sphincter damage.</p>",
+        "<p><strong>Ksharkarma is a classical Ayurvedic para surgical technique</strong> that uses a medicated caustic paste (Kshara) to shrink and detach internal haemorrhoids without cutting. Unlike surgery, there is no excision, no stitches, and no wound. The tissue simply falls off in 7 to 14 days as it heals internally.</p><p>Dr. Vipin's PhD research was on the safety and efficacy of Apamarga Kshara ointment for this exact indication. It is particularly effective for Grade II and III internal piles, with success rates comparable to modern techniques and less risk of anal stricture or sphincter damage.</p>",
     },
     {
       question: 'How long is the recovery from piles treatment?',
@@ -632,7 +632,7 @@ export const FISSURE_DETAIL: ConditionDetailData = {
       },
       {
         tierNum: 'Tier 2',
-        tierLabel: 'Classical Parasurgery',
+        tierLabel: 'Classical Para Surgery',
         modifierClass: 'treatment-card--ksharsutra',
         title: 'Ksharkarma for Chronic Fissure',
         suitability: 'Best suited for: Chronic fissures with hypertrophied sentinel tags',
@@ -643,7 +643,7 @@ export const FISSURE_DETAIL: ConditionDetailData = {
           { label: 'Recovery', value: '5 – 7 days' },
         ],
         linkText: 'Read about Ksharkarma',
-        linkHref: '/services/ksharkarma/',
+        linkHref: '/services/ksharsutra/',
       },
       {
         tierNum: 'Tier 3',
@@ -751,7 +751,7 @@ export const FISTULA_DETAIL: ConditionDetailData = {
     consultation: '30 – 45 minutes',
   },
   answerSummary:
-    'An anal fistula (Bhagandara) develops following an untreated perianal abscess. Because the tract passes through the anal sphincter muscles, conventional surgical cutting (fistulectomy) risks fecal incontinence. At Shri Manmukund Hospital, we specialize in classical Ksharsutra parasurgery and FiLaC (Fistula Laser Closure). The medicated Ksharsutra thread cuts and heals the tract simultaneously from the inside out, preserving sphincter integrity with less than 2% recurrence rate.',
+    'An anal fistula (Bhagandara) develops following an untreated perianal abscess. Because the tract passes through the anal sphincter muscles, conventional surgical cutting (fistulectomy) risks fecal incontinence. At Shri Manmukund Hospital, we specialize in classical Ksharsutra para surgery and FiLaC (Fistula Laser Closure). The medicated Ksharsutra thread cuts and heals the tract simultaneously from the inside out, preserving sphincter integrity with less than 2% recurrence rate.',
   symptoms: {
     sectionTitle: 'Recognizing an anal <em>fistula.</em>',
     sectionLede:
@@ -810,7 +810,7 @@ export const FISTULA_DETAIL: ConditionDetailData = {
         label: 'Mid-Level',
         title: 'Transsphincteric',
         desc: 'Tract passes through both sphincter muscles. Traditional surgery risks incontinence; Ksharsutra is gold standard.',
-        treatment: 'Ksharsutra parasurgery, IFTAK technique',
+        treatment: 'Ksharsutra para surgery, IFTAK technique',
       },
       {
         badge: 'III',
@@ -893,7 +893,7 @@ export const FISTULA_DETAIL: ConditionDetailData = {
         tierNum: 'Tier 1',
         tierLabel: 'Gold Standard',
         modifierClass: 'treatment-card--ksharsutra',
-        title: 'Classical Ksharsutra Parasurgery',
+        title: 'Classical Ksharsutra Para Surgery',
         suitability: 'Best suited for: All grades of simple, complex, and recurrent fistulas',
         desc: 'A specially prepared linen thread coated 21 times with Snuhi Ksheera, Apamarga Kshara, and Haridra powder. Cuts the infected tract mechanically and chemically while laying down healthy fibrous tissue behind it, preserving sphincter continence.',
         facts: [
@@ -1193,16 +1193,16 @@ export const FEMALE_PROCTOLOGY_DETAIL: ConditionDetailData = {
           { label: 'Recovery', value: 'Same day return' },
           { label: 'Incision', value: 'No cuts or stitches' },
         ],
-        linkText: 'Read about non-surgical options',
+        linkText: 'Read about para surgical options',
         linkHref: '/services/non-surgical-piles-treatment/',
       },
       {
         tierNum: 'Tier 3',
-        tierLabel: 'Advanced Parasurgery',
+        tierLabel: 'Advanced Para Surgery',
         modifierClass: 'treatment-card--ksharsutra',
         title: 'Classical Ksharsutra for Complex Fistula',
         suitability: 'Best suited for: Simple & complex anal fistulas, high tracts, and recurrent infections',
-        desc: 'Gold-standard Ayurvedic parasurgical technique utilizing medicated alkaline threads to gently excise the tract while allowing simultaneously healthy granulation with near-zero recurrence.',
+        desc: 'Gold-standard Ayurvedic para surgical technique utilizing medicated alkaline threads to gently excise the tract while allowing simultaneously healthy granulation with near-zero recurrence.',
         facts: [
           { label: 'Sphincter Safety', value: 'Preserved / Protected' },
           { label: 'Recurrence', value: 'Near Zero' },
@@ -2415,17 +2415,17 @@ export const POSTNATAL_CARE_DETAIL: ConditionDetailData = {
 };
 
 export const JALAUKA_DETAIL: ConditionDetailData = {
-  eyebrow: 'Ayurveda & Panchakarma · Parasurgical Therapy',
+  eyebrow: 'Ayurveda & Panchakarma · Para Surgical Therapy',
   devanagari: 'जलौकावचारण',
   titleMain: 'Jalauka (Leech Therapy) &',
   titleAccent: 'Raktamokshana',
   subtitle: 'Classical Ayurvedic bio-purification and bloodletting with medicinal leeches in Amravati',
-  lede: 'Jalaukavacharana (medicinal leech therapy) is one of the most sophisticated classical Ayurvedic parasurgical procedures described in Sushruta Samhita. By utilizing specially cultivated, sterile medicinal leeches (Hirudo medicinalis), it delivers targeted bio-purification for localised vascular congestion, varicose eczema, chronic non-healing ulcers, venous stasis, and severe dermatological diseases.',
+  lede: 'Jalaukavacharana (medicinal leech therapy) is one of the most sophisticated classical Ayurvedic para surgical procedures described in Sushruta Samhita. By utilizing specially cultivated, sterile medicinal leeches (Hirudo medicinalis), it delivers targeted bio-purification for localised vascular congestion, varicose eczema, chronic non-healing ulcers, venous stasis, and severe dermatological diseases.',
   glance: {
     sanskrit: 'Jalaukavacharana (जलौकावचारण)',
     grades: 'Sterile Single-Patient Medicinal Leech Application',
     commonIn: 'Varicose ulcers, chronic eczema, non-healing wounds, vascular stasis',
-    treatmentTier: 'Classical Ayurvedic Parasurgery (Anushalya)',
+    treatmentTier: 'Classical Ayurvedic Para Surgery (Anushalya)',
     recovery: 'Same-day OPD procedure (30–60 min)',
     consultation: '30 – 45 min clinical & vascular evaluation',
   },
@@ -2564,7 +2564,7 @@ export const JALAUKA_DETAIL: ConditionDetailData = {
     ],
   },
   treatments: {
-    sectionTitle: 'Integrated parasurgical care for <em>vascular & skin health.</em>',
+    sectionTitle: 'Integrated para surgical care for <em>vascular & skin health.</em>',
     sectionLede:
       'Leech therapy is paired with specialised classical herbal washes and wound-healing oils.',
     items: [
@@ -2724,7 +2724,7 @@ export function getConditionDetailData(
 
   // Baseline clinical profile for specific procedure or condition subpage
   const cleanName = fallbackName.replace(/\s*\(.*?\)\s*/g, '').trim();
-  const sanskrit = fallbackSanskrit || 'आयुर्वेदीय चिकित्सा';
+  const sanskrit = fallbackSanskrit || '';
   const catName = fallbackCategoryName || 'Specialist Care';
 
   let titleMain = cleanName;
@@ -2744,11 +2744,11 @@ export function getConditionDetailData(
   const isKsharsutra = categorySlug === 'ksharsutra' || conditionSlug.includes('ksharsutra') || conditionSlug.includes('ksharkarma');
 
   const recoveryText = isOPD ? 'Same day (OPD)' : isLaser ? '2 – 5 days (Day-care)' : isKsharsutra ? 'Ambulatory / Weekly OPD' : '1 – 2 weeks';
-  const tierText = isOPD ? 'Non-Surgical OPD' : isLaser ? 'Minimally Invasive Laser' : isKsharsutra ? 'Classical Parasurgery' : 'Specialist Surgical Care';
+  const tierText = isOPD ? 'Para Surgical OPD' : isLaser ? 'Minimally Invasive Laser' : isKsharsutra ? 'Classical Para Surgery' : 'Specialist Surgical Care';
 
   return {
     eyebrow: `${catName} · ${isLaser || isOPD ? 'Procedure' : 'Clinical Care'}`,
-    devanagari: sanskrit.split(' ')[0] || 'चिकित्सा',
+    devanagari: fallbackSanskrit ? (fallbackSanskrit.split(' ')[0] || '') : '',
     titleMain,
     titleAccent,
     subtitle: `Specialised procedure and integrated clinical care in Amravati`,
