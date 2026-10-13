@@ -1,7 +1,5 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import React, { useState, useEffect } from 'react';
 import { Mail, Calendar, CheckCircle2, UserX, Search, RefreshCw, Inbox } from 'lucide-react';
 

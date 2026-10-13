@@ -10,11 +10,29 @@ export function ShareBar({ title }: ShareBarProps) {
   const [currentUrl, setCurrentUrl] = useState('');
   const [copied, setCopied] = useState(false);
 
+  const [showEmailModal, setShowEmailModal] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const hospitalEmail = 'info@shrimanmukundhospital.com';
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setCurrentUrl(window.location.href);
     }
   }, []);
+
+  // Close modal on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setShowEmailModal(false);
+      }
+    };
+    if (showEmailModal) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [showEmailModal]);
 
   const getUrl = () => {
     if (typeof window !== 'undefined' && window.location.href) {
@@ -46,14 +64,32 @@ export function ShareBar({ title }: ShareBarProps) {
     window.open(xUrl, '_blank', 'noopener,noreferrer,width=600,height=500');
   };
 
-  const handleShareEmail = (e: React.MouseEvent) => {
+  const handleOpenEmailModal = (e: React.MouseEvent) => {
     e.preventDefault();
-    const urlToShare = getUrl();
-    const subject = encodeURIComponent(`${title} | Shri Manmukund Hospital`);
-    const body = encodeURIComponent(
-      `I thought you might find this medical guide from Shri Manmukund Hospital helpful:\n\n${title}\n\nRead the complete guide here:\n${urlToShare}`
-    );
-    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    setShowEmailModal(true);
+  };
+
+  const handleCopyHospitalEmail = async () => {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(hospitalEmail);
+      } else {
+        const textArea = document.createElement('textarea');
+        textArea.value = hospitalEmail;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+      }
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2500);
+    } catch (err) {
+      console.error('Failed to copy email: ', err);
+    }
   };
 
   const handleCopy = async () => {
@@ -82,6 +118,17 @@ export function ShareBar({ title }: ShareBarProps) {
     }
   };
 
+  const urlToShare = getUrl();
+  const emailSubject = encodeURIComponent(`Inquiry regarding: ${title} | Shri Manmukund Hospital`);
+  const emailBody = encodeURIComponent(
+    `Hello Shri Manmukund Hospital Team,\n\nI have an inquiry regarding the clinical article:\n"${title}"\n\nArticle link:\n${urlToShare}\n\nMy Message:\n`
+  );
+  const mailtoHospitalUrl = `mailto:${hospitalEmail}?subject=${emailSubject}&body=${emailBody}`;
+  const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${hospitalEmail}&su=${emailSubject}&body=${emailBody}`;
+  const shareFriendUrl = `mailto:?subject=${encodeURIComponent(shareText)}&body=${encodeURIComponent(
+    `I thought you might find this medical guide from Shri Manmukund Hospital helpful:\n\n${title}\n\nRead the complete guide here:\n${urlToShare}`
+  )}`;
+
   return (
     <div className="share-bar" aria-label="Share article section">
       <span className="share-label">Share this article</span>
@@ -102,10 +149,12 @@ export function ShareBar({ title }: ShareBarProps) {
         {/* Email */}
         <button
           type="button"
-          onClick={handleShareEmail}
+          onClick={handleOpenEmailModal}
           className="share-btn"
-          aria-label="Share via Email"
-          title="Share via Email"
+          aria-haspopup="dialog"
+          aria-expanded={showEmailModal}
+          aria-label="Email hospital regarding this article"
+          title={`Email Hospital (${hospitalEmail})`}
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -186,6 +235,262 @@ export function ShareBar({ title }: ShareBarProps) {
           </div>
         )}
       </div>
+
+      {/* Hospital Email Modal Dialog */}
+      {showEmailModal && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="hospital-email-modal-title"
+          onClick={() => setShowEmailModal(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(27, 42, 33, 0.6)',
+            backdropFilter: 'blur(4px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '1rem',
+            zIndex: 9999,
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: '#FFFFFF',
+              borderRadius: '20px',
+              maxWidth: '460px',
+              width: '100%',
+              boxShadow: '0 24px 48px -12px rgba(27, 42, 33, 0.35)',
+              border: '1px solid #E8E4DA',
+              overflow: 'hidden',
+              position: 'relative',
+              textAlign: 'left',
+            }}
+          >
+            {/* Header */}
+            <div
+              style={{
+                background: 'linear-gradient(135deg, #1B3A5B 0%, #2D6A4F 100%)',
+                padding: '1.25rem 1.5rem',
+                color: '#FFFFFF',
+                position: 'relative',
+              }}
+            >
+              <button
+                type="button"
+                onClick={() => setShowEmailModal(false)}
+                aria-label="Close dialog"
+                style={{
+                  position: 'absolute',
+                  top: '1rem',
+                  right: '1rem',
+                  background: 'rgba(255, 255, 255, 0.18)',
+                  border: 'none',
+                  color: '#FFFFFF',
+                  width: '30px',
+                  height: '30px',
+                  borderRadius: '50%',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '1rem',
+                  lineHeight: 1,
+                  transition: 'background 0.2s',
+                }}
+              >
+                ✕
+              </button>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
+                <span
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '28px',
+                    height: '28px',
+                    borderRadius: '7px',
+                    background: 'rgba(255, 255, 255, 0.2)',
+                  }}
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </span>
+                <span style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', opacity: 0.9 }}>
+                  Shri Manmukund Hospital
+                </span>
+              </div>
+
+              <h3
+                id="hospital-email-modal-title"
+                style={{
+                  margin: 0,
+                  fontSize: '1.2rem',
+                  fontWeight: 700,
+                  fontFamily: 'var(--serif)',
+                  color: '#FFFFFF',
+                }}
+              >
+                Hospital Email &amp; Inquiry
+              </h3>
+              <p style={{ margin: '0.35rem 0 0', fontSize: '0.8125rem', opacity: 0.9, lineHeight: 1.4, color: '#E8E4DA' }}>
+                Reach our clinical team directly with queries about this guide or treatment options.
+              </p>
+            </div>
+
+            {/* Body */}
+            <div style={{ padding: '1.25rem 1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {/* Article reference note */}
+              <div
+                style={{
+                  background: '#FBF7EC',
+                  border: '1px solid #E8E4DA',
+                  borderRadius: '10px',
+                  padding: '0.625rem 0.875rem',
+                }}
+              >
+                <div style={{ fontSize: '0.6875rem', fontWeight: 600, color: '#8A7A68', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                  Referenced Guide
+                </div>
+                <div style={{ fontSize: '0.8125rem', fontWeight: 600, color: '#2D2A20', marginTop: '0.2rem' }}>
+                  {title}
+                </div>
+              </div>
+
+              {/* Hospital email display & copy */}
+              <div>
+                <label
+                  style={{
+                    display: 'block',
+                    fontSize: '0.6875rem',
+                    fontWeight: 700,
+                    color: '#6B7F5F',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                    marginBottom: '0.375rem',
+                  }}
+                >
+                  Official Hospital Email Address
+                </label>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    background: '#F4F1EA',
+                    border: '1px solid #DDD7C9',
+                    borderRadius: '10px',
+                    padding: '0.5rem 0.75rem',
+                    gap: '0.5rem',
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: '0.875rem',
+                      fontWeight: 600,
+                      color: '#1B3A5B',
+                      fontFamily: 'monospace',
+                      wordBreak: 'break-all',
+                    }}
+                  >
+                    {hospitalEmail}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={handleCopyHospitalEmail}
+                    style={{
+                      background: copiedEmail ? '#2D6A4F' : '#FFFFFF',
+                      color: copiedEmail ? '#FFFFFF' : '#2D2A20',
+                      border: '1px solid #D4A373',
+                      borderRadius: '6px',
+                      padding: '0.35rem 0.65rem',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                      flexShrink: 0,
+                      transition: 'all 0.2s',
+                    }}
+                  >
+                    {copiedEmail ? '✓ Copied' : 'Copy'}
+                  </button>
+                </div>
+              </div>
+
+              {/* Action buttons */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', paddingTop: '0.25rem' }}>
+                <a
+                  href={mailtoHospitalUrl}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.5rem',
+                    background: '#1B3A5B',
+                    color: '#FFFFFF',
+                    textDecoration: 'none',
+                    padding: '0.75rem 1rem',
+                    borderRadius: '10px',
+                    fontSize: '0.875rem',
+                    fontWeight: 600,
+                    boxShadow: '0 2px 8px rgba(27, 58, 91, 0.2)',
+                    transition: 'background 0.2s',
+                  }}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                  <span>Open Email Client (To: {hospitalEmail})</span>
+                </a>
+
+                <a
+                  href={gmailWebUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.5rem',
+                    background: '#FFFFFF',
+                    color: '#1B3A5B',
+                    border: '1.5px solid #1B3A5B',
+                    textDecoration: 'none',
+                    padding: '0.75rem 1rem',
+                    borderRadius: '10px',
+                    fontSize: '0.875rem',
+                    fontWeight: 600,
+                    transition: 'all 0.2s',
+                  }}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.272H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
+                  </svg>
+                  <span>Open in Gmail (Web Browser)</span>
+                </a>
+              </div>
+
+              {/* Forward to friend option */}
+              <div style={{ borderTop: '1px solid #E8E4DA', paddingTop: '0.75rem', textAlign: 'center' }}>
+                <p style={{ margin: 0, fontSize: '0.75rem', color: '#666' }}>
+                  Want to recommend this guide to someone else?{' '}
+                  <a
+                    href={shareFriendUrl}
+                    style={{ color: '#2D6A4F', fontWeight: 600, textDecoration: 'underline' }}
+                  >
+                    Share via Blank Email
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

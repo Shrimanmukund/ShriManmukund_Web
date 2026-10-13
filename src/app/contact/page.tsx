@@ -86,7 +86,10 @@ export default function ContactPage() {
             <div className="quick-info-icon">📧</div>
             <div className="quick-info-label">Email</div>
             <div className="quick-info-value">
-              info@shrimanmukund.com<small>Response within 24 hours</small>
+              <a href="mailto:info@shrimanmukundhospital.com" className="hover:underline" style={{ color: 'inherit' }}>
+                info@shrimanmukundhospital.com
+              </a>
+              <small>Response within 24 hours</small>
             </div>
           </div>
           <div className="quick-info-item">
