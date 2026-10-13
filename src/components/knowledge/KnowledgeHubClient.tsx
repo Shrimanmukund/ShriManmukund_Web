@@ -18,6 +18,38 @@ export function KnowledgeHubClient() {
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
 
+  // Sync initial page & category from URL parameters on mount
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const pageParam = parseInt(params.get('page') || '1', 10);
+      if (pageParam && !isNaN(pageParam) && pageParam >= 1) {
+        setCurrentPage(pageParam);
+      }
+      const catParam = params.get('category');
+      if (catParam && ['playbooks', 'articles', 'insights', 'patient-resources'].includes(catParam)) {
+        setSelectedCategory(catParam as CategoryFilter);
+      }
+    }
+  }, []);
+
+  // Listen to browser Back/Forward navigation
+  useEffect(() => {
+    const handlePopState = () => {
+      const params = new URLSearchParams(window.location.search);
+      const pageParam = parseInt(params.get('page') || '1', 10);
+      setCurrentPage(pageParam || 1);
+      const catParam = params.get('category') as CategoryFilter;
+      if (catParam && ['playbooks', 'articles', 'insights', 'patient-resources'].includes(catParam)) {
+        setSelectedCategory(catParam);
+      } else {
+        setSelectedCategory('all');
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   // Fetch live published articles from API on mount
   useEffect(() => {
     let isMounted = true;
@@ -108,27 +140,61 @@ export function KnowledgeHubClient() {
     return filteredArticles.slice(start, start + PAGE_SIZE);
   }, [filteredArticles, validPage]);
 
+  // Keep currentPage in sync if filtered items shrink
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [currentPage, totalPages]);
+
+  const updateUrl = (page: number, category: CategoryFilter) => {
+    if (typeof window === 'undefined') return;
+    const url = new URL(window.location.href);
+    if (page > 1) {
+      url.searchParams.set('page', page.toString());
+    } else {
+      url.searchParams.delete('page');
+    }
+    if (category !== 'all') {
+      url.searchParams.set('category', category);
+    } else {
+      url.searchParams.delete('category');
+    }
+    window.history.pushState({ page, category }, '', url.toString());
+  };
+
+  const scrollToArticles = () => {
+    if (typeof window === 'undefined') return;
+    const element = document.getElementById('all-content');
+    if (element) {
+      const yOffset = -95; // Offset to clear sticky header
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    }
+  };
+
   const handleCategoryChange = (category: CategoryFilter) => {
     setSelectedCategory(category);
     setCurrentPage(1);
-    const element = document.getElementById('all-content');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    updateUrl(1, category);
+    scrollToArticles();
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
     setCurrentPage(1);
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('page');
+      window.history.replaceState({}, '', url.toString());
+    }
   };
 
   const handlePageChange = (page: number) => {
-    if (page >= 1 && page <= totalPages) {
+    if (page >= 1 && page <= totalPages && page !== validPage) {
       setCurrentPage(page);
-      const element = document.getElementById('all-content');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      updateUrl(page, selectedCategory);
+      scrollToArticles();
     }
   };
 
@@ -276,8 +342,8 @@ export function KnowledgeHubClient() {
         </button>
       </div>
 
-      {/* 3. FEATURED CONTENT (Shown when on 'all' filter and no active search query) */}
-      {selectedCategory === 'all' && !searchQuery.trim() && (
+      {/* 3. FEATURED CONTENT (Shown when on 'all' filter, no active search query, and on page 1) */}
+      {selectedCategory === 'all' && !searchQuery.trim() && validPage === 1 && (
         <section className="featured">
           <div className="section-header section-header--split">
             <div className="section-header-text">
@@ -291,7 +357,7 @@ export function KnowledgeHubClient() {
               className="section-header-cta"
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById('all-content')?.scrollIntoView({ behavior: 'smooth' });
+                scrollToArticles();
               }}
             >
               View all featured →
@@ -429,6 +495,8 @@ export function KnowledgeHubClient() {
                 setSelectedCategory('all');
                 setSearchQuery('');
                 setCurrentPage(1);
+                updateUrl(1, 'all');
+                scrollToArticles();
               }}
             >
               Reset Filters &amp; View All
@@ -474,13 +542,13 @@ export function KnowledgeHubClient() {
 
         {/* 5. PAGINATION */}
         {totalPages > 1 && (
-          <div className="pagination">
+          <nav className="pagination" aria-label="Knowledge hub pagination">
             <button
               className="pagination-btn pagination-btn--nav"
               type="button"
               onClick={() => handlePageChange(validPage - 1)}
               disabled={validPage === 1}
-              style={{ opacity: validPage === 1 ? 0.4 : 1, cursor: validPage === 1 ? 'not-allowed' : 'pointer' }}
+              aria-label="Go to previous page"
             >
               ← Previous
             </button>
@@ -491,6 +559,8 @@ export function KnowledgeHubClient() {
                 className={`pagination-btn ${pageNum === validPage ? 'active' : ''}`}
                 type="button"
                 onClick={() => handlePageChange(pageNum)}
+                aria-label={`Go to page ${pageNum}`}
+                aria-current={pageNum === validPage ? 'page' : undefined}
               >
                 {pageNum}
               </button>
@@ -501,11 +571,11 @@ export function KnowledgeHubClient() {
               type="button"
               onClick={() => handlePageChange(validPage + 1)}
               disabled={validPage === totalPages}
-              style={{ opacity: validPage === totalPages ? 0.4 : 1, cursor: validPage === totalPages ? 'not-allowed' : 'pointer' }}
+              aria-label="Go to next page"
             >
               Next →
             </button>
-          </div>
+          </nav>
         )}
       </section>
 
