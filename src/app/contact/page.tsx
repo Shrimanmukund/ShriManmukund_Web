@@ -1,4 +1,5 @@
 import React from 'react';
+import '@/app/templates.css';
 import Link from 'next/link';
 import { AppointmentEnquiryForm } from '@/components/forms/AppointmentEnquiryForm';
 

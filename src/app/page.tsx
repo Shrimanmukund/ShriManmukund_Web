@@ -65,10 +65,10 @@ export default function HomePage() {
               Fifteen + years of proctology and integrated surgery in Amravati. Ksharsutra, laser, para surgical, and modern surgery available under one roof, chosen honestly for your case.
             </p>
             <div className="hero-ctas">
-              <Link href="/contact/#book" className="btn btn-primary">
+              <Link prefetch={false} href="/contact/#book" className="btn btn-primary">
                 Book a consultation
               </Link>
-              <Link href="/doctors/" className="btn btn-ghost">
+              <Link prefetch={false} href="/doctors/" className="btn btn-ghost">
                 Meet our doctors
               </Link>
             </div>
@@ -80,10 +80,11 @@ export default function HomePage() {
               alt="Where classical Ayurveda meets modern surgical care - Shri Manmukund Hospital"
               width={480}
               height={432}
-              sizes="(max-width: 640px) 280px, (max-width: 1024px) 380px, 480px"
+              sizes="(max-width: 640px) 274px, (max-width: 900px) 300px, 480px"
               className="w-full h-auto object-contain select-none pointer-events-none"
               priority
-              quality={80}
+              fetchPriority="high"
+              quality={75}
             />
           </div>
         </div>
@@ -128,9 +129,10 @@ export default function HomePage() {
                 alt="Advanced Anorectal Care"
                 width={160}
                 height={160}
-                sizes="160px"
+                sizes="(max-width: 900px) 120px, 160px"
                 className="service-image-img"
                 loading="lazy"
+                quality={75}
               />
             </div>
             <div className="service-icon">श</div>
@@ -139,7 +141,7 @@ export default function HomePage() {
             <p className="service-desc">
               Piles, fissure, fistula, and complex cases. Full range from conservative management through Ksharsutra, laser proctology, and modern surgery. Every option honestly explained.
             </p>
-            <Link href="/services/anorectal-care/" className="service-cta">
+            <Link prefetch={false} href="/services/anorectal-care/" className="service-cta">
               Explore anorectal care
             </Link>
           </article>
@@ -151,9 +153,10 @@ export default function HomePage() {
                 alt="Ayurveda & Panchakarma"
                 width={160}
                 height={160}
-                sizes="160px"
+                sizes="(max-width: 900px) 120px, 160px"
                 className="service-image-img"
                 loading="lazy"
+                quality={75}
               />
             </div>
             <div className="service-icon">आ</div>
@@ -162,7 +165,7 @@ export default function HomePage() {
             <p className="service-desc">
               Clinical Ayurveda for hyperacidity, spine, sciatica, skin, and non-healing wounds. Full Panchakarma unit with careful case selection. Delivered as medicine, not as lifestyle.
             </p>
-            <Link href="/services/ayurveda-panchakarma/" className="service-cta">
+            <Link prefetch={false} href="/services/ayurveda-panchakarma/" className="service-cta">
               Explore Ayurveda
             </Link>
           </article>
@@ -174,9 +177,10 @@ export default function HomePage() {
                 alt="General Surgery"
                 width={160}
                 height={160}
-                sizes="160px"
+                sizes="(max-width: 900px) 120px, 160px"
                 className="service-image-img"
                 loading="lazy"
+                quality={75}
               />
             </div>
             <div className="service-icon">म</div>
@@ -185,7 +189,7 @@ export default function HomePage() {
             <p className="service-desc">
               Hernia, hydrocele, breast lump, lipoma performed by our team. Gall bladder, appendicectomy, and laparoscopic procedures coordinated with visiting specialists at the hospital.
             </p>
-            <Link href="/services/general-surgery/" className="service-cta">
+            <Link prefetch={false} href="/services/general-surgery/" className="service-cta">
               Explore general surgery
             </Link>
           </article>
@@ -197,9 +201,10 @@ export default function HomePage() {
                 alt="Female Care Unit"
                 width={160}
                 height={160}
-                sizes="160px"
+                sizes="(max-width: 900px) 120px, 160px"
                 className="service-image-img"
                 loading="lazy"
+                quality={75}
               />
             </div>
             <div className="service-icon">ऋ</div>
@@ -208,7 +213,7 @@ export default function HomePage() {
             <p className="service-desc">
               Female proctology, Uttarbasti for infertility, menstrual care, Masanumasik Garbhsanskara, and postnatal Panchakarma. For patients who prefer a female specialist throughout.
             </p>
-            <Link href="/services/female-care/" className="service-cta">
+            <Link prefetch={false} href="/services/female-care/" className="service-cta">
               Explore female care
             </Link>
           </article>
@@ -248,11 +253,12 @@ export default function HomePage() {
                 <Image
                   src="/images/doctors/dr-vipin-tongale.jpg"
                   alt="Dr. Vipin Tongale - General Surgeon & Proctologist"
-                  width={220}
-                  height={220}
-                  sizes="220px"
+                  width={184}
+                  height={184}
+                  sizes="184px"
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
+                  quality={75}
                 />
               </div>
             </div>
@@ -267,7 +273,7 @@ export default function HomePage() {
               <span className="specialist-tag">Laser Proctology</span>
               <span className="specialist-tag">General Surgery</span>
             </div>
-            <Link href="/dr-vipin/" className="specialist-link">
+            <Link prefetch={false} href="/dr-vipin/" className="specialist-link">
               Read profile
             </Link>
           </article>
@@ -278,11 +284,12 @@ export default function HomePage() {
                 <Image
                   src="/images/doctors/dr-swati-tongale.jpg"
                   alt="Dr. Swati Tongale - Female Care Unit Lead"
-                  width={220}
-                  height={220}
-                  sizes="220px"
+                  width={184}
+                  height={184}
+                  sizes="184px"
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
+                  quality={75}
                 />
               </div>
             </div>
@@ -297,7 +304,7 @@ export default function HomePage() {
               <span className="specialist-tag">Uttarbasti</span>
               <span className="specialist-tag">Garbhsanskara</span>
             </div>
-            <Link href="/dr-swati/" className="specialist-link">
+            <Link prefetch={false} href="/dr-swati/" className="specialist-link">
               Read profile
             </Link>
           </article>
@@ -329,7 +336,7 @@ export default function HomePage() {
                 <p className="article-excerpt">{article.excerpt}</p>
                 <div className="article-meta">
                   <span className="article-time">{article.readTime}</span>
-                  <Link href={article.href} className="article-more">
+                  <Link prefetch={false} href={article.href} className="article-more">
                     Read more &rarr;
                   </Link>
                 </div>
@@ -350,7 +357,7 @@ export default function HomePage() {
             <p className="contact-lede">
               Just beside Ahilya Mangal Karyalaya in Bapatwadi, Amravati. About a hundred metres from Radient Hospital. Free parking available.
             </p>
-            <Link href="/contact/#book" className="btn btn-primary">
+            <Link prefetch={false} href="/contact/#book" className="btn btn-primary">
               Book a consultation
             </Link>
           </div>

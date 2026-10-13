@@ -1,4 +1,5 @@
 import React from 'react';
+import '@/app/templates.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
@@ -192,22 +193,26 @@ export default function DoctorsPage() {
               <span className="consultation-icon">👨‍⚕️</span>
               Dr. Vipin Tongale
             </h3>
-            <ul className="consultation-hours">
-              <li>
-                <span>Monday – Saturday (Afternoon)</span>
-                <strong>1:00 PM – 4:30 PM</strong>
+            <ul className="consultation-hours space-y-2 mt-4 text-[15px] leading-relaxed">
+              <li className="flex flex-wrap items-baseline gap-2">
+                <span className="text-stone-700">Monday – Saturday (Afternoon)</span>
+                <span className="text-stone-400 font-normal">-</span>
+                <strong className="text-stone-900 font-semibold">1:00 PM – 4:30 PM</strong>
               </li>
-              <li>
-                <span>Monday – Saturday (Evening)</span>
-                <strong>6:00 PM – 8:30 PM</strong>
+              <li className="flex flex-wrap items-baseline gap-2">
+                <span className="text-stone-700">Monday – Saturday (Evening)</span>
+                <span className="text-stone-400 font-normal">-</span>
+                <strong className="text-stone-900 font-semibold">6:00 PM – 8:30 PM</strong>
               </li>
-              <li>
-                <span>Sunday</span>
-                <strong>Prior Appointment Only</strong>
+              <li className="flex flex-wrap items-baseline gap-2">
+                <span className="text-stone-700">Sunday</span>
+                <span className="text-stone-400 font-normal">-</span>
+                <strong className="text-stone-900 font-semibold">Prior Appointment Only</strong>
               </li>
-              <li>
-                <span>Morning Hours</span>
-                <strong>Dedicated OT &amp; Planned Surgery</strong>
+              <li className="flex flex-wrap items-baseline gap-2">
+                <span className="text-stone-700">Morning Hours</span>
+                <span className="text-stone-400 font-normal">-</span>
+                <strong className="text-stone-900 font-semibold">Dedicated OT &amp; Planned Surgery</strong>
               </li>
             </ul>
           </div>
@@ -217,22 +222,26 @@ export default function DoctorsPage() {
               <span className="consultation-icon">👩‍⚕️</span>
               Dr. Swati Tongale
             </h3>
-            <ul className="consultation-hours">
-              <li>
-                <span>Monday – Saturday (Afternoon)</span>
-                <strong>2:30 PM – 4:30 PM</strong>
+            <ul className="consultation-hours space-y-2 mt-4 text-[15px] leading-relaxed">
+              <li className="flex flex-wrap items-baseline gap-2">
+                <span className="text-stone-700">Monday – Saturday (Afternoon)</span>
+                <span className="text-stone-400 font-normal">-</span>
+                <strong className="text-stone-900 font-semibold">2:30 PM – 4:30 PM</strong>
               </li>
-              <li>
-                <span>Monday – Saturday (Evening)</span>
-                <strong>6:00 PM – 8:00 PM</strong>
+              <li className="flex flex-wrap items-baseline gap-2">
+                <span className="text-stone-700">Monday – Saturday (Evening)</span>
+                <span className="text-stone-400 font-normal">-</span>
+                <strong className="text-stone-900 font-semibold">6:00 PM – 8:00 PM</strong>
               </li>
-              <li>
-                <span>Sunday</span>
-                <strong>Closed</strong>
+              <li className="flex flex-wrap items-baseline gap-2">
+                <span className="text-stone-700">Sunday</span>
+                <span className="text-stone-400 font-normal">-</span>
+                <strong className="text-stone-900 font-semibold">Closed</strong>
               </li>
-              <li>
-                <span>Morning Hours</span>
-                <strong>Uttarbasti &amp; Panchakarma Procedures</strong>
+              <li className="flex flex-wrap items-baseline gap-2">
+                <span className="text-stone-700">Morning Hours</span>
+                <span className="text-stone-400 font-normal">-</span>
+                <strong className="text-stone-900 font-semibold">Uttarbasti &amp; Panchakarma Procedures</strong>
               </li>
             </ul>
           </div>

@@ -30,11 +30,10 @@
     "typescript": "^5.7.3"
   },
   "browserslist": [
-    "Chrome >= 90",
-    "Firefox >= 90",
-    "Edge >= 90",
-    "Safari >= 15",
-    "iOS >= 15",
-    "not dead"
+    "Chrome >= 105",
+    "Firefox >= 105",
+    "Edge >= 105",
+    "Safari >= 16",
+    "iOS >= 16"
   ]
 }

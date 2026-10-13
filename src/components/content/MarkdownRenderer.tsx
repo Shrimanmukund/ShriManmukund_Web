@@ -14,10 +14,12 @@ export function slugifyHeading(text: string): string {
 }
 
 interface Block {
-  type: 'h1' | 'h2' | 'h3' | 'h4' | 'ul' | 'ol' | 'blockquote' | 'hr' | 'p';
+  type: 'h1' | 'h2' | 'h3' | 'h4' | 'ul' | 'ol' | 'blockquote' | 'hr' | 'p' | 'table';
   content?: string;
   items?: string[];
   id?: string;
+  headers?: string[];
+  rows?: string[][];
 }
 
 export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
@@ -174,6 +176,42 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
       continue;
     }
 
+    // Table line: starts with | and contains | with next line being separator
+    if (trimmed.startsWith('|') && trimmed.includes('|')) {
+      const nextLine = rawLines[i + 1]?.trim() || '';
+      const isSeparator = /^\|?[\s-:]+\|[\s-:|]+$/.test(nextLine) && nextLine.includes('-');
+      if (isSeparator) {
+        flushAll();
+        const parseRow = (line: string) => {
+          let rowStr = line.trim();
+          if (rowStr.startsWith('|')) rowStr = rowStr.slice(1);
+          if (rowStr.endsWith('|')) rowStr = rowStr.slice(0, -1);
+          return rowStr.split('|').map((c) => c.trim());
+        };
+
+        const headers = parseRow(trimmed);
+        i++; // skip separator line
+
+        const rows: string[][] = [];
+        while (i + 1 < rawLines.length) {
+          const tableLine = rawLines[i + 1].trim();
+          if (tableLine.startsWith('|') && tableLine.includes('|')) {
+            rows.push(parseRow(tableLine));
+            i++;
+          } else {
+            break;
+          }
+        }
+
+        blocks.push({
+          type: 'table',
+          headers,
+          rows,
+        });
+        continue;
+      }
+    }
+
     // Plain text line
     flushList();
     flushQuote();
@@ -266,6 +304,42 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
                 />
               ))}
             </ol>
+          );
+        }
+
+        if (block.type === 'table') {
+          return (
+            <div key={index} className="my-6 overflow-x-auto rounded-warm-xl border border-[#6B7F5F]/20 shadow-warm-sm bg-white">
+              <table className="w-full text-left border-collapse text-sm text-[#2D2A20]">
+                <thead className="bg-[#1B3A5B] text-white">
+                  <tr>
+                    {block.headers?.map((headerCell, hIdx) => (
+                      <th
+                        key={hIdx}
+                        className="px-4 py-3 font-semibold text-xs sm:text-sm tracking-wide border-r last:border-r-0 border-white/10"
+                        dangerouslySetInnerHTML={{ __html: renderInlineFormatting(headerCell) }}
+                      />
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#6B7F5F]/15">
+                  {block.rows?.map((row, rIdx) => (
+                    <tr
+                      key={rIdx}
+                      className={rIdx % 2 === 0 ? 'bg-[#FFFDF7]' : 'bg-[#F9F7EE] hover:bg-[#F2EFE2] transition-colors'}
+                    >
+                      {row.map((cell, cIdx) => (
+                        <td
+                          key={cIdx}
+                          className="px-4 py-3 align-top leading-relaxed border-r last:border-r-0 border-[#6B7F5F]/10 font-normal"
+                          dangerouslySetInnerHTML={{ __html: renderInlineFormatting(cell) }}
+                        />
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           );
         }
 

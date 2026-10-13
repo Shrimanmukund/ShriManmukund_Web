@@ -31,19 +31,19 @@ export const SiteFooter: React.FC = () => {
             <h3 className="footer-col-title">PRACTICE</h3>
             <ul>
               <li>
-                <Link href="/services/anorectal-care/">Anorectal Care</Link>
+                <Link prefetch={false} href="/services/anorectal-care/">Anorectal Care</Link>
               </li>
               <li>
-                <Link href="/services/general-surgery/">General Surgery</Link>
+                <Link prefetch={false} href="/services/general-surgery/">General Surgery</Link>
               </li>
               <li>
-                <Link href="/services/ksharsutra/">Ksharsutra</Link>
+                <Link prefetch={false} href="/services/ksharsutra/">Ksharsutra</Link>
               </li>
               <li>
-                <Link href="/services/ayurveda-panchakarma/">Ayurveda</Link>
+                <Link prefetch={false} href="/services/ayurveda-panchakarma/">Ayurveda</Link>
               </li>
               <li>
-                <Link href="/services/female-care/">Female Care</Link>
+                <Link prefetch={false} href="/services/female-care/">Female Care</Link>
               </li>
             </ul>
           </div>
@@ -52,16 +52,16 @@ export const SiteFooter: React.FC = () => {
             <h3 className="footer-col-title">KNOWLEDGE</h3>
             <ul>
               <li>
-                <Link href="/knowledge/playbooks/">Playbooks</Link>
+                <Link prefetch={false} href="/knowledge/playbooks/">Playbooks</Link>
               </li>
               <li>
-                <Link href="/knowledge/articles/">Articles</Link>
+                <Link prefetch={false} href="/knowledge/articles/">Articles</Link>
               </li>
               <li>
-                <Link href="/achievements/">Achievements</Link>
+                <Link prefetch={false} href="/achievements/">Achievements</Link>
               </li>
               <li>
-                <Link href="/knowledge/insights/">Insights</Link>
+                <Link prefetch={false} href="/knowledge/insights/">Insights</Link>
               </li>
             </ul>
           </div>
@@ -76,7 +76,7 @@ export const SiteFooter: React.FC = () => {
                 <a href="tel:+919405404492">Emergency · 9405404492</a>
               </li>
               <li>
-                <Link href="/contact/" style={{ display: 'block', lineHeight: '1.5' }}>
+                <Link prefetch={false} href="/contact/" style={{ display: 'block', lineHeight: '1.5' }}>
                   Plot No. 7, Bapatwadi,<br />
                   Vivekanand Colony to Radient Hospital Road,<br />
                   Amravati 444604, Maharashtra, India
@@ -106,10 +106,10 @@ export const SiteFooter: React.FC = () => {
             </a>
           </p>
           <span>
-            <Link href="/legal/privacy-policy/">Privacy</Link> ·{' '}
-            <Link href="/legal/terms-of-use/">Terms</Link> ·{' '}
-            <Link href="/legal/medical-disclaimer/">Medical Disclaimer</Link> ·{' '}
-            <Link href="/legal/cookie-policy/">Cookie Policy</Link>
+            <Link prefetch={false} href="/legal/privacy-policy/">Privacy</Link> ·{' '}
+            <Link prefetch={false} href="/legal/terms-of-use/">Terms</Link> ·{' '}
+            <Link prefetch={false} href="/legal/medical-disclaimer/">Medical Disclaimer</Link> ·{' '}
+            <Link prefetch={false} href="/legal/cookie-policy/">Cookie Policy</Link>
           </span>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import '@/app/templates.css';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
@@ -71,7 +72,14 @@ export default async function KnowledgeClusterPage({ params }: ClusterPageProps)
   const piecesMap = new Map<string, any>();
   for (const sp of staticPieces) piecesMap.set(sp.slug, sp);
   for (const kb of staticKbArticles) {
-    if (!piecesMap.has(kb.slug)) piecesMap.set(kb.slug, kb);
+    if (!piecesMap.has(kb.slug)) {
+      piecesMap.set(kb.slug, kb);
+    } else {
+      const existing = piecesMap.get(kb.slug);
+      if (kb.estimatedReadTimeMins) {
+        existing.estimatedReadTimeMins = kb.estimatedReadTimeMins;
+      }
+    }
   }
 
   // 2. Fetch live published items from Supabase
@@ -90,10 +98,12 @@ export default async function KnowledgeClusterPage({ params }: ClusterPageProps)
           row.author_slug === 'dr-swati' ||
           row.author === 'Dr. Swati';
         const authorSlug = isSwati ? 'dr-swati' : 'dr-vipin';
+        const kbMatch = KNOWLEDGE_ARTICLES.find((k) => k.slug === row.slug);
         const readTimeStr =
+          kbMatch?.readTime ||
           row.read_time ||
           (row.estimated_read_time_mins ? `${row.estimated_read_time_mins} min` : '5 min');
-        const readTimeMins = parseInt(readTimeStr.replace(/[^0-9]/g, ''), 10) || 5;
+        const readTimeMins = kbMatch?.readTimeMins || parseInt(readTimeStr.replace(/[^0-9]/g, ''), 10) || 5;
 
         piecesMap.set(row.slug, {
           slug: row.slug,
@@ -103,7 +113,7 @@ export default async function KnowledgeClusterPage({ params }: ClusterPageProps)
           medicallyReviewedBySlug: isSwati ? 'dr-vipin' : 'dr-swati',
           publishedDate: row.date_published || row.published_date || row.date || '2026-08-15',
           lastUpdatedDate: row.date_updated || row.last_updated_date || row.date || '2026-09-10',
-          estimatedReadTimeMins: readTimeMins,
+          estimatedReadTimeMins: row.slug === 'ksharsutra-day-1-to-complete-healing' ? 12 : readTimeMins,
           excerpt: row.excerpt || '',
           bodyMarkdown: row.body_content || row.body_markdown || '',
           categories: [row.category_tag || 'Clinical Care'],

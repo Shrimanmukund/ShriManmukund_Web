@@ -1,4 +1,5 @@
 import React from 'react';
+import '@/app/templates.css';
 import { AdminHeader } from '@/components/admin/AdminHeader';
 
 export const metadata = {

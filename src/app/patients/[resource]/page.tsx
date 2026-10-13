@@ -1,4 +1,5 @@
 import React from 'react';
+import '@/app/templates.css';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { MarkdownRenderer } from '@/components/content/MarkdownRenderer';

@@ -109,52 +109,46 @@ export const ConsultantTeamSection: React.FC = () => {
       {/* Interactive Detail Modal Popup */}
       {selectedDoctor && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#122844]/65 backdrop-blur-sm animate-fadeIn"
+          className="fixed inset-0 z-[1000] overflow-y-auto p-4 sm:p-6 md:p-8 bg-[#122844]/75 backdrop-blur-sm flex items-center justify-center animate-fadeIn"
           onClick={() => setSelectedDoctor(null)}
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-doctor-name"
         >
           <div
-            className="bg-[#FBF7EC] rounded-3xl border border-[#6B7F5F]/20 shadow-2xl max-w-lg w-full overflow-hidden relative animate-scaleUp"
+            className="bg-[#FBF7EC] rounded-3xl border border-[#6B7F5F]/20 shadow-2xl max-w-lg w-full max-h-[82vh] overflow-y-auto relative animate-scaleUp my-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header Bar */}
-            <div className="bg-[#1B3A5B] text-white px-6 py-4 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Stethoscope className="w-5 h-5 text-[#C89968]" />
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#E4CFA5]">Consultant Profile</span>
-              </div>
-              <button
-                type="button"
-                onClick={() => setSelectedDoctor(null)}
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition focus:outline-none focus:ring-2 focus:ring-white"
-                aria-label="Close modal"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
+            {/* Close Button on Card Top-Right */}
+            <button
+              type="button"
+              onClick={() => setSelectedDoctor(null)}
+              className="absolute top-3.5 right-3.5 z-20 w-9 h-9 rounded-full bg-white/95 hover:bg-[#1B3A5B] hover:text-white text-[#1B3A5B] border border-[#6B7F5F]/25 shadow-sm flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]"
+              aria-label="Close modal"
+            >
+              <X className="w-5 h-5 stroke-[2.5]" />
+            </button>
 
             {/* Modal Body */}
-            <div className="p-6 sm:p-8">
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 mb-6">
+            <div className="p-5 sm:p-6 pt-5">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3.5 sm:gap-4 mb-4 pr-7">
                 {/* Image */}
-                <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-[#6B7F5F]/30 shadow-md shrink-0 relative bg-white">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-[#6B7F5F]/30 shadow-md shrink-0 relative bg-white">
                   <Image
                     src={selectedDoctor.image}
                     alt={selectedDoctor.name}
                     fill
-                    sizes="128px"
+                    sizes="96px"
                     className="object-cover object-center"
                   />
                 </div>
 
                 {/* Main Info */}
-                <div className="text-center sm:text-left flex-1">
-                  <h3 id="modal-doctor-name" className="font-serif text-2xl font-bold text-[#1B3A5B] leading-snug">
+                <div className="text-center sm:text-left flex-1 min-w-0">
+                  <h3 id="modal-doctor-name" className="font-serif text-xl sm:text-2xl font-bold text-[#1B3A5B] leading-snug">
                     {selectedDoctor.name}
                   </h3>
-                  <div className="text-xs font-semibold text-[#3E5437] bg-[#E5EBDD] px-3 py-1 rounded-full inline-block mt-2 mb-2">
+                  <div className="text-xs font-semibold text-[#3E5437] bg-[#E5EBDD] px-2.5 py-0.5 rounded-full inline-block mt-1 mb-1">
                     {selectedDoctor.qualification}
                   </div>
                   <p className="text-xs font-medium text-[#8B7355]">
@@ -164,17 +158,18 @@ export const ConsultantTeamSection: React.FC = () => {
               </div>
 
               {/* Clinical Scope / Description */}
-              <div className="bg-white rounded-xl p-4 border border-[#6B7F5F]/15 mb-5">
-                <div className="text-xs font-bold uppercase tracking-wider text-[#1B3A5B] mb-1.5 flex items-center gap-1.5">
+              <div className="bg-white rounded-xl p-3.5 sm:p-4 border border-[#6B7F5F]/15 mb-3.5">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#1B3A5B] mb-1 flex items-center gap-1.5">
+                  <Stethoscope className="w-3.5 h-3.5 text-[#C89968]" />
                   <span>Specialty &amp; Clinical Scope</span>
                 </div>
-                <p className="text-sm text-[#2D2A20] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#2D2A20] leading-relaxed">
                   {selectedDoctor.specialty}
                 </p>
 
                 {/* Tags */}
                 {selectedDoctor.tags && selectedDoctor.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-gray-100">
+                  <div className="flex flex-wrap gap-1.5 mt-2.5 pt-2.5 border-t border-gray-100">
                     {selectedDoctor.tags.map((tag, idx) => (
                       <span key={idx} className="text-[11px] font-medium bg-[#F7F3EB] text-[#5C4F3A] px-2.5 py-0.5 rounded-md border border-[#6B7F5F]/10">
                         {tag}
@@ -185,10 +180,10 @@ export const ConsultantTeamSection: React.FC = () => {
               </div>
 
               {/* Direct Phone / Contact Actions */}
-              <div className="space-y-2.5">
+              <div className="space-y-2">
                 <a
                   href={`tel:${selectedDoctor.phone}`}
-                  className="w-full py-3 px-4 bg-[#1B3A5B] hover:bg-[#122844] text-white rounded-xl font-semibold text-sm flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all active:scale-98"
+                  className="w-full py-2.5 px-4 bg-[#1B3A5B] hover:bg-[#122844] text-white rounded-xl font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all active:scale-98"
                 >
                   <Phone className="w-4 h-4 text-[#C89968]" />
                   <span>Call {selectedDoctor.displayPhone}</span>
@@ -197,15 +192,15 @@ export const ConsultantTeamSection: React.FC = () => {
                 <a
                   href={`https://wa.me/${selectedDoctor.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hello ${selectedDoctor.name}, I would like to enquire about consultation at Shri Manmukund Hospital.`)}`}
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  className="w-full py-2.5 px-4 bg-[#E5EBDD] hover:bg-[#6B7F5F] text-[#1B3A5B] hover:text-white rounded-xl font-semibold text-xs flex items-center justify-center gap-2 transition-all"
+                  rel="noopener noreferrer"
+                  className="w-full py-2 px-4 bg-[#E5EBDD] hover:bg-[#6B7F5F] text-[#1B3A5B] hover:text-white rounded-xl font-semibold text-xs flex items-center justify-center gap-2 transition-all"
                 >
                   <MessageCircle className="w-4 h-4 text-[#25D366]" />
                   <span>Enquire on WhatsApp</span>
                 </a>
               </div>
 
-              <div className="text-center mt-4 text-[11px] text-[#8B7355]">
+              <div className="text-center mt-3 text-[11px] text-[#8B7355]">
                 Consultations available at Shri Manmukund Hospital, Amravati by prior schedule.
               </div>
             </div>

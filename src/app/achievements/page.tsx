@@ -1,4 +1,5 @@
 import React from 'react';
+import '@/app/templates.css';
 import { Metadata } from 'next';
 import { AchievementsClient } from './AchievementsClient';
 

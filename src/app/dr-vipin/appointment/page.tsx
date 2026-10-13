@@ -1,4 +1,5 @@
 import React from 'react';
+import '@/app/templates.css';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { AppointmentEnquiryForm } from '@/components/forms/AppointmentEnquiryForm';
 

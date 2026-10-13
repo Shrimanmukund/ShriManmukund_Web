@@ -1,4 +1,5 @@
 import React from 'react';
+import '@/app/templates.css';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -266,7 +267,9 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
   const lastUpdatedDateFormatted = formatDate(rawUpdatedDate);
   const wordCount = `${title} ${excerpt} ${bodyContent}`.trim().split(/\s+/).filter(Boolean).length;
   const dynamicReadTime = Math.max(2, Math.ceil(wordCount / 200));
-  const estimatedReadTime = dynamicReadTime || piece?.estimatedReadTimeMins || kbArticle?.readTimeMins || dbArticle?.estimatedReadTimeMins || 5;
+  const estimatedReadTime = isKsharsutraPlaybook
+    ? 12
+    : (kbArticle?.readTimeMins || piece?.estimatedReadTimeMins || dbArticle?.estimatedReadTimeMins || dynamicReadTime || 5);
 
   const pieceData = {
     slug: params.slug,

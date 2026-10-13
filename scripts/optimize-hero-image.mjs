@@ -7,10 +7,11 @@ async function optimizeHero() {
   const webpPath = path.resolve('public/images/hero/ayurveda-meets-modern-surgery.webp');
 
   if (fs.existsSync(pngPath)) {
-    // Generate optimized WebP
+    // Generate optimized WebP flattened onto the hero cream background (#FBF7EC)
     const webpBuffer = await sharp(pngPath)
       .resize({ width: 640, withoutEnlargement: true })
-      .webp({ quality: 80, effort: 6 })
+      .flatten({ background: '#FBF7EC' })
+      .webp({ quality: 82, effort: 6 })
       .toBuffer();
     fs.writeFileSync(webpPath, webpBuffer);
     console.log(`Optimized hero WebP size: ${(webpBuffer.length / 1024).toFixed(1)} KB`);

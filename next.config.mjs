@@ -6,8 +6,8 @@ const nextConfig = {
   compress: true,
   images: {
     formats: ['image/avif', 'image/webp'],
-    deviceSizes: [480, 640, 750, 828, 1080, 1200, 1920],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 320, 384],
+    deviceSizes: [480, 600, 640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 160, 184, 210, 240, 256, 300, 320, 384],
     minimumCacheTTL: 31536000,
     remotePatterns: [
       {
@@ -21,6 +21,16 @@ const nextConfig = {
   },
   experimental: {
     optimizePackageImports: ['lucide-react', 'clsx', 'tailwind-merge'],
+  },
+  webpack(config, { isServer }) {
+    if (!isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '../build/polyfills/polyfill-module': false,
+        'next/dist/build/polyfills/polyfill-module': false,
+      };
+    }
+    return config;
   },
   async redirects() {
     return [

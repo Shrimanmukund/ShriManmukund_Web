@@ -49,7 +49,12 @@ function normalizeArticle(row: any, idx: number = 0) {
         : 'Dr. Vipin Tongale'),
     cover_image_url: row.cover_image_url || row.featured_image_url || null,
     excerpt: row.excerpt || '',
-    body_content: row.body_content || row.body_markdown || row.bodyMarkdown || '',
+    body_content: (() => {
+      const raw = row.body_content || row.body_markdown || row.bodyMarkdown || '';
+      if (raw && raw.length >= 300) return raw;
+      const match = getAllKnowledgePieces().find((p) => p.slug === (row.slug || ''));
+      return match?.bodyMarkdown || raw;
+    })(),
     meta_title: row.meta_title || `${row.title} | Shri Manmukund Hospital`,
     meta_description: row.meta_description || row.excerpt || '',
     status: isPub ? 'published' : 'draft',

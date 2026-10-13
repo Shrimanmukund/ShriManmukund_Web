@@ -1,4 +1,5 @@
 import React from 'react';
+import '@/app/templates.css';
 import { KnowledgeHubClient } from '@/components/knowledge/KnowledgeHubClient';
 
 export const metadata = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import '@/app/templates.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import { SERVICE_CATEGORIES } from '@/lib/data/content-store';

@@ -22,7 +22,7 @@ export const SiteHeader: React.FC = () => {
       {/* NAV */}
       <header className="nav">
         <div className="nav-inner">
-          <Link href="/" className="nav-logo">
+          <Link prefetch={false} href="/" className="nav-logo">
             <div className="nav-logo-badge"></div>
             <div className="nav-logo-text">
               <div className="nav-logo-name">Shri Manmukund</div>
@@ -31,38 +31,32 @@ export const SiteHeader: React.FC = () => {
           </Link>
 
           <nav className="nav-menu">
-            <Link
-              href="/services/"
+            <Link prefetch={false} href="/services/"
               className={pathname === '/services/' || pathname === '/services' ? 'active' : ''}
             >
               Services
             </Link>
-            <Link
-              href="/doctors/"
+            <Link prefetch={false} href="/doctors/"
               className={pathname.startsWith('/doctors') || pathname.startsWith('/dr-vipin') || pathname.startsWith('/dr-swati') ? 'active' : ''}
             >
               Our Doctors
             </Link>
-            <Link
-              href="/about/"
+            <Link prefetch={false} href="/about/"
               className={pathname.startsWith('/about') ? 'active' : ''}
             >
               About
             </Link>
-            <Link
-              href="/achievements/"
+            <Link prefetch={false} href="/achievements/"
               className={pathname.startsWith('/achievements') ? 'active' : ''}
             >
               Achievements
             </Link>
-            <Link
-              href="/knowledge/"
+            <Link prefetch={false} href="/knowledge/"
               className={pathname.startsWith('/knowledge') ? 'active' : ''}
             >
               Knowledge
             </Link>
-            <Link
-              href="/contact/"
+            <Link prefetch={false} href="/contact/"
               className={pathname.startsWith('/contact') ? 'active' : ''}
             >
               Visit Us
@@ -73,7 +67,7 @@ export const SiteHeader: React.FC = () => {
             <a href="tel:+918208927917" className="btn btn-ghost">
               Call · 8208927917
             </a>
-            <Link href="/contact/#book" className="btn btn-primary">
+            <Link prefetch={false} href="/contact/#book" className="btn btn-primary">
               Book visit
             </Link>
           </div>
@@ -107,38 +101,37 @@ export const SiteHeader: React.FC = () => {
           </div>
 
           <nav className="nav-drawer-menu">
-            <Link href="/services/" onClick={() => setMobileOpen(false)}>
+            <Link prefetch={false} href="/services/" onClick={() => setMobileOpen(false)}>
               Services &amp; Units
             </Link>
-            <Link href="/doctors/" onClick={() => setMobileOpen(false)}>
+            <Link prefetch={false} href="/doctors/" onClick={() => setMobileOpen(false)}>
               Our Doctors
             </Link>
-            <Link href="/dr-vipin/" onClick={() => setMobileOpen(false)} style={{ paddingLeft: '2rem', fontSize: '0.875rem' }}>
+            <Link prefetch={false} href="/dr-vipin/" onClick={() => setMobileOpen(false)} style={{ paddingLeft: '2rem', fontSize: '0.875rem' }}>
               ↳ Dr. Vipin Tongale
             </Link>
-            <Link href="/dr-swati/" onClick={() => setMobileOpen(false)} style={{ paddingLeft: '2rem', fontSize: '0.875rem' }}>
+            <Link prefetch={false} href="/dr-swati/" onClick={() => setMobileOpen(false)} style={{ paddingLeft: '2rem', fontSize: '0.875rem' }}>
               ↳ Dr. Swati Tongale
             </Link>
-            <Link href="/about/" onClick={() => setMobileOpen(false)}>
+            <Link prefetch={false} href="/about/" onClick={() => setMobileOpen(false)}>
               About Us
             </Link>
-            <Link href="/achievements/" onClick={() => setMobileOpen(false)}>
+            <Link prefetch={false} href="/achievements/" onClick={() => setMobileOpen(false)}>
               Achievements &amp; Recognition
             </Link>
-            <Link href="/knowledge/" onClick={() => setMobileOpen(false)}>
+            <Link prefetch={false} href="/knowledge/" onClick={() => setMobileOpen(false)}>
               Knowledge Hub
             </Link>
-            <Link href="/patients/" onClick={() => setMobileOpen(false)}>
+            <Link prefetch={false} href="/patients/" onClick={() => setMobileOpen(false)}>
               Patient Resources
             </Link>
-            <Link href="/contact/" onClick={() => setMobileOpen(false)}>
+            <Link prefetch={false} href="/contact/" onClick={() => setMobileOpen(false)}>
               Visit &amp; OPD Hours
             </Link>
           </nav>
 
           <div className="nav-drawer-cta">
-            <Link
-              href="/contact/#book"
+            <Link prefetch={false} href="/contact/#book"
               className="btn btn-primary"
               onClick={() => setMobileOpen(false)}
             >

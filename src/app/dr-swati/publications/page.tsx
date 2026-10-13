@@ -1,4 +1,5 @@
 import React from 'react';
+import '@/app/templates.css';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { getAllKnowledgePieces } from '@/lib/data/content-store';

@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 import { Fraunces, Inter, Noto_Sans_Devanagari } from 'next/font/google';
-import './templates.css';
 import './globals.css';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
@@ -14,21 +13,23 @@ const fraunces = Fraunces({
   style: ['normal', 'italic'],
   axes: ['opsz'],
   display: 'swap',
+  preload: false,
   variable: '--font-fraunces',
 });
 
 const inter = Inter({
   subsets: ['latin'],
-  style: ['normal', 'italic'],
+  style: ['normal'],
   display: 'swap',
+  preload: false,
   variable: '--font-inter',
 });
 
 const notoDevanagari = Noto_Sans_Devanagari({
-  subsets: ['devanagari', 'latin'],
-  weight: ['400', '500', '600', '700'],
+  subsets: ['devanagari'],
   style: ['normal'],
   display: 'swap',
+  preload: false,
   variable: '--font-noto-devanagari',
 });
 
