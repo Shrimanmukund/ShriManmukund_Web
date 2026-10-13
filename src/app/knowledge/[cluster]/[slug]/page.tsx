@@ -103,22 +103,22 @@ export async function generateMetadata({ params }: KnowledgePiecePageProps) {
     params.cluster === 'playbooks' &&
     params.slug === 'ksharsutra-day-1-to-complete-healing';
 
+  const dbArticle = await getDbArticle(params.slug);
   const rawPage = getAllPages().find((p) =>
     p.url.includes(`/knowledge/${params.cluster}/${params.slug}/`)
   );
   const pieces = getAllKnowledgePieces();
   const piece = pieces.find((p) => p.slug === params.slug);
   const kbArticle = KNOWLEDGE_ARTICLES.find((a) => a.slug === params.slug);
-  const dbArticle = !rawPage && !piece && !kbArticle ? await getDbArticle(params.slug) : null;
 
-  const rawTitle = isKsharsutraPlaybook
+  const rawTitle = dbArticle?.metaTitle || dbArticle?.title || (isKsharsutraPlaybook
     ? 'Ksharsutra treatment, week by week'
-    : rawPage?.metaTitle || piece?.title || kbArticle?.title || dbArticle?.metaTitle || dbArticle?.title || 'Knowledge Guide';
+    : rawPage?.metaTitle || piece?.title || kbArticle?.title || 'Knowledge Guide');
   const cleanTitle = rawTitle.replace(/\s*\|\s*Shri Manmukund Hospital.*$/i, '').replace(/^(Article|Playbook|Whitepaper|Guide|Insights|Insight):\s*/i, '').trim();
-  const desc = isKsharsutraPlaybook
+  const desc = dbArticle?.metaDescription || dbArticle?.excerpt || (isKsharsutraPlaybook
     ? 'A practical, day-by-day guide for patients considering or currently undergoing Ksharsutra. What to expect at each stage, how to prepare, and when to call the hospital.'
-    : rawPage?.metaDescription || piece?.excerpt || kbArticle?.excerpt || dbArticle?.metaDescription || dbArticle?.excerpt || `${cleanTitle} from Shri Manmukund Hospital, Amravati.`;
-  const isSwati = kbArticle?.author === 'Dr. Swati' || piece?.authorSlug === 'dr-swati' || dbArticle?.authorSlug === 'dr-swati';
+    : rawPage?.metaDescription || piece?.excerpt || kbArticle?.excerpt || `${cleanTitle} from Shri Manmukund Hospital, Amravati.`);
+  const isSwati = dbArticle?.authorSlug === 'dr-swati' || kbArticle?.author === 'Dr. Swati' || piece?.authorSlug === 'dr-swati';
   const authorName = isSwati ? 'Dr. Swati Tongale' : 'Dr. Vipin Tongale';
 
   return {
@@ -144,35 +144,35 @@ export default async function KnowledgeDetailPage({ params }: KnowledgePiecePage
     params.cluster === 'playbooks' &&
     params.slug === 'ksharsutra-day-1-to-complete-healing';
 
+  const dbArticle = await getDbArticle(params.slug);
   const rawPage = getAllPages().find((p) =>
     p.url.includes(`/knowledge/${params.cluster}/${params.slug}/`)
   );
   const pieces = getAllKnowledgePieces();
   const piece = pieces.find((p) => p.slug === params.slug);
   const kbArticle = KNOWLEDGE_ARTICLES.find((a) => a.slug === params.slug);
-  const dbArticle = !rawPage && !piece && !kbArticle && !isKsharsutraPlaybook ? await getDbArticle(params.slug) : null;
 
   if (!rawPage && !piece && !kbArticle && !dbArticle && !isKsharsutraPlaybook) {
     notFound();
   }
 
-  const rawTitle = isKsharsutraPlaybook
+  const rawTitle = dbArticle?.title || (isKsharsutraPlaybook
     ? 'Ksharsutra treatment, week by week'
     : rawPage
     ? rawPage.title
-    : piece?.title || kbArticle?.title || dbArticle?.title || 'Clinical Guide';
+    : piece?.title || kbArticle?.title || 'Clinical Guide');
 
   const title = isKsharsutraPlaybook
     ? 'Ksharsutra treatment, week by week'
     : rawTitle.replace(/^(Article|Playbook|Whitepaper|Guide|Insights|Insight):\s*/i, '').trim();
 
-  const excerpt = isKsharsutraPlaybook
+  const excerpt = dbArticle?.excerpt || (isKsharsutraPlaybook
     ? 'A practical, day-by-day guide for patients considering or currently undergoing Ksharsutra. What to expect at each stage, how to prepare, and when to call the hospital.'
-    : rawPage?.metaDescription || piece?.excerpt || kbArticle?.excerpt || dbArticle?.excerpt || '';
+    : rawPage?.metaDescription || piece?.excerpt || kbArticle?.excerpt || '');
 
   const answerFirstSummary = isKsharsutraPlaybook
     ? 'Ksharsutra treatment for anal fistula typically takes 6 to 8 weeks from first application to complete healing. It involves weekly changes of a medicated thread (Kshar Sutra) that gradually cuts through and heals the fistula tract. Most patients continue working throughout, with 2 to 3 days of light activity around each thread change. Pain is manageable with oral analgesics. Complete healing rates are excellent when the technique is applied correctly and follow-up is maintained.'
-    : rawPage?.answerFirstSummary || piece?.excerpt || kbArticle?.excerpt || dbArticle?.excerpt || '';
+    : dbArticle?.excerpt || rawPage?.answerFirstSummary || piece?.excerpt || kbArticle?.excerpt || '';
 
   const fallbackMarkdown = kbArticle
     ? `## Clinical Overview & Understanding
@@ -232,7 +232,10 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
 `
     : '';
 
-  const bodyContent = rawPage?.bodyMarkdown || piece?.bodyMarkdown || dbArticle?.bodyMarkdown || fallbackMarkdown;
+  const bodyContent =
+    (dbArticle?.bodyMarkdown && dbArticle.bodyMarkdown.trim().length >= 100)
+      ? dbArticle.bodyMarkdown
+      : rawPage?.bodyMarkdown || piece?.bodyMarkdown || fallbackMarkdown;
   const clusterLabel =
     params.cluster.charAt(0).toUpperCase() + params.cluster.slice(1);
   const clusterSingular = params.cluster.endsWith('s')

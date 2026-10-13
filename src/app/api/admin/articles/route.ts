@@ -6,15 +6,28 @@ import { getAllKnowledgePieces } from '@/lib/data/content-store';
 
 export const dynamic = 'force-dynamic';
 
-function normalizeCluster(raw: string = 'article'): string {
+function normalizeCluster(raw: string = 'article', categoryTag: string = '', slug: string = ''): string {
   const c = raw.toLowerCase().trim();
+  const sl = (slug || '').toLowerCase().trim();
   if (c === 'playbooks' || c === 'playbook') return 'playbook';
-  if (c === 'articles' || c === 'article') return 'article';
   if (c === 'insights' || c === 'insight') return 'insights';
   if (c === 'blogs' || c === 'blog') return 'blog';
   if (c === 'whitepapers' || c === 'whitepaper') return 'whitepaper';
   if (c === 'research') return 'research';
-  if (c.includes('patient') || c.includes('resource') || c.includes('guide')) return 'patient-resources';
+  if (
+    c.includes('patient') ||
+    c.includes('resource') ||
+    sl === 'your-first-visit-what-to-expect' ||
+    sl === 'first-visit' ||
+    sl === 'post-surgery-diet-what-to-eat-what-to-avoid' ||
+    sl === 'pre-surgery' ||
+    sl === 'post-surgery' ||
+    sl === 'diet-and-lifestyle' ||
+    sl === 'faq' ||
+    sl === 'sitz-bath-guide'
+  ) {
+    return 'patient-resources';
+  }
   return 'article';
 }
 
@@ -24,7 +37,11 @@ function normalizeArticle(row: any, idx: number = 0) {
     row.is_published === true ||
     (row.status === undefined && row.is_published !== false);
 
-  const cluster = normalizeCluster(row.cluster || row.category);
+  const cluster = normalizeCluster(
+    row.cluster || row.category,
+    row.category_tag || (Array.isArray(row.categories) && row.categories[0]) || row.topic,
+    row.slug
+  );
 
   return {
     id: String(row.id || `kb-local-${idx + 1}`),
@@ -35,7 +52,7 @@ function normalizeArticle(row: any, idx: number = 0) {
       row.category_tag ||
       (Array.isArray(row.categories) && row.categories[0]) ||
       row.topic ||
-      'Clinical Care',
+      (cluster === 'patient-resources' ? 'Patient Guide' : 'Clinical Care'),
     author:
       row.author ||
       row.authorFull ||
@@ -84,6 +101,7 @@ export async function GET(request: Request) {
     const status = searchParams.get('status');
 
     let rawArticles: any[] = [];
+    const articlesMap = new Map<string, any>();
     let isFromSupabase = false;
 
     // 1. Fetch from Supabase knowledge_pieces table
@@ -91,22 +109,26 @@ export async function GET(request: Request) {
       const supabase = createAdminClient();
       const { data, error } = await (supabase.from('knowledge_pieces') as any)
         .select('*')
-        .order('created_at', { ascending: false });
+        .order('date_published', { ascending: false });
 
       if (!error && data && data.length > 0) {
-        rawArticles = data;
         isFromSupabase = true;
+        for (const r of data) {
+          if (r.slug) {
+            articlesMap.set(r.slug, r);
+          }
+        }
       }
     } catch (err) {
       console.warn('Supabase query error for admin articles, using fallback store:', err);
     }
 
-    // 2. Fallback to seeded items if Supabase has no records
-    if (!isFromSupabase || rawArticles.length === 0) {
-      const seededPieces = getAllKnowledgePieces();
-      rawArticles = KNOWLEDGE_ARTICLES.map((item, idx) => {
+    // 2. Ensure all 28 articles exist (merge missing static articles as fallback)
+    const seededPieces = getAllKnowledgePieces();
+    KNOWLEDGE_ARTICLES.forEach((item, idx) => {
+      if (!articlesMap.has(item.slug)) {
         const seededMatch = seededPieces.find((p) => p.slug === item.slug);
-        return {
+        articlesMap.set(item.slug, {
           id: item.id || `kb-local-${idx + 1}`,
           title: item.title,
           slug: item.slug,
@@ -126,9 +148,11 @@ export async function GET(request: Request) {
           views: 120 + ((idx * 37) % 450),
           created_at: new Date(item.date || '2026-08-15').toISOString(),
           updated_at: new Date().toISOString(),
-        };
-      });
-    }
+        });
+      }
+    });
+
+    rawArticles = Array.from(articlesMap.values());
 
     // 3. Normalize all articles
     let articles = rawArticles.map((row, idx) => normalizeArticle(row, idx));
@@ -136,7 +160,7 @@ export async function GET(request: Request) {
     // 4. Apply cluster filter if specified
     if (cluster && cluster !== 'all') {
       const targetCluster = normalizeCluster(cluster);
-      articles = articles.filter((a) => normalizeCluster(a.cluster) === targetCluster);
+      articles = articles.filter((a) => normalizeCluster(a.cluster, a.category_tag, a.slug) === targetCluster);
     }
 
     // 5. Apply status filter if specified

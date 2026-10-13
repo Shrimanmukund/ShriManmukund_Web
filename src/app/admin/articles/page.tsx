@@ -112,21 +112,34 @@ export default function AdminArticlesPage() {
     }
   };
 
-function normalizeCluster(raw: string = ''): string {
+function normalizeCluster(raw: string = '', categoryTag: string = '', slug: string = ''): string {
   const c = raw.toLowerCase().trim();
+  const sl = (slug || '').toLowerCase().trim();
   if (c === 'playbooks' || c === 'playbook') return 'playbook';
-  if (c === 'articles' || c === 'article') return 'article';
   if (c === 'insights' || c === 'insight') return 'insights';
   if (c === 'blogs' || c === 'blog') return 'blog';
   if (c === 'whitepapers' || c === 'whitepaper') return 'whitepaper';
   if (c === 'research') return 'research';
-  if (c.includes('patient') || c.includes('guide') || c.includes('resource')) return 'patient-resources';
-  return c;
+  if (
+    c.includes('patient') ||
+    c.includes('resource') ||
+    sl === 'your-first-visit-what-to-expect' ||
+    sl === 'first-visit' ||
+    sl === 'post-surgery-diet-what-to-eat-what-to-avoid' ||
+    sl === 'pre-surgery' ||
+    sl === 'post-surgery' ||
+    sl === 'diet-and-lifestyle' ||
+    sl === 'faq' ||
+    sl === 'sitz-bath-guide'
+  ) {
+    return 'patient-resources';
+  }
+  return 'article';
 }
 
-function matchesCluster(articleCluster: string, filterVal: string): boolean {
+function matchesCluster(articleCluster: string, filterVal: string, categoryTag: string = '', slug: string = ''): boolean {
   if (!filterVal || filterVal === 'all') return true;
-  return normalizeCluster(articleCluster) === normalizeCluster(filterVal);
+  return normalizeCluster(articleCluster, categoryTag, slug) === normalizeCluster(filterVal);
 }
 
   // Filtered list
@@ -139,7 +152,7 @@ function matchesCluster(articleCluster: string, filterVal: string): boolean {
       (a.author || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
       (a.excerpt || '').toLowerCase().includes(searchTerm.toLowerCase());
 
-    const isMatchCluster = matchesCluster(a.cluster, filterCluster);
+    const isMatchCluster = matchesCluster(a.cluster, filterCluster, a.category_tag, a.slug);
     const isMatchStatus = filterStatus === 'all' || (a.status || 'published') === filterStatus;
 
     return matchesSearch && isMatchCluster && isMatchStatus;
@@ -151,11 +164,11 @@ function matchesCluster(articleCluster: string, filterVal: string): boolean {
   const draftCount = articles.filter((a) => a.status === 'draft').length;
   const totalViews = articles.reduce((acc, curr) => acc + (curr.views || 0), 0);
 
-  const articleCount = articles.filter((a) => normalizeCluster(a.cluster) === 'article').length;
-  const playbookCount = articles.filter((a) => normalizeCluster(a.cluster) === 'playbook').length;
-  const insightCount = articles.filter((a) => normalizeCluster(a.cluster) === 'insights').length;
-  const blogCount = articles.filter((a) => normalizeCluster(a.cluster) === 'blog').length;
-  const patientCount = articles.filter((a) => normalizeCluster(a.cluster) === 'patient-resources').length;
+  const articleCount = articles.filter((a) => normalizeCluster(a.cluster, a.category_tag, a.slug) === 'article').length;
+  const playbookCount = articles.filter((a) => normalizeCluster(a.cluster, a.category_tag, a.slug) === 'playbook').length;
+  const insightCount = articles.filter((a) => normalizeCluster(a.cluster, a.category_tag, a.slug) === 'insights').length;
+  const blogCount = articles.filter((a) => normalizeCluster(a.cluster, a.category_tag, a.slug) === 'blog').length;
+  const patientCount = articles.filter((a) => normalizeCluster(a.cluster, a.category_tag, a.slug) === 'patient-resources').length;
 
   return (
     <div className="space-y-6">

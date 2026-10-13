@@ -6,42 +6,83 @@ import { MarkdownRenderer } from '@/components/content/MarkdownRenderer';
 import { FAQAccordion } from '@/components/content/FAQAccordion';
 import { getAllPages, getPatientResourceBySlug } from '@/lib/data/content-store';
 
+import { createAdminClient } from '@/lib/supabase/admin';
+
+export const dynamicParams = true;
+export const revalidate = 0;
+
 interface PatientResourcePageProps {
   params: {
     resource: string;
   };
 }
 
+async function getDbArticle(slug: string) {
+  try {
+    const supabase = createAdminClient();
+    const { data, error } = await (supabase.from('knowledge_pieces') as any)
+      .select('*')
+      .eq('slug', slug)
+      .maybeSingle();
+
+    if (!error && data) {
+      return {
+        title: data.title,
+        bodyMarkdown: data.body_content || data.body_markdown || '',
+        metaTitle: data.meta_title || `${data.title} | Shri Manmukund Hospital`,
+        metaDescription: data.meta_description || data.excerpt || '',
+      };
+    }
+  } catch (err) {
+    console.warn('Supabase patient resource query error:', err);
+  }
+  return null;
+}
+
 export function generateStaticParams() {
-  const resources = ['first-visit', 'pre-surgery', 'post-surgery', 'diet-and-lifestyle', 'faq'];
+  const resources = [
+    'first-visit',
+    'your-first-visit-what-to-expect',
+    'pre-surgery',
+    'post-surgery',
+    'post-surgery-diet-what-to-eat-what-to-avoid',
+    'diet-and-lifestyle',
+    'faq',
+    'sitz-bath-guide',
+  ];
   return resources.map((r) => ({ resource: r }));
 }
 
-export function generateMetadata({ params }: PatientResourcePageProps) {
+export async function generateMetadata({ params }: PatientResourcePageProps) {
+  const dbArticle = await getDbArticle(params.resource);
   const rawPage = getAllPages().find((p) => p.url === `/patients/${params.resource}/`);
   const resource = getPatientResourceBySlug(params.resource);
 
-  if (!rawPage && !resource) return {};
+  if (!rawPage && !resource && !dbArticle) return {};
 
   return {
-    title: rawPage?.metaTitle || resource?.metaTitle,
-    description: rawPage?.metaDescription || resource?.metaDescription,
+    title: dbArticle?.metaTitle || dbArticle?.title || rawPage?.metaTitle || resource?.metaTitle,
+    description: dbArticle?.metaDescription || rawPage?.metaDescription || resource?.metaDescription,
     alternates: {
       canonical: `/patients/${params.resource}/`,
     },
   };
 }
 
-export default function PatientResourceDetailPage({ params }: PatientResourcePageProps) {
+export default async function PatientResourceDetailPage({ params }: PatientResourcePageProps) {
+  const dbArticle = await getDbArticle(params.resource);
   const rawPage = getAllPages().find((p) => p.url === `/patients/${params.resource}/`);
   const resource = getPatientResourceBySlug(params.resource);
 
-  if (!rawPage && !resource) {
+  if (!rawPage && !resource && !dbArticle) {
     notFound();
   }
 
-  const title = rawPage ? rawPage.title : resource?.title || '';
-  const bodyContent = rawPage?.bodyMarkdown || resource?.bodyMarkdown || '';
+  const title = dbArticle?.title || (rawPage ? rawPage.title : resource?.title || '');
+  const bodyContent =
+    (dbArticle?.bodyMarkdown && dbArticle.bodyMarkdown.trim().length >= 100)
+      ? dbArticle.bodyMarkdown
+      : rawPage?.bodyMarkdown || resource?.bodyMarkdown || '';
   const faqs = rawPage?.faqs || resource?.faqs || [];
 
   return (

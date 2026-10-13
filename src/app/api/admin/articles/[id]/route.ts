@@ -12,15 +12,47 @@ interface RouteContext {
   };
 }
 
-function normalizeCluster(raw: string = 'article'): string {
+function normalizeCluster(raw: string = 'article', categoryTag?: string, slug?: string): string {
   const c = raw.toLowerCase().trim();
+  const cat = (categoryTag || '').toLowerCase();
+  const sl = (slug || '').toLowerCase();
+
   if (c === 'playbooks' || c === 'playbook') return 'playbook';
-  if (c === 'articles' || c === 'article') return 'article';
+  if (c === 'articles' || c === 'article') {
+    if (
+      cat.includes('patient') ||
+      cat.includes('guide') ||
+      sl === 'your-first-visit-what-to-expect' ||
+      sl === 'first-visit' ||
+      sl === 'post-surgery-diet-what-to-eat-what-to-avoid' ||
+      sl === 'pre-surgery' ||
+      sl === 'post-surgery' ||
+      sl === 'diet-and-lifestyle' ||
+      sl === 'faq' ||
+      sl === 'sitz-bath-guide'
+    ) {
+      return 'patient-resources';
+    }
+    return 'article';
+  }
   if (c === 'insights' || c === 'insight') return 'insights';
   if (c === 'blogs' || c === 'blog') return 'blog';
   if (c === 'whitepapers' || c === 'whitepaper') return 'whitepaper';
   if (c === 'research') return 'research';
-  if (c.includes('patient') || c.includes('resource') || c.includes('guide')) return 'patient-resources';
+  if (
+    c.includes('patient') ||
+    c.includes('resource') ||
+    sl === 'your-first-visit-what-to-expect' ||
+    sl === 'first-visit' ||
+    sl === 'post-surgery-diet-what-to-eat-what-to-avoid' ||
+    sl === 'pre-surgery' ||
+    sl === 'post-surgery' ||
+    sl === 'diet-and-lifestyle' ||
+    sl === 'faq' ||
+    sl === 'sitz-bath-guide'
+  ) {
+    return 'patient-resources';
+  }
   return 'article';
 }
 
@@ -30,7 +62,11 @@ function normalizeArticle(row: any, fallbackId: string) {
     row.is_published === true ||
     (row.status === undefined && row.is_published !== false);
 
-  const cluster = normalizeCluster(row.cluster || row.category);
+  const cluster = normalizeCluster(
+    row.cluster || row.category,
+    row.category_tag || (Array.isArray(row.categories) && row.categories[0]) || row.topic,
+    row.slug
+  );
 
   return {
     id: String(row.id || fallbackId),
@@ -89,10 +125,14 @@ export async function GET(request: Request, { params }: RouteContext) {
     // 1. Try fetching from Supabase
     try {
       const supabase = createAdminClient();
-      const { data, error } = await (supabase.from('knowledge_pieces') as any)
-        .select('*')
-        .or(`id.eq.${id},slug.eq.${id}`)
-        .single();
+      const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
+      let query = (supabase.from('knowledge_pieces') as any).select('*');
+      if (isUuid) {
+        query = query.or(`id.eq.${id},slug.eq.${id}`);
+      } else {
+        query = query.eq('slug', id);
+      }
+      const { data, error } = await query.maybeSingle();
 
       if (!error && data) {
         return NextResponse.json({ success: true, article: normalizeArticle(data, id) });
@@ -187,6 +227,9 @@ export async function PUT(request: Request, { params }: RouteContext) {
     if (category_tag !== undefined) {
       updatePayload.category_tag = category_tag.trim();
       updatePayload.categories = [category_tag.trim()];
+    } else if (validCluster === 'patient-resources') {
+      updatePayload.category_tag = 'Patient Guide';
+      updatePayload.categories = ['Patient Guide'];
     }
     if (author !== undefined) updatePayload.author = author;
     if (medical_reviewer !== undefined) updatePayload.medical_reviewer = medical_reviewer;
@@ -214,16 +257,30 @@ export async function PUT(request: Request, { params }: RouteContext) {
 
     try {
       const supabase = createAdminClient();
-      const { data, error } = await (supabase.from('knowledge_pieces') as any)
-        .update(updatePayload)
-        .or(`id.eq.${id},slug.eq.${id}`)
-        .select()
-        .single();
+      const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
+      let query = (supabase.from('knowledge_pieces') as any).update(updatePayload);
+      if (isUuid) {
+        query = query.or(`id.eq.${id},slug.eq.${id}`);
+      } else {
+        query = query.eq('slug', id);
+      }
+      const { data, error } = await query.select().maybeSingle();
 
       if (!error && data) {
         updatedArticle = normalizeArticle(data, id);
       } else {
-        updatedArticle = normalizeArticle({ id, ...updatePayload }, id);
+        // Attempt upsert if the record didn't exist yet
+        const targetSlug = cleanSlug || id;
+        const { data: upsertData, error: upsertErr } = await (supabase.from('knowledge_pieces') as any)
+          .upsert({ ...updatePayload, slug: targetSlug }, { onConflict: 'slug' })
+          .select()
+          .maybeSingle();
+
+        if (!upsertErr && upsertData) {
+          updatedArticle = normalizeArticle(upsertData, id);
+        } else {
+          updatedArticle = normalizeArticle({ id, ...updatePayload }, id);
+        }
       }
     } catch (err) {
       console.warn('Supabase offline update:', err);
@@ -234,8 +291,15 @@ export async function PUT(request: Request, { params }: RouteContext) {
     try {
       revalidatePath('/knowledge');
       revalidatePath('/knowledge/', 'page');
-      if (validCluster) revalidatePath(`/knowledge/${validCluster}/`, 'page');
-      if (cleanSlug) revalidatePath(`/knowledge/${validCluster || 'articles'}/${cleanSlug}/`, 'page');
+      if (validCluster) {
+        revalidatePath(`/knowledge/${validCluster}/`, 'page');
+        revalidatePath(`/knowledge/${validCluster}s/`, 'page');
+      }
+      if (cleanSlug) {
+        revalidatePath(`/knowledge/${validCluster || 'articles'}/${cleanSlug}/`, 'page');
+        revalidatePath(`/patients/${cleanSlug}/`, 'page');
+      }
+      revalidatePath('/patients', 'page');
       revalidatePath('/admin/articles');
       revalidatePath('/admin/articles/', 'page');
     } catch (revalErr) {

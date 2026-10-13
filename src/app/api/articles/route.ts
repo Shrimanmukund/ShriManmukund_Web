@@ -9,6 +9,7 @@ export const fetchCache = 'force-no-store';
 
 function mapSupabaseToKnowledgeArticle(row: any): KnowledgeArticle {
   const rawCluster = (row.cluster || 'article').toLowerCase().trim();
+  const slug = (row.slug || '').toLowerCase().trim();
   let category: 'playbooks' | 'articles' | 'insights' | 'patient-resources' = 'articles';
   let categoryLabel: 'Playbook' | 'Article' | 'Insight' | 'Patient Guide' = 'Article';
   let typeClass = '';
@@ -23,8 +24,15 @@ function mapSupabaseToKnowledgeArticle(row: any): KnowledgeArticle {
     typeClass = 'article-card-type--insight';
   } else if (
     rawCluster.includes('patient') ||
-    rawCluster.includes('guide') ||
-    rawCluster.includes('resource')
+    rawCluster.includes('resource') ||
+    slug === 'your-first-visit-what-to-expect' ||
+    slug === 'first-visit' ||
+    slug === 'post-surgery-diet-what-to-eat-what-to-avoid' ||
+    slug === 'pre-surgery' ||
+    slug === 'post-surgery' ||
+    slug === 'diet-and-lifestyle' ||
+    slug === 'faq' ||
+    slug === 'sitz-bath-guide'
   ) {
     category = 'patient-resources';
     categoryLabel = 'Patient Guide';
