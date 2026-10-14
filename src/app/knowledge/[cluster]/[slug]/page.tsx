@@ -14,6 +14,7 @@ import { generateArticleSchema } from '@/lib/seo/schemas';
 import { MarkdownRenderer } from '@/components/content/MarkdownRenderer';
 import { ShareBar } from '@/components/knowledge/ShareBar';
 import { ArticleViewTracker } from '@/components/knowledge/ArticleViewTracker';
+import { ArticleHeroImage } from '@/components/knowledge/ArticleHeroImage';
 
 export const dynamicParams = true;
 export const revalidate = 0;
@@ -413,20 +414,11 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
       </section>
 
       {/* 3. HERO VISUAL */}
-      <div className="article-hero-visual">
-        <div className="article-hero-visual-inner">
-          {coverImageUrl ? (
-            <img
-              src={coverImageUrl}
-              alt={title}
-              className="w-full h-full object-cover"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'relative', zIndex: 10 }}
-            />
-          ) : (
-            <div className="article-hero-visual-devanagari">{devanagariWatermark}</div>
-          )}
-        </div>
-      </div>
+      <ArticleHeroImage
+        coverImageUrl={coverImageUrl}
+        title={title}
+        devanagariWatermark={devanagariWatermark}
+      />
 
       {/* 4. ANSWER-FIRST SUMMARY */}
       {answerFirstSummary && (
