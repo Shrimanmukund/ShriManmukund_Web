@@ -15,11 +15,52 @@ export async function POST(request: Request) {
       );
     }
 
+    const ALLOWED_MIME_TYPES = [
+      'image/jpeg',
+      'image/jpg',
+      'image/png',
+      'image/webp',
+      'image/avif',
+    ];
+    const ALLOWED_EXTENSIONS = ['jpg', 'jpeg', 'png', 'webp', 'avif'];
+
+    const fileExt = file.name.split('.').pop()?.toLowerCase() || '';
+    const mimeType = (file.type || '').toLowerCase();
+
+    // Strictly disallow PDFs and any non-image files
+    if (
+      fileExt === 'pdf' ||
+      mimeType.includes('pdf') ||
+      !ALLOWED_EXTENSIONS.includes(fileExt) ||
+      !mimeType.startsWith('image/') ||
+      !ALLOWED_MIME_TYPES.includes(mimeType)
+    ) {
+      return NextResponse.json(
+        {
+          success: false,
+          message:
+            'Invalid file format. Only images (PNG, JPG, JPEG, WebP, AVIF) are allowed for cover images. PDFs and documents are not permitted.',
+        },
+        { status: 400 }
+      );
+    }
+
+    // Limit file size to 5MB
+    const MAX_FILE_SIZE = 5 * 1024 * 1024;
+    if (file.size > MAX_FILE_SIZE) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'File size exceeds 5MB limit. Please upload an image under 5MB.',
+        },
+        { status: 400 }
+      );
+    }
+
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
     // Create unique filename
-    const fileExt = file.name.split('.').pop()?.toLowerCase() || 'jpg';
     const cleanFileName = file.name
       .replace(/\.[^/.]+$/, '')
       .toLowerCase()

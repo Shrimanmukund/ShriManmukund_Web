@@ -72,6 +72,7 @@ export function ArticleEditorForm({ initialData = {}, isEditing = false }: Artic
   const [activeTab, setActiveTab] = useState<'write' | 'preview'>('write');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [uploadingImage, setUploadingImage] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
@@ -124,10 +125,32 @@ export function ArticleEditorForm({ initialData = {}, isEditing = false }: Artic
     }));
   };
 
-  // Handle Cover Image Upload
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
+  // Handle Cover Image Upload with strict image-only validation
+  const uploadFile = async (file: File) => {
+    const validExtensions = ['jpg', 'jpeg', 'png', 'webp', 'avif'];
+    const fileExt = file.name.split('.').pop()?.toLowerCase() || '';
+    const mimeType = (file.type || '').toLowerCase();
+
+    // Block PDFs and any non-image files immediately
+    if (
+      fileExt === 'pdf' ||
+      mimeType.includes('pdf') ||
+      !validExtensions.includes(fileExt) ||
+      !mimeType.startsWith('image/')
+    ) {
+      setErrorMessage(
+        'Invalid file type: Only images (JPG, PNG, WebP) are allowed as cover images. PDFs and documents cannot be uploaded here.'
+      );
+      if (fileInputRef.current) fileInputRef.current.value = '';
+      return;
+    }
+
+    // Limit file size to 5MB
+    if (file.size > 5 * 1024 * 1024) {
+      setErrorMessage('Image size exceeds 5MB limit. Please choose a smaller image.');
+      if (fileInputRef.current) fileInputRef.current.value = '';
+      return;
+    }
 
     setUploadingImage(true);
     setErrorMessage('');
@@ -144,6 +167,8 @@ export function ArticleEditorForm({ initialData = {}, isEditing = false }: Artic
       const result = await res.json();
       if (result.success && result.url) {
         setFormData((prev) => ({ ...prev, cover_image_url: result.url }));
+        setSuccessMessage('Cover image uploaded successfully!');
+        setTimeout(() => setSuccessMessage(''), 3000);
       } else {
         throw new Error(result.message || 'Image upload failed');
       }
@@ -151,6 +176,14 @@ export function ArticleEditorForm({ initialData = {}, isEditing = false }: Artic
       setErrorMessage(err.message || 'Failed to upload image');
     } finally {
       setUploadingImage(false);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+    }
+  };
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      uploadFile(file);
     }
   };
 
@@ -668,14 +701,29 @@ export function ArticleEditorForm({ initialData = {}, isEditing = false }: Artic
             ) : (
               <div
                 onClick={() => fileInputRef.current?.click()}
-                className="border-2 border-dashed border-gray-300 hover:border-slate-800 rounded-lg p-6 text-center cursor-pointer transition bg-gray-50/50 hover:bg-gray-50"
+                onDragOver={(e) => {
+                  e.preventDefault();
+                  setIsDragging(true);
+                }}
+                onDragLeave={() => setIsDragging(false)}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  setIsDragging(false);
+                  const file = e.dataTransfer.files?.[0];
+                  if (file) uploadFile(file);
+                }}
+                className={`border-2 border-dashed rounded-lg p-6 text-center cursor-pointer transition ${
+                  isDragging
+                    ? 'border-[#2D6A4F] bg-emerald-50/50'
+                    : 'border-gray-300 hover:border-slate-800 bg-gray-50/50 hover:bg-gray-50'
+                }`}
               >
                 <Upload className="w-6 h-6 text-gray-400 mx-auto mb-2" />
                 <p className="text-xs font-medium text-gray-700">
                   {uploadingImage ? 'Uploading image...' : 'Click or drag image to upload'}
                 </p>
                 <p className="text-[10px] text-gray-400 mt-1">
-                  PNG, JPG or WebP up to 5MB (saves to blog-images)
+                  JPG, PNG or WebP only (up to 5MB) &bull; No PDFs
                 </p>
               </div>
             )}
@@ -683,7 +731,7 @@ export function ArticleEditorForm({ initialData = {}, isEditing = false }: Artic
             <input
               ref={fileInputRef}
               type="file"
-              accept="image/*"
+              accept=".jpg,.jpeg,.png,.webp,.avif,image/png,image/jpeg,image/webp,image/avif"
               onChange={handleFileUpload}
               className="hidden"
             />
