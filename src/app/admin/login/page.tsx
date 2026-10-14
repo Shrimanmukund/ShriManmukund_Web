@@ -94,7 +94,7 @@ function AdminLoginFormContent() {
                 type="email"
                 required
                 autoComplete="email"
-                placeholder="admin@shrimanmukundhospital.com"
+                placeholder="example@gmail.com"
                 className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-slate-900 transition"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -145,13 +145,10 @@ function AdminLoginFormContent() {
           </button>
         </form>
 
-        {/* Credentials guidance for staff */}
-        <div className="mt-8 pt-5 border-t border-gray-100 text-center space-y-1.5">
-          <p className="text-[11px] font-medium text-gray-600">
-            Authorised for Dr. Vipin Tongale, Dr. Swati Tongale & Hospital Administration.
-          </p>
-          <p className="text-[10px] text-gray-400">
-            Default credentials: <code className="bg-gray-100 px-1.5 py-0.5 rounded text-gray-700 font-mono">admin@shrimanmukundhospital.com</code> / <code className="bg-gray-100 px-1.5 py-0.5 rounded text-gray-700 font-mono">Manmukund@2026</code>
+        {/* Security Notice */}
+        <div className="mt-8 pt-5 border-t border-gray-100 text-center">
+          <p className="text-[11px] font-medium text-gray-500">
+            Authorised for Dr. Vipin Tongale, Dr. Swati Tongale &amp; Hospital Administration.
           </p>
         </div>
       </div>
