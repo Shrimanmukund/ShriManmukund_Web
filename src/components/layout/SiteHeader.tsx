@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { X } from 'lucide-react';
 
 export const SiteHeader: React.FC = () => {
   const pathname = usePathname();
@@ -13,6 +14,32 @@ export const SiteHeader: React.FC = () => {
     setMobileOpen(false);
   }, [pathname]);
 
+  // Synchronize document body class and lock background scrolling when mobile drawer is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.classList.add('nav-open');
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.classList.remove('nav-open');
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.classList.remove('nav-open');
+      document.body.style.overflow = '';
+    };
+  }, [mobileOpen]);
+
+  // Close drawer on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && mobileOpen) {
+        setMobileOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mobileOpen]);
+
   if (pathname?.startsWith('/admin')) {
     return null;
   }
@@ -22,7 +49,7 @@ export const SiteHeader: React.FC = () => {
       {/* NAV */}
       <header className="nav">
         <div className="nav-inner">
-          <Link prefetch={false} href="/" className="nav-logo">
+          <Link prefetch={false} href="/" className="nav-logo" onClick={() => setMobileOpen(false)}>
             <div className="nav-logo-badge"></div>
             <div className="nav-logo-text">
               <div className="nav-logo-name">Shri Manmukund</div>
@@ -32,32 +59,32 @@ export const SiteHeader: React.FC = () => {
 
           <nav className="nav-menu">
             <Link prefetch={false} href="/services/"
-              className={pathname === '/services/' || pathname === '/services' ? 'active' : ''}
+              className={pathname === '/services/' || pathname === '/services' || pathname?.startsWith('/services/') ? 'active' : ''}
             >
               Services
             </Link>
             <Link prefetch={false} href="/doctors/"
-              className={pathname.startsWith('/doctors') || pathname.startsWith('/dr-vipin') || pathname.startsWith('/dr-swati') ? 'active' : ''}
+              className={pathname?.startsWith('/doctors') || pathname?.startsWith('/dr-vipin') || pathname?.startsWith('/dr-swati') ? 'active' : ''}
             >
               Our Doctors
             </Link>
             <Link prefetch={false} href="/about/"
-              className={pathname.startsWith('/about') ? 'active' : ''}
+              className={pathname?.startsWith('/about') ? 'active' : ''}
             >
               About
             </Link>
             <Link prefetch={false} href="/achievements/"
-              className={pathname.startsWith('/achievements') ? 'active' : ''}
+              className={pathname?.startsWith('/achievements') ? 'active' : ''}
             >
               Achievements
             </Link>
             <Link prefetch={false} href="/knowledge/"
-              className={pathname.startsWith('/knowledge') ? 'active' : ''}
+              className={pathname?.startsWith('/knowledge') ? 'active' : ''}
             >
               Knowledge
             </Link>
             <Link prefetch={false} href="/contact/"
-              className={pathname.startsWith('/contact') ? 'active' : ''}
+              className={pathname?.startsWith('/contact') ? 'active' : ''}
             >
               Visit Us
             </Link>
@@ -74,8 +101,10 @@ export const SiteHeader: React.FC = () => {
 
           <button
             type="button"
-            className="nav-hamburger"
-            aria-label="Open menu"
+            className={`nav-hamburger ${mobileOpen ? 'is-active' : ''}`}
+            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={mobileOpen}
+            aria-controls="navDrawer"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             <span></span>
@@ -86,10 +115,17 @@ export const SiteHeader: React.FC = () => {
       </header>
 
       {/* MOBILE NAV DRAWER */}
-      <div className={`nav-drawer ${mobileOpen ? 'nav-drawer--open' : ''}`} id="navDrawer">
+      <div
+        className={`nav-drawer ${mobileOpen ? 'nav-drawer--open' : ''}`}
+        id="navDrawer"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden={!mobileOpen}
+      >
         <div
           className="nav-drawer-overlay"
           onClick={() => setMobileOpen(false)}
+          aria-hidden="true"
         ></div>
         <aside className="nav-drawer-inner">
           <div className="nav-drawer-head">
@@ -98,46 +134,107 @@ export const SiteHeader: React.FC = () => {
               <div className="nav-drawer-head-name">Shri Manmukund</div>
               <div className="nav-drawer-head-sub">Hospital · Amravati</div>
             </div>
+            <button
+              type="button"
+              className="nav-drawer-close"
+              aria-label="Close navigation menu"
+              onClick={() => setMobileOpen(false)}
+            >
+              <X className="w-5 h-5 text-[#1B3A5B]" />
+            </button>
           </div>
 
-          <nav className="nav-drawer-menu">
-            <Link prefetch={false} href="/services/" onClick={() => setMobileOpen(false)}>
+          <nav className="nav-drawer-menu" aria-label="Mobile Navigation">
+            <Link
+              prefetch={false}
+              href="/services/"
+              className={pathname?.startsWith('/services') ? 'active' : ''}
+              onClick={() => setMobileOpen(false)}
+            >
               Services &amp; Units
             </Link>
-            <Link prefetch={false} href="/doctors/" onClick={() => setMobileOpen(false)}>
+            <Link
+              prefetch={false}
+              href="/doctors/"
+              className={pathname === '/doctors/' || pathname === '/doctors' ? 'active' : ''}
+              onClick={() => setMobileOpen(false)}
+            >
               Our Doctors
             </Link>
-            <Link prefetch={false} href="/dr-vipin/" onClick={() => setMobileOpen(false)} style={{ paddingLeft: '2rem', fontSize: '0.875rem' }}>
+            <Link
+              prefetch={false}
+              href="/dr-vipin/"
+              className={pathname?.startsWith('/dr-vipin') ? 'active' : ''}
+              onClick={() => setMobileOpen(false)}
+              style={{ paddingLeft: '2rem', fontSize: '0.875rem' }}
+            >
               ↳ Dr. Vipin Tongale
             </Link>
-            <Link prefetch={false} href="/dr-swati/" onClick={() => setMobileOpen(false)} style={{ paddingLeft: '2rem', fontSize: '0.875rem' }}>
+            <Link
+              prefetch={false}
+              href="/dr-swati/"
+              className={pathname?.startsWith('/dr-swati') ? 'active' : ''}
+              onClick={() => setMobileOpen(false)}
+              style={{ paddingLeft: '2rem', fontSize: '0.875rem' }}
+            >
               ↳ Dr. Swati Tongale
             </Link>
-            <Link prefetch={false} href="/about/" onClick={() => setMobileOpen(false)}>
+            <Link
+              prefetch={false}
+              href="/about/"
+              className={pathname?.startsWith('/about') ? 'active' : ''}
+              onClick={() => setMobileOpen(false)}
+            >
               About Us
             </Link>
-            <Link prefetch={false} href="/achievements/" onClick={() => setMobileOpen(false)}>
+            <Link
+              prefetch={false}
+              href="/achievements/"
+              className={pathname?.startsWith('/achievements') ? 'active' : ''}
+              onClick={() => setMobileOpen(false)}
+            >
               Achievements &amp; Recognition
             </Link>
-            <Link prefetch={false} href="/knowledge/" onClick={() => setMobileOpen(false)}>
+            <Link
+              prefetch={false}
+              href="/knowledge/"
+              className={pathname?.startsWith('/knowledge') ? 'active' : ''}
+              onClick={() => setMobileOpen(false)}
+            >
               Knowledge Hub
             </Link>
-            <Link prefetch={false} href="/patients/" onClick={() => setMobileOpen(false)}>
+            <Link
+              prefetch={false}
+              href="/patients/"
+              className={pathname?.startsWith('/patients') ? 'active' : ''}
+              onClick={() => setMobileOpen(false)}
+            >
               Patient Resources
             </Link>
-            <Link prefetch={false} href="/contact/" onClick={() => setMobileOpen(false)}>
+            <Link
+              prefetch={false}
+              href="/contact/"
+              className={pathname?.startsWith('/contact') ? 'active' : ''}
+              onClick={() => setMobileOpen(false)}
+            >
               Visit &amp; OPD Hours
             </Link>
           </nav>
 
           <div className="nav-drawer-cta">
-            <Link prefetch={false} href="/contact/#book"
+            <Link
+              prefetch={false}
+              href="/contact/#book"
               className="btn btn-primary"
               onClick={() => setMobileOpen(false)}
             >
               Book a consultation
             </Link>
-            <a href="tel:+918208927917" className="btn btn-ghost">
+            <a
+              href="tel:+918208927917"
+              className="btn btn-ghost"
+              onClick={() => setMobileOpen(false)}
+            >
               Call · 8208927917
             </a>
           </div>

@@ -1041,10 +1041,16 @@ a {
   gap: 5px;
   border-radius: 12px;
   transition: background 0.2s;
+  flex-shrink: 0;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.nav-hamburger:hover {
+.nav-hamburger:hover,
+.nav-hamburger:focus-visible {
   background: var(--sage-lighter);
+  outline: none;
 }
 
 .nav-hamburger span {
@@ -1056,12 +1062,34 @@ a {
   transition: transform 0.25s, opacity 0.25s;
 }
 
+.nav-hamburger.is-active span:nth-child(1),
+body.nav-open .nav-hamburger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-hamburger.is-active span:nth-child(2),
+body.nav-open .nav-hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-hamburger.is-active span:nth-child(3),
+body.nav-open .nav-hamburger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 .nav-drawer {
   position: fixed;
   inset: 0;
   z-index: 200;
   visibility: hidden;
   pointer-events: none;
+  transition: visibility 0.35s ease;
+}
+
+.nav-drawer.nav-drawer--open,
+body.nav-open .nav-drawer {
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
 
 .nav-drawer-overlay {
@@ -1070,10 +1098,15 @@ a {
   background: rgba(27, 58, 91, 0.4);
   opacity: 0;
   transition: opacity 0.3s;
+  pointer-events: none;
 }
 
-.nav-drawer--open .nav-drawer-overlay {
+.nav-drawer.nav-drawer--open .nav-drawer-overlay,
+body.nav-open .nav-drawer-overlay {
+  opacity: 1 !important;
+  pointer-events: auto !important;
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .nav-drawer-inner {
@@ -1090,6 +1123,12 @@ a {
   display: flex;
   flex-direction: column;
   box-shadow: -8px 0 32px rgba(27, 58, 91, 0.15);
+  z-index: 2;
+}
+
+.nav-drawer.nav-drawer--open .nav-drawer-inner,
+body.nav-open .nav-drawer-inner {
+  transform: translateX(0) !important;
 }
 
 .nav-drawer-head {
@@ -1099,6 +1138,31 @@ a {
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--leaf-line);
   margin-bottom: 1.5rem;
+}
+
+.nav-drawer-close {
+  margin-left: auto;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sage-lighter);
+  border: none;
+  border-radius: 50%;
+  color: var(--indigo);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  flex-shrink: 0;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-drawer-close:hover,
+.nav-drawer-close:focus-visible {
+  background: var(--leaf-line);
+  transform: scale(1.05);
+  outline: none;
 }
 
 .nav-drawer-head-text {
