@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { Calendar, MessageSquare, Shield, LogOut, Home, UserCheck, Mail, BookOpen } from 'lucide-react';
+import { Calendar, Shield, LogOut, Home, Mail, BookOpen } from 'lucide-react';
 
 export function AdminHeader() {
   const pathname = usePathname();
@@ -31,7 +31,6 @@ export function AdminHeader() {
   };
 
   const isEnquiries = pathname.startsWith('/admin/enquiries') || pathname === '/admin' || pathname === '/admin/';
-  const isTestimonials = pathname.startsWith('/admin/testimonials');
   const isSubscriptions = pathname.startsWith('/admin/subscriptions');
   const isArticles = pathname.startsWith('/admin/articles');
 
@@ -78,18 +77,6 @@ export function AdminHeader() {
         >
           <Calendar className="w-4 h-4" />
           <span>Enquiries & Appointments</span>
-        </Link>
-
-        <Link
-          href="/admin/testimonials/"
-          className={`px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 font-medium ${
-            isTestimonials
-              ? 'bg-amber-600 text-white shadow-sm font-semibold'
-              : 'text-gray-300 hover:text-white hover:bg-slate-800'
-          }`}
-        >
-          <MessageSquare className="w-4 h-4" />
-          <span>Testimonial Moderation</span>
         </Link>
 
         <Link
