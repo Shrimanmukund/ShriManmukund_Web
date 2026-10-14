@@ -89,6 +89,7 @@ export function mapSupabaseToKnowledgeArticle(row: any): KnowledgeArticle {
     devanagari,
     imageClass: '',
     isFeatured: row.is_featured || false,
+    coverImageUrl: row.cover_image_url || row.featured_image_url || row.image_url || undefined,
   };
 }
 
@@ -107,6 +108,7 @@ export interface LiveArticleData {
   metaTitle: string;
   metaDescription: string;
   categoryTag: string;
+  coverImageUrl?: string;
   isDraft?: boolean;
 }
 
@@ -225,6 +227,7 @@ export async function getLiveArticleBySlug(
         metaTitle: data.meta_title || `${data.title} | Shri Manmukund Hospital`,
         metaDescription: data.meta_description || data.excerpt || '',
         categoryTag: data.category_tag || 'Clinical Care',
+        coverImageUrl: data.cover_image_url || data.featured_image_url || data.image_url || undefined,
       };
     }
   } catch (err) {

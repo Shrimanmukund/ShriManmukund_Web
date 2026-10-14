@@ -511,7 +511,16 @@ export function KnowledgeHubClient({ initialArticles }: KnowledgeHubClientProps 
             {paginatedArticles.map((article) => (
               <Link key={article.id} href={article.href} className="article-card">
                 <div className={`article-card-image ${article.imageClass}`}>
-                  <div className="article-card-devanagari">{article.devanagari}</div>
+                  {article.coverImageUrl ? (
+                    <img
+                      src={article.coverImageUrl}
+                      alt={article.title}
+                      className="w-full h-full object-cover"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  ) : (
+                    <div className="article-card-devanagari">{article.devanagari}</div>
+                  )}
                 </div>
                 <div className="article-card-body">
                   <div className="article-card-badges">

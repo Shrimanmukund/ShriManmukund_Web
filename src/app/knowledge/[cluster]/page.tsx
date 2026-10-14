@@ -137,6 +137,7 @@ export default async function KnowledgeClusterPage({ params }: ClusterPageProps)
           tags: ['Amravati', 'Healthcare'],
           metaTitle: row.meta_title || `${row.title} | Shri Manmukund Hospital`,
           metaDescription: row.meta_description || row.excerpt || '',
+          coverImageUrl: row.cover_image_url || row.featured_image_url || null,
         });
       }
     }
@@ -176,18 +177,29 @@ export default async function KnowledgeClusterPage({ params }: ClusterPageProps)
                   key={p.slug}
                   className="bg-white p-6 rounded-warm border border-[#6B7F5F]/20 shadow-warm-sm hover:shadow-warm-md transition flex flex-col sm:flex-row sm:items-center justify-between gap-4"
                 >
-                  <div>
-                    <div className="flex items-center gap-2 text-[11px] text-[#8B7355] mb-1">
-                      <span>By {p.authorSlug === 'dr-vipin' ? 'Dr. Vipin Tongale' : 'Dr. Swati Tongale'}</span>
-                      <span>&bull;</span>
-                      <span>{p.estimatedReadTimeMins} min read</span>
+                  <div className="flex items-start gap-4 flex-1">
+                    {p.coverImageUrl && (
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden flex-shrink-0 bg-gray-100 border border-gray-200">
+                        <img
+                          src={p.coverImageUrl}
+                          alt={p.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 text-[11px] text-[#8B7355] mb-1">
+                        <span>By {p.authorSlug === 'dr-vipin' ? 'Dr. Vipin Tongale' : 'Dr. Swati Tongale'}</span>
+                        <span>&bull;</span>
+                        <span>{p.estimatedReadTimeMins} min read</span>
+                      </div>
+                      <h3 className="font-serif text-lg font-bold text-[#1B3A5B]">
+                        <Link href={`/knowledge/${params.cluster}/${p.slug}/`} className="hover:text-[#B8894A]">
+                          {p.title}
+                        </Link>
+                      </h3>
+                      <p className="text-xs text-[#5C4F3A] mt-1 line-clamp-2 max-w-2xl">{p.excerpt}</p>
                     </div>
-                    <h3 className="font-serif text-lg font-bold text-[#1B3A5B]">
-                      <Link href={`/knowledge/${params.cluster}/${p.slug}/`} className="hover:text-[#B8894A]">
-                        {p.title}
-                      </Link>
-                    </h3>
-                    <p className="text-xs text-[#5C4F3A] mt-1 line-clamp-2 max-w-2xl">{p.excerpt}</p>
                   </div>
 
                   <Link

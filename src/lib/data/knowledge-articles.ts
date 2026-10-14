@@ -18,6 +18,7 @@ export interface KnowledgeArticle {
   devanagari: string;
   imageClass: string;
   isFeatured?: boolean;
+  coverImageUrl?: string;
 }
 
 export const KNOWLEDGE_ARTICLES: KnowledgeArticle[] = [

@@ -75,6 +75,7 @@ async function getDbArticle(slug: string) {
         metaTitle: data.meta_title || `${data.title} | Shri Manmukund Hospital`,
         metaDescription: data.meta_description || data.excerpt || '',
         categoryTag: data.category_tag || 'Clinical Care',
+        coverImageUrl: data.cover_image_url || data.featured_image_url || data.image_url || null,
       };
     }
   } catch (err) {
@@ -148,6 +149,7 @@ export async function generateMetadata({ params }: KnowledgePiecePageProps) {
       siteName: 'Shri Manmukund Hospital',
       locale: 'en_IN',
       type: 'article',
+      ...(dbArticle?.coverImageUrl ? { images: [{ url: dbArticle.coverImageUrl }] } : {}),
     },
   };
 }
@@ -291,6 +293,8 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
     ? 12
     : (kbArticle?.readTimeMins || piece?.estimatedReadTimeMins || dbArticle?.estimatedReadTimeMins || dynamicReadTime || 5);
 
+  const coverImageUrl = dbArticle?.coverImageUrl || kbArticle?.coverImageUrl || (piece as any)?.featuredImageUrl || null;
+
   const pieceData = {
     slug: params.slug,
     cluster: params.cluster as any,
@@ -305,6 +309,7 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
     tags: ['Amravati', 'Surgery'],
     metaTitle: `${title} | Shri Manmukund Hospital`,
     metaDescription: excerpt,
+    featuredImageUrl: coverImageUrl || undefined,
   };
 
   const schema = generateArticleSchema(pieceData);
@@ -410,7 +415,16 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
       {/* 3. HERO VISUAL */}
       <div className="article-hero-visual">
         <div className="article-hero-visual-inner">
-          <div className="article-hero-visual-devanagari">{devanagariWatermark}</div>
+          {coverImageUrl ? (
+            <img
+              src={coverImageUrl}
+              alt={title}
+              className="w-full h-full object-cover"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'relative', zIndex: 10 }}
+            />
+          ) : (
+            <div className="article-hero-visual-devanagari">{devanagariWatermark}</div>
+          )}
         </div>
       </div>
 

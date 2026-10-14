@@ -166,6 +166,7 @@ export function ArticleEditorForm({ initialData = {}, isEditing = false }: Artic
     setSuccessMessage('');
 
     const targetStatus = publishStatus || formData.status;
+    setFormData((prev) => ({ ...prev, status: targetStatus }));
 
     try {
       const payload = {
@@ -529,29 +530,26 @@ export function ArticleEditorForm({ initialData = {}, isEditing = false }: Artic
 
         {/* Right Column: Settings, Metadata & Image */}
         <div className="space-y-5">
-          {/* Publication Status Box */}
+          {/* Publishing Settings Box */}
           <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
-            <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider">
-              Publishing Settings
-            </h3>
-
-            <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                Visibility Status
-              </label>
-              <select
-                value={formData.status}
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    status: e.target.value as 'draft' | 'published',
-                  })
-                }
-                className="w-full px-3.5 py-2 border border-gray-300 rounded-lg text-xs bg-white text-gray-800 focus:ring-2 focus:ring-slate-900 focus:outline-none font-medium"
+            <div className="flex items-center justify-between pb-2 border-b border-gray-100">
+              <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider">
+                Publishing Settings
+              </h3>
+              <span
+                className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold ${
+                  formData.status === 'published'
+                    ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                    : 'bg-amber-50 text-amber-700 border border-amber-200'
+                }`}
               >
-                <option value="published">🟢 Published (Live for patients)</option>
-                <option value="draft">🟡 Draft (Hidden from public site)</option>
-              </select>
+                <span
+                  className={`w-1.5 h-1.5 rounded-full ${
+                    formData.status === 'published' ? 'bg-emerald-600' : 'bg-amber-600'
+                  }`}
+                />
+                {formData.status === 'published' ? 'Published' : 'Draft'}
+              </span>
             </div>
 
             <div>
