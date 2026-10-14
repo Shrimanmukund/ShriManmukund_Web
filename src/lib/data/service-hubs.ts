@@ -23,6 +23,7 @@ export interface HubTier {
   whenApplied?: string;
   linkText?: string;
   linkUrl?: string;
+  links?: { text: string; url: string }[];
 }
 
 export interface HubSignature {
@@ -1585,6 +1586,18 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
         title: 'Paediatric Care & Tissue Salvage',
         desc: 'Monthly Pushya Nakshatra Suvarna Prashan for child immunity, and specialized Ayurvedic tissue regeneration for non-healing diabetic wounds.',
         whenApplied: 'Child immunity · Diabetic ulcers · Tissue salvage',
+        linkText: 'Explore Diabetic Wound Management →',
+        linkUrl: '/services/specialty-care/diabetic-wound-management/',
+        links: [
+          {
+            text: 'Explore Diabetic Wound Management →',
+            url: '/services/specialty-care/diabetic-wound-management/',
+          },
+          {
+            text: 'Explore Child Care & Immunity →',
+            url: '/services/specialty-care/child-care/',
+          },
+        ],
       },
     ],
     tiersNote:
@@ -1643,6 +1656,16 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
         tags: ['Paediatric', 'Pushya Nakshatra'],
         linkUrl: '/services/ayurveda/suvarna-prashan/',
         iconLetter: 'सु',
+      },
+      {
+        slug: 'child-care',
+        name: 'Child Care (Paediatric Ayurveda)',
+        nameSanskrit: 'कौमारभृत्य',
+        shortSummary:
+          'Paediatric Ayurvedic care for common childhood ailments, recurrent respiratory infections, digestion, and developmental support.',
+        tags: ['Paediatrics', 'Kaumarbhritya'],
+        linkUrl: '/services/specialty-care/child-care/',
+        iconLetter: 'बा',
       },
       {
         slug: 'diabetic-wound-management',

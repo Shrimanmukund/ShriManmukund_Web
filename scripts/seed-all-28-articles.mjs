@@ -1238,7 +1238,7 @@ async function seedAll() {
       }
     }
 
-    const views = existing?.views ?? (120 + ((i * 37) % 350));
+    const views = existing?.views ?? 0;
     const createdAt = existing?.created_at || new Date(p.date_published).toISOString();
     const updatedAt = new Date().toISOString();
 

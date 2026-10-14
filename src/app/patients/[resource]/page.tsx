@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { MarkdownRenderer } from '@/components/content/MarkdownRenderer';
 import { FAQAccordion } from '@/components/content/FAQAccordion';
+import { ArticleViewTracker } from '@/components/knowledge/ArticleViewTracker';
 import { getAllPages, getPatientResourceBySlug } from '@/lib/data/content-store';
 
 import { createAdminClient } from '@/lib/supabase/admin';
@@ -87,6 +88,7 @@ export default async function PatientResourceDetailPage({ params }: PatientResou
 
   return (
     <main>
+      <ArticleViewTracker slug={params.resource} />
       {/* 1. PAGE HERO */}
       <section className="page-hero">
         <div className="page-hero-inner">

@@ -164,7 +164,7 @@ export async function GET(request: Request, { params }: RouteContext) {
         read_time: item?.readTime || `${seededMatch?.estimatedReadTimeMins || 5} min`,
         date_published: item?.date || seededMatch?.publishedDate || '2026-08-15',
         date_updated: new Date().toISOString().split('T')[0],
-        views: 240,
+        views: 0,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       };

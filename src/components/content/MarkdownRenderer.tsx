@@ -6,6 +6,10 @@ interface MarkdownRendererProps {
 }
 
 export function slugifyHeading(text: string): string {
+  const customMatch = text.match(/\{#([^}]+)\}/);
+  if (customMatch) {
+    return customMatch[1].trim();
+  }
   return text
     .toLowerCase()
     .replace(/[^\w\s-]/g, '')
@@ -113,9 +117,11 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
     // Heading 1 (# ) - usually ignored or rendered as H1
     if (trimmed.startsWith('# ')) {
       flushAll();
-      const headingText = trimmed.replace(/^#\s+/, '').trim();
+      const rawHeading = trimmed.replace(/^#\s+/, '').trim();
+      const headingId = slugifyHeading(rawHeading);
+      const headingText = rawHeading.replace(/\{#[^}]+\}/, '').trim();
       if (!['hero', 'related content', 'related'].includes(headingText.toLowerCase())) {
-        blocks.push({ type: 'h1', content: headingText, id: slugifyHeading(headingText) });
+        blocks.push({ type: 'h1', content: headingText, id: headingId });
       }
       continue;
     }
@@ -123,9 +129,11 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
     // Heading 2 (## )
     if (trimmed.startsWith('## ')) {
       flushAll();
-      const headingText = trimmed.replace(/^##\s+/, '').trim();
+      const rawHeading = trimmed.replace(/^##\s+/, '').trim();
+      const headingId = slugifyHeading(rawHeading);
+      const headingText = rawHeading.replace(/\{#[^}]+\}/, '').trim();
       if (!['hero', 'related content', 'related'].includes(headingText.toLowerCase())) {
-        blocks.push({ type: 'h2', content: headingText, id: slugifyHeading(headingText) });
+        blocks.push({ type: 'h2', content: headingText, id: headingId });
       }
       continue;
     }
@@ -133,9 +141,11 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
     // Heading 3 (### )
     if (trimmed.startsWith('### ')) {
       flushAll();
-      const headingText = trimmed.replace(/^###\s+/, '').trim();
+      const rawHeading = trimmed.replace(/^###\s+/, '').trim();
+      const headingId = slugifyHeading(rawHeading);
+      const headingText = rawHeading.replace(/\{#[^}]+\}/, '').trim();
       if (!['headline', 'author byline', 'table of contents'].includes(headingText.toLowerCase())) {
-        blocks.push({ type: 'h3', content: headingText, id: slugifyHeading(headingText) });
+        blocks.push({ type: 'h3', content: headingText, id: headingId });
       }
       continue;
     }

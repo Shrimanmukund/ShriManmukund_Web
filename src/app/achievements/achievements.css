@@ -145,9 +145,13 @@
 
 /* ===== 1. Hero ===== */
 .achievements-page .hero {
-  padding: 72px 0 88px !important;
+  padding: 64px 0 24px !important;
   position: relative !important;
   overflow: hidden !important;
+}
+
+.achievements-page section#journey {
+  padding-top: 24px !important;
 }
 
 .achievements-page .hero::before {
@@ -1131,7 +1135,10 @@
     padding: 0 16px !important;
   }
   .achievements-page .hero {
-    padding: 40px 0 60px !important;
+    padding: 36px 0 20px !important;
+  }
+  .achievements-page section#journey {
+    padding-top: 20px !important;
   }
   .achievements-page .hero-grid {
     grid-template-columns: 1fr !important;

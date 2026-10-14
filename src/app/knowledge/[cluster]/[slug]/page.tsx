@@ -13,6 +13,7 @@ import { createAdminClient } from '@/lib/supabase/admin';
 import { generateArticleSchema } from '@/lib/seo/schemas';
 import { MarkdownRenderer } from '@/components/content/MarkdownRenderer';
 import { ShareBar } from '@/components/knowledge/ShareBar';
+import { ArticleViewTracker } from '@/components/knowledge/ArticleViewTracker';
 
 export const dynamicParams = true;
 export const revalidate = 0;
@@ -294,6 +295,7 @@ If you experience acute discomfort, rectal bleeding, persistent discharge, or wo
 
   return (
     <main>
+      <ArticleViewTracker slug={params.slug} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}

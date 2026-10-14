@@ -145,7 +145,7 @@ export async function GET(request: Request) {
           read_time: item.readTime || `${item.readTimeMins} min`,
           date_published: item.date || '2026-08-15',
           date_updated: item.date || '2026-09-10',
-          views: 120 + ((idx * 37) % 450),
+          views: 0,
           created_at: new Date(item.date || '2026-08-15').toISOString(),
           updated_at: new Date().toISOString(),
         });

@@ -128,14 +128,26 @@ export function ServiceHubLayout({ hub }: ServiceHubLayoutProps) {
                       </div>
                     )}
 
-                    {tier.linkUrl && tier.linkText && (
-                      <div className="mt-4 pt-3 border-t border-[rgba(107,127,95,0.12)]">
-                        <Link
-                          href={tier.linkUrl}
-                          className="text-xs font-semibold text-[#6B7F5F] hover:underline"
-                        >
-                          {tier.linkText}
-                        </Link>
+                    {((tier.links && tier.links.length > 0) || (tier.linkUrl && tier.linkText)) && (
+                      <div className="mt-4 pt-3 border-t border-[rgba(107,127,95,0.12)] flex flex-col gap-2">
+                        {tier.links && tier.links.length > 0 ? (
+                          tier.links.map((link, idx) => (
+                            <Link
+                              key={idx}
+                              href={link.url}
+                              className="text-xs font-semibold text-[#6B7F5F] hover:underline inline-flex items-center gap-1"
+                            >
+                              {link.text}
+                            </Link>
+                          ))
+                        ) : (
+                          <Link
+                            href={tier.linkUrl!}
+                            className="text-xs font-semibold text-[#6B7F5F] hover:underline inline-flex items-center gap-1"
+                          >
+                            {tier.linkText}
+                          </Link>
+                        )}
                       </div>
                     )}
                   </div>
