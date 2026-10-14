@@ -9,8 +9,12 @@ type SortOrder = 'latest' | 'oldest' | 'read-time';
 
 const PAGE_SIZE = 9;
 
-export function KnowledgeHubClient() {
-  const [articles, setArticles] = useState<KnowledgeArticle[]>(KNOWLEDGE_ARTICLES);
+export interface KnowledgeHubClientProps {
+  initialArticles?: KnowledgeArticle[];
+}
+
+export function KnowledgeHubClient({ initialArticles }: KnowledgeHubClientProps = {}) {
+  const [articles, setArticles] = useState<KnowledgeArticle[]>(initialArticles || []);
   const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<SortOrder>('latest');

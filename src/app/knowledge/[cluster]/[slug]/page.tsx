@@ -45,6 +45,11 @@ async function getDbArticle(slug: string) {
       .maybeSingle();
 
     if (!error && data) {
+      const isDraft = data.status === 'draft' || data.is_published === false;
+      if (isDraft) {
+        return { isDraft: true as const };
+      }
+
       const isSwati =
         data.author?.toLowerCase().includes('swati') ||
         data.author_slug === 'dr-swati' ||
@@ -104,7 +109,14 @@ export async function generateMetadata({ params }: KnowledgePiecePageProps) {
     params.cluster === 'playbooks' &&
     params.slug === 'ksharsutra-day-1-to-complete-healing';
 
-  const dbArticle = await getDbArticle(params.slug);
+  const rawDbArticle = await getDbArticle(params.slug);
+  if (rawDbArticle && 'isDraft' in rawDbArticle && rawDbArticle.isDraft) {
+    return {
+      title: 'Article Not Found | Shri Manmukund Hospital',
+      robots: { index: false, follow: false },
+    };
+  }
+  const dbArticle = rawDbArticle && !('isDraft' in rawDbArticle) ? rawDbArticle : null;
   const rawPage = getAllPages().find((p) =>
     p.url.includes(`/knowledge/${params.cluster}/${params.slug}/`)
   );
@@ -145,7 +157,11 @@ export default async function KnowledgeDetailPage({ params }: KnowledgePiecePage
     params.cluster === 'playbooks' &&
     params.slug === 'ksharsutra-day-1-to-complete-healing';
 
-  const dbArticle = await getDbArticle(params.slug);
+  const rawDbArticle = await getDbArticle(params.slug);
+  if (rawDbArticle && 'isDraft' in rawDbArticle && rawDbArticle.isDraft) {
+    notFound();
+  }
+  const dbArticle = rawDbArticle && !('isDraft' in rawDbArticle) ? rawDbArticle : null;
   const rawPage = getAllPages().find((p) =>
     p.url.includes(`/knowledge/${params.cluster}/${params.slug}/`)
   );

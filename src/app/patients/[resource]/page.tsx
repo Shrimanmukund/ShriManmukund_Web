@@ -27,6 +27,10 @@ async function getDbArticle(slug: string) {
       .maybeSingle();
 
     if (!error && data) {
+      const isDraft = data.status === 'draft' || data.is_published === false;
+      if (isDraft) {
+        return { isDraft: true as const };
+      }
       return {
         title: data.title,
         bodyMarkdown: data.body_content || data.body_markdown || '',
@@ -55,7 +59,14 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PatientResourcePageProps) {
-  const dbArticle = await getDbArticle(params.resource);
+  const rawDbArticle = await getDbArticle(params.resource);
+  if (rawDbArticle && 'isDraft' in rawDbArticle && rawDbArticle.isDraft) {
+    return {
+      title: 'Resource Not Found | Shri Manmukund Hospital',
+      robots: { index: false, follow: false },
+    };
+  }
+  const dbArticle = rawDbArticle && !('isDraft' in rawDbArticle) ? rawDbArticle : null;
   const rawPage = getAllPages().find((p) => p.url === `/patients/${params.resource}/`);
   const resource = getPatientResourceBySlug(params.resource);
 
@@ -71,7 +82,11 @@ export async function generateMetadata({ params }: PatientResourcePageProps) {
 }
 
 export default async function PatientResourceDetailPage({ params }: PatientResourcePageProps) {
-  const dbArticle = await getDbArticle(params.resource);
+  const rawDbArticle = await getDbArticle(params.resource);
+  if (rawDbArticle && 'isDraft' in rawDbArticle && rawDbArticle.isDraft) {
+    notFound();
+  }
+  const dbArticle = rawDbArticle && !('isDraft' in rawDbArticle) ? rawDbArticle : null;
   const rawPage = getAllPages().find((p) => p.url === `/patients/${params.resource}/`);
   const resource = getPatientResourceBySlug(params.resource);
 

@@ -82,17 +82,34 @@ export default async function KnowledgeClusterPage({ params }: ClusterPageProps)
     }
   }
 
-  // 2. Fetch live published items from Supabase
+  // 2. Fetch live published items from Supabase and filter out drafts
   try {
     const supabase = createAdminClient();
     const { data, error } = await (supabase.from('knowledge_pieces') as any)
       .select('*')
-      .or('status.eq.published,is_published.eq.true')
-      .in('cluster', [params.cluster, clusterKey, targetPlural])
       .order('created_at', { ascending: false });
 
     if (!error && data && data.length > 0) {
-      for (const row of data) {
+      const draftSlugs = new Set<string>(
+        data
+          .filter((r: any) => r.status === 'draft' || r.is_published === false)
+          .map((r: any) => String(r.slug))
+      );
+
+      // Strictly delete any draft articles from the listing
+      draftSlugs.forEach((draftSlug: string) => {
+        piecesMap.delete(draftSlug);
+      });
+
+      // Filter published articles matching this cluster
+      const published = data.filter(
+        (r: any) =>
+          r.status === 'published' &&
+          r.is_published !== false &&
+          [params.cluster, clusterKey, targetPlural].includes(r.cluster)
+      );
+
+      for (const row of published) {
         const isSwati =
           row.author?.toLowerCase().includes('swati') ||
           row.author_slug === 'dr-swati' ||

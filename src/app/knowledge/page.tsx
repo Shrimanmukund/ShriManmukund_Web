@@ -1,6 +1,10 @@
 import React from 'react';
 import '@/app/templates.css';
 import { KnowledgeHubClient } from '@/components/knowledge/KnowledgeHubClient';
+import { getPublishedArticles } from '@/lib/data/knowledge-service';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export const metadata = {
   title: 'Knowledge Hub',
@@ -21,6 +25,7 @@ export const metadata = {
   },
 };
 
-export default function KnowledgeHubPage() {
-  return <KnowledgeHubClient />;
+export default async function KnowledgeHubPage() {
+  const publishedArticles = await getPublishedArticles();
+  return <KnowledgeHubClient initialArticles={publishedArticles} />;
 }
