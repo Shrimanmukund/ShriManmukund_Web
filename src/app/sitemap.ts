@@ -6,16 +6,18 @@ import {
   getAllPatientResources,
 } from '@/lib/data/content-store';
 import { KNOWLEDGE_ARTICLES } from '@/lib/data/knowledge-articles';
+import { createAdminClient } from '@/lib/supabase/admin';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shrimanmukundhospital.com';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const currentDate = new Date().toISOString();
   const urlMap = new Map<
     string,
     {
       priority: number;
       changeFrequency: 'daily' | 'weekly' | 'monthly' | 'yearly';
+      lastModified?: string;
     }
   >();
 
@@ -96,12 +98,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  // 6. Dynamic database articles from Supabase (published only)
+  try {
+    const supabase = createAdminClient();
+    const { data: dbArticles } = await (supabase.from('knowledge_pieces') as any)
+      .select('slug, cluster, updated_at, status, is_published');
+
+    if (dbArticles && Array.isArray(dbArticles)) {
+      for (const item of dbArticles) {
+        const isPublished = item.status === 'published' || item.is_published === true;
+        if (isPublished && item.slug) {
+          const cluster = item.cluster || 'articles';
+          urlMap.set(`/knowledge/${cluster}/${item.slug}/`, {
+            priority: 0.8,
+            changeFrequency: 'weekly',
+            lastModified: item.updated_at || currentDate,
+          });
+        }
+      }
+    }
+  } catch (err) {
+    console.error('Error fetching Supabase articles for sitemap:', err);
+  }
+
   return Array.from(urlMap.entries()).map(([route, config]) => {
     const normalizedRoute = route.startsWith('/') ? route : `/${route}`;
     const finalUrl = `${SITE_URL}${normalizedRoute.endsWith('/') ? normalizedRoute : `${normalizedRoute}/`}`;
     return {
       url: finalUrl,
-      lastModified: currentDate,
+      lastModified: config.lastModified || currentDate,
       changeFrequency: config.changeFrequency,
       priority: config.priority,
     };
