@@ -15,6 +15,14 @@ export interface AppointmentEnquiryFormProps {
   titleLevel?: 'h1' | 'h2' | 'h3';
 }
 
+interface FieldErrors {
+  fullName?: string;
+  phone?: string;
+  preferredDate?: string;
+  preferredSession?: string;
+  acknowledged?: string;
+}
+
 export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
   initialDoctorSlug,
   defaultDoctor,
@@ -37,10 +45,11 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
   const [reasonForVisit, setReasonForVisit] = useState('Please select a concern');
   const [briefDescription, setBriefDescription] = useState('');
   const [preferredDate, setPreferredDate] = useState('');
-  const [preferredSession, setPreferredSession] = useState('Afternoon (1:00 – 4:30)');
+  const [preferredSession, setPreferredSession] = useState('');
   const [acknowledged, setAcknowledged] = useState(false);
   const [honeypot, setHoneypot] = useState('');
 
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -51,20 +60,57 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
       return;
     }
 
-    if (!fullName.trim() || !phone.trim()) {
+    const errors: FieldErrors = {};
+
+    if (!fullName.trim()) {
+      errors.fullName = 'Please enter your full name.';
+    }
+
+    const digitsOnly = phone.replace(/\D/g, '');
+    if (!digitsOnly) {
+      errors.phone = 'Incorrect number. Please enter a 10-digit phone number.';
+    } else if (digitsOnly.length !== 10) {
+      errors.phone = 'Incorrect number. Please enter a 10-digit phone number.';
+    }
+
+    if (!preferredDate) {
+      errors.preferredDate = 'Please select a preferred date.';
+    }
+
+    if (!preferredSession) {
+      errors.preferredSession = 'Please select a session time.';
+    }
+
+    if (!acknowledged) {
+      errors.acknowledged = 'Please tick this checkbox to confirm your booking request.';
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
       setStatus('error');
-      setErrorMessage('Please provide your full name and phone number.');
+      if (errors.phone) {
+        setErrorMessage(errors.phone);
+      } else if (errors.preferredDate) {
+        setErrorMessage('Please select a preferred appointment date.');
+      } else if (errors.preferredSession) {
+        setErrorMessage('Please select a session time.');
+      } else if (errors.acknowledged) {
+        setErrorMessage('Please tick the checkbox to confirm your booking request.');
+      } else {
+        setErrorMessage('Please complete all required fields marked in red.');
+      }
       return;
     }
 
+    setFieldErrors({});
     setStatus('submitting');
     setErrorMessage('');
 
     const payload: AppointmentEnquiryInput = {
-      patientName: fullName,
-      age,
-      phone,
-      email,
+      patientName: fullName.trim(),
+      age: age.trim() || undefined,
+      phone: digitsOnly,
+      email: email.trim() || undefined,
       doctorSlug:
         whichDoctor === 'Dr. Vipin Tongale'
           ? 'dr-vipin'
@@ -72,7 +118,7 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
           ? 'dr-swati'
           : '',
       reasonForVisit,
-      message: briefDescription,
+      message: briefDescription.trim() || undefined,
       preferredDate,
       preferredTimeSlot: preferredSession,
     };
@@ -96,7 +142,9 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
       setEmail('');
       setBriefDescription('');
       setPreferredDate('');
+      setPreferredSession('');
       setAcknowledged(false);
+      setFieldErrors({});
     } catch (err: any) {
       setStatus('error');
       setErrorMessage(err.message || 'An error occurred while submitting your enquiry. Please call 8208927917.');
@@ -133,7 +181,11 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
         </p>
         <button
           type="button"
-          onClick={() => setStatus('idle')}
+          onClick={() => {
+            setStatus('idle');
+            setErrorMessage('');
+            setFieldErrors({});
+          }}
           className="btn btn-ghost"
           style={{ fontSize: '0.875rem' }}
         >
@@ -146,7 +198,7 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
   const HeadingTag = titleLevel;
 
   return (
-    <form className="booking-form" onSubmit={handleSubmit}>
+    <form className="booking-form" onSubmit={handleSubmit} noValidate>
       <HeadingTag className="booking-form-title">{title}</HeadingTag>
       <p className="booking-form-subtitle">{subtitle}</p>
 
@@ -161,23 +213,48 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
         autoComplete="off"
       />
 
-      {status === 'error' && (
-        <div style={{ padding: '0.75rem 1rem', background: '#FEE2E2', border: '1px solid #B91C1C', color: '#B91C1C', borderRadius: '8px', marginBottom: '1.25rem', fontSize: '0.875rem' }}>
+      {status === 'error' && errorMessage && (
+        <div
+          role="alert"
+          style={{
+            padding: '0.75rem 1rem',
+            background: '#FEF2F2',
+            border: '1.5px solid #EF4444',
+            color: '#DC2626',
+            borderRadius: '8px',
+            marginBottom: '1.25rem',
+            fontSize: '0.875rem',
+            fontWeight: 600,
+            lineHeight: 1.4,
+          }}
+        >
           {errorMessage}
         </div>
       )}
 
       <div className="form-row">
         <div className="form-group">
-          <label className="form-label">Full name</label>
+          <label className="form-label">
+            Full name <span style={{ color: '#DC2626' }}>*</span>
+          </label>
           <input
             type="text"
             className="form-input"
             placeholder="Your name"
-            required
             value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
+            style={fieldErrors.fullName ? { borderColor: '#DC2626', borderWidth: '1.5px' } : undefined}
+            onChange={(e) => {
+              setFullName(e.target.value);
+              if (fieldErrors.fullName) {
+                setFieldErrors((prev) => ({ ...prev, fullName: undefined }));
+              }
+            }}
           />
+          {fieldErrors.fullName && (
+            <span style={{ color: '#DC2626', fontSize: '0.75rem', marginTop: '0.25rem', display: 'block', fontWeight: 600 }}>
+              {fieldErrors.fullName}
+            </span>
+          )}
         </div>
         <div className="form-group">
           <label className="form-label">Age</label>
@@ -193,15 +270,29 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
 
       <div className="form-row">
         <div className="form-group">
-          <label className="form-label">Phone (WhatsApp)</label>
+          <label className="form-label">
+            Phone (WhatsApp) <span style={{ color: '#DC2626' }}>*</span>
+          </label>
           <input
             type="tel"
             className="form-input"
             placeholder="10-digit number"
-            required
+            maxLength={10}
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            style={fieldErrors.phone ? { borderColor: '#DC2626', borderWidth: '1.5px' } : undefined}
+            onChange={(e) => {
+              const val = e.target.value.replace(/\D/g, '').slice(0, 10);
+              setPhone(val);
+              if (fieldErrors.phone) {
+                setFieldErrors((prev) => ({ ...prev, phone: undefined }));
+              }
+            }}
           />
+          {fieldErrors.phone && (
+            <span style={{ color: '#DC2626', fontSize: '0.75rem', marginTop: '0.25rem', display: 'block', fontWeight: 600 }}>
+              {fieldErrors.phone}
+            </span>
+          )}
         </div>
         <div className="form-group">
           <label className="form-label">Email (optional)</label>
@@ -261,34 +352,90 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
       </div>
 
       <div className="form-group">
-        <label className="form-label">Preferred date &amp; session</label>
-        <div className="form-row">
-          <input
-            type="date"
-            className="form-input"
-            value={preferredDate}
-            onChange={(e) => setPreferredDate(e.target.value)}
-          />
-          <select
-            className="form-select"
-            value={preferredSession}
-            onChange={(e) => setPreferredSession(e.target.value)}
-          >
-            <option>Afternoon (1:00 – 4:30)</option>
-            <option>Evening (6:00 – 8:30)</option>
-            <option>Either is fine</option>
-          </select>
+        <label className="form-label">
+          Preferred date &amp; session <span style={{ color: '#DC2626' }}>*</span>
+        </label>
+        <div className="form-row" style={{ marginBottom: 0 }}>
+          <div className="form-group" style={{ marginBottom: 0 }}>
+            <input
+              type="date"
+              className="form-input"
+              value={preferredDate}
+              min={new Date().toISOString().split('T')[0]}
+              style={fieldErrors.preferredDate ? { borderColor: '#DC2626', borderWidth: '1.5px' } : undefined}
+              onChange={(e) => {
+                setPreferredDate(e.target.value);
+                if (fieldErrors.preferredDate) {
+                  setFieldErrors((prev) => ({ ...prev, preferredDate: undefined }));
+                }
+              }}
+            />
+            {fieldErrors.preferredDate && (
+              <span style={{ color: '#DC2626', fontSize: '0.75rem', marginTop: '0.25rem', display: 'block', fontWeight: 600 }}>
+                {fieldErrors.preferredDate}
+              </span>
+            )}
+          </div>
+          <div className="form-group" style={{ marginBottom: 0 }}>
+            <select
+              className="form-select"
+              value={preferredSession}
+              style={fieldErrors.preferredSession ? { borderColor: '#DC2626', borderWidth: '1.5px' } : undefined}
+              onChange={(e) => {
+                setPreferredSession(e.target.value);
+                if (fieldErrors.preferredSession) {
+                  setFieldErrors((prev) => ({ ...prev, preferredSession: undefined }));
+                }
+              }}
+            >
+              <option value="">Select session time</option>
+              <option value="Afternoon (1:00 – 4:30)">Afternoon (1:00 – 4:30)</option>
+              <option value="Evening (6:00 – 8:30)">Evening (6:00 – 8:30)</option>
+              <option value="Either is fine">Either is fine</option>
+            </select>
+            {fieldErrors.preferredSession && (
+              <span style={{ color: '#DC2626', fontSize: '0.75rem', marginTop: '0.25rem', display: 'block', fontWeight: 600 }}>
+                {fieldErrors.preferredSession}
+              </span>
+            )}
+          </div>
         </div>
       </div>
 
-      <label className="form-checkbox">
-        <input
-          type="checkbox"
-          checked={acknowledged}
-          onChange={(e) => setAcknowledged(e.target.checked)}
-        />
-        I understand this is a booking request, not a confirmed appointment.
-      </label>
+      <div style={{ marginTop: '0.65rem', marginBottom: '0.65rem' }}>
+        <label
+          className="form-checkbox"
+          style={{
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: '0.5rem',
+            color: fieldErrors.acknowledged ? '#DC2626' : undefined,
+          }}
+        >
+          <input
+            type="checkbox"
+            checked={acknowledged}
+            style={
+              fieldErrors.acknowledged
+                ? { accentColor: '#DC2626', outline: '1.5px solid #DC2626', marginTop: '0.2rem' }
+                : { marginTop: '0.2rem' }
+            }
+            onChange={(e) => {
+              setAcknowledged(e.target.checked);
+              if (fieldErrors.acknowledged) {
+                setFieldErrors((prev) => ({ ...prev, acknowledged: undefined }));
+              }
+            }}
+          />
+          <span>I understand this is a booking request, not a confirmed appointment.</span>
+        </label>
+        {fieldErrors.acknowledged && (
+          <span style={{ color: '#DC2626', fontSize: '0.75rem', marginTop: '0.25rem', display: 'block', fontWeight: 600, paddingLeft: '1.5rem' }}>
+            {fieldErrors.acknowledged}
+          </span>
+        )}
+      </div>
 
       <button
         type="submit"

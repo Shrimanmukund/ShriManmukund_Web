@@ -33,6 +33,28 @@ export async function POST(request: Request) {
       );
     }
 
+    const digitsOnly = String(phone).replace(/\D/g, '');
+    if (digitsOnly.length !== 10) {
+      return NextResponse.json(
+        { success: false, message: 'Incorrect number. Please enter a 10-digit phone number.' },
+        { status: 400 }
+      );
+    }
+
+    if (!preferredDate) {
+      return NextResponse.json(
+        { success: false, message: 'Please select a preferred date.' },
+        { status: 400 }
+      );
+    }
+
+    if (!preferredTimeSlot) {
+      return NextResponse.json(
+        { success: false, message: 'Please select a session time.' },
+        { status: 400 }
+      );
+    }
+
     // Try inserting into Supabase
     try {
       const supabase = createAdminClient();
