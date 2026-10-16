@@ -1266,8 +1266,6 @@ export const SERVICE_HUBS: Record<string, ServiceHubData> = {
         title: '5-Fold Panchakarma Therapies',
         desc: 'Supervised hospital-based detoxification (Vamana, Virechana, Basti, Nasya, Raktamokshana) delivered with dedicated therapist care.',
         whenApplied: 'Deep tissue cleansing · Autoimmune & skin',
-        linkText: 'Explore Panchakarma therapies →',
-        linkUrl: '/services/panchakarma/',
       },
       {
         num: '04',
