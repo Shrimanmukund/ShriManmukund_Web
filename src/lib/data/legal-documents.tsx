@@ -342,7 +342,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
         </h2>
         <p>
           Welcome to the official website of Shri Manmukund Hospital (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;), located at{' '}
-          <strong>shrimanmukundhospital.com</strong>. By accessing, browsing, or using this website, you agree to comply with and be bound by these Terms of Use, along with our{' '}
+          <Link href="https://shrimanmukundhospital.com">shrimanmukundhospital.com</Link>. By accessing, browsing, or using this website, you agree to comply with and be bound by these Terms of Use, along with our{' '}
           <Link href="/legal/privacy-policy/">Privacy Policy</Link> and <Link href="/legal/medical-disclaimer/">Medical Disclaimer</Link>.
         </p>
         <p>
@@ -506,7 +506,8 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
           <span className="h2-num">01</span> General informational purpose
         </h2>
         <p>
-          The content provided on <strong>shrimanmukundhospital.com</strong> (including all medical articles, anatomical diagrams, surgical recovery playbooks, clinical FAQs, and condition overviews) is published exclusively for general informational and patient educational purposes.
+          The content provided on <Link href="https://shrimanmukundhospital.com">shrimanmukundhospital.com</Link>{' '}
+          (including all medical articles, anatomical diagrams, surgical recovery playbooks, clinical FAQs, and condition overviews) is published exclusively for general informational and patient educational purposes.
         </p>
 
         <h2 id="sec-02">
