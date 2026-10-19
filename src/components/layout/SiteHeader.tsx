@@ -151,33 +151,21 @@ export const SiteHeader: React.FC = () => {
               className={pathname?.startsWith('/services') ? 'active' : ''}
               onClick={() => setMobileOpen(false)}
             >
-              Services &amp; Units
+              Services
             </Link>
             <Link
               prefetch={false}
               href="/doctors/"
-              className={pathname === '/doctors/' || pathname === '/doctors' ? 'active' : ''}
+              className={
+                pathname?.startsWith('/doctors') ||
+                pathname?.startsWith('/dr-vipin') ||
+                pathname?.startsWith('/dr-swati')
+                  ? 'active'
+                  : ''
+              }
               onClick={() => setMobileOpen(false)}
             >
               Our Doctors
-            </Link>
-            <Link
-              prefetch={false}
-              href="/dr-vipin/"
-              className={pathname?.startsWith('/dr-vipin') ? 'active' : ''}
-              onClick={() => setMobileOpen(false)}
-              style={{ paddingLeft: '2rem', fontSize: '0.875rem' }}
-            >
-              ↳ Dr. Vipin Tongale
-            </Link>
-            <Link
-              prefetch={false}
-              href="/dr-swati/"
-              className={pathname?.startsWith('/dr-swati') ? 'active' : ''}
-              onClick={() => setMobileOpen(false)}
-              style={{ paddingLeft: '2rem', fontSize: '0.875rem' }}
-            >
-              ↳ Dr. Swati Tongale
             </Link>
             <Link
               prefetch={false}
@@ -189,27 +177,11 @@ export const SiteHeader: React.FC = () => {
             </Link>
             <Link
               prefetch={false}
-              href="/achievements/"
-              className={pathname?.startsWith('/achievements') ? 'active' : ''}
-              onClick={() => setMobileOpen(false)}
-            >
-              Achievements &amp; Recognition
-            </Link>
-            <Link
-              prefetch={false}
               href="/knowledge/"
               className={pathname?.startsWith('/knowledge') ? 'active' : ''}
               onClick={() => setMobileOpen(false)}
             >
-              Knowledge Hub
-            </Link>
-            <Link
-              prefetch={false}
-              href="/patients/"
-              className={pathname?.startsWith('/patients') ? 'active' : ''}
-              onClick={() => setMobileOpen(false)}
-            >
-              Patient Resources
+              Knowledge
             </Link>
             <Link
               prefetch={false}
@@ -217,7 +189,7 @@ export const SiteHeader: React.FC = () => {
               className={pathname?.startsWith('/contact') ? 'active' : ''}
               onClick={() => setMobileOpen(false)}
             >
-              Visit &amp; OPD Hours
+              Visit Us
             </Link>
           </nav>
 

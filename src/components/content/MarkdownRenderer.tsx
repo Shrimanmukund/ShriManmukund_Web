@@ -144,7 +144,16 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
       const rawHeading = trimmed.replace(/^###\s+/, '').trim();
       const headingId = slugifyHeading(rawHeading);
       const headingText = rawHeading.replace(/\{#[^}]+\}/, '').trim();
-      if (!['headline', 'author byline', 'table of contents'].includes(headingText.toLowerCase())) {
+      if (
+        ![
+          'headline',
+          'sub-headline',
+          'subheadline',
+          'sub headline',
+          'author byline',
+          'table of contents',
+        ].includes(headingText.toLowerCase())
+      ) {
         blocks.push({ type: 'h3', content: headingText, id: headingId });
       }
       continue;

@@ -103,7 +103,7 @@ export default function DrSwatiPage() {
         {/* 2. QUICK FACTS */}
         <div className="quick-facts">
           <div className="quick-fact">
-            <div className="quick-fact-icon">15</div>
+            <div className="quick-fact-icon">अ</div>
             <div className="quick-fact-num">15+ Years</div>
             <div className="quick-fact-label">Clinical Experience</div>
           </div>

@@ -277,6 +277,7 @@ export function KnowledgeHubClient({ initialArticles }: KnowledgeHubClientProps 
               onChange={handleSearchChange}
               placeholder="Search articles, conditions, treatments..."
               aria-label="Search knowledge base"
+              style={{ paddingRight: searchQuery ? '3rem' : undefined }}
             />
             {searchQuery && (
               <button
@@ -285,13 +286,22 @@ export function KnowledgeHubClient({ initialArticles }: KnowledgeHubClientProps 
                   setSearchQuery('');
                   setCurrentPage(1);
                 }}
+                className="hub-search-clear"
                 style={{
+                  position: 'absolute',
+                  right: '1.25rem',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
                   background: 'none',
                   border: 'none',
                   color: 'var(--mute)',
                   cursor: 'pointer',
                   fontSize: '1rem',
-                  padding: '0 0.5rem',
+                  padding: '0.25rem',
+                  lineHeight: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}
                 aria-label="Clear search"
               >

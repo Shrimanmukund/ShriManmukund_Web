@@ -70,6 +70,9 @@ export const SiteFooter: React.FC = () => {
             <h3 className="footer-col-title">VISIT US</h3>
             <ul>
               <li>
+                <Link prefetch={false} href="/contact/#book">Book Appointment</Link>
+              </li>
+              <li>
                 <a href="tel:+918208927917">Appt · 8208927917</a>
               </li>
               <li>
@@ -96,14 +99,14 @@ export const SiteFooter: React.FC = () => {
         <div className="footer-bottom">
           <span>© 2026 Shri Manmukund Hospital</span>
           <p>
-            Website developed by{' '}
             <a
               href="https://magicworksitsolutions.com/"
               rel="noopener noreferrer nofollow"
               target="_blank"
             >
-              MagicWorks
-            </a>
+              Website developed
+            </a>{' '}
+            by MagicWorks
           </p>
           <span>
             <Link prefetch={false} href="/legal/privacy-policy/">Privacy</Link> ·{' '}

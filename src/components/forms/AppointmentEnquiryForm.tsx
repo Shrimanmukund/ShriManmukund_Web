@@ -174,7 +174,7 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
           ✓
         </div>
         <h3 className="booking-form-title" style={{ color: '#1B5E20', marginBottom: '0.75rem' }}>
-          Booking Request Received
+          Appointment Request Received
         </h3>
         <p className="booking-form-subtitle" style={{ marginBottom: '1.5rem', color: '#2D2A20' }}>
           Thank you. Our reception coordinator will call you within 4 working hours at <strong>{phone || 'the number provided'}</strong> to confirm your slot.
@@ -260,10 +260,13 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
           <label className="form-label">Age</label>
           <input
             type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
+            maxLength={3}
             className="form-input"
             placeholder="Years"
             value={age}
-            onChange={(e) => setAge(e.target.value)}
+            onChange={(e) => setAge(e.target.value.replace(/\D/g, '').slice(0, 3))}
           />
         </div>
       </div>
@@ -275,6 +278,8 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
           </label>
           <input
             type="tel"
+            inputMode="tel"
+            autoComplete="tel"
             className="form-input"
             placeholder="10-digit number"
             maxLength={10}

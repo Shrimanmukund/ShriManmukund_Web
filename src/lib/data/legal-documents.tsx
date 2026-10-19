@@ -342,7 +342,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
         </h2>
         <p>
           Welcome to the official website of Shri Manmukund Hospital (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;), located at{' '}
-          <strong>www.shrimanmukund.com</strong>. By accessing, browsing, or using this website, you agree to comply with and be bound by these Terms of Use, along with our{' '}
+          <strong>shrimanmukundhospital.com</strong>. By accessing, browsing, or using this website, you agree to comply with and be bound by these Terms of Use, along with our{' '}
           <Link href="/legal/privacy-policy/">Privacy Policy</Link> and <Link href="/legal/medical-disclaimer/">Medical Disclaimer</Link>.
         </p>
         <p>
@@ -357,7 +357,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
         <div className="definition">
           <div className="definition-term">Website</div>
           <div className="definition-meaning">
-            The digital platform, web pages, medical articles, surgical guides, booking interfaces, and multimedia content hosted under the domain shrimanmukund.com.
+            The digital platform, web pages, medical articles, surgical guides, booking interfaces, and multimedia content hosted under the domain shrimanmukundhospital.com.
           </div>
         </div>
 
@@ -506,7 +506,7 @@ export const LEGAL_DOCUMENTS: Record<string, LegalDocumentData> = {
           <span className="h2-num">01</span> General informational purpose
         </h2>
         <p>
-          The content provided on <strong>www.shrimanmukund.com</strong> (including all medical articles, anatomical diagrams, surgical recovery playbooks, clinical FAQs, and condition overviews) is published exclusively for general informational and patient educational purposes.
+          The content provided on <strong>shrimanmukundhospital.com</strong> (including all medical articles, anatomical diagrams, surgical recovery playbooks, clinical FAQs, and condition overviews) is published exclusively for general informational and patient educational purposes.
         </p>
 
         <h2 id="sec-02">

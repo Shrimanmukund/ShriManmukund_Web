@@ -1310,6 +1310,7 @@ body.nav-open .nav-drawer-inner {
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: clip;
 }
 
 body {
@@ -1321,6 +1322,7 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: var(--cream);
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
 }
 
 h1,
@@ -2308,6 +2310,7 @@ article ul li::marker {
 @media (max-width: 900px) {
 .hero {
   padding: 3rem 1.5rem 2rem;
+  overflow: hidden;
 }
 
 .hero-inner {
@@ -2344,6 +2347,18 @@ article ul li::marker {
   grid-template-columns: 1fr;
   padding: 2.5rem;
   gap: 2rem;
+}
+
+@media (max-width: 640px) {
+  .contact-inner {
+    padding: 1.5rem 1rem;
+  }
+  .contact-details {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+  }
 }
 
 .article-title {
