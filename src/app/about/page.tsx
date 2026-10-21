@@ -23,7 +23,7 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <main>
+    <main className="overflow-x-hidden w-full max-w-full relative">
       {/* 1. PAGE HERO */}
       <section className="page-hero">
         <div className="page-hero-inner">

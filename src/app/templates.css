@@ -6915,6 +6915,8 @@ body.nav-open .nav-hamburger span:nth-child(3) {
   padding: 4rem 3rem;
   padding-top: 2.25rem !important;
   padding-bottom: 2.25rem !important;
+  position: relative;
+  overflow: hidden;
 }
 
 .mission-vision {
@@ -6923,6 +6925,8 @@ body.nav-open .nav-hamburger span:nth-child(3) {
   margin: 0 auto;
   padding-top: 2.25rem !important;
   padding-bottom: 2.25rem !important;
+  position: relative;
+  overflow: hidden;
 }
 
 .pillars-section {
@@ -6940,6 +6944,8 @@ body.nav-open .nav-hamburger span:nth-child(3) {
   margin: 0 auto;
   padding-top: 2.25rem !important;
   padding-bottom: 2.25rem !important;
+  position: relative;
+  overflow: hidden;
 }
 
 .facility {
@@ -6947,6 +6953,8 @@ body.nav-open .nav-hamburger span:nth-child(3) {
   padding: 6rem 3rem;
   padding-top: 2.25rem !important;
   padding-bottom: 2.25rem !important;
+  position: relative;
+  overflow: hidden;
 }
 
 .doctors {
@@ -6955,6 +6963,8 @@ body.nav-open .nav-hamburger span:nth-child(3) {
   margin: 0 auto;
   padding-top: 2.25rem !important;
   padding-bottom: 2.25rem !important;
+  position: relative;
+  overflow: hidden;
 }
 
 .about-doctor {
@@ -7097,7 +7107,7 @@ body.nav-open .nav-hamburger span:nth-child(3) {
 }
 
 .story .timeline-item {
-  padding: 1.25rem 0 !important;
+  padding: 1.25rem 0;
 }
 
 .story .timeline-item::before {
@@ -7367,34 +7377,72 @@ body.nav-open .nav-hamburger span:nth-child(3) {
 @media (max-width: 900px) {
 .story .timeline::before,
 .timeline::before {
-  left: 24px !important;
+  left: 16px !important;
+  width: 2px !important;
+  top: 20px !important;
+  bottom: 20px !important;
 }
 
+.story .timeline-item,
 .timeline-item {
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
-  padding-left: 4rem;
+  grid-template-columns: 1fr !important;
+  gap: 0.5rem !important;
+  padding-left: 3.25rem !important;
+  padding-right: 0 !important;
+  padding-top: 1.25rem !important;
+  padding-bottom: 1.75rem !important;
+  position: relative !important;
 }
 
+.story .timeline-item::before,
 .timeline-item::before {
-  display: none !important;
+  content: '' !important;
+  display: block !important;
+  position: absolute !important;
+  left: 11px !important;
+  top: 1.5rem !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background: var(--gold) !important;
+  border: 2px solid var(--cream) !important;
+  box-shadow: 0 0 0 2px var(--gold-soft) !important;
+  z-index: 2 !important;
 }
 
+.story .timeline-period,
 .timeline-period {
-  text-align: left;
+  text-align: left !important;
+  background: transparent !important;
+  padding: 0 !important;
+  position: relative !important;
+  z-index: 1 !important;
 }
 
 .timeline-year {
-  text-align: left;
-  font-size: 2.25rem;
+  text-align: left !important;
+  font-size: 2.25rem !important;
+  line-height: 1 !important;
+  margin-bottom: 0.25rem !important;
 }
 
 .timeline-year-sub {
-  text-align: left;
+  text-align: left !important;
+  margin-bottom: 0.5rem !important;
 }
 
 .timeline-content {
-  padding-left: 0;
+  padding-left: 0 !important;
+}
+
+.timeline-title {
+  font-size: 1.25rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.timeline-desc {
+  font-size: 0.95rem !important;
+  line-height: 1.65 !important;
 }
 
 .mv-grid {
@@ -7789,15 +7837,27 @@ body.nav-open .nav-hamburger span:nth-child(3) {
 
 .cta-section {
   padding: 3rem 1.5rem 4rem;
+  overflow: hidden !important;
+  max-width: 100% !important;
 }
 
 .cta-inner {
   padding: 3rem 2rem;
   border-radius: 32px;
+  overflow: hidden !important;
+  max-width: 100% !important;
 }
 
 .page-hero {
   padding: 3rem 1.5rem 2rem;
+  overflow: hidden !important;
+  max-width: 100% !important;
+}
+
+.page-hero::before {
+  width: 100% !important;
+  max-width: 320px !important;
+  height: 320px !important;
 }
 
 .primary-contacts {
@@ -8013,6 +8073,9 @@ body.nav-open .nav-hamburger span:nth-child(3) {
   padding: 3rem 1.5rem;
   padding-top: 1.75rem !important;
   padding-bottom: 1.75rem !important;
+  overflow: hidden !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .mission-vision,
@@ -8023,6 +8086,9 @@ body.nav-open .nav-hamburger span:nth-child(3) {
   padding: 4rem 1.5rem;
   padding-top: 1.75rem !important;
   padding-bottom: 1.75rem !important;
+  overflow: hidden !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .about-doctor,
