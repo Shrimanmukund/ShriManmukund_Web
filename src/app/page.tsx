@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import '@/app/templates.css';
 
 export const metadata = {
   title: 'Shri Manmukund Hospital, Amravati | Advanced Proctology & Surgery',
@@ -59,7 +60,7 @@ export default function HomePage() {
           <div>
             <div className="hero-devanagari">श्री मनमुकूंद हाॅस्पिटल</div>
             <h1 className="hero-headline">
-              Where classical Ayurveda meets <em className="whitespace-nowrap inline-block">modern surgical care.</em>
+              Where classical Ayurveda meets <em className="whitespace-normal sm:whitespace-nowrap inline">modern surgical care.</em>
             </h1>
             <p className="hero-sub">
               Fifteen + years of proctology and integrated surgery in Amravati. Ksharsutra, laser, para surgical, and modern surgery available under one roof, chosen honestly for your case.

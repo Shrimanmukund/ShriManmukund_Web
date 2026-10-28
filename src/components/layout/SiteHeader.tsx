@@ -177,6 +177,14 @@ export const SiteHeader: React.FC = () => {
             </Link>
             <Link
               prefetch={false}
+              href="/achievements/"
+              className={pathname?.startsWith('/achievements') ? 'active' : ''}
+              onClick={() => setMobileOpen(false)}
+            >
+              Achievements
+            </Link>
+            <Link
+              prefetch={false}
               href="/knowledge/"
               className={pathname?.startsWith('/knowledge') ? 'active' : ''}
               onClick={() => setMobileOpen(false)}
