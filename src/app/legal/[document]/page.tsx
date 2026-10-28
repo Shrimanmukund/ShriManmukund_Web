@@ -129,7 +129,11 @@ export default function LegalDocumentPage({ params }: LegalPageProps) {
             </div>
             <div className="grievance-contact-row">
               <div className="grievance-contact-label">Phone</div>
-              <div className="grievance-contact-value">{doc.grievance.phone}</div>
+              <div className="grievance-contact-value">
+                <a href={`tel:${doc.grievance.phone.replace(/\s+/g, '')}`}>
+                  {doc.grievance.phone}
+                </a>
+              </div>
             </div>
             <div className="grievance-contact-row">
               <div className="grievance-contact-label">Postal Address</div>
