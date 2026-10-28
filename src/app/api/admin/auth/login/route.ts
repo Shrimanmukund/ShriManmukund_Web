@@ -48,7 +48,7 @@ export async function POST(request: Request) {
     if (!authenticated) {
       const isEmailAllowlisted = ALLOWLISTED_ADMIN_EMAILS.some(
         (allowed) => allowed.toLowerCase() === cleanEmail
-      ) || cleanEmail.endsWith('@shrimanmukundhospital.com') || cleanEmail === 'admin';
+      );
 
       const isPasswordValid =
         cleanPassword === DEFAULT_ADMIN_PASSWORD ||
