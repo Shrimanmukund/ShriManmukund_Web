@@ -6099,36 +6099,38 @@ body.nav-open .nav-hamburger span:nth-child(3) {
   margin: 0 auto !important;
 }
 
-.primary-contacts {
-  padding: 0 3rem 1.5rem !important;
-  max-width: 1280px !important;
-  margin: 0 auto !important;
-}
+@media (min-width: 901px) {
+  .primary-contacts {
+    padding: 0 3rem 1.5rem !important;
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+  }
 
-.quick-info {
-  padding: 1rem 3rem 2rem !important;
-  max-width: 1280px !important;
-  margin: 0 auto !important;
-}
+  .quick-info {
+    padding: 1rem 3rem 2rem !important;
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+  }
 
-.location,
-.booking {
-  padding: 2.25rem 3rem !important;
-  max-width: 1280px !important;
-  margin: 0 auto !important;
-}
+  .location,
+  .booking {
+    padding: 2.25rem 3rem !important;
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+  }
 
-.timings,
-.transport {
-  background: var(--ivory);
-  padding: 2.25rem 3rem !important;
-  width: 100% !important;
-}
+  .timings,
+  .transport {
+    background: var(--ivory);
+    padding: 2.25rem 3rem !important;
+    width: 100% !important;
+  }
 
-.visit-faq {
-  padding: 2.25rem 3rem 3.5rem !important;
-  max-width: 1000px !important;
-  margin: 0 auto !important;
+  .visit-faq {
+    padding: 2.25rem 3rem 3.5rem !important;
+    max-width: 1000px !important;
+    margin: 0 auto !important;
+  }
 }
 
 .location-grid {

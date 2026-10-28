@@ -24,7 +24,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <main>
+    <main className="contact-page w-full overflow-x-hidden">
       {/* 1. PAGE HERO */}
       <section className="page-hero">
         <div className="page-hero-inner">

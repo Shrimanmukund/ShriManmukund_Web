@@ -2690,3 +2690,273 @@ article ul li::marker {
   padding-right: 0 !important;
   color: #ffffff !important;
 }
+
+/* ============================================================
+   CONTACT US PAGE - MOBILE RESPONSIVENESS & CENTER ALIGNMENT
+   ============================================================ */
+.contact-page {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .contact-page .page-hero,
+  .contact-page .primary-contacts,
+  .contact-page .quick-info,
+  .contact-page .location,
+  .contact-page .timings,
+  .contact-page .booking,
+  .contact-page .transport,
+  .contact-page .visit-faq {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .contact-page .page-hero {
+    padding-top: 2.25rem !important;
+    padding-bottom: 1.5rem !important;
+    text-align: center !important;
+  }
+
+  .contact-page .page-hero-inner {
+    text-align: center !important;
+    margin: 0 auto !important;
+  }
+
+  .contact-page .page-hero .breadcrumb {
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .contact-page .page-hero-title {
+    font-size: clamp(1.85rem, 7vw, 2.75rem) !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .contact-page .page-hero-lede {
+    font-size: 1.05rem !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .contact-page .section-header {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 100% !important;
+  }
+
+  .contact-page .section-header .section-tag {
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: inline-flex !important;
+  }
+
+  .contact-page .section-header .section-title {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: clamp(1.65rem, 6vw, 2.25rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  .contact-page .section-header .section-lede {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: 0.95rem !important;
+  }
+
+  /* Grid containers centered symmetrically */
+  .contact-page .contacts-grid,
+  .contact-page .quick-info-grid,
+  .contact-page .location-grid,
+  .contact-page .timings-inner,
+  .contact-page .timings-grid,
+  .contact-page .booking-grid,
+  .contact-page .transport-inner,
+  .contact-page .transport-grid,
+  .contact-page .visit-faq-list {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 480px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Individual cards centered and full-width in container */
+  .contact-page .contact-primary-card,
+  .contact-page .quick-info-item,
+  .contact-page .location-details,
+  .contact-page .timings-card,
+  .contact-page .booking-form,
+  .contact-page .transport-card,
+  .contact-page .visit-faq-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .contact-page .quick-info-item {
+    padding: 1.5rem 1rem !important;
+    text-align: center !important;
+  }
+
+  .contact-page .quick-info-icon {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex !important;
+  }
+
+  .contact-page .quick-info-label {
+    text-align: center !important;
+  }
+
+  .contact-page .quick-info-value {
+    font-size: clamp(0.95rem, 4.2vw, 1.0625rem) !important;
+    text-align: center !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .contact-page .quick-info-value a {
+    word-break: break-all !important;
+    display: inline-block !important;
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  .contact-page .contact-primary-card {
+    padding: 1.75rem 1.25rem !important;
+    text-align: center !important;
+  }
+
+  .contact-page .contact-primary-badge {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: inline-flex !important;
+  }
+
+  .contact-page .contact-primary-title,
+  .contact-page .contact-primary-desc,
+  .contact-page .contact-primary-number,
+  .contact-page .contact-primary-hours {
+    text-align: center !important;
+  }
+
+  .contact-page .location-map {
+    width: 100% !important;
+    max-width: 480px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    min-height: 260px !important;
+    height: 280px !important;
+    aspect-ratio: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .contact-page .location-details {
+    padding: 1.75rem 1.25rem !important;
+    text-align: center !important;
+  }
+
+  .contact-page .location-devanagari,
+  .contact-page .location-name,
+  .contact-page .location-address,
+  .contact-page .location-landmarks-label {
+    text-align: center !important;
+  }
+
+  .contact-page .location-landmarks {
+    text-align: left !important;
+  }
+
+  .contact-page .location-actions {
+    justify-content: center !important;
+  }
+
+  .contact-page .booking-info {
+    text-align: center !important;
+  }
+
+  .contact-page .booking-info .section-tag {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center !important;
+    display: inline-flex !important;
+  }
+
+  .contact-page .booking-info .section-title,
+  .contact-page .booking-info .section-lede {
+    text-align: center !important;
+  }
+
+  .contact-page .booking-info-guide {
+    text-align: left !important;
+  }
+
+  .contact-page .booking-form {
+    padding: 1.5rem 1.15rem !important;
+    border-radius: 20px !important;
+  }
+
+  .contact-page .booking-form .form-row {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+  }
+
+  .contact-page .transport-card {
+    padding: 1.75rem 1.25rem !important;
+    text-align: center !important;
+  }
+
+  .contact-page .transport-icon {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-page .page-hero,
+  .contact-page .primary-contacts,
+  .contact-page .quick-info,
+  .contact-page .location,
+  .contact-page .timings,
+  .contact-page .booking,
+  .contact-page .transport,
+  .contact-page .visit-faq {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .contact-page .quick-info-item {
+    padding: 1.25rem 0.75rem !important;
+    border-radius: 20px !important;
+  }
+
+  .contact-page .contact-primary-card {
+    padding: 1.5rem 1rem !important;
+    border-radius: 24px !important;
+  }
+
+  .contact-page .location-details,
+  .contact-page .timings-card,
+  .contact-page .transport-card {
+    padding: 1.35rem 1rem !important;
+    border-radius: 20px !important;
+  }
+}
