@@ -21,7 +21,7 @@ export default function NotFound() {
             <ChevronRight className="w-4 h-4 text-[#A69880]" />
           </Link>
           <Link
-            href="/dr-vipin/"
+            href="/doctors/dr-vipin/"
             className="p-3 bg-[#FBF7EC] rounded-warm flex items-center justify-between hover:bg-[#E5EBDD] transition"
           >
             <span>Dr. Vipin Tongale Profile</span>

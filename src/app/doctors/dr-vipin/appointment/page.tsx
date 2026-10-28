@@ -7,7 +7,7 @@ export const metadata = {
   title: 'Book Consultation with Dr. Vipin Tongale',
   description: 'Schedule an in-person consultation with Dr. Vipin Tongale (MS Ayurveda Shalya Tantra, PhD) for piles, fissure, fistula, Ksharsutra, laser, or general surgery in Amravati.',
   alternates: {
-    canonical: '/dr-vipin/appointment/',
+    canonical: '/doctors/dr-vipin/appointment/',
   },
 };
 
@@ -17,8 +17,9 @@ export default function DrVipinAppointmentPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs
           items={[
-            { name: 'Dr. Vipin Tongale', url: '/dr-vipin/' },
-            { name: 'Book Consultation', url: '/dr-vipin/appointment/' },
+            { name: 'Our Doctors', url: '/doctors/' },
+            { name: 'Dr. Vipin Tongale', url: '/doctors/dr-vipin/' },
+            { name: 'Book Consultation', url: '/doctors/dr-vipin/appointment/' },
           ]}
         />
 

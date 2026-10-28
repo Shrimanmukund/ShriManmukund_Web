@@ -9,7 +9,7 @@ export const metadata = {
   title: 'Professional Journey | Dr. Vipin Tongale, MS, PhD',
   description: 'Detailed professional biography and institutional history of Dr. Vipin Tongale across Gurudev Ayurved Mahavidyalaya, District Hospital Amravati, and Shri Manmukund Hospital.',
   alternates: {
-    canonical: '/dr-vipin/journey/',
+    canonical: '/doctors/dr-vipin/journey/',
   },
 };
 
@@ -21,8 +21,9 @@ export default function DrVipinJourneyPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs
           items={[
-            { name: 'Dr. Vipin Tongale', url: '/dr-vipin/' },
-            { name: 'Professional Journey', url: '/dr-vipin/journey/' },
+            { name: 'Our Doctors', url: '/doctors/' },
+            { name: 'Dr. Vipin Tongale', url: '/doctors/dr-vipin/' },
+            { name: 'Professional Journey', url: '/doctors/dr-vipin/journey/' },
           ]}
         />
 
@@ -64,10 +65,10 @@ export default function DrVipinJourneyPage() {
           </div>
 
           <div className="mt-8 flex justify-between">
-            <Link href="/dr-vipin/" className="text-xs font-semibold text-[#1B3A5B] hover:underline">
+            <Link href="/doctors/dr-vipin/" className="text-xs font-semibold text-[#1B3A5B] hover:underline">
               &larr; Back to Dr. Vipin Profile
             </Link>
-            <Link href="/dr-vipin/appointment/" className="text-xs font-semibold text-[#B8894A] hover:underline">
+            <Link href="/doctors/dr-vipin/appointment/" className="text-xs font-semibold text-[#B8894A] hover:underline">
               Book Consultation &rarr;
             </Link>
           </div>

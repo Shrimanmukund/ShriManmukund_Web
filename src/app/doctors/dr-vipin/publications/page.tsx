@@ -9,7 +9,7 @@ export const metadata = {
   title: 'Research & Publications | Dr. Vipin Tongale, MS, PhD',
   description: 'Clinical papers, surgical playbooks, and medical articles authored by Dr. Vipin Tongale on Ksharsutra, anorectal surgery, and general surgery.',
   alternates: {
-    canonical: '/dr-vipin/publications/',
+    canonical: '/doctors/dr-vipin/publications/',
   },
 };
 
@@ -21,8 +21,9 @@ export default function DrVipinPublicationsPage() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs
           items={[
-            { name: 'Dr. Vipin Tongale', url: '/dr-vipin/' },
-            { name: 'Research & Publications', url: '/dr-vipin/publications/' },
+            { name: 'Our Doctors', url: '/doctors/' },
+            { name: 'Dr. Vipin Tongale', url: '/doctors/dr-vipin/' },
+            { name: 'Research & Publications', url: '/doctors/dr-vipin/publications/' },
           ]}
         />
 

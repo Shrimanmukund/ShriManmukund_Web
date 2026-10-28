@@ -323,7 +323,7 @@ export default function AboutPage() {
               <p className="doctor-bio">
                 Fifteen + years of dedicated proctology and integrated surgical practice. Trained at Government Ayurved College Nanded. PhD in Apamarga Kshara for internal piles. 12 years of AYUSH service at District Hospital Amravati.
               </p>
-              <Link href="/dr-vipin/" className="doctor-link">
+              <Link href="/doctors/dr-vipin/" className="doctor-link">
                 View Dr. Vipin&apos;s full profile
               </Link>
             </div>

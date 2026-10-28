@@ -56,6 +56,16 @@ const nextConfig = {
         destination: '/services/female-care/:slug*',
         permanent: true,
       },
+      {
+        source: '/dr-vipin',
+        destination: '/doctors/dr-vipin/',
+        permanent: true,
+      },
+      {
+        source: '/dr-vipin/:slug*',
+        destination: '/doctors/dr-vipin/:slug*',
+        permanent: true,
+      },
     ];
   },
   async headers() {

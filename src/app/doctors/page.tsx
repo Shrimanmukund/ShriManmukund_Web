@@ -80,7 +80,7 @@ export default function DoctorsPage() {
               <span className="specialist-tag">Complex Fistula</span>
               <span className="specialist-tag">General Surgery</span>
             </div>
-            <Link href="/dr-vipin/" className="specialist-link">
+            <Link href="/doctors/dr-vipin/" className="specialist-link">
               View Dr. Vipin&apos;s full profile
             </Link>
           </article>

@@ -312,7 +312,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
                 <span className="specialist-tag">Laser Proctology</span>
                 <span className="specialist-tag">General Surgery</span>
               </div>
-              <Link href="/dr-vipin/" className="specialist-link">
+              <Link href="/doctors/dr-vipin/" className="specialist-link">
                 Read profile
               </Link>
             </article>

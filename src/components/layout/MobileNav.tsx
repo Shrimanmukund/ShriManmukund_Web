@@ -114,7 +114,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
 
             {/* Doctors */}
             <Link
-              href="/dr-vipin/"
+              href="/doctors/dr-vipin/"
               onClick={onClose}
               className="block px-3 py-2.5 rounded-warm text-base font-medium text-[#1B3A5B] hover:bg-[#E5EBDD] transition"
             >

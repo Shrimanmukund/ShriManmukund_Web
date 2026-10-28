@@ -11,13 +11,13 @@ export const metadata = {
     'Dr. Vipin Tongale, MS (Ayurveda Shalya Tantra), PhD. 15+ years of dedicated proctology and integrated surgery in Amravati. Over 16,000 procedures. Ksharsutra and laser proctology specialist.',
   authors: [{ name: 'Shri Manmukund Hospital' }],
   alternates: {
-    canonical: '/dr-vipin/',
+    canonical: '/doctors/dr-vipin/',
   },
   openGraph: {
     title: 'Dr. Vipin Tongale | General Surgeon & Proctologist | Shri Manmukund Hospital',
     description:
       'Dr. Vipin Tongale, MS (Ayurveda Shalya Tantra), PhD. 15+ years of dedicated proctology and integrated surgery in Amravati. Over 16,000 procedures.',
-    url: 'https://shrimanmukundhospital.com/dr-vipin/',
+    url: 'https://shrimanmukundhospital.com/doctors/dr-vipin/',
     siteName: 'Shri Manmukund Hospital',
     locale: 'en_IN',
     type: 'profile',

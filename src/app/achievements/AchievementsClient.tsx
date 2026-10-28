@@ -666,7 +666,7 @@ export const AchievementsClient: React.FC = () => {
                     </div>
                   </li>
                 </ul>
-                <Link href="/dr-vipin/" className="doc-link">
+                <Link href="/doctors/dr-vipin/" className="doc-link">
                   Full profile &rarr;
                 </Link>
               </div>
