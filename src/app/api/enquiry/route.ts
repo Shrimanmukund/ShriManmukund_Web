@@ -33,6 +33,14 @@ export async function POST(request: Request) {
       );
     }
 
+    const cleanName = String(patientName).trim();
+    if (!/^[a-zA-Z\s]+$/.test(cleanName)) {
+      return NextResponse.json(
+        { success: false, message: 'Patient name can only contain alphabetic characters and spaces.' },
+        { status: 400 }
+      );
+    }
+
     const digitsOnly = String(phone).replace(/\D/g, '');
     if (digitsOnly.length !== 10) {
       return NextResponse.json(

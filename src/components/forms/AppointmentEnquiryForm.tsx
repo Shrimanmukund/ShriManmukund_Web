@@ -62,8 +62,11 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
 
     const errors: FieldErrors = {};
 
-    if (!fullName.trim()) {
+    const trimmedName = fullName.trim();
+    if (!trimmedName) {
       errors.fullName = 'Please enter your full name.';
+    } else if (!/^[a-zA-Z\s]+$/.test(trimmedName)) {
+      errors.fullName = 'Name can only contain alphabets and spaces.';
     }
 
     const digitsOnly = phone.replace(/\D/g, '');
@@ -88,7 +91,9 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
     if (Object.keys(errors).length > 0) {
       setFieldErrors(errors);
       setStatus('error');
-      if (errors.phone) {
+      if (errors.fullName) {
+        setErrorMessage(errors.fullName);
+      } else if (errors.phone) {
         setErrorMessage(errors.phone);
       } else if (errors.preferredDate) {
         setErrorMessage('Please select a preferred appointment date.');
@@ -242,9 +247,17 @@ export const AppointmentEnquiryForm: React.FC<AppointmentEnquiryFormProps> = ({
             className="form-input"
             placeholder="Your name"
             value={fullName}
+            pattern="[a-zA-Z\s]+"
+            title="Name can only contain alphabets and spaces"
             style={fieldErrors.fullName ? { borderColor: '#DC2626', borderWidth: '1.5px' } : undefined}
+            onKeyDown={(e) => {
+              if (/[0-9]/.test(e.key)) {
+                e.preventDefault();
+              }
+            }}
             onChange={(e) => {
-              setFullName(e.target.value);
+              const alphabetsOnly = e.target.value.replace(/[^a-zA-Z\s]/g, '');
+              setFullName(alphabetsOnly);
               if (fieldErrors.fullName) {
                 setFieldErrors((prev) => ({ ...prev, fullName: undefined }));
               }
