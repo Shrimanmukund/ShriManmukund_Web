@@ -36,7 +36,7 @@ export default function DoctorsPage() {
     <main style={{ paddingTop: '1rem' }}>
       {/* 1. DOCTORS CARDS SECTION */}
       <section className="specialists" id="specialists-grid" style={{ paddingTop: '1rem' }}>
-        <div className="breadcrumb" style={{ justifyContent: 'center', marginBottom: '1.5rem' }}>
+        <div className="breadcrumb breadcrumb--center" style={{ justifyContent: 'center', marginBottom: '1.5rem' }}>
           <Link href="/">Home</Link>
           <span className="breadcrumb-sep">·</span>
           <span>Our Doctors</span>

@@ -6738,8 +6738,17 @@ body.nav-open .nav-hamburger span:nth-child(3) {
 
 .about-hero .breadcrumb,
 .contact-hero .breadcrumb,
-.centered-hero .breadcrumb {
+.centered-hero .breadcrumb,
+.specialists .breadcrumb,
+.specialists-header .breadcrumb,
+.breadcrumb--center {
   justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.specialists .breadcrumb {
+  margin-bottom: 1.5rem !important;
 }
 
 .unit-hero {
