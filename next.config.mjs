@@ -66,6 +66,21 @@ const nextConfig = {
         destination: '/doctors/dr-vipin/:slug*',
         permanent: true,
       },
+      {
+        source: '/knowledge/article/:slug*',
+        destination: '/knowledge/articles/:slug*/',
+        permanent: true,
+      },
+      {
+        source: '/knowledge/playbook/:slug*',
+        destination: '/knowledge/playbooks/:slug*/',
+        permanent: true,
+      },
+      {
+        source: '/knowledge/insight/:slug*',
+        destination: '/knowledge/insights/:slug*/',
+        permanent: true,
+      },
     ];
   },
   async headers() {

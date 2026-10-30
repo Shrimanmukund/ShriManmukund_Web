@@ -136,17 +136,26 @@ export async function generateMetadata({ params }: KnowledgePiecePageProps) {
   const isSwati = dbArticle?.authorSlug === 'dr-swati' || kbArticle?.author === 'Dr. Swati' || piece?.authorSlug === 'dr-swati';
   const authorName = isSwati ? 'Dr. Swati Tongale' : 'Dr. Vipin Tongale';
 
+  const canonicalCluster =
+    params.cluster === 'article'
+      ? 'articles'
+      : params.cluster === 'playbook'
+      ? 'playbooks'
+      : params.cluster === 'insight'
+      ? 'insights'
+      : params.cluster;
+
   return {
     title: cleanTitle,
     description: desc,
     authors: [{ name: 'Shri Manmukund Hospital' }],
     alternates: {
-      canonical: `/knowledge/${params.cluster}/${params.slug}/`,
+      canonical: `/knowledge/${canonicalCluster}/${params.slug}/`,
     },
     openGraph: {
       title: `${cleanTitle} | Shri Manmukund Hospital`,
       description: desc,
-      url: `https://shrimanmukundhospital.com/knowledge/${params.cluster}/${params.slug}/`,
+      url: `https://shrimanmukundhospital.com/knowledge/${canonicalCluster}/${params.slug}/`,
       siteName: 'Shri Manmukund Hospital',
       locale: 'en_IN',
       type: 'article',

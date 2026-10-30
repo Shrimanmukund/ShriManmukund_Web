@@ -10,6 +10,34 @@ import { createAdminClient } from '@/lib/supabase/admin';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shrimanmukundhospital.com';
 
+function normalizeKnowledgeCluster(
+  rawCluster: string = '',
+  slug: string = ''
+): 'playbooks' | 'articles' | 'insights' | 'patient-resources' {
+  const c = (rawCluster || 'articles').toLowerCase().trim();
+  const s = (slug || '').toLowerCase().trim();
+
+  if (c === 'playbook' || c === 'playbooks') return 'playbooks';
+  if (c === 'insight' || c === 'insights') return 'insights';
+  if (
+    c.includes('patient') ||
+    c.includes('resource') ||
+    [
+      'your-first-visit-what-to-expect',
+      'first-visit',
+      'post-surgery-diet-what-to-eat-what-to-avoid',
+      'pre-surgery',
+      'post-surgery',
+      'diet-and-lifestyle',
+      'faq',
+      'sitz-bath-guide',
+    ].includes(s)
+  ) {
+    return 'patient-resources';
+  }
+  return 'articles';
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const currentDate = new Date().toISOString();
   const urlMap = new Map<
@@ -106,14 +134,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     if (dbArticles && Array.isArray(dbArticles)) {
       for (const item of dbArticles) {
-        const isPublished = item.status === 'published' || item.is_published === true;
-        if (isPublished && item.slug) {
-          const cluster = item.cluster || 'articles';
-          urlMap.set(`/knowledge/${cluster}/${item.slug}/`, {
-            priority: 0.8,
+        if (!item.slug) continue;
+        const isPublished = item.status === 'published' && item.is_published !== false;
+        const cluster = normalizeKnowledgeCluster(item.cluster, item.slug);
+        const canonicalRoute =
+          cluster === 'patient-resources'
+            ? `/patients/${item.slug}/`
+            : `/knowledge/${cluster}/${item.slug}/`;
+
+        if (isPublished) {
+          urlMap.set(canonicalRoute, {
+            priority: cluster === 'patient-resources' ? 0.75 : 0.8,
             changeFrequency: 'weekly',
             lastModified: item.updated_at || currentDate,
           });
+        } else {
+          // If marked as draft, remove from sitemap
+          urlMap.delete(canonicalRoute);
+          urlMap.delete(`/knowledge/articles/${item.slug}/`);
+          urlMap.delete(`/knowledge/playbooks/${item.slug}/`);
+          urlMap.delete(`/knowledge/insights/${item.slug}/`);
+          if (item.cluster) {
+            urlMap.delete(`/knowledge/${item.cluster}/${item.slug}/`);
+          }
         }
       }
     }
